@@ -3,6 +3,6 @@
   <entry>
     <title>ceshi</title>
     <url>/2020/04/06/ceshi/</url>
-    <content><![CDATA[<h2 id="测试github上传"><a href="#测试github上传" class="headerlink" title="测试github上传"></a>测试github上传</h2>]]></content>
+    <content><![CDATA[<h2 id="测试github上传"><a href="#测试github上传" class="headerlink" title="测试github上传"></a>测试github上传</h2><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line">hexo clean  &#x2F;&#x2F;删除文章时执行</span><br><span class="line">hexo g</span><br><span class="line">hexo deploy</span><br></pre></td></tr></table></figure>]]></content>
   </entry>
 </search>
