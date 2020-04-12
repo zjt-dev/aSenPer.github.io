@@ -12,7 +12,7 @@
 
 <link rel="stylesheet" href="/css/main.css">
 
-
+<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&display=swap&subset=latin,latin-ext">
 <link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
 
 <script id="hexo-configurations">
@@ -526,7 +526,6 @@ NexT.utils.loadComments(document.querySelector('#valine-comments'), () => {
       $visitors.each(function () {
         entries.push( $(this).attr("id").trim() );
       });
-
       query.containedIn('url', entries);
       query.find()
         .done(function (results) {
@@ -536,13 +535,11 @@ NexT.utils.loadComments(document.querySelector('#valine-comments'), () => {
             $visitors.find(COUNT_CONTAINER_REF).text(0);
             return;
           }
-
           for (var i = 0; i < results.length; i++) {
             var item = results[i];
             var url = item.get('url');
             var time = item.get('time');
             var element = document.getElementById(url);
-
             $(element).find(COUNT_CONTAINER_REF).text(time);
           }
           for(var i = 0; i < entries.length; i++) {
@@ -564,7 +561,7 @@ NexT.utils.loadComments(document.querySelector('#valine-comments'), () => {
       var url = $visitors.attr('id').trim();
       var title = $visitors.attr('data-flag-title').trim();
       var query = new AV.Query(Counter);
-
+      
       query.equalTo("url", url);
       query.find({
         success: function(results) {
@@ -618,7 +615,6 @@ NexT.utils.loadComments(document.querySelector('#valine-comments'), () => {
       }
     });
   </script>
-
 
   <div class="kwy-content">
   <div class="kwy-container">
