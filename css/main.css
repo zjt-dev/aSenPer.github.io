@@ -18,34 +18,6 @@
   --btn-default-hover-color: var(--link-hover-color);
   --btn-default-hover-border-color: var(--link-hover-color);
 }
-@media (prefers-color-scheme: dark) {
-  :root {
-    --body-bg-color: #282828;
-    --content-bg-color: #333;
-    --card-bg-color: #555;
-    --text-color: #ccc;
-    --blockquote-color: #bbb;
-    --link-color: #ccc;
-    --link-hover-color: #eee;
-    --brand-color: #ddd;
-    --brand-hover-color: #ddd;
-    --table-row-odd-bg-color: #282828;
-    --table-row-hover-bg-color: #363636;
-    --menu-item-bg-color: #555;
-    --btn-default-bg: #222;
-    --btn-default-color: #ccc;
-    --btn-default-border-color: #555;
-    --btn-default-hover-bg: #666;
-    --btn-default-hover-color: #ccc;
-    --btn-default-hover-border-color: #666;
-  }
-  img {
-    opacity: 0.75;
-  }
-  img:hover {
-    opacity: 0.9;
-  }
-}
 html {
   line-height: 1.15; /* 1 */
   -webkit-text-size-adjust: 100%; /* 2 */
@@ -1165,11 +1137,6 @@ pre .javascript .function {
   position: fixed;
   top: 0;
 }
-@media (max-width: 991px) {
-  .sidebar {
-    display: none;
-  }
-}
 .sidebar-inner {
   color: #999;
   padding: 18px 10px;
@@ -1229,7 +1196,7 @@ pre .javascript .function {
 }
 .links-of-author a::before,
 .links-of-author span.exturl::before {
-  background: #4dff7e;
+  background: #6ac12b;
   border-radius: 50%;
   content: ' ';
   display: inline-block;
@@ -1348,7 +1315,6 @@ pre .javascript .function {
   .sidebar-toggle {
     left: 20px;
     opacity: 0.8;
-    display: none;
   }
 }
 .sidebar-toggle:hover .toggle-line {
@@ -1472,7 +1438,7 @@ pre .javascript .function {
   width: 100%;
 }
 .with-love {
-  color: #ff0000;
+  color: #aaa;
   display: inline-block;
   margin: 0 5px;
   animation: iconAnimate 1.33s ease-in-out infinite;
@@ -1844,7 +1810,7 @@ pre .javascript .function {
   font-size: 1.5em;
   font-weight: normal;
   margin: initial;
-  text-align: center;
+  text-align: center !important;
   overflow-wrap: break-word;
   word-wrap: break-word;
 }
@@ -1882,7 +1848,7 @@ pre .javascript .function {
   font-family: 'Lato', "PingFang SC", "Microsoft YaHei", sans-serif;
   font-size: 0.75em;
   margin: 3px 0 60px 0;
-  text-align: center;
+  text-align: center !important;
 }
 .posts-expand .post-meta .post-description {
   font-size: 0.875em;
@@ -2064,6 +2030,13 @@ pre .javascript .function {
     transform: rotateZ(-30deg);
   }
 }
+.post-copyright {
+  background: var(--card-bg-color);
+  border-left: 3px solid #ff2a2a;
+  list-style: none;
+  margin: 2em 0 0;
+  padding: 0.5em 1em;
+}
 .category-all-page .category-all-title {
   text-align: center;
 }
@@ -2243,14 +2216,6 @@ ul.breadcrumb li + li:last-child {
 .tag-cloud a:hover {
   color: var(--link-hover-color) !important;
 }
-.gt-header a,
-.gt-comments a,
-.gt-popup a {
-  border-bottom: none;
-}
-.gt-container .gt-popup .gt-action.is--active::before {
-  top: 0.7em;
-}
 .search-pop-overlay {
   background: rgba(0,0,0,0);
   height: 100%;
@@ -2350,6 +2315,25 @@ ul.breadcrumb li + li:last-child {
 .search-popup #no-result {
   color: #ccc;
   margin: auto;
+}
+.popular-posts-header {
+  border-bottom: 1px solid #eee;
+  display: block;
+  font-size: 1.125em;
+  margin-bottom: 10px;
+  margin-top: 60px;
+}
+.popular-posts {
+  padding: 0;
+}
+.popular-posts .popular-posts-item {
+  margin-left: 2em;
+}
+.popular-posts .popular-posts-item .popular-posts-title {
+  font-size: 0.875em;
+  font-weight: normal;
+  line-height: 2.4;
+  margin: 0;
 }
 hr {
   height: 2px;
@@ -2552,13 +2536,13 @@ hr {
   border-bottom-color: var(--btn-default-hover-border-color);
 }
 .sidebar {
-  left: -234px;
+  left: -320px;
 }
 .sidebar.sidebar-active {
   left: 0;
 }
 .sidebar {
-  width: 234px;
+  width: 320px;
   z-index: 1200;
   transition-delay: 0s;
   transition-duration: 0.2s;
