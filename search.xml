@@ -38,8 +38,8 @@
 <li>第二项</li>
 </ol>
 </blockquote>
-<p>这是一个链接 <a href="https://www.runoob.com" target="_blank" rel="noopener">菜鸟教程</a><br><img src="http://static.runoob.com/images/runoob-logo.png" alt="RUNOOB 图标"></p>
-<p><img src="http://static.runoob.com/images/runoob-logo.png" alt="RUNOOB 图标" title="RUNOOB"></p>
+<p>这是一个链接 <a href="https://www.runoob.com" target="_blank" rel="noopener">菜鸟教程</a><br><img data-src="http://static.runoob.com/images/runoob-logo.png" alt="RUNOOB 图标"></p>
+<p><img data-src="http://static.runoob.com/images/runoob-logo.png" alt="RUNOOB 图标" title="RUNOOB"></p>
 <table>
 <thead>
 <tr>
