@@ -1290,7 +1290,7 @@ pre .javascript .function {
 }
 .links-of-author a::before,
 .links-of-author span.exturl::before {
-  background: #85a7ab;
+  background: #ff2aff;
   border-radius: 50%;
   content: ' ';
   display: inline-block;
@@ -2830,7 +2830,4 @@ body::-webkit-scrollbar-corner {
   bottom: 0;
   left: 0;
   right: 0;
-}
-.v .vwrap {
-  background: url("../images/lufei.jpg") 100%/cover;
 }

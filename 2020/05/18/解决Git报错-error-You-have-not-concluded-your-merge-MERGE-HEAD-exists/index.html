@@ -20,18 +20,20 @@
     var CONFIG = {"hostname":"zjt-wy.github.io","root":"/","scheme":"Pisces","version":"7.8.0","exturl":false,"sidebar":{"position":"left","Muse | Mist":320,"display":"always","padding":18,"offset":12,"onmobile":true},"copycode":{"enable":"ture","show_result":true,"style":"mac"},"back2top":{"enable":true,"sidebar":false,"scrollpercent":true},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":"valine","storage":true,"lazyload":false,"nav":null,"activeClass":"valine"},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
-  <meta name="description" content="当你感到悲哀痛苦时，是因为 你太菜">
-<meta property="og:type" content="website">
-<meta property="og:title" content="ZJT">
-<meta property="og:url" content="https://zjt-wy.github.io/categories/Linux/index.html">
+  <meta name="description" content="Git fetch和git pull的区别:都可以从远程获取最新版本到本地1.Git fetch:只是从远程获取最新版本到本地,不会merge(合并)$:git fetch origin master   &#x2F;&#x2F;从远程的origin的master主分支上获取最新版本到origin&#x2F;master分支上">
+<meta property="og:type" content="article">
+<meta property="og:title" content="解决Git报错:error: You have not concluded your merge (MERGE_HEAD exists)">
+<meta property="og:url" content="https://zjt-wy.github.io/2020/05/18/%E8%A7%A3%E5%86%B3Git%E6%8A%A5%E9%94%99-error-You-have-not-concluded-your-merge-MERGE-HEAD-exists/index.html">
 <meta property="og:site_name" content="ZJT">
-<meta property="og:description" content="当你感到悲哀痛苦时，是因为 你太菜">
+<meta property="og:description" content="Git fetch和git pull的区别:都可以从远程获取最新版本到本地1.Git fetch:只是从远程获取最新版本到本地,不会merge(合并)$:git fetch origin master   &#x2F;&#x2F;从远程的origin的master主分支上获取最新版本到origin&#x2F;master分支上">
 <meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2020-05-18T03:16:07.000Z">
+<meta property="article:modified_time" content="2020-05-18T03:17:04.439Z">
 <meta property="article:author" content="ZJT">
-<meta property="article:tag" content="web前端 JS Nodejs Vue React UI框架">
+<meta property="article:tag" content="Git">
 <meta name="twitter:card" content="summary">
 
-<link rel="canonical" href="https://zjt-wy.github.io/categories/Linux/">
+<link rel="canonical" href="https://zjt-wy.github.io/2020/05/18/%E8%A7%A3%E5%86%B3Git%E6%8A%A5%E9%94%99-error-You-have-not-concluded-your-merge-MERGE-HEAD-exists/">
 
 
 <script id="page-configurations">
@@ -39,12 +41,12 @@
   CONFIG.page = {
     sidebar: "",
     isHome : false,
-    isPost : false,
+    isPost : true,
     lang   : 'zh-CN'
   };
 </script>
 
-  <title>分类: Linux | ZJT</title>
+  <title>解决Git报错:error: You have not concluded your merge (MERGE_HEAD exists) | ZJT</title>
   
 
 
@@ -189,57 +191,173 @@
         <div class="content-wrap">
           
 
-          <div class="content category">
+          <div class="content post posts-expand">
             
 
+    
   
   
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://zjt-wy.github.io/2020/05/18/%E8%A7%A3%E5%86%B3Git%E6%8A%A5%E9%94%99-error-You-have-not-concluded-your-merge-MERGE-HEAD-exists/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.png">
+      <meta itemprop="name" content="ZJT">
+      <meta itemprop="description" content="当你感到悲哀痛苦时，是因为 你太菜 ">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="ZJT">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          解决Git报错:error: You have not concluded your merge (MERGE_HEAD exists)
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2020-05-18 11:16:07 / 修改时间：11:17:04" itemprop="dateCreated datePublished" datetime="2020-05-18T11:16:07+08:00">2020-05-18</time>
+            </span>
+
+          
+
+          
+            <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv" style="display: none;">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span id="busuanzi_value_page_pv"></span>
+            </span>
   
-  <div class="post-block">
-    <div class="posts-collapse">
-      <div class="collection-title">
-        <h2 class="collection-header">Linux
-          <small>分类</small>
-        </h2>
-      </div>
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/2020/05/18/%E8%A7%A3%E5%86%B3Git%E6%8A%A5%E9%94%99-error-You-have-not-concluded-your-merge-MERGE-HEAD-exists/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2020/05/18/%E8%A7%A3%E5%86%B3Git%E6%8A%A5%E9%94%99-error-You-have-not-concluded-your-merge-MERGE-HEAD-exists/" itemprop="commentCount">0</span>
+    </a>
+  </span>
+  
+  </br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>603</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>1 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
 
       
-    <div class="collection-year">
-      <span class="collection-header">2020</span>
-    </div>
-
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <div class="post-meta">
-        <time itemprop="dateCreated"
-              datetime="2020-04-18T10:29:25+08:00"
-              content="2020-04-18">
-          04-18
-        </time>
-      </div>
-
-      <div class="post-title">
-          <a class="post-title-link" href="/2020/04/18/%E8%A7%A3%E5%86%B3cannot-remove-user-ini-Operation-not-permitted/" itemprop="url">
-            <span itemprop="name">解决cannot remove '.user.ini'Operation not permitted</span>
-          </a>
-      </div>
-
-    </header>
-  </article>
+        <p>Git fetch和git pull的区别:<br>都可以从远程获取最新版本到本地<br>1.Git fetch:只是从远程获取最新版本到本地,不会merge(合并)<br>$:git fetch origin master   //从远程的origin的master主分支上获取最新版本到origin/master分支上</p>
+<a id="more"></a>
+<p>$:git log -p master..origin/master //比较本地的master分支和origin/master分支的区别<br>$:git merge origin/master          //合并</p>
+<p>2.Git pull:从远程获取最新版本并merge(合并)到本地<br>$:git pull origin master  //相当于进行了 git fetch 和 git merge两部操作<br>1<br>实际工作中,可能git fetch更好一些, 因为在merge前,可以根据实际情况决定是否merge<br>再说导致报错:error: You have not concluded your merge (MERGE_HEAD exists).的原因可能是在以前pull下来的代码自动合并失败<br>解决办法一:保留本地的更改,中止合并-&gt;重新合并-&gt;重新拉取<br>$:git merge –abort<br>$:git reset –merge<br>$:git pull</p>
+<p>解决办法二:舍弃本地代码,远端版本覆盖本地版本(慎重)<br>$:git fetch –all<br>$:git reset –hard origin/master<br>$:git fetch</p>
 
     </div>
+
+    
+    
+    
+      
+<div>
+    
+        <div style="text-align:center;color: #333;font-size:14px;">-------------本文结束 <i class="fa fa-hand-peace"></i> 感谢您的阅读-------------</div>
+    
+</div>
+
+        <div class="reward-container">
+  <div>感谢您嘞支持.</div>
+  <button onclick="var qr = document.getElementById('qr'); qr.style.display = (qr.style.display === 'none') ? 'block' : 'none';">
+    打赏
+  </button>
+  <div id="qr" style="display: none;">
+      
+      <div style="display: inline-block;">
+        <img src="https://raw.githubusercontent.com/zjt-wy/images/master/wechatpay.jpg" alt="ZJT 微信支付">
+        <p>微信支付</p>
+      </div>
+      
+      <div style="display: inline-block;">
+        <img src="https://raw.githubusercontent.com/zjt-wy/images/master/alipay.jpg" alt="ZJT 支付宝">
+        <p>支付宝</p>
+      </div>
+
   </div>
-  
-  
-  
+</div>
 
+        
+
+<div>
+<ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>本文作者： </strong>ZJT
+  </li>
+  <li class="post-copyright-link">
+    <strong>本文链接：</strong>
+    <a href="https://zjt-wy.github.io/2020/05/18/%E8%A7%A3%E5%86%B3Git%E6%8A%A5%E9%94%99-error-You-have-not-concluded-your-merge-MERGE-HEAD-exists/" title="解决Git报错:error: You have not concluded your merge (MERGE_HEAD exists)">https://zjt-wy.github.io/2020/05/18/解决Git报错-error-You-have-not-concluded-your-merge-MERGE-HEAD-exists/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/zh-CN" rel="noopener" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！
+  </li>
+</ul>
+</div>
+
+
+      <footer class="post-footer">
+          
+          <div class="post-tags">
+              <a href="/tags/Git/" rel="tag"><i class="fa fa-tag"></i> Git</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item"></div>
+      <div class="post-nav-item">
+    <a href="/2020/04/18/%E5%9C%A8github%E4%B8%AD%E5%BB%BA%E7%AB%8B%E4%B8%80%E4%B8%AA%E5%9B%BE%E7%89%87%E5%BA%93/" rel="next" title="在github中建立一个图片库">
+      在github中建立一个图片库 <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
   
 
 
 
           </div>
           
+    <div class="comments" id="valine-comments"></div>
 
 <script>
   window.addEventListener('tabs:register', () => {
