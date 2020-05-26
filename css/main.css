@@ -1298,7 +1298,7 @@ pre .javascript .function {
 }
 .links-of-author a::before,
 .links-of-author span.exturl::before {
-  background: #ffafff;
+  background: #41ac9d;
   border-radius: 50%;
   content: ' ';
   display: inline-block;
@@ -2393,7 +2393,7 @@ ul.breadcrumb li + li:last-child {
   width: 100%;
 }
 .search-popup ul.search-result-list a {
-  color: #fee;
+  color: #666;
 }
 .search-popup p.search-result {
   border-bottom: 1px dashed #ccc;
