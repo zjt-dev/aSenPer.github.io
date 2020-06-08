@@ -2,11 +2,11 @@
 <search>
   <entry>
     <title>JS中的prototype、__proto__与constructor</title>
-    <url>/2020/04/18/JS%E4%B8%AD%E7%9A%84prototype%E3%80%81-proto-%E4%B8%8Econstructor/</url>
+    <url>/2019/09/08/JS%E4%B8%AD%E7%9A%84prototype%E3%80%81-proto-%E4%B8%8Econstructor/</url>
     <content><![CDATA[<p>​    原文链接 <a href="https://blog.csdn.net/cc18868876837/article/details/81211729" target="_blank" rel="noopener">https://blog.csdn.net/cc18868876837/article/details/81211729</a></p>
-<h3 id="1-前言"><a href="#1-前言" class="headerlink" title="1.前言"></a>1.前言</h3><p>作为一名前端工程师，必须搞懂JS中的prototype、_ _ proto_ _ 与constructor属性，相信很多初学者对这些属性存在许多困惑，容易把它们混淆，本文旨在帮助大家理清它们之间的关系并彻底搞懂它们。这里说明一点，_ _ proto_ _ 属性的两边是各由两个下划线构成（这里为了方便大家看清，在两下划线之间加入了一个空格：_ <em>proto</em> <em>，读作“dunder proto”，“double underscore proto”的缩写），实际上，该属性在ES标准定义中的名字应该是[[Prototype]]，具体实现是由浏览器代理自己实现，谷歌浏览器的实现就是将[[Prototype]]命名为</em> _ proto_ _ ，大家清楚这个标准定义与具体实现的区别即可（名字有所差异，功能是一样的），可以通过该方式检测引擎是否支持这个属性：Object.getPrototypeOf({_ _ proto_ _ : null}) === null。本文基于谷歌浏览器（版本 72.0.3626.121）的实验结果所得。</p>
-<a id="more"></a>
-<p>     现在正式开始！ 让我们从如下一个简单的例子展开讨论，并配以相关的图帮助理解：</p>
+<h3 id="1-前言"><a href="#1-前言" class="headerlink" title="1.前言"></a>1.前言</h3><a id="more"></a>
+
+<p>作为一名前端工程师，必须搞懂JS中的prototype、_ _ proto_ _ 与constructor属性，相信很多初学者对这些属性存在许多困惑，容易把它们混淆，本文旨在帮助大家理清它们之间的关系并彻底搞懂它们。这里说明一点，_ _ proto_ _ 属性的两边是各由两个下划线构成（这里为了方便大家看清，在两下划线之间加入了一个空格：_ <em>proto</em> <em>，读作“dunder proto”，“double underscore proto”的缩写），实际上，该属性在ES标准定义中的名字应该是[[Prototype]]，具体实现是由浏览器代理自己实现，谷歌浏览器的实现就是将[[Prototype]]命名为</em> _ proto_ _ ，大家清楚这个标准定义与具体实现的区别即可（名字有所差异，功能是一样的），可以通过该方式检测引擎是否支持这个属性：Object.getPrototypeOf({_ _ proto_ _ : null}) === null。本文基于谷歌浏览器（版本 72.0.3626.121）的实验结果所得。<br>     现在正式开始！ 让我们从如下一个简单的例子展开讨论，并配以相关的图帮助理解：</p>
 <figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Foo</span>(<span class="params"></span>) </span>&#123;...&#125;;</span><br><span class="line"><span class="keyword">let</span> f1 = <span class="keyword">new</span> Foo();</span><br></pre></td></tr></table></figure>
 
 <p>以上代码表示创建一个构造函数Foo()，并用new关键字实例化该构造函数得到一个实例化对象f1。这里稍微补充一下new操作符将函数作为构造器进行调用时的过程：函数被调用，然后新创建一个对象，并且成了函数的上下文（也就是此时函数内部的this是指向该新创建的对象，这意味着我们可以在构造器函数内部通过this参数初始化值），最后返回该新对象的引用，详细请看：详解JavaScript中的new操作符。虽然是简简单单的两行代码，然而它们背后的关系却是错综复杂的，如下图所示：<br>看到这图别怕，让我们一步步剖析，彻底搞懂它们！</p>
@@ -31,7 +31,7 @@
   </entry>
   <entry>
     <title>Linux服务器中配置Nginx一个域名访问多个项目</title>
-    <url>/2020/04/12/Linux%E6%9C%8D%E5%8A%A1%E5%99%A8%E4%B8%AD%E9%85%8D%E7%BD%AENginx%E4%B8%80%E4%B8%AA%E5%9F%9F%E5%90%8D%E8%AE%BF%E9%97%AE%E5%A4%9A%E4%B8%AA%E9%A1%B9%E7%9B%AE/</url>
+    <url>/2019/10/12/Linux%E6%9C%8D%E5%8A%A1%E5%99%A8%E4%B8%AD%E9%85%8D%E7%BD%AENginx%E4%B8%80%E4%B8%AA%E5%9F%9F%E5%90%8D%E8%AE%BF%E9%97%AE%E5%A4%9A%E4%B8%AA%E9%A1%B9%E7%9B%AE/</url>
     <content><![CDATA[<p>&emsp;&emsp;务器配置个人博客和其它项目使其能够根据不同 url 跳转到不同项目，(例如:<em>localhosh://A 项目/，localhosh://B 项目/</em> )因为对服务器和 Nginx 部署了解甚少，在此记录一下</p>
 <a id="more"></a>
 
@@ -94,7 +94,7 @@
   </entry>
   <entry>
     <title>hexo搭建</title>
-    <url>/2020/04/12/hexo%E6%90%AD%E5%BB%BA%E9%81%87%E5%88%B0%E7%9A%84%E5%9D%91/</url>
+    <url>/2019/05/12/hexo%E6%90%AD%E5%BB%BA%E9%81%87%E5%88%B0%E7%9A%84%E5%9D%91/</url>
     <content><![CDATA[<h4 id="服务器搭建nginx"><a href="#服务器搭建nginx" class="headerlink" title="服务器搭建nginx"></a>服务器搭建nginx</h4><p><a href="https://yq.aliyun.com/articles/700682" target="_blank" rel="noopener">在阿里云服务器上如何搭建nginx？</a> </p>
 <h4 id="解决本地git提交-问题"><a href="#解决本地git提交-问题" class="headerlink" title="解决本地git提交 问题"></a>解决本地git提交 问题</h4><p><a href="https://blog.csdn.net/lujinjian605894472/article/details/8443403" target="_blank" rel="noopener">![rejected] master -&gt; master (non-fast-forward)</a></p>
 ]]></content>
@@ -107,9 +107,11 @@
   </entry>
   <entry>
     <title>markdown基本语法</title>
-    <url>/2020/04/12/markdown%E5%9F%BA%E6%9C%AC%E8%AF%AD%E6%B3%95/</url>
-    <content><![CDATA[<h4 id="标题"><a href="#标题" class="headerlink" title="标题"></a>标题</h4><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"># 这是一级标题</span><br><span class="line">## 这是二级标题</span><br><span class="line">### 这是三级标题</span><br></pre></td></tr></table></figure>
-<a id="more"></a>
+    <url>/2019/04/12/markdown%E5%9F%BA%E6%9C%AC%E8%AF%AD%E6%B3%95/</url>
+    <content><![CDATA[<h4 id="标题"><a href="#标题" class="headerlink" title="标题"></a>标题</h4><a id="more"></a>
+
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"># 这是一级标题</span><br><span class="line">## 这是二级标题</span><br><span class="line">### 这是三级标题</span><br></pre></td></tr></table></figure>
+<!-- more -->
 
 <h4 id="字体"><a href="#字体" class="headerlink" title="字体"></a>字体</h4><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">**这是加粗的文字**</span><br><span class="line">*这是倾斜的文字*&#96;</span><br><span class="line">***这是斜体加粗的文字***</span><br><span class="line">~~这是加删除线的文字~~</span><br></pre></td></tr></table></figure>
 
@@ -136,20 +138,8 @@
       </tags>
   </entry>
   <entry>
-    <title>在github中建立一个图片库</title>
-    <url>/2020/04/18/%E5%9C%A8github%E4%B8%AD%E5%BB%BA%E7%AB%8B%E4%B8%80%E4%B8%AA%E5%9B%BE%E7%89%87%E5%BA%93/</url>
-    <content><![CDATA[<p>废话少说 就是在GitHub建个库单独存储图片<br>遇到的问题是<br>    <strong>找不到 raw.githubusercontent.com 的服务器 IP 地址。</strong><br>其原因应该就是DNS污染，解决办法<br><strong>在hosts文件添加 199.232.68.133  raw.githubusercontent.com</strong></p>
-]]></content>
-      <categories>
-        <category>github</category>
-      </categories>
-      <tags>
-        <tag>github</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>解决Git报错:error: You have not concluded your merge (MERGE_HEAD exists)</title>
-    <url>/2020/05/18/%E8%A7%A3%E5%86%B3Git%E6%8A%A5%E9%94%99-error-You-have-not-concluded-your-merge-MERGE-HEAD-exists/</url>
+    <url>/2019/05/18/%E8%A7%A3%E5%86%B3Git%E6%8A%A5%E9%94%99-error-You-have-not-concluded-your-merge-MERGE-HEAD-exists/</url>
     <content><![CDATA[<p>Git fetch和git pull的区别:</p>
 <a id="more"></a>
 <p>都可以从远程获取最新版本到本地<br>1.Git fetch:只是从远程获取最新版本到本地,不会merge(合并)<br>$:git fetch origin master   //从远程的origin的master主分支上获取最新版本到origin/master分支上<br>$:git log -p master..origin/master //比较本地的master分支和origin/master分支的区别<br>$:git merge origin/master          //合并</p>
@@ -165,8 +155,10 @@
   </entry>
   <entry>
     <title>解决cannot remove &#39;.user.ini&#39;Operation not permitted</title>
-    <url>/2020/04/18/%E8%A7%A3%E5%86%B3cannot-remove-user-ini-Operation-not-permitted/</url>
-    <content><![CDATA[<p>在Linux中删除整个git仓库，删除失败出现 cannot remove ‘.user.ini’Operation not permitted，原因就是文件中含有某种属性不可更改，删除该属性就可以了<br>在Linux中rm -rf的威力是十分巨大的，特别是附带了 -f 参数，不少新手都干过用root用户执行 rm -rf /命令这种傻事，如果云服务器没有快照，简直就是灾难，从根目录开始所有文件被递归删除，连系统都被损坏。</p>
+    <url>/2019/04/18/%E8%A7%A3%E5%86%B3cannot-remove-user-ini-Operation-not-permitted/</url>
+    <content><![CDATA[<p>在Linux中删除整个git仓库，删除失败出现 cannot remove ‘.user.ini’Operation not permitted，原因就是文件中含有某种属性不可更改，删除该属性就可以了</p>
+<a id="more"></a>
+<p>在Linux中rm -rf的威力是十分巨大的，特别是附带了 -f 参数，不少新手都干过用root用户执行 rm -rf /命令这种傻事，如果云服务器没有快照，简直就是灾难，从根目录开始所有文件被递归删除，连系统都被损坏。</p>
 <p>但是，偶尔也会遇到使用rm -rf也删除不了的文件，执行后报rm: cannot remove `.user.ini’: Operation not permitted，</p>
 <p>这时候需要使用到Linux的chattr命令， chattr命令用于改变文件属性。这项指令可改变存放在ext2文件系统上的文件或目录属性，这些属性共有以下8种模式：<br>a：让文件或目录仅供附加用途。<br>b：不更新文件或目录的最后存取时间。<br>c：将文件或目录压缩后存放。<br>d：将文件或目录排除在倾倒操作之外。<br>i：不得任意更动文件或目录。<br>s：保密性删除文件或目录。<br>S：即时更新文件或目录。<br>u：预防以外删除。<br>语法chattr[-RV][-v&lt;版本编号&gt;][+/-/=&lt;属性&gt;][文件或目录…]参数<br>　　-R 递归处理，将指定目录下的所有文件及子目录一并处理。<br>　　-v&lt;版本编号&gt; 设置文件或目录版本。<br>　　-V 显示指令执行过程。<br>　　+&lt;属性&gt; 开启文件或目录的该项属性。<br>　　-&lt;属性&gt; 关闭文件或目录的该项属性。<br>　　=&lt;属性&gt; 指定文件或目录的该项属性。</p>
 <p>进入到<code>.user.ini&#39;所在目录，执行一下 lsattr -a，查看文件下下边包含文件的属性，看到</code>.user.ini’有个’i’属性，代表不得任意更动文件或目录，正是此属性在作祟：</p>
