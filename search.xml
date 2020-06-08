@@ -150,9 +150,9 @@
   <entry>
     <title>解决Git报错:error: You have not concluded your merge (MERGE_HEAD exists)</title>
     <url>/2020/05/18/%E8%A7%A3%E5%86%B3Git%E6%8A%A5%E9%94%99-error-You-have-not-concluded-your-merge-MERGE-HEAD-exists/</url>
-    <content><![CDATA[<p>Git fetch和git pull的区别:<br>都可以从远程获取最新版本到本地<br>1.Git fetch:只是从远程获取最新版本到本地,不会merge(合并)<br>$:git fetch origin master   //从远程的origin的master主分支上获取最新版本到origin/master分支上</p>
+    <content><![CDATA[<p>Git fetch和git pull的区别:</p>
 <a id="more"></a>
-<p>$:git log -p master..origin/master //比较本地的master分支和origin/master分支的区别<br>$:git merge origin/master          //合并</p>
+<p>都可以从远程获取最新版本到本地<br>1.Git fetch:只是从远程获取最新版本到本地,不会merge(合并)<br>$:git fetch origin master   //从远程的origin的master主分支上获取最新版本到origin/master分支上<br>$:git log -p master..origin/master //比较本地的master分支和origin/master分支的区别<br>$:git merge origin/master          //合并</p>
 <p>2.Git pull:从远程获取最新版本并merge(合并)到本地<br>$:git pull origin master  //相当于进行了 git fetch 和 git merge两部操作<br>1<br>实际工作中,可能git fetch更好一些, 因为在merge前,可以根据实际情况决定是否merge<br>再说导致报错:error: You have not concluded your merge (MERGE_HEAD exists).的原因可能是在以前pull下来的代码自动合并失败<br>解决办法一:保留本地的更改,中止合并-&gt;重新合并-&gt;重新拉取<br>$:git merge –abort<br>$:git reset –merge<br>$:git pull</p>
 <p>解决办法二:舍弃本地代码,远端版本覆盖本地版本(慎重)<br>$:git fetch –all<br>$:git reset –hard origin/master<br>$:git fetch</p>
 ]]></content>
@@ -166,9 +166,7 @@
   <entry>
     <title>解决cannot remove &#39;.user.ini&#39;Operation not permitted</title>
     <url>/2020/04/18/%E8%A7%A3%E5%86%B3cannot-remove-user-ini-Operation-not-permitted/</url>
-    <content><![CDATA[<p>在Linux中删除整个git仓库，删除失败出现 cannot remove ‘.user.ini’Operation not permitted，原因就是文件中含有某种属性不可更改，删除该属性就可以了</p>
-<a id="more"></a>
-<p>在Linux中rm -rf的威力是十分巨大的，特别是附带了 -f 参数，不少新手都干过用root用户执行 rm -rf /命令这种傻事，如果云服务器没有快照，简直就是灾难，从根目录开始所有文件被递归删除，连系统都被损坏。</p>
+    <content><![CDATA[<p>在Linux中删除整个git仓库，删除失败出现 cannot remove ‘.user.ini’Operation not permitted，原因就是文件中含有某种属性不可更改，删除该属性就可以了<br>在Linux中rm -rf的威力是十分巨大的，特别是附带了 -f 参数，不少新手都干过用root用户执行 rm -rf /命令这种傻事，如果云服务器没有快照，简直就是灾难，从根目录开始所有文件被递归删除，连系统都被损坏。</p>
 <p>但是，偶尔也会遇到使用rm -rf也删除不了的文件，执行后报rm: cannot remove `.user.ini’: Operation not permitted，</p>
 <p>这时候需要使用到Linux的chattr命令， chattr命令用于改变文件属性。这项指令可改变存放在ext2文件系统上的文件或目录属性，这些属性共有以下8种模式：<br>a：让文件或目录仅供附加用途。<br>b：不更新文件或目录的最后存取时间。<br>c：将文件或目录压缩后存放。<br>d：将文件或目录排除在倾倒操作之外。<br>i：不得任意更动文件或目录。<br>s：保密性删除文件或目录。<br>S：即时更新文件或目录。<br>u：预防以外删除。<br>语法chattr[-RV][-v&lt;版本编号&gt;][+/-/=&lt;属性&gt;][文件或目录…]参数<br>　　-R 递归处理，将指定目录下的所有文件及子目录一并处理。<br>　　-v&lt;版本编号&gt; 设置文件或目录版本。<br>　　-V 显示指令执行过程。<br>　　+&lt;属性&gt; 开启文件或目录的该项属性。<br>　　-&lt;属性&gt; 关闭文件或目录的该项属性。<br>　　=&lt;属性&gt; 指定文件或目录的该项属性。</p>
 <p>进入到<code>.user.ini&#39;所在目录，执行一下 lsattr -a，查看文件下下边包含文件的属性，看到</code>.user.ini’有个’i’属性，代表不得任意更动文件或目录，正是此属性在作祟：</p>
