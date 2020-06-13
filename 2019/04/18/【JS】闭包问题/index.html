@@ -1,0 +1,718 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 4.2.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/favicon.ico">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon.ico">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon.ico">
+  <link rel="mask-icon" href="/images/favicon.ico" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&display=swap&subset=latin,latin-ext">
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"www.asenper.cn","root":"/","scheme":"Mist","version":"7.8.0","exturl":false,"sidebar":{"position":"right","Muse | Mist":320,"width":234,"display":"always","padding":18,"offset":12,"onmobile":true},"copycode":{"enable":"ture","show_result":true,"style":"mac"},"back2top":{"enable":true,"sidebar":false,"scrollpercent":true},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":true,"lazyload":false,"pangu":"ture","comments":{"style":"tabs","active":"valine","storage":true,"lazyload":false,"nav":null,"activeClass":"valine"},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"slideLeftIn","post_header":"slideLeftIn","post_body":"slideLeftIn","coll_header":"slideLeftIn","sidebar":"perspectiveUpIn"}},"path":"search.xml"};
+  </script>
+
+  <meta name="description" content="12345678function fun(n,o) &amp;#123; console.log(o) return &amp;#123;  fun:function(m)&amp;#123; return fun(m,n);  &amp;#125; &amp;#125;;&amp;#125; var a &#x3D; fun(0); a.fun(1); a.fun(2); a.fun(3);&#x2F;&#x2F;undefined,?,?,?var b &#x3D; fun(0)">
+<meta property="og:type" content="article">
+<meta property="og:title" content="闭包">
+<meta property="og:url" content="http://www.asenper.cn/2019/04/18/%E3%80%90JS%E3%80%91%E9%97%AD%E5%8C%85%E9%97%AE%E9%A2%98/index.html">
+<meta property="og:site_name" content="aSenPer&#39;s Blog">
+<meta property="og:description" content="12345678function fun(n,o) &amp;#123; console.log(o) return &amp;#123;  fun:function(m)&amp;#123; return fun(m,n);  &amp;#125; &amp;#125;;&amp;#125; var a &#x3D; fun(0); a.fun(1); a.fun(2); a.fun(3);&#x2F;&#x2F;undefined,?,?,?var b &#x3D; fun(0)">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://files.jb51.net/file_images/article/201511/20151125161154422.png?2015102516123">
+<meta property="og:image" content="https://files.jb51.net/file_images/article/201511/20151125161355276.png?2015102516143">
+<meta property="og:image" content="https://files.jb51.net/file_images/article/201511/20151125161534228.png?20151025161556">
+<meta property="og:image" content="https://files.jb51.net/file_images/article/201511/20151125161644557.png?20151025161652">
+<meta property="article:published_time" content="2019-04-18T02:29:25.000Z">
+<meta property="article:modified_time" content="2020-06-13T12:30:59.421Z">
+<meta property="article:author" content="aSenPer">
+<meta property="article:tag" content="JS">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://files.jb51.net/file_images/article/201511/20151125161154422.png?2015102516123">
+
+<link rel="canonical" href="http://www.asenper.cn/2019/04/18/%E3%80%90JS%E3%80%91%E9%97%AD%E5%8C%85%E9%97%AE%E9%A2%98/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-CN'
+  };
+</script>
+
+  <title>闭包 | aSenPer's Blog</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">aSenPer's Blog</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+      <p class="site-subtitle" itemprop="description">aSenPer's Blog</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签<span class="badge">11</span></a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类<span class="badge">11</span></a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档<span class="badge">31</span></a>
+
+  </li>
+        <li class="menu-item menu-item-收藏">
+
+    <a href="/collection/" rel="section"><i class="fa fa-atlas fa-fw"></i>收藏</a>
+
+  </li>
+        <li class="menu-item menu-item-相册">
+
+    <a href="/gallery/" rel="section"><i class="fa fa-camera-retro fa-fw"></i>相册</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/" rel="section"><i class="fa fa-user fa-fw fa-fw"></i>关于</a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result">
+  <div id="no-result">
+    <i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+  <div class="reading-progress-bar"></div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://www.asenper.cn/2019/04/18/%E3%80%90JS%E3%80%91%E9%97%AD%E5%8C%85%E9%97%AE%E9%A2%98/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.png">
+      <meta itemprop="name" content="aSenPer">
+      <meta itemprop="description" content="勤能补拙是良训，一分辛劳一分才。 ——华罗庚">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="aSenPer's Blog">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          闭包
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              <time title="创建时间：2019-04-18 10:29:25" itemprop="dateCreated datePublished" datetime="2019-04-18T10:29:25+08:00">2019-04-18</time>
+            </span>
+
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/JS/" itemprop="url" rel="index"><span itemprop="name">JS</span></a>
+                </span>
+            </span>
+
+          
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/2019/04/18/%E3%80%90JS%E3%80%91%E9%97%AD%E5%8C%85%E9%97%AE%E9%A2%98/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2019/04/18/%E3%80%90JS%E3%80%91%E9%97%AD%E5%8C%85%E9%97%AE%E9%A2%98/" itemprop="commentCount">0</span>
+    </a>
+  </span>
+  
+  
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+        <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">fun</span>(<span class="params">n,o</span>) </span>&#123;</span><br><span class="line"> <span class="built_in">console</span>.log(o) <span class="keyword">return</span> &#123;</span><br><span class="line">  fun:<span class="function"><span class="keyword">function</span>(<span class="params">m</span>)</span>&#123; <span class="keyword">return</span> fun(m,n);</span><br><span class="line">  &#125;</span><br><span class="line"> &#125;;</span><br><span class="line">&#125; <span class="keyword">var</span> a = fun(<span class="number">0</span>); a.fun(<span class="number">1</span>); a.fun(<span class="number">2</span>); a.fun(<span class="number">3</span>);<span class="comment">//undefined,?,?,?</span></span><br><span class="line"><span class="keyword">var</span> b = fun(<span class="number">0</span>).fun(<span class="number">1</span>).fun(<span class="number">2</span>).fun(<span class="number">3</span>);<span class="comment">//undefined,?,?,?</span></span><br><span class="line"><span class="keyword">var</span> c = fun(<span class="number">0</span>).fun(<span class="number">1</span>); c.fun(<span class="number">2</span>); c.fun(<span class="number">3</span>);<span class="comment">//undefined,?,?,? //问:三行a,b,c的输出分别是什么？</span></span><br></pre></td></tr></table></figure>
+
+<p>这是一道非常典型的JS闭包问题。其中嵌套了三层fun函数，搞清楚每层fun的函数是那个fun函数尤为重要。</p>
+<p>可以先在纸上或其他地方写下你认为的结果，然后展开看看正确答案是什么？</p>
+<p><strong>答案</strong></p>
+<p>//a: undefined,0,0,0 //b: undefined,0,1,2 //c: undefined,0,1,1</p>
+<p>都答对了么？如果都答对了恭喜你在js闭包问题当中几乎没什么可以难住你了；如果没有答案，继续往下分析。</p>
+<p><strong>JS中有几种函数</strong></p>
+<p>首先，在此之前需要了解的是，在JS中函数可以分为两种，具名函数（命名函数）和匿名函数。</p>
+<p>区分这两种函数的方法非常简单，可以通过输出 fn.name 来判断，有name的就是具名函数，没有name的就是匿名函数</p>
+<p><strong>注意：</strong>在低版本IE上无法获取具名函数的name，会返回undefined，建议在火狐或是谷歌浏览器上测试</p>
+<p>或是采用兼容IE的获取函数name方法来获取函数名称：</p>
+<p>/**<br>  * 获取指定函数的函数名称（用于兼容IE）<br>  * @param {Function} fun 任意函数 */<br>function getFunctionName(fun) { if (fun.name !== undefined) return fun.name; var ret = fun.toString();<br>  ret = ret.substr(‘function ‘.length);<br>  ret = ret.substr(0, ret.indexOf(‘(‘)); return ret;<br>}</p>
+<p>遂用上述函数测试是否为匿名函数：</p>
+<p><img src="https://files.jb51.net/file_images/article/201511/20151125161154422.png?2015102516123" alt=""></p>
+<p>可以得知变量fn1是具名函数，fn2是匿名函数</p>
+<p><strong>创建函数的几种方式</strong></p>
+<p>说完函数的类型，还需要了解JS中创建函数都有几种创建方法。</p>
+<p><strong>1、声明函数</strong></p>
+<p>最普通最标准的声明函数方法，包括函数名及函数体。</p>
+<p><strong>function fn1(){}</strong></p>
+<p><strong>2、创建匿名函数表达式</strong></p>
+<p>创建一个变量，这个变量的内容为一个函数</p>
+<p><strong>var fn1=function (){}</strong><br>注意采用这种方法创建的函数为匿名函数，即没有函数name</p>
+<p>var fn1=function (){};<br>getFunctionName(fn1).length;//0</p>
+<p><strong>3、创建具名函数表达式</strong></p>
+<p>创建一个变量，内容为一个带有名称的函数</p>
+<p><strong>var fn1=function xxcanghai(){};</strong><br><strong>注意：</strong>具名函数表达式的函数名只能在创建函数内部使用</p>
+<p>即采用此种方法创建的函数在函数外层只能使用fn1不能使用xxcanghai的函数名。xxcanghai的命名只能在创建的函数内部使用</p>
+<p>测试：</p>
+<p>var fn1=function xxcanghai(){<br>  console.log(“in:fn1&lt;”,typeof fn1,”&gt;xxcanghai:&lt;”,typeof xxcanghai,”&gt;”);<br>};<br>console.log(“out:fn1&lt;”,typeof fn1,”&gt;xxcanghai:&lt;”,typeof xxcanghai,”&gt;”);<br>fn1(); //out:fn1&lt; function &gt;xxcanghai:&lt; undefined &gt; //in:fn1&lt; function &gt;xxcanghai:&lt; function &gt;</p>
+<p>可以看到在函数外部（out）无法使用xxcanghai的函数名，为undefined。</p>
+<p><strong>注意：</strong>在对象内定义函数如var o={ fn : function (){…} }，也属于函数表达式</p>
+<p><strong>4、Function构造函数</strong></p>
+<p>可以给 Function 构造函数传一个函数字符串，返回包含这个字符串命令的函数，此种方法创建的是匿名函数。</p>
+<p><img src="https://files.jb51.net/file_images/article/201511/20151125161355276.png?2015102516143" alt=""></p>
+<p><strong>5、自执行函数</strong></p>
+<p>(function(){alert(1);})();<br>(function fn1(){alert(1);})();</p>
+<p>自执行函数属于上述的“函数表达式”，规则相同</p>
+<p> <strong>6、其他创建函数的方法</strong></p>
+<p>当然还有其他创建函数或执行函数的方法，这里不再多说，比如采用 <strong>eval ， setTimeout ， setInterval</strong> 等非常用方法，这里不做过多介绍，属于非标准方法，这里不做过多展开</p>
+<p><strong>三个fun函数的关系是什么？</strong></p>
+<p>说完函数类型与创建函数的方法后，就可以回归主题，看这道面试题。</p>
+<p>这段代码中出现了三个fun函数，所以第一步先搞清楚，这三个fun函数的关系，哪个函数与哪个函数时相同的。</p>
+<p>function fun(n,o) {<br> console.log(o) return {<br>  fun:function(m){ //…<br> }<br> };<br>}</p>
+<p>先看第一个fun函数，属于标准具名函数声明，是新创建的函数，他的返回值是一个对象字面量表达式，属于一个新的object。</p>
+<p>这个新的对象内部包含一个也叫fun的属性，通过上述介绍可得知，属于匿名函数表达式，即fun这个属性中存放的是一个新创建匿名函数表达式。</p>
+<p><strong>注意：</strong>所有声明的匿名函数都是一个新函数。</p>
+<p>所以第一个fun函数与第二个fun函数不相同，均为新创建的函数。</p>
+<p><strong>函数作用域链的问题</strong></p>
+<p>再说第三个fun函数之前需要先说下，在函数表达式内部能不能访问存放当前函数的变量。</p>
+<p><strong>测试1：对象内部的函数表达式：</strong></p>
+<p>var o={<br> fn:function (){<br>  console.log(fn);<br> }<br>};<br>o.fn();//ERROR报错</p>
+<p><img src="https://files.jb51.net/file_images/article/201511/20151125161534228.png?20151025161556" alt=""></p>
+<p><strong>测试2：非对象内部的函数表达式：</strong></p>
+<p>var fn=function (){<br> console.log(fn);<br>};<br>fn();//function (){console.log(fn);};正确</p>
+<p><img src="https://files.jb51.net/file_images/article/201511/20151125161644557.png?20151025161652" alt=""></p>
+<p><strong>结论：</strong>使用var或是非对象内部的函数表达式内，可以访问到存放当前函数的变量；在对象内部的不能访问到。</p>
+<p>原因也非常简单，因为函数作用域链的问题，采用var的是在外部创建了一个fn变量，函数内部当然可以在内部寻找不到fn后向上册作用域查找fn，而在创建对象内部时，因为没有在函数作用域内创建fn，所以无法访问。</p>
+<p>所以综上所述，可以得知，最内层的return出去的fun函数不是第二层fun函数，是最外层的fun函数。</p>
+<p>所以，三个fun函数的关系也理清楚了，第一个等于第三个，他们都不等于第二个。</p>
+<p><strong>到底在调用哪个函数？</strong></p>
+<p>再看下原题，现在知道了程序中有两个fun函数(第一个和第三个相同)，遂接下来的问题是搞清楚，运行时他执行的是哪个fun函数？</p>
+<p>function fun(n,o) {<br> console.log(o) return {<br>  fun:function(m){ return fun(m,n);<br>  }<br> };<br>} var a = fun(0); a.fun(1); a.fun(2); a.fun(3);//undefined,?,?,?<br>var b = fun(0).fun(1).fun(2).fun(3);//undefined,?,?,?<br>var c = fun(0).fun(1); c.fun(2); c.fun(3);//undefined,?,?,? //问:三行a,b,c的输出分别是什么？</p>
+<p><strong>1、第一行a</strong></p>
+<p>*<em>var a = fun(0);  a.fun(1);  a.fun(2);  a.fun(3);<br>*</em>可以得知，第一个fun(0)是在调用第一层fun函数。第二个fun(1)是在调用前一个fun的返回值的fun函数，所以：</p>
+<p>第后面几个fun(1),fun(2),fun(3),函数都是在调用第二层fun函数。</p>
+<p>遂：</p>
+<p>在第一次调用fun(0)时，o为undefined；</p>
+<p>第二次调用fun(1)时m为1，此时fun闭包了外层函数的n，也就是第一次调用的n=0，即m=1，n=0，并在内部调用第一层fun函数fun(1,0);所以o为0；</p>
+<p>第三次调用fun(2)时m为2，但依然是调用a.fun，所以还是闭包了第一次调用时的n，所以内部调用第一层的fun(2,0);所以o为0</p>
+<p>第四次同理；</p>
+<p>即：最终答案为undefined,0,0,0</p>
+<p><strong>2、第二行b</strong></p>
+<p>*<em>var b = fun(0).fun(1).fun(2).fun(3);//undefined,?,?,?<br>*</em>先从fun(0)开始看，肯定是调用的第一层fun函数；而他的返回值是一个对象，所以第二个fun(1)调用的是第二层fun函数，后面几个也是调用的第二层fun函数。</p>
+<p>遂：</p>
+<p>在第一次调用第一层fun(0)时，o为undefined；</p>
+<p>第二次调用 .fun(1)时m为1，此时fun闭包了外层函数的n，也就是第一次调用的n=0，即m=1，n=0，并在内部调用第一层fun函数fun(1,0);所以o为0；</p>
+<p>第三次调用 .fun(2)时m为2，此时当前的fun函数不是第一次执行的返回对象，而是第二次执行的返回对象。而在第二次执行第一层fun函数时时(1,0)所以n=1,o=0,返回时闭包了第二次的n，遂在第三次调用第三层fun函数时m=2,n=1，即调用第一层fun函数fun(2,1)，所以o为1；</p>
+<p>第四次调用 .fun(3)时m为3，闭包了第三次调用的n，同理，最终调用第一层fun函数为fun(3,2)；所以o为2；</p>
+<p>即最终答案：undefined,0,1,2</p>
+<p> <strong>3、第三行c</strong></p>
+<p>*<em>var c = fun(0).fun(1);  c.fun(2);  c.fun(3);//undefined,?,?,?<br>*</em>根据前面两个例子，可以得知：</p>
+<p>fun(0)为执行第一层fun函数，.fun(1)执行的是fun(0)返回的第二层fun函数，这里语句结束，遂c存放的是fun(1)的返回值，而不是fun(0)的返回值，所以c中闭包的也是fun(1)第二次执行的n的值。c.fun(2)执行的是fun(1)返回的第二层fun函数，c.fun(3)执行的也是fun(1)返回的第二层fun函数。</p>
+<p>遂：</p>
+<p>在第一次调用第一层fun(0)时，o为undefined；</p>
+<p>第二次调用 .fun(1)时m为1，此时fun闭包了外层函数的n，也就是第一次调用的n=0，即m=1，n=0，并在内部调用第一层fun函数fun(1,0);所以o为0；</p>
+<p>第三次调用 .fun(2)时m为2，此时fun闭包的是第二次调用的n=1，即m=2，n=1，并在内部调用第一层fun函数fun(2,1);所以o为1；</p>
+<p>第四次.fun(3)时同理，但依然是调用的第二次的返回值，遂最终调用第一层fun函数fun(3,1)，所以o还为1</p>
+<p>即最终答案：undefined,0,1,1</p>
+<p>后话</p>
+<p>这段代码原本是在做一个将异步回调改写为同步调用的组件时的代码，发现了这个坑，对JS的闭包有了更深入的了解。</p>
+<p>关于什么是闭包，网上的文章数不胜数，但理解什么是闭包还是要在代码中自己去发现与领悟。</p>
+<p>如果要我说什么是闭包，我认为，广义上的闭包就是指一个变量在他自身作用域的被使用了，就叫发生了闭包。</p>
+<p>转      <a href="https://www.jb51.net/article/75450.htm" target="_blank" rel="noopener">https://www.jb51.net/article/75450.htm</a></p>
+
+    </div>
+
+    
+    
+    
+      
+  <div class="popular-posts-header">相关文章</div>
+  <ul class="popular-posts">
+    <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="\2019\05\20\【js】判断字符串中是否包含某个字符串\" rel="bookmark">【js】判断字符串中是否包含某个字符串</a></div>
+    </li>
+    <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="\2019\04\18\【JS】监听页面的后退返回(移动端PC端)\" rel="bookmark">【JS】监听页面的后退返回(移动端PC端)</a></div>
+    </li>
+    <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="\2019\05\02\【JS】垃圾回收内存泄漏\" rel="bookmark">垃圾回收内存泄漏</a></div>
+    </li>
+    <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="\2019\05\20\【JS】判断数据类型的方法\" rel="bookmark">【JS】判断数据类型的方法</a></div>
+    </li>
+    <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="\2019\05\22\【JS】判断客户端类型\" rel="bookmark">【JS】判断客户端类型</a></div>
+    </li>
+  </ul>
+<div>
+    
+        <div style="text-align:center;color: #333;font-size:14px;">-------------本文结束 <i class="fa fa-hand-peace"></i> 感谢您的阅读-------------</div>
+    
+</div>
+
+        <div class="reward-container">
+  <div>感谢您嘞支持.</div>
+  <button onclick="var qr = document.getElementById('qr'); qr.style.display = (qr.style.display === 'none') ? 'block' : 'none';">
+    打赏
+  </button>
+  <div id="qr" style="display: none;">
+      
+      <div style="display: inline-block;">
+        <img src="https://asenper.gitee.io/images/wechatpay.jpg" alt="aSenPer 微信支付">
+        <p>微信支付</p>
+      </div>
+      
+      <div style="display: inline-block;">
+        <img src="https://asenper.gitee.io/images/alipay.jpg" alt="aSenPer 支付宝">
+        <p>支付宝</p>
+      </div>
+
+  </div>
+</div>
+
+        
+
+<div>
+<ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>本文作者： </strong>aSenPer
+  </li>
+  <li class="post-copyright-link">
+    <strong>本文链接：</strong>
+    <a href="http://www.asenper.cn/2019/04/18/%E3%80%90JS%E3%80%91%E9%97%AD%E5%8C%85%E9%97%AE%E9%A2%98/" title="闭包">http://www.asenper.cn/2019/04/18/【JS】闭包问题/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/zh-CN" rel="noopener" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！
+  </li>
+</ul>
+</div>
+
+
+      <footer class="post-footer">
+          
+          <div class="post-tags">
+              <a href="/tags/JS/" rel="tag"><i class="fa fa-tag"></i> JS</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2019/04/18/%E3%80%90JS%E3%80%91%E7%9B%91%E5%90%AC%E9%A1%B5%E9%9D%A2%E7%9A%84%E5%90%8E%E9%80%80%E8%BF%94%E5%9B%9E(%E7%A7%BB%E5%8A%A8%E7%AB%AFPC%E7%AB%AF)/" rel="prev" class="prev" title="【JS】监听页面的后退返回(移动端PC端)">
+      <span> 上一篇：【JS】监听页面的后退返回(移动端PC端) </span>
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/2019/04/18/%E8%A7%A3%E5%86%B3cannot-remove-user-ini-Operation-not-permitted/" rel="next" class="next" title="解决cannot remove '.user.ini'Operation not permitted">
+      <span> 下一篇：解决cannot remove '.user.ini'Operation not permitted </span>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+
+          </div>
+          
+    <div class="comments" id="valine-comments"></div>
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="aSenPer"
+      src="/images/avatar.png">
+  <p class="site-author-name" itemprop="name">aSenPer</p>
+  <div class="site-description" itemprop="description">勤能补拙是良训，一分辛劳一分才。 ——华罗庚</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">31</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">11</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">11</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <a href="https://github.com/asenper" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;asenper" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:18369656127@163.com" title="E-Mail → mailto:18369656127@163.com" rel="noopener" target="_blank"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://weibo.com/zjt94920" title="Weibo → https:&#x2F;&#x2F;weibo.com&#x2F;zjt94920" rel="noopener" target="_blank"><i class="fab fa-weibo fa-fw"></i>Weibo</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://www.cnblogs.com/asenper/" title="博客园 → https:&#x2F;&#x2F;www.cnblogs.com&#x2F;asenper&#x2F;" rel="noopener" target="_blank"><i class="fas fa-blog fa-fw"></i>博客园</a>
+      </span>
+  </div>
+
+
+
+      </div>
+      
+      <div class="widget-wrap">
+        <h4>标签云</h4>
+          <div id="myCanvasContainer" class="widget tagcloud">
+            <a href="/tags/Git/" style="font-size: 13px; color: #333">Git</a> <a href="/tags/JS/" style="font-size: 30px; color: #111">JS</a> <a href="/tags/Linux/" style="font-size: 13px; color: #333">Linux</a> <a href="/tags/Nginx/" style="font-size: 21.5px; color: #222">Nginx</a> <a href="/tags/Node/" style="font-size: 13px; color: #333">Node</a> <a href="/tags/Vue/" style="font-size: 25.75px; color: #1a1a1a">Vue</a> <a href="/tags/Webpack/" style="font-size: 17.25px; color: #2b2b2b">Webpack</a> <a href="/tags/hexo/" style="font-size: 13px; color: #333">hexo</a> <a href="/tags/markdown/" style="font-size: 13px; color: #333">markdown</a> <a href="/tags/%E5%B0%8F%E7%A8%8B%E5%BA%8F/" style="font-size: 13px; color: #333">小程序</a> <a href="/tags/%E6%AD%A3%E5%88%99/" style="font-size: 13px; color: #333">正则</a>
+          </div>
+      </div>
+      
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+  <script>
+  // var a = JSON.parse() 
+  // console.log(a)
+  // for (let i = 0 ; i < 11; )
+  </script>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+
+
+
+
+
+
+
+        <div class="copyright" style="text-align:center">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="fa fa-bolt"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">aSenPer</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-chart-area"></i>
+    </span>
+    <span title="站点总字数">48k</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+    <span title="站点阅读时长">43 分钟</span>
+</div>
+  <div class="beian"><a href="http://www.beian.miit.gov.cn/" rel="noopener" target="_blank">鲁ICP备20023085号 </a>
+  </div>
+
+      </div>
+    </footer>
+  </div>
+
+  
+<script src="https://cdn.jsdelivr.net/jquery/2.1.3/jquery.min.js"></script>
+
+<script src="/js/masonry.pkgd.min.js"></script>
+
+<script src="/js/lightGallery.min.js"></script>
+
+<script src="/js/lg-autoplay.min.js"></script>
+
+<script src="/js/lg-zoom.js"></script>
+
+<script src="/js/lg-thumbnail.js"></script>
+
+  <script src="/lib/anime.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/medium-zoom@1/dist/medium-zoom.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/pangu@4/dist/browser/pangu.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/muse.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+
+
+
+
+  
+
+
+
+
+  
+<script src="/js/local-search.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+
+<script>
+NexT.utils.loadComments(document.querySelector('#valine-comments'), () => {
+  NexT.utils.getScript('//unpkg.com/valine/dist/Valine.min.js', () => {
+    var GUEST = ['nick', 'mail', 'link'];
+    var guest = 'nick,link,mail';
+    guest = guest.split(',').filter(item => {
+      return GUEST.includes(item);
+    });
+    new Valine({
+      el         : '#valine-comments',
+      verify     : false,
+      notify     : false,
+      appId      : 'Ao8PCQqEzcHG6k54bnapDx47-gzGzoHsz',
+      appKey     : 'KKS9DTjSEG6TChnH12zsQiyw',
+      placeholder: "来聊聊呗",
+      avatar     : 'retro',
+      meta       : guest,
+      pageSize   : '10' || 10,
+      visitor    : false,
+      lang       : 'zh-cn' || 'zh-cn',
+      path       : location.pathname,
+      recordIP   : false,
+      serverURLs : ''
+    });
+  }, window.Valine);
+});
+</script>
+
+</body>
+</html>

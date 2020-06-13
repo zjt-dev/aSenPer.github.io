@@ -1,0 +1,711 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 4.2.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/favicon.ico">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon.ico">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon.ico">
+  <link rel="mask-icon" href="/images/favicon.ico" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&display=swap&subset=latin,latin-ext">
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"www.asenper.cn","root":"/","scheme":"Mist","version":"7.8.0","exturl":false,"sidebar":{"position":"right","Muse | Mist":320,"width":234,"display":"always","padding":18,"offset":12,"onmobile":true},"copycode":{"enable":"ture","show_result":true,"style":"mac"},"back2top":{"enable":true,"sidebar":false,"scrollpercent":true},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":true,"lazyload":false,"pangu":"ture","comments":{"style":"tabs","active":"valine","storage":true,"lazyload":false,"nav":null,"activeClass":"valine"},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"slideLeftIn","post_header":"slideLeftIn","post_body":"slideLeftIn","coll_header":"slideLeftIn","sidebar":"perspectiveUpIn"}},"path":"search.xml"};
+  </script>
+
+  <meta name="description" content="原文链接 https:&#x2F;&#x2F;www.cnblogs.com&#x2F;humin&#x2F;p&#x2F;4556820.html 既然要实现继承，那么首先我们得有一个父类，代码如下： 12345678910111213&#x2F;&#x2F; 定义一个动物类function Animal (name) &amp;#123;  &#x2F;&#x2F; 属性  this.name &#x3D; name || &#39;Animal&#39;;  &#x2F;&#x2F; 实例方法  this.sleep &#x3D; funct">
+<meta property="og:type" content="article">
+<meta property="og:title" content="JS继承的实现方式">
+<meta property="og:url" content="http://www.asenper.cn/2019/04/18/%E3%80%90JS%E3%80%91JS%E7%BB%A7%E6%89%BF%E7%9A%84%E5%AE%9E%E7%8E%B0%E6%96%B9%E5%BC%8F/index.html">
+<meta property="og:site_name" content="aSenPer&#39;s Blog">
+<meta property="og:description" content="原文链接 https:&#x2F;&#x2F;www.cnblogs.com&#x2F;humin&#x2F;p&#x2F;4556820.html 既然要实现继承，那么首先我们得有一个父类，代码如下： 12345678910111213&#x2F;&#x2F; 定义一个动物类function Animal (name) &amp;#123;  &#x2F;&#x2F; 属性  this.name &#x3D; name || &#39;Animal&#39;;  &#x2F;&#x2F; 实例方法  this.sleep &#x3D; funct">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2019-04-18T02:29:25.000Z">
+<meta property="article:modified_time" content="2020-06-13T12:52:33.143Z">
+<meta property="article:author" content="aSenPer">
+<meta property="article:tag" content="JS">
+<meta name="twitter:card" content="summary">
+
+<link rel="canonical" href="http://www.asenper.cn/2019/04/18/%E3%80%90JS%E3%80%91JS%E7%BB%A7%E6%89%BF%E7%9A%84%E5%AE%9E%E7%8E%B0%E6%96%B9%E5%BC%8F/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-CN'
+  };
+</script>
+
+  <title>JS继承的实现方式 | aSenPer's Blog</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">aSenPer's Blog</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+      <p class="site-subtitle" itemprop="description">aSenPer's Blog</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签<span class="badge">11</span></a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类<span class="badge">11</span></a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档<span class="badge">31</span></a>
+
+  </li>
+        <li class="menu-item menu-item-收藏">
+
+    <a href="/collection/" rel="section"><i class="fa fa-atlas fa-fw"></i>收藏</a>
+
+  </li>
+        <li class="menu-item menu-item-相册">
+
+    <a href="/gallery/" rel="section"><i class="fa fa-camera-retro fa-fw"></i>相册</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/" rel="section"><i class="fa fa-user fa-fw fa-fw"></i>关于</a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result">
+  <div id="no-result">
+    <i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+  <div class="reading-progress-bar"></div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://www.asenper.cn/2019/04/18/%E3%80%90JS%E3%80%91JS%E7%BB%A7%E6%89%BF%E7%9A%84%E5%AE%9E%E7%8E%B0%E6%96%B9%E5%BC%8F/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.png">
+      <meta itemprop="name" content="aSenPer">
+      <meta itemprop="description" content="勤能补拙是良训，一分辛劳一分才。 ——华罗庚">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="aSenPer's Blog">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          JS继承的实现方式
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              <time title="创建时间：2019-04-18 10:29:25" itemprop="dateCreated datePublished" datetime="2019-04-18T10:29:25+08:00">2019-04-18</time>
+            </span>
+
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/JS/" itemprop="url" rel="index"><span itemprop="name">JS</span></a>
+                </span>
+            </span>
+
+          
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/2019/04/18/%E3%80%90JS%E3%80%91JS%E7%BB%A7%E6%89%BF%E7%9A%84%E5%AE%9E%E7%8E%B0%E6%96%B9%E5%BC%8F/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2019/04/18/%E3%80%90JS%E3%80%91JS%E7%BB%A7%E6%89%BF%E7%9A%84%E5%AE%9E%E7%8E%B0%E6%96%B9%E5%BC%8F/" itemprop="commentCount">0</span>
+    </a>
+  </span>
+  
+  
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+        <p>原文链接 <a href="https://www.cnblogs.com/humin/p/4556820.html" target="_blank" rel="noopener">https://www.cnblogs.com/humin/p/4556820.html</a></p>
+<p>既然要实现继承，那么首先我们得有一个父类，代码如下：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 定义一个动物类</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Animal</span> (<span class="params">name</span>) </span>&#123;</span><br><span class="line">  <span class="comment">// 属性</span></span><br><span class="line">  <span class="keyword">this</span>.name = name || <span class="string">'Animal'</span>;</span><br><span class="line">  <span class="comment">// 实例方法</span></span><br><span class="line">  <span class="keyword">this</span>.sleep = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="keyword">this</span>.name + <span class="string">'正在睡觉！'</span>);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 原型方法</span></span><br><span class="line">Animal.prototype.eat = <span class="function"><span class="keyword">function</span>(<span class="params">food</span>) </span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="keyword">this</span>.name + <span class="string">'正在吃：'</span> + food);</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+<h3 id="1、原型链继承"><a href="#1、原型链继承" class="headerlink" title="1、原型链继承"></a>1、原型链继承</h3><p><strong>核心：</strong> 将父类的实例作为子类的原型</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Cat</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">&#125;</span><br><span class="line">Cat.prototype = <span class="keyword">new</span> Animal();</span><br><span class="line">Cat.prototype.name = <span class="string">'cat'</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">//　Test Code</span></span><br><span class="line"><span class="keyword">var</span> cat = <span class="keyword">new</span> Cat();</span><br><span class="line"><span class="built_in">console</span>.log(cat.name);</span><br><span class="line"><span class="built_in">console</span>.log(cat.eat(<span class="string">'fish'</span>));</span><br><span class="line"><span class="built_in">console</span>.log(cat.sleep());</span><br><span class="line"><span class="built_in">console</span>.log(cat <span class="keyword">instanceof</span> Animal); <span class="comment">//true</span></span><br><span class="line"><span class="built_in">console</span>.log(cat <span class="keyword">instanceof</span> Cat); <span class="comment">//true</span></span><br></pre></td></tr></table></figure>
+
+<p>特点：</p>
+<ol>
+<li>非常纯粹的继承关系，实例是子类的实例，也是父类的实例</li>
+<li>父类新增原型方法/原型属性，子类都能访问到</li>
+<li>简单，易于实现</li>
+</ol>
+<p>缺点：</p>
+<ol>
+<li>要想为子类新增属性和方法，必须要在<code>new Animal()</code>这样的语句之后执行，不能放到构造器中</li>
+<li>无法实现多继承</li>
+<li>来自原型对象的所有属性被所有实例共享（来自原型对象的引用属性是所有实例共享的）（详细请看附录代码： 示例1）</li>
+<li>创建子类实例时，无法向父类构造函数传参</li>
+</ol>
+<p>推荐指数：★★（3、4两大致命缺陷）</p>
+<p><strong>2017-8-17 10:21:43补充：感谢 <a href="http://home.cnblogs.com/u/1066372/" target="_blank" rel="noopener">MMHS</a> 指出。缺点1中描述有误：可以在Cat构造函数中，为Cat实例增加实例属性。如果要新增原型属性和方法，则必须放在<code>new Animal()</code>这样的语句之后执行。</strong></p>
+<p><strong>2018-9-10 00:03:45补充：感谢 <a href="https://www.cnblogs.com/lianghaijie-ctw/" target="_blank" rel="noopener">IRVING_J</a> 指出。缺点3中的描述不够充分。更正为：来自原型对象的所有属性被所有实例共享。</strong></p>
+<h3 id="2、构造继承"><a href="#2、构造继承" class="headerlink" title="2、构造继承"></a>2、构造继承</h3><p><strong>核心：</strong>使用父类的构造函数来增强子类实例，等于是复制父类的实例属性给子类（没用到原型）</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Cat</span>(<span class="params">name</span>)</span>&#123;</span><br><span class="line">  Animal.call(<span class="keyword">this</span>);</span><br><span class="line">  <span class="keyword">this</span>.name = name || <span class="string">'Tom'</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// Test Code</span></span><br><span class="line"><span class="keyword">var</span> cat = <span class="keyword">new</span> Cat();</span><br><span class="line"><span class="built_in">console</span>.log(cat.name);</span><br><span class="line"><span class="built_in">console</span>.log(cat.sleep());</span><br><span class="line"><span class="built_in">console</span>.log(cat <span class="keyword">instanceof</span> Animal); <span class="comment">// false</span></span><br><span class="line"><span class="built_in">console</span>.log(cat <span class="keyword">instanceof</span> Cat); <span class="comment">// true</span></span><br></pre></td></tr></table></figure>
+
+<p>特点：</p>
+<ol>
+<li>解决了1中，子类实例共享父类引用属性的问题</li>
+<li>创建子类实例时，可以向父类传递参数</li>
+<li>可以实现多继承（call多个父类对象）</li>
+</ol>
+<p>缺点：</p>
+<ol>
+<li>实例并不是父类的实例，只是子类的实例</li>
+<li>只能继承父类的实例属性和方法，不能继承原型属性/方法</li>
+<li>无法实现函数复用，每个子类都有父类实例函数的副本，影响性能</li>
+</ol>
+<p>推荐指数：★★（缺点3）</p>
+<h3 id="3、实例继承"><a href="#3、实例继承" class="headerlink" title="3、实例继承"></a>3、实例继承</h3><p><strong>核心：</strong>为父类实例添加新特性，作为子类实例返回</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Cat</span>(<span class="params">name</span>)</span>&#123;</span><br><span class="line">  <span class="keyword">var</span> instance = <span class="keyword">new</span> Animal();</span><br><span class="line">  instance.name = name || <span class="string">'Tom'</span>;</span><br><span class="line">  <span class="keyword">return</span> instance;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// Test Code</span></span><br><span class="line"><span class="keyword">var</span> cat = <span class="keyword">new</span> Cat();</span><br><span class="line"><span class="built_in">console</span>.log(cat.name);</span><br><span class="line"><span class="built_in">console</span>.log(cat.sleep());</span><br><span class="line"><span class="built_in">console</span>.log(cat <span class="keyword">instanceof</span> Animal); <span class="comment">// true</span></span><br><span class="line"><span class="built_in">console</span>.log(cat <span class="keyword">instanceof</span> Cat); <span class="comment">// false</span></span><br></pre></td></tr></table></figure>
+
+<p>特点：</p>
+<ol>
+<li>不限制调用方式，不管是<code>new 子类()</code>还是<code>子类()</code>,返回的对象具有相同的效果</li>
+</ol>
+<p>缺点：</p>
+<ol>
+<li>实例是父类的实例，不是子类的实例</li>
+<li>不支持多继承</li>
+</ol>
+<p>推荐指数：★★</p>
+<h3 id="4、拷贝继承"><a href="#4、拷贝继承" class="headerlink" title="4、拷贝继承"></a>4、拷贝继承</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Cat</span>(<span class="params">name</span>)</span>&#123;</span><br><span class="line">  <span class="keyword">var</span> animal = <span class="keyword">new</span> Animal();</span><br><span class="line">  <span class="keyword">for</span>(<span class="keyword">var</span> p <span class="keyword">in</span> animal)&#123;</span><br><span class="line">    Cat.prototype[p] = animal[p];</span><br><span class="line">  &#125;</span><br><span class="line">  Cat.prototype.name = name || <span class="string">'Tom'</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// Test Code</span></span><br><span class="line"><span class="keyword">var</span> cat = <span class="keyword">new</span> Cat();</span><br><span class="line"><span class="built_in">console</span>.log(cat.name);</span><br><span class="line"><span class="built_in">console</span>.log(cat.sleep());</span><br><span class="line"><span class="built_in">console</span>.log(cat <span class="keyword">instanceof</span> Animal); <span class="comment">// false</span></span><br><span class="line"><span class="built_in">console</span>.log(cat <span class="keyword">instanceof</span> Cat); <span class="comment">// true</span></span><br></pre></td></tr></table></figure>
+
+<p>特点：</p>
+<ol>
+<li>支持多继承</li>
+</ol>
+<p>缺点：</p>
+<ol>
+<li>效率较低，内存占用高（因为要拷贝父类的属性）</li>
+<li>无法获取父类不可枚举的方法（不可枚举方法，不能使用for in 访问到）</li>
+</ol>
+<p>推荐指数：★（缺点1）</p>
+<h3 id="5、组合继承"><a href="#5、组合继承" class="headerlink" title="5、组合继承"></a>5、组合继承</h3><p><strong>核心：</strong>通过调用父类构造，继承父类的属性并保留传参的优点，然后通过将父类实例作为子类原型，实现函数复用</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Cat</span>(<span class="params">name</span>)</span>&#123;</span><br><span class="line">  Animal.call(<span class="keyword">this</span>);</span><br><span class="line">  <span class="keyword">this</span>.name = name || <span class="string">'Tom'</span>;</span><br><span class="line">&#125;</span><br><span class="line">Cat.prototype = <span class="keyword">new</span> Animal();<span class="comment">// 感谢 @学无止境c 的提醒，组合继承也是需要修复构造函数指向的。Cat.prototype.constructor = Cat;</span></span><br><span class="line"><span class="comment">// Test Code</span></span><br><span class="line"><span class="keyword">var</span> cat = <span class="keyword">new</span> Cat();</span><br><span class="line"><span class="built_in">console</span>.log(cat.name);</span><br><span class="line"><span class="built_in">console</span>.log(cat.sleep());</span><br><span class="line"><span class="built_in">console</span>.log(cat <span class="keyword">instanceof</span> Animal); <span class="comment">// true</span></span><br><span class="line"><span class="built_in">console</span>.log(cat <span class="keyword">instanceof</span> Cat); <span class="comment">// true</span></span><br></pre></td></tr></table></figure>
+
+<p>特点：</p>
+<ol>
+<li>弥补了方式2的缺陷，可以继承实例属性/方法，也可以继承原型属性/方法</li>
+<li>既是子类的实例，也是父类的实例</li>
+<li>不存在引用属性共享问题</li>
+<li>可传参</li>
+<li>函数可复用</li>
+</ol>
+<p>缺点：</p>
+<ol>
+<li>调用了两次父类构造函数，生成了两份实例（子类实例将子类原型上的那份屏蔽了）</li>
+</ol>
+<p>推荐指数：★★★★（仅仅多消耗了一点内存）</p>
+<h3 id="6、寄生组合继承"><a href="#6、寄生组合继承" class="headerlink" title="6、寄生组合继承"></a>6、寄生组合继承</h3><p><strong>核心：</strong>通过寄生方式，砍掉父类的实例属性，这样，在调用两次父类的构造的时候，就不会初始化两次实例方法/属性，避免的组合继承的缺点</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Cat</span>(<span class="params">name</span>)</span>&#123;</span><br><span class="line">  Animal.call(<span class="keyword">this</span>);</span><br><span class="line">  <span class="keyword">this</span>.name = name || <span class="string">'Tom'</span>;</span><br><span class="line">&#125;</span><br><span class="line">(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">  <span class="comment">// 创建一个没有实例方法的类</span></span><br><span class="line">  <span class="keyword">var</span> Super = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;&#125;;</span><br><span class="line">  Super.prototype = Animal.prototype;</span><br><span class="line">  <span class="comment">//将实例作为子类的原型</span></span><br><span class="line">  Cat.prototype = <span class="keyword">new</span> Super();</span><br><span class="line">&#125;)();</span><br><span class="line"></span><br><span class="line"><span class="comment">// Test Code</span></span><br><span class="line"><span class="keyword">var</span> cat = <span class="keyword">new</span> Cat();</span><br><span class="line"><span class="built_in">console</span>.log(cat.name);</span><br><span class="line"><span class="built_in">console</span>.log(cat.sleep());</span><br><span class="line"><span class="built_in">console</span>.log(cat <span class="keyword">instanceof</span> Animal); <span class="comment">// true</span></span><br><span class="line"><span class="built_in">console</span>.log(cat <span class="keyword">instanceof</span> Cat); <span class="comment">//true感谢 @bluedrink 提醒，该实现没有修复constructor。Cat.prototype.constructor = Cat; // 需要修复下构造函数</span></span><br></pre></td></tr></table></figure>
+
+<p>特点：</p>
+<ol>
+<li>堪称完美</li>
+</ol>
+<p>缺点：</p>
+<ol>
+<li>实现较为复杂</li>
+</ol>
+<p>推荐指数：★★★★（实现复杂，扣掉一颗星）</p>
+
+    </div>
+
+    
+    
+    
+      
+  <div class="popular-posts-header">相关文章</div>
+  <ul class="popular-posts">
+    <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="\2019\05\20\【js】判断字符串中是否包含某个字符串\" rel="bookmark">【js】判断字符串中是否包含某个字符串</a></div>
+    </li>
+    <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="\2019\04\18\【JS】闭包问题\" rel="bookmark">闭包</a></div>
+    </li>
+    <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="\2019\04\18\【JS】监听页面的后退返回(移动端PC端)\" rel="bookmark">【JS】监听页面的后退返回(移动端PC端)</a></div>
+    </li>
+    <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="\2019\05\02\【JS】垃圾回收内存泄漏\" rel="bookmark">垃圾回收内存泄漏</a></div>
+    </li>
+    <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="\2019\05\20\【JS】判断数据类型的方法\" rel="bookmark">【JS】判断数据类型的方法</a></div>
+    </li>
+  </ul>
+<div>
+    
+        <div style="text-align:center;color: #333;font-size:14px;">-------------本文结束 <i class="fa fa-hand-peace"></i> 感谢您的阅读-------------</div>
+    
+</div>
+
+        <div class="reward-container">
+  <div>感谢您嘞支持.</div>
+  <button onclick="var qr = document.getElementById('qr'); qr.style.display = (qr.style.display === 'none') ? 'block' : 'none';">
+    打赏
+  </button>
+  <div id="qr" style="display: none;">
+      
+      <div style="display: inline-block;">
+        <img src="https://asenper.gitee.io/images/wechatpay.jpg" alt="aSenPer 微信支付">
+        <p>微信支付</p>
+      </div>
+      
+      <div style="display: inline-block;">
+        <img src="https://asenper.gitee.io/images/alipay.jpg" alt="aSenPer 支付宝">
+        <p>支付宝</p>
+      </div>
+
+  </div>
+</div>
+
+        
+
+<div>
+<ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>本文作者： </strong>aSenPer
+  </li>
+  <li class="post-copyright-link">
+    <strong>本文链接：</strong>
+    <a href="http://www.asenper.cn/2019/04/18/%E3%80%90JS%E3%80%91JS%E7%BB%A7%E6%89%BF%E7%9A%84%E5%AE%9E%E7%8E%B0%E6%96%B9%E5%BC%8F/" title="JS继承的实现方式">http://www.asenper.cn/2019/04/18/【JS】JS继承的实现方式/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/zh-CN" rel="noopener" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！
+  </li>
+</ul>
+</div>
+
+
+      <footer class="post-footer">
+          
+          <div class="post-tags">
+              <a href="/tags/JS/" rel="tag"><i class="fa fa-tag"></i> JS</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2019/04/20/%E3%80%90vue%E3%80%91%E6%89%8B%E5%8A%A8%E5%AE%9E%E7%8E%B0%E4%B8%80%E4%B8%AA%E5%9F%BA%E7%A1%80%E5%8F%8C%E5%90%91%E7%BB%91%E5%AE%9A/" rel="prev" class="prev" title="【vue】手动实现一个基础双向绑定">
+      <span> 上一篇：【vue】手动实现一个基础双向绑定 </span>
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/2019/04/18/%E3%80%90JS%E3%80%91for%E3%80%81foreach%E7%BB%88%E6%AD%A2%E5%BE%AA%E7%8E%AF/" rel="next" class="next" title="for、foreach终止循环">
+      <span> 下一篇：for、foreach终止循环 </span>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+
+          </div>
+          
+    <div class="comments" id="valine-comments"></div>
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#1、原型链继承"><span class="nav-number">1.</span> <span class="nav-text">1、原型链继承</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2、构造继承"><span class="nav-number">2.</span> <span class="nav-text">2、构造继承</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3、实例继承"><span class="nav-number">3.</span> <span class="nav-text">3、实例继承</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4、拷贝继承"><span class="nav-number">4.</span> <span class="nav-text">4、拷贝继承</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5、组合继承"><span class="nav-number">5.</span> <span class="nav-text">5、组合继承</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#6、寄生组合继承"><span class="nav-number">6.</span> <span class="nav-text">6、寄生组合继承</span></a></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="aSenPer"
+      src="/images/avatar.png">
+  <p class="site-author-name" itemprop="name">aSenPer</p>
+  <div class="site-description" itemprop="description">勤能补拙是良训，一分辛劳一分才。 ——华罗庚</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">31</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">11</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">11</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <a href="https://github.com/asenper" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;asenper" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:18369656127@163.com" title="E-Mail → mailto:18369656127@163.com" rel="noopener" target="_blank"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://weibo.com/zjt94920" title="Weibo → https:&#x2F;&#x2F;weibo.com&#x2F;zjt94920" rel="noopener" target="_blank"><i class="fab fa-weibo fa-fw"></i>Weibo</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://www.cnblogs.com/asenper/" title="博客园 → https:&#x2F;&#x2F;www.cnblogs.com&#x2F;asenper&#x2F;" rel="noopener" target="_blank"><i class="fas fa-blog fa-fw"></i>博客园</a>
+      </span>
+  </div>
+
+
+
+      </div>
+      
+      <div class="widget-wrap">
+        <h4>标签云</h4>
+          <div id="myCanvasContainer" class="widget tagcloud">
+            <a href="/tags/Git/" style="font-size: 13px; color: #333">Git</a> <a href="/tags/JS/" style="font-size: 30px; color: #111">JS</a> <a href="/tags/Linux/" style="font-size: 13px; color: #333">Linux</a> <a href="/tags/Nginx/" style="font-size: 21.5px; color: #222">Nginx</a> <a href="/tags/Node/" style="font-size: 13px; color: #333">Node</a> <a href="/tags/Vue/" style="font-size: 25.75px; color: #1a1a1a">Vue</a> <a href="/tags/Webpack/" style="font-size: 17.25px; color: #2b2b2b">Webpack</a> <a href="/tags/hexo/" style="font-size: 13px; color: #333">hexo</a> <a href="/tags/markdown/" style="font-size: 13px; color: #333">markdown</a> <a href="/tags/%E5%B0%8F%E7%A8%8B%E5%BA%8F/" style="font-size: 13px; color: #333">小程序</a> <a href="/tags/%E6%AD%A3%E5%88%99/" style="font-size: 13px; color: #333">正则</a>
+          </div>
+      </div>
+      
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+  <script>
+  // var a = JSON.parse() 
+  // console.log(a)
+  // for (let i = 0 ; i < 11; )
+  </script>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+
+
+
+
+
+
+
+        <div class="copyright" style="text-align:center">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="fa fa-bolt"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">aSenPer</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-chart-area"></i>
+    </span>
+    <span title="站点总字数">48k</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+    <span title="站点阅读时长">43 分钟</span>
+</div>
+  <div class="beian"><a href="http://www.beian.miit.gov.cn/" rel="noopener" target="_blank">鲁ICP备20023085号 </a>
+  </div>
+
+      </div>
+    </footer>
+  </div>
+
+  
+<script src="https://cdn.jsdelivr.net/jquery/2.1.3/jquery.min.js"></script>
+
+<script src="/js/masonry.pkgd.min.js"></script>
+
+<script src="/js/lightGallery.min.js"></script>
+
+<script src="/js/lg-autoplay.min.js"></script>
+
+<script src="/js/lg-zoom.js"></script>
+
+<script src="/js/lg-thumbnail.js"></script>
+
+  <script src="/lib/anime.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/medium-zoom@1/dist/medium-zoom.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/pangu@4/dist/browser/pangu.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/muse.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+
+
+
+
+  
+
+
+
+
+  
+<script src="/js/local-search.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+
+<script>
+NexT.utils.loadComments(document.querySelector('#valine-comments'), () => {
+  NexT.utils.getScript('//unpkg.com/valine/dist/Valine.min.js', () => {
+    var GUEST = ['nick', 'mail', 'link'];
+    var guest = 'nick,link,mail';
+    guest = guest.split(',').filter(item => {
+      return GUEST.includes(item);
+    });
+    new Valine({
+      el         : '#valine-comments',
+      verify     : false,
+      notify     : false,
+      appId      : 'Ao8PCQqEzcHG6k54bnapDx47-gzGzoHsz',
+      appKey     : 'KKS9DTjSEG6TChnH12zsQiyw',
+      placeholder: "来聊聊呗",
+      avatar     : 'retro',
+      meta       : guest,
+      pageSize   : '10' || 10,
+      visitor    : false,
+      lang       : 'zh-cn' || 'zh-cn',
+      path       : location.pathname,
+      recordIP   : false,
+      serverURLs : ''
+    });
+  }, window.Valine);
+});
+</script>
+
+</body>
+</html>
