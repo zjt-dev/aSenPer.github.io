@@ -2335,7 +2335,7 @@ pre .javascript .function {
 }
 .links-of-author a::before,
 .links-of-author span.exturl::before {
-  background: #fff79e;
+  background: #fff;
   border-radius: 50%;
   content: ' ';
   display: inline-block;
@@ -4056,6 +4056,24 @@ body::-webkit-scrollbar {
   display: inline-block !important;
   margin: 0 auto;
   border: none;
+}
+.pagination .space {
+  width: 45px;
+  height: 40px;
+  border: 1px solid #ebebeb;
+  margin-left: -1px;
+  color: #8a8a8a;
+  display: inline-block;
+  line-height: 40px;
+  float: left;
+  font-size: 15px;
+  text-decoration: none;
+  margin: 0 2px;
+  border-radius: 6px;
+}
+.pagination .space:hover {
+  border-color: #59c459;
+  color: #59c459;
 }
 .pagination .page-number.current {
   background: #59c493;
