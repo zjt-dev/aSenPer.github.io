@@ -2335,7 +2335,7 @@ pre .javascript .function {
 }
 .links-of-author a::before,
 .links-of-author span.exturl::before {
-  background: #fff;
+  background: #1b1441;
   border-radius: 50%;
   content: ' ';
   display: inline-block;
@@ -3733,6 +3733,10 @@ hr {
 }
 .header {
   box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+  position: sticky;
+  top: 0;
+  z-index: 1;
+  opacity: 1;
 }
 .header .header-inner {
   padding: 10px 0;
@@ -3748,6 +3752,7 @@ hr {
 }
 .main {
   padding-top: 10px;
+  background: #f4f5f5;
 }
 .menu-item a:hover .badge {
   color: #59c459;
@@ -3771,9 +3776,10 @@ hr {
 }
 .main-inner .post-block {
   box-shadow: 0 0 5px rgba(202,203,204,0.5);
+  background: #fff;
 }
 .sidebar {
-  box-shadow: 0 3px 3px #008000;
+  box-shadow: 0 3px 3px #aaa;
   overflow: hidden;
   background: #fff;
 }
@@ -4058,6 +4064,7 @@ body::-webkit-scrollbar {
   border: none;
 }
 .pagination .space {
+  background: #fff;
   width: 45px;
   height: 40px;
   border: 1px solid #ebebeb;
@@ -4080,6 +4087,7 @@ body::-webkit-scrollbar {
   border: none;
 }
 .pagination .page-number {
+  background: #fff;
   width: 45px;
   height: 40px;
   border: 1px solid #ebebeb;
@@ -4098,6 +4106,7 @@ body::-webkit-scrollbar {
   color: #59c459;
 }
 .pagination .extend {
+  background: #fff;
   width: 45px;
   height: 40px;
   border: 1px solid #ebebeb;
@@ -4205,6 +4214,9 @@ body::-webkit-scrollbar {
 .medium-zoom-overlay,
 .medium-zoom-image--opened {
   z-index: 2;
+}
+.comments {
+  background: #fff;
 }
 @media screen and (max-width: 750px) {
   .kwy-content {
