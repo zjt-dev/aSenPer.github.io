@@ -22,13 +22,13 @@
 
   <meta name="description" content="普通函数和箭头函数的区别 箭头函数不能作构造函数。 箭头函数没有argument参数。如果你想访问箭头函数的直接参数，可以使用剩余参数 …args，剩余参数 … args 接受箭头函数的执行参数 箭头函数没有自己的This.指向，箭头函数内部的 this 值始终等于外部函数的 this值。换句话说，箭头函数可按词法解析 this，箭头函数没有定义自己的执行上下文。 常规函数如果缺少 return">
 <meta property="og:type" content="article">
-<meta property="og:title" content="js易错题">
+<meta property="og:title" content="JS面试题">
 <meta property="og:url" content="http://www.asenper.cn/2019/04/10/js%E6%98%93%E9%94%99%E9%A2%98/index.html">
 <meta property="og:site_name" content="ZJT&#39;s Blog">
 <meta property="og:description" content="普通函数和箭头函数的区别 箭头函数不能作构造函数。 箭头函数没有argument参数。如果你想访问箭头函数的直接参数，可以使用剩余参数 …args，剩余参数 … args 接受箭头函数的执行参数 箭头函数没有自己的This.指向，箭头函数内部的 this 值始终等于外部函数的 this值。换句话说，箭头函数可按词法解析 this，箭头函数没有定义自己的执行上下文。 常规函数如果缺少 return">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2019-04-10T02:29:25.000Z">
-<meta property="article:modified_time" content="2020-06-22T09:26:06.539Z">
+<meta property="article:modified_time" content="2020-07-01T09:06:46.715Z">
 <meta property="article:author" content="ZJT">
 <meta property="article:tag" content="Webpack">
 <meta name="twitter:card" content="summary">
@@ -46,7 +46,7 @@
   };
 </script>
 
-  <title>js易错题 | ZJT's Blog</title>
+  <title>JS面试题 | ZJT's Blog</title>
   
 
 
@@ -122,17 +122,17 @@
   </li>
         <li class="menu-item menu-item-tags">
 
-    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签<span class="badge">11</span></a>
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签<span class="badge">13</span></a>
 
   </li>
         <li class="menu-item menu-item-categories">
 
-    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类<span class="badge">12</span></a>
+    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类<span class="badge">14</span></a>
 
   </li>
         <li class="menu-item menu-item-archives">
 
-    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档<span class="badge">39</span></a>
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档<span class="badge">42</span></a>
 
   </li>
         <li class="menu-item menu-item-收藏">
@@ -219,7 +219,7 @@
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          js易错题
+          JS面试题
         </h1>
 
         <div class="post-meta">
@@ -280,6 +280,11 @@
 <p>解析</p>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> test = <span class="function"><span class="keyword">function</span>(<span class="params">a</span>)</span>&#123;</span><br><span class="line">    <span class="keyword">this</span>.a = a;  <span class="comment">// this指向window</span></span><br><span class="line">    <span class="keyword">return</span> <span class="function"><span class="keyword">function</span>(<span class="params">b</span>)</span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">this</span>.a + b;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> getA = <span class="function"><span class="keyword">function</span>(<span class="params">a,b</span>)</span>&#123;</span><br><span class="line">    <span class="keyword">return</span> a;</span><br><span class="line">&#125;(<span class="number">1</span>,<span class="number">2</span>)   <span class="comment">//自执行函数 返回1，b没有用到</span></span><br><span class="line">即:  </span><br><span class="line">test(getA)(<span class="number">4</span>)  <span class="comment">// test(1)(4)</span></span><br><span class="line">test(<span class="number">1</span>) 返回函数</span><br><span class="line"><span class="function"><span class="keyword">function</span>(<span class="params">b</span>)</span>&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">this</span>.a+b</span><br><span class="line">&#125;</span><br><span class="line">此时 a 为 <span class="number">1</span> </span><br><span class="line"></span><br><span class="line">很明显 最后返回 <span class="number">1</span>+<span class="number">4</span> 结果为 <span class="number">5</span></span><br></pre></td></tr></table></figure>
 
+<h2 id="扩展运算符"><a href="#扩展运算符" class="headerlink" title="扩展运算符"></a>扩展运算符</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> yd = &#123;<span class="attr">x</span>:<span class="number">1</span>,<span class="attr">y</span>:<span class="number">2</span>&#125;</span><br><span class="line"><span class="comment">//以下代码会不会报错</span></span><br><span class="line"><span class="keyword">let</span> yd1 = &#123; <span class="comment">//不会</span></span><br><span class="line">  ...yd,</span><br><span class="line">  <span class="keyword">get</span> x()&#123;</span><br><span class="line">    <span class="keyword">throw</span> <span class="keyword">new</span> <span class="built_in">Error</span>()</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">let</span> yd2 = &#123; <span class="comment">//会</span></span><br><span class="line">  ...yd,</span><br><span class="line">  ...&#123;</span><br><span class="line">    <span class="keyword">get</span> x()&#123;</span><br><span class="line">      <span class="keyword">throw</span> <span class="keyword">new</span> <span class="built_in">Error</span>()</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>扩展运算符的参数对象之中，如果有取值函数<code>get</code>，这个函数是会执行的。</p>
+<p><a href="https://es6.ruanyifeng.com/#docs/object#%E5%AF%B9%E8%B1%A1%E7%9A%84%E6%89%A9%E5%B1%95%E8%BF%90%E7%AE%97%E7%AC%A6" target="_blank" rel="noopener">对象的扩展运算符</a></p>
+<p><a href="https://es6.ruanyifeng.com/#docs/array#%E6%89%A9%E5%B1%95%E8%BF%90%E7%AE%97%E7%AC%A6" target="_blank" rel="noopener">数组的扩展运算符</a></p>
 
     </div>
 
@@ -331,7 +336,7 @@
   </li>
   <li class="post-copyright-link">
     <strong>本文链接：</strong>
-    <a href="http://www.asenper.cn/2019/04/10/js%E6%98%93%E9%94%99%E9%A2%98/" title="js易错题">http://www.asenper.cn/2019/04/10/js易错题/</a>
+    <a href="http://www.asenper.cn/2019/04/10/js%E6%98%93%E9%94%99%E9%A2%98/" title="JS面试题">http://www.asenper.cn/2019/04/10/js易错题/</a>
   </li>
   <li class="post-copyright-license">
     <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/zh-CN" rel="noopener" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！
@@ -419,7 +424,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#普通函数和箭头函数的区别"><span class="nav-number">1.</span> <span class="nav-text">普通函数和箭头函数的区别</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#This指向问题"><span class="nav-number">2.</span> <span class="nav-text">This指向问题</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#一个测试题"><span class="nav-number">2.0.1.</span> <span class="nav-text">一个测试题</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#闭包和自执行参数"><span class="nav-number">2.1.</span> <span class="nav-text">闭包和自执行参数</span></a></li></ol></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#普通函数和箭头函数的区别"><span class="nav-number">1.</span> <span class="nav-text">普通函数和箭头函数的区别</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#This指向问题"><span class="nav-number">2.</span> <span class="nav-text">This指向问题</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#一个测试题"><span class="nav-number">2.0.1.</span> <span class="nav-text">一个测试题</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#闭包和自执行参数"><span class="nav-number">2.1.</span> <span class="nav-text">闭包和自执行参数</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#扩展运算符"><span class="nav-number">3.</span> <span class="nav-text">扩展运算符</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -435,20 +440,20 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">39</span>
+          <span class="site-state-item-count">42</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
             <a href="/categories/">
           
-        <span class="site-state-item-count">12</span>
+        <span class="site-state-item-count">14</span>
         <span class="site-state-item-name">分类</span></a>
       </div>
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">11</span>
+        <span class="site-state-item-count">13</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -475,18 +480,13 @@
       <div class="widget-wrap">
         <h4>标签云</h4>
           <div id="myCanvasContainer" class="widget tagcloud">
-            <a href="/tags/Git/" style="font-size: 13px; color: #333">Git</a> <a href="/tags/JS/" style="font-size: 30px; color: #111">JS</a> <a href="/tags/Linux/" style="font-size: 13px; color: #333">Linux</a> <a href="/tags/Nginx/" style="font-size: 21.5px; color: #222">Nginx</a> <a href="/tags/Node/" style="font-size: 17.25px; color: #2b2b2b">Node</a> <a href="/tags/Promise/" style="font-size: 13px; color: #333">Promise</a> <a href="/tags/Vue/" style="font-size: 25.75px; color: #1a1a1a">Vue</a> <a href="/tags/Webpack/" style="font-size: 21.5px; color: #222">Webpack</a> <a href="/tags/hexo/" style="font-size: 13px; color: #333">hexo</a> <a href="/tags/markdown/" style="font-size: 13px; color: #333">markdown</a> <a href="/tags/%E5%B0%8F%E7%A8%8B%E5%BA%8F/" style="font-size: 13px; color: #333">小程序</a>
+            <a href="/tags/Git/" style="font-size: 13px; color: #333">Git</a> <a href="/tags/Hexo/" style="font-size: 17.25px; color: #2b2b2b">Hexo</a> <a href="/tags/JS/" style="font-size: 30px; color: #111">JS</a> <a href="/tags/Linux/" style="font-size: 13px; color: #333">Linux</a> <a href="/tags/Nginx/" style="font-size: 21.5px; color: #222">Nginx</a> <a href="/tags/Node/" style="font-size: 17.25px; color: #2b2b2b">Node</a> <a href="/tags/Promise/" style="font-size: 13px; color: #333">Promise</a> <a href="/tags/Vue/" style="font-size: 25.75px; color: #1a1a1a">Vue</a> <a href="/tags/Webpack/" style="font-size: 21.5px; color: #222">Webpack</a> <a href="/tags/markdown/" style="font-size: 13px; color: #333">markdown</a> <a href="/tags/%E5%85%B6%E5%AE%83/" style="font-size: 13px; color: #333">其它</a> <a href="/tags/%E5%B0%8F%E7%A8%8B%E5%BA%8F/" style="font-size: 13px; color: #333">小程序</a> <a href="/tags/%E6%9C%9D%E8%8A%B1%E5%A4%95%E6%8B%BE/" style="font-size: 13px; color: #333">朝花夕拾</a>
           </div>
       </div>
       
     </div>
   </aside>
   <div id="sidebar-dimmer"></div>
-  <script>
-  // var a = JSON.parse() 
-  // console.log(a)
-  // for (let i = 0 ; i < 11; )
-  </script>
 
 
       </div>
@@ -517,12 +517,12 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-area"></i>
     </span>
-    <span title="站点总字数">79k</span>
+    <span title="站点总字数">84k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="站点阅读时长">1:12</span>
+    <span title="站点阅读时长">1:16</span>
 </div>
   <div class="beian"><a href="http://www.beian.miit.gov.cn/" rel="noopener" target="_blank">鲁ICP备20023085号 </a>
   </div>

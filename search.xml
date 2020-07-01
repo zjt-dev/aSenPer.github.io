@@ -1,6 +1,35 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>markdown基本语法</title>
+    <url>/2019/04/12/markdown%E5%9F%BA%E6%9C%AC%E8%AF%AD%E6%B3%95/</url>
+    <content><![CDATA[<h4 id="标题"><a href="#标题" class="headerlink" title="标题"></a>标题</h4><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"># 这是一级标题</span><br><span class="line">## 这是二级标题</span><br><span class="line">### 这是三级标题</span><br></pre></td></tr></table></figure>
+
+<h4 id="字体"><a href="#字体" class="headerlink" title="字体"></a>字体</h4><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">**这是加粗的文字**</span><br><span class="line">*这是倾斜的文字*&#96;</span><br><span class="line">***这是斜体加粗的文字***</span><br><span class="line">~~这是加删除线的文字~~</span><br></pre></td></tr></table></figure>
+
+<h4 id="引用"><a href="#引用" class="headerlink" title="引用"></a>引用</h4><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&gt;这是引用的内容</span><br><span class="line">&gt;&gt;这是引用的内容</span><br><span class="line">&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;这是引用的内容</span><br></pre></td></tr></table></figure>
+
+<h4 id="分割线"><a href="#分割线" class="headerlink" title="分割线"></a>分割线</h4><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">---</span><br><span class="line">----</span><br><span class="line">***</span><br><span class="line">*****</span><br></pre></td></tr></table></figure>
+
+<h4 id="图片"><a href="#图片" class="headerlink" title="图片"></a>图片</h4><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">![图片alt](图片地址 &#39;&#39;图片title&#39;&#39;)</span><br><span class="line"> </span><br><span class="line">图片alt就是显示在图片下面的文字，相当于对图片内容的解释。</span><br><span class="line">图片title是图片的标题，当鼠标移到图片上时显示的内容。title可加可不加</span><br></pre></td></tr></table></figure>
+
+<h4 id="超链接"><a href="#超链接" class="headerlink" title="超链接"></a>超链接</h4><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">[超链接名](超链接地址 &quot;超链接title&quot;)</span><br><span class="line">title可加可不加</span><br></pre></td></tr></table></figure>
+
+<h4 id="列表"><a href="#列表" class="headerlink" title="列表"></a>列表</h4><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">- 列表内容</span><br><span class="line">+ 列表内容</span><br><span class="line">* 列表内容</span><br><span class="line"> </span><br><span class="line">注意：- + * 跟内容之间都要有一个空格</span><br></pre></td></tr></table></figure>
+
+<h4 id="表格"><a href="#表格" class="headerlink" title="表格"></a>表格</h4><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">表头|表头|表头</span><br><span class="line">---|:--:|---:</span><br><span class="line">内容|内容|内容</span><br><span class="line">内容|内容|内容</span><br><span class="line"> </span><br><span class="line">注意：</span><br><span class="line">1.第二行分割表头和内容“-”有一个就行，为了对齐，多加了几个</span><br><span class="line">2.文字默认居左，“-”两边加：表示文字居中；“-”右边加：表示文字居右</span><br></pre></td></tr></table></figure>
+
+<h4 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h4><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">​   &#96;&#96;&#96; 语言类型 如 js &#x2F; html &#x2F; php</span><br><span class="line">    代码...</span><br><span class="line">    代码...</span><br><span class="line">    代码...</span><br><span class="line">​</span><br></pre></td></tr></table></figure>
+<p>```</p>
+]]></content>
+      <categories>
+        <category>markdown</category>
+      </categories>
+      <tags>
+        <tag>markdown</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Linux服务器中配置Nginx一个域名访问多个项目</title>
     <url>/2019/04/12/Linux%E6%9C%8D%E5%8A%A1%E5%99%A8%E4%B8%AD%E9%85%8D%E7%BD%AENginx%E4%B8%80%E4%B8%AA%E5%9F%9F%E5%90%8D%E8%AE%BF%E9%97%AE%E5%A4%9A%E4%B8%AA%E9%A1%B9%E7%9B%AE/</url>
     <content><![CDATA[<p>服务器配置个人博客和其它项目使其能够根据不同 url 跳转到不同项目，(例如:<em>localhosh://A 项目/，localhosh://B 项目/</em> )因为对服务器和 Nginx 部署了解甚少，在此记录一下</p>
@@ -60,7 +89,7 @@
       </tags>
   </entry>
   <entry>
-    <title>js易错题</title>
+    <title>JS面试题</title>
     <url>/2019/04/10/js%E6%98%93%E9%94%99%E9%A2%98/</url>
     <content><![CDATA[<h2 id="普通函数和箭头函数的区别"><a href="#普通函数和箭头函数的区别" class="headerlink" title="普通函数和箭头函数的区别"></a>普通函数和箭头函数的区别</h2><ul>
 <li>箭头函数不能作构造函数。</li>
@@ -77,56 +106,17 @@
 <p>解析</p>
 <figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> test = <span class="function"><span class="keyword">function</span>(<span class="params">a</span>)</span>&#123;</span><br><span class="line">    <span class="keyword">this</span>.a = a;  <span class="comment">// this指向window</span></span><br><span class="line">    <span class="keyword">return</span> <span class="function"><span class="keyword">function</span>(<span class="params">b</span>)</span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">this</span>.a + b;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> getA = <span class="function"><span class="keyword">function</span>(<span class="params">a,b</span>)</span>&#123;</span><br><span class="line">    <span class="keyword">return</span> a;</span><br><span class="line">&#125;(<span class="number">1</span>,<span class="number">2</span>)   <span class="comment">//自执行函数 返回1，b没有用到</span></span><br><span class="line">即:  </span><br><span class="line">test(getA)(<span class="number">4</span>)  <span class="comment">// test(1)(4)</span></span><br><span class="line">test(<span class="number">1</span>) 返回函数</span><br><span class="line"><span class="function"><span class="keyword">function</span>(<span class="params">b</span>)</span>&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">this</span>.a+b</span><br><span class="line">&#125;</span><br><span class="line">此时 a 为 <span class="number">1</span> </span><br><span class="line"></span><br><span class="line">很明显 最后返回 <span class="number">1</span>+<span class="number">4</span> 结果为 <span class="number">5</span></span><br></pre></td></tr></table></figure>
 
+<h2 id="扩展运算符"><a href="#扩展运算符" class="headerlink" title="扩展运算符"></a>扩展运算符</h2><figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">let</span> yd = &#123;<span class="attr">x</span>:<span class="number">1</span>,<span class="attr">y</span>:<span class="number">2</span>&#125;</span><br><span class="line"><span class="comment">//以下代码会不会报错</span></span><br><span class="line"><span class="keyword">let</span> yd1 = &#123; <span class="comment">//不会</span></span><br><span class="line">  ...yd,</span><br><span class="line">  <span class="keyword">get</span> x()&#123;</span><br><span class="line">    <span class="keyword">throw</span> <span class="keyword">new</span> <span class="built_in">Error</span>()</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">let</span> yd2 = &#123; <span class="comment">//会</span></span><br><span class="line">  ...yd,</span><br><span class="line">  ...&#123;</span><br><span class="line">    <span class="keyword">get</span> x()&#123;</span><br><span class="line">      <span class="keyword">throw</span> <span class="keyword">new</span> <span class="built_in">Error</span>()</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>扩展运算符的参数对象之中，如果有取值函数<code>get</code>，这个函数是会执行的。</p>
+<p><a href="https://es6.ruanyifeng.com/#docs/object#%E5%AF%B9%E8%B1%A1%E7%9A%84%E6%89%A9%E5%B1%95%E8%BF%90%E7%AE%97%E7%AC%A6" target="_blank" rel="noopener">对象的扩展运算符</a></p>
+<p><a href="https://es6.ruanyifeng.com/#docs/array#%E6%89%A9%E5%B1%95%E8%BF%90%E7%AE%97%E7%AC%A6" target="_blank" rel="noopener">数组的扩展运算符</a></p>
 ]]></content>
       <categories>
         <category>Webpack</category>
       </categories>
       <tags>
         <tag>Webpack</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>markdown基本语法</title>
-    <url>/2019/04/12/markdown%E5%9F%BA%E6%9C%AC%E8%AF%AD%E6%B3%95/</url>
-    <content><![CDATA[<h4 id="标题"><a href="#标题" class="headerlink" title="标题"></a>标题</h4><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"># 这是一级标题</span><br><span class="line">## 这是二级标题</span><br><span class="line">### 这是三级标题</span><br></pre></td></tr></table></figure>
-
-<h4 id="字体"><a href="#字体" class="headerlink" title="字体"></a>字体</h4><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">**这是加粗的文字**</span><br><span class="line">*这是倾斜的文字*&#96;</span><br><span class="line">***这是斜体加粗的文字***</span><br><span class="line">~~这是加删除线的文字~~</span><br></pre></td></tr></table></figure>
-
-<h4 id="引用"><a href="#引用" class="headerlink" title="引用"></a>引用</h4><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&gt;这是引用的内容</span><br><span class="line">&gt;&gt;这是引用的内容</span><br><span class="line">&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;这是引用的内容</span><br></pre></td></tr></table></figure>
-
-<h4 id="分割线"><a href="#分割线" class="headerlink" title="分割线"></a>分割线</h4><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">---</span><br><span class="line">----</span><br><span class="line">***</span><br><span class="line">*****</span><br></pre></td></tr></table></figure>
-
-<h4 id="图片"><a href="#图片" class="headerlink" title="图片"></a>图片</h4><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">![图片alt](图片地址 &#39;&#39;图片title&#39;&#39;)</span><br><span class="line"> </span><br><span class="line">图片alt就是显示在图片下面的文字，相当于对图片内容的解释。</span><br><span class="line">图片title是图片的标题，当鼠标移到图片上时显示的内容。title可加可不加</span><br></pre></td></tr></table></figure>
-
-<h4 id="超链接"><a href="#超链接" class="headerlink" title="超链接"></a>超链接</h4><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">[超链接名](超链接地址 &quot;超链接title&quot;)</span><br><span class="line">title可加可不加</span><br></pre></td></tr></table></figure>
-
-<h4 id="列表"><a href="#列表" class="headerlink" title="列表"></a>列表</h4><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">- 列表内容</span><br><span class="line">+ 列表内容</span><br><span class="line">* 列表内容</span><br><span class="line"> </span><br><span class="line">注意：- + * 跟内容之间都要有一个空格</span><br></pre></td></tr></table></figure>
-
-<h4 id="表格"><a href="#表格" class="headerlink" title="表格"></a>表格</h4><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">表头|表头|表头</span><br><span class="line">---|:--:|---:</span><br><span class="line">内容|内容|内容</span><br><span class="line">内容|内容|内容</span><br><span class="line"> </span><br><span class="line">注意：</span><br><span class="line">1.第二行分割表头和内容“-”有一个就行，为了对齐，多加了几个</span><br><span class="line">2.文字默认居左，“-”两边加：表示文字居中；“-”右边加：表示文字居右</span><br></pre></td></tr></table></figure>
-
-<h4 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h4><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">​   &#96;&#96;&#96; 语言类型 如 js &#x2F; html &#x2F; php</span><br><span class="line">    代码...</span><br><span class="line">    代码...</span><br><span class="line">    代码...</span><br><span class="line">​</span><br></pre></td></tr></table></figure>
-<p>```</p>
-]]></content>
-      <categories>
-        <category>markdown</category>
-      </categories>
-      <tags>
-        <tag>markdown</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>for、foreach终止循环</title>
-    <url>/2019/04/18/%E3%80%90JS%E3%80%91for%E3%80%81foreach%E7%BB%88%E6%AD%A2%E5%BE%AA%E7%8E%AF/</url>
-    <content><![CDATA[<p>foreach 通过 throw   ***  抛出错误  通过 try {}catch(e){}接受错误 根据错误做出判断</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">try</span>&#123;</span><br><span class="line">      list.forEach(<span class="function">(<span class="params">i</span>) =&gt;</span> &#123;</span><br><span class="line">           <span class="keyword">if</span>(!i.title)&#123;</span><br><span class="line">               <span class="keyword">throw</span> <span class="string">'BreakT'</span></span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">if</span> (i.option_type == <span class="number">0</span> || i.option_type == <span class="number">1</span>) &#123;</span><br><span class="line">                i.option.forEach(<span class="function"><span class="params">v</span> =&gt;</span> &#123;</span><br><span class="line">                     <span class="keyword">if</span> (!v &amp;&amp; v !== <span class="number">0</span>) &#123;</span><br><span class="line">                          <span class="keyword">throw</span> <span class="string">'BreakV'</span>;</span><br><span class="line">                      &#125;</span><br><span class="line">                 &#125;)</span><br><span class="line">              &#125;</span><br><span class="line">     &#125;)</span><br><span class="line"> &#125;<span class="keyword">catch</span>(e)&#123;</span><br><span class="line">     uni.showToast(&#123;</span><br><span class="line">          icon: <span class="string">'none'</span>,</span><br><span class="line">          title: e == <span class="string">'BreakT'</span> ? <span class="string">'您有题目未添加标题，请检查'</span> :<span class="string">'您有选项未设置问题，请检查'</span></span><br><span class="line">     &#125;)</span><br><span class="line">     <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line"> &#125;</span><br></pre></td></tr></table></figure>
-
-<p>for循环直接 break</p>
-]]></content>
-      <categories>
-        <category>JS</category>
-      </categories>
-      <tags>
-        <tag>JS</tag>
       </tags>
   </entry>
   <entry>
@@ -224,6 +214,21 @@
 <li>实现较为复杂</li>
 </ol>
 <p>推荐指数：★★★★（实现复杂，扣掉一颗星）</p>
+]]></content>
+      <categories>
+        <category>JS</category>
+      </categories>
+      <tags>
+        <tag>JS</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>for、foreach终止循环</title>
+    <url>/2019/04/18/%E3%80%90JS%E3%80%91for%E3%80%81foreach%E7%BB%88%E6%AD%A2%E5%BE%AA%E7%8E%AF/</url>
+    <content><![CDATA[<p>foreach 通过 throw   ***  抛出错误  通过 try {}catch(e){}接受错误 根据错误做出判断</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">try</span>&#123;</span><br><span class="line">      list.forEach(<span class="function">(<span class="params">i</span>) =&gt;</span> &#123;</span><br><span class="line">           <span class="keyword">if</span>(!i.title)&#123;</span><br><span class="line">               <span class="keyword">throw</span> <span class="string">'BreakT'</span></span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">if</span> (i.option_type == <span class="number">0</span> || i.option_type == <span class="number">1</span>) &#123;</span><br><span class="line">                i.option.forEach(<span class="function"><span class="params">v</span> =&gt;</span> &#123;</span><br><span class="line">                     <span class="keyword">if</span> (!v &amp;&amp; v !== <span class="number">0</span>) &#123;</span><br><span class="line">                          <span class="keyword">throw</span> <span class="string">'BreakV'</span>;</span><br><span class="line">                      &#125;</span><br><span class="line">                 &#125;)</span><br><span class="line">              &#125;</span><br><span class="line">     &#125;)</span><br><span class="line"> &#125;<span class="keyword">catch</span>(e)&#123;</span><br><span class="line">     uni.showToast(&#123;</span><br><span class="line">          icon: <span class="string">'none'</span>,</span><br><span class="line">          title: e == <span class="string">'BreakT'</span> ? <span class="string">'您有题目未添加标题，请检查'</span> :<span class="string">'您有选项未设置问题，请检查'</span></span><br><span class="line">     &#125;)</span><br><span class="line">     <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line"> &#125;</span><br></pre></td></tr></table></figure>
+
+<p>for循环直接 break</p>
 ]]></content>
       <categories>
         <category>JS</category>
@@ -365,6 +370,18 @@
       </tags>
   </entry>
   <entry>
+    <title>【Vue】vuecli3 favicon 的修改</title>
+    <url>/2019/04/20/%E3%80%90Vue%E3%80%91vuecli3%20favicon%20%E7%9A%84%E4%BF%AE%E6%94%B9/</url>
+    <content><![CDATA[<p>在vue.config.js中配置pwa，重跑下项目就行了 // 以下是pwa配置</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">pwa: &#123;</span><br><span class="line">     iconPaths: &#123;</span><br><span class="line">       favicon32     : <span class="string">'faviconfc.ico'</span>,</span><br><span class="line">       favicon16     : <span class="string">'faviconfc.ico'</span>,</span><br><span class="line">       appleTouchIcon: <span class="string">'faviconfc.ico'</span>,</span><br><span class="line">       maskIcon      : <span class="string">'faviconfc.ico'</span>,</span><br><span class="line">       msTileImage   : <span class="string">'faviconfc.ico'</span> &#125;</span><br><span class="line">   &#125;,</span><br></pre></td></tr></table></figure>]]></content>
+      <categories>
+        <category>Vue</category>
+      </categories>
+      <tags>
+        <tag>Vue</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>闭包</title>
     <url>/2019/04/18/%E3%80%90JS%E3%80%91%E9%97%AD%E5%8C%85%E9%97%AE%E9%A2%98/</url>
     <content><![CDATA[<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">fun</span>(<span class="params">n,o</span>) </span>&#123;</span><br><span class="line"> <span class="built_in">console</span>.log(o) <span class="keyword">return</span> &#123;</span><br><span class="line">  fun:<span class="function"><span class="keyword">function</span>(<span class="params">m</span>)</span>&#123; <span class="keyword">return</span> fun(m,n);</span><br><span class="line">  &#125;</span><br><span class="line"> &#125;;</span><br><span class="line">&#125; <span class="keyword">var</span> a = fun(<span class="number">0</span>); a.fun(<span class="number">1</span>); a.fun(<span class="number">2</span>); a.fun(<span class="number">3</span>);<span class="comment">//undefined,?,?,?</span></span><br><span class="line"><span class="keyword">var</span> b = fun(<span class="number">0</span>).fun(<span class="number">1</span>).fun(<span class="number">2</span>).fun(<span class="number">3</span>);<span class="comment">//undefined,?,?,?</span></span><br><span class="line"><span class="keyword">var</span> c = fun(<span class="number">0</span>).fun(<span class="number">1</span>); c.fun(<span class="number">2</span>); c.fun(<span class="number">3</span>);<span class="comment">//undefined,?,?,? //问:三行a,b,c的输出分别是什么？</span></span><br></pre></td></tr></table></figure>
@@ -468,18 +485,6 @@
       </categories>
       <tags>
         <tag>JS</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>【Vue】vuecli3 favicon 的修改</title>
-    <url>/2019/04/20/%E3%80%90Vue%E3%80%91vuecli3%20favicon%20%E7%9A%84%E4%BF%AE%E6%94%B9/</url>
-    <content><![CDATA[<p>在vue.config.js中配置pwa，重跑下项目就行了 // 以下是pwa配置</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">pwa: &#123;</span><br><span class="line">     iconPaths: &#123;</span><br><span class="line">       favicon32     : <span class="string">'faviconfc.ico'</span>,</span><br><span class="line">       favicon16     : <span class="string">'faviconfc.ico'</span>,</span><br><span class="line">       appleTouchIcon: <span class="string">'faviconfc.ico'</span>,</span><br><span class="line">       maskIcon      : <span class="string">'faviconfc.ico'</span>,</span><br><span class="line">       msTileImage   : <span class="string">'faviconfc.ico'</span> &#125;</span><br><span class="line">   &#125;,</span><br></pre></td></tr></table></figure>]]></content>
-      <categories>
-        <category>Vue</category>
-      </categories>
-      <tags>
-        <tag>Vue</tag>
       </tags>
   </entry>
   <entry>
@@ -799,6 +804,59 @@ if(isAndroid){
       </tags>
   </entry>
   <entry>
+    <title>解决Git报错:error: You have not concluded your merge (MERGE_HEAD exists)</title>
+    <url>/2019/05/18/%E8%A7%A3%E5%86%B3Git%E6%8A%A5%E9%94%99-error-You-have-not-concluded-your-merge-MERGE-HEAD-exists/</url>
+    <content><![CDATA[<p>Git fetch和git pull的区别:</p>
+<a id="more"></a>
+<p>都可以从远程获取最新版本到本地<br>1.Git fetch:只是从远程获取最新版本到本地,不会merge(合并)<br>$:git fetch origin master   //从远程的origin的master主分支上获取最新版本到origin/master分支上<br>$:git log -p master..origin/master //比较本地的master分支和origin/master分支的区别<br>$:git merge origin/master          //合并</p>
+<p>2.Git pull:从远程获取最新版本并merge(合并)到本地<br>$:git pull origin master  //相当于进行了 git fetch 和 git merge两部操作<br>1<br>实际工作中,可能git fetch更好一些, 因为在merge前,可以根据实际情况决定是否merge<br>再说导致报错:error: You have not concluded your merge (MERGE_HEAD exists).的原因可能是在以前pull下来的代码自动合并失败<br>解决办法一:保留本地的更改,中止合并-&gt;重新合并-&gt;重新拉取<br>$:git merge –abort<br>$:git reset –merge<br>$:git pull</p>
+<p>解决办法二:舍弃本地代码,远端版本覆盖本地版本(慎重)<br>$:git fetch –all<br>$:git reset –hard origin/master<br>$:git fetch</p>
+]]></content>
+      <categories>
+        <category>Git</category>
+      </categories>
+      <tags>
+        <tag>Git</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>宝塔webhooks实现hexo自动部署</title>
+    <url>/2019/05/10/%E5%AE%9D%E5%A1%94hexo%E8%87%AA%E5%8A%A8%E9%83%A8%E7%BD%B2/</url>
+    <content><![CDATA[<h3 id="webhook自动部署"><a href="#webhook自动部署" class="headerlink" title="webhook自动部署"></a>webhook自动部署</h3><p>首先确保你的服务器已经安装了宝塔，安装webhook插件 ，添加hook 输入名称及一下脚本</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="meta">#!/bin/bash</span></span><br><span class="line"><span class="built_in">echo</span> <span class="string">""</span></span><br><span class="line"><span class="comment"># 输出当前时间</span></span><br><span class="line">date --date=<span class="string">'0 days ago'</span> <span class="string">"+%Y-%m-%d %H:%M:%S"</span></span><br><span class="line"><span class="built_in">echo</span> <span class="string">"Start"</span></span><br><span class="line"><span class="comment"># 判断宝塔WebHook参数是否存在</span></span><br><span class="line"><span class="keyword">if</span> [ ! -n <span class="string">"<span class="variable">$1</span>"</span> ];</span><br><span class="line"><span class="keyword">then</span></span><br><span class="line">          <span class="built_in">echo</span> <span class="string">"param参数错误"</span></span><br><span class="line">          <span class="built_in">echo</span> <span class="string">"End"</span></span><br><span class="line">          <span class="built_in">exit</span></span><br><span class="line"><span class="keyword">fi</span></span><br><span class="line"><span class="comment"># git项目路径</span></span><br><span class="line">gitPath=<span class="string">"/www/wwwroot/<span class="variable">$1</span>"</span></span><br><span class="line"><span class="comment"># git 网址</span></span><br><span class="line">gitHttp=<span class="string">"http://git.xxxxx.com/<span class="variable">$1</span>.git"</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">echo</span> <span class="string">"Web站点路径：<span class="variable">$gitPath</span>"</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 判断项目路径是否存在</span></span><br><span class="line"><span class="keyword">if</span> [ -d <span class="string">"<span class="variable">$gitPath</span>"</span> ]; <span class="keyword">then</span></span><br><span class="line">        <span class="built_in">cd</span> <span class="variable">$gitPath</span></span><br><span class="line">        <span class="comment"># 判断是否存在git目录</span></span><br><span class="line">        <span class="keyword">if</span> [ ! -d <span class="string">".git"</span> ]; <span class="keyword">then</span></span><br><span class="line">                <span class="built_in">echo</span> <span class="string">"在该目录下克隆 git"</span></span><br><span class="line">                git <span class="built_in">clone</span> <span class="variable">$gitHttp</span> gittemp</span><br><span class="line">                mv gittemp/.git .</span><br><span class="line">                rm -rf gittemp</span><br><span class="line">        <span class="keyword">fi</span></span><br><span class="line">        <span class="comment"># 拉取最新的项目文件</span></span><br><span class="line">        git reset --hard origin/master</span><br><span class="line">        git pull</span><br><span class="line">        <span class="comment"># 设置目录权限</span></span><br><span class="line">        chown -R www:www <span class="variable">$gitPath</span></span><br><span class="line">        <span class="built_in">echo</span> <span class="string">"End"</span></span><br><span class="line">        <span class="built_in">exit</span></span><br><span class="line"><span class="keyword">else</span></span><br><span class="line">        <span class="built_in">echo</span> <span class="string">"该项目路径不存在"</span></span><br><span class="line">        <span class="built_in">echo</span> <span class="string">"End"</span></span><br><span class="line">        <span class="built_in">exit</span></span><br><span class="line"><span class="keyword">fi</span></span><br></pre></td></tr></table></figure>
+
+<p>然后会生成 一个密钥 和 相关的链接</p>
+<h3 id="配置github"><a href="#配置github" class="headerlink" title="配置github"></a>配置github</h3><p><img src="http://cloud.asenper.cn//20200613184752.png" alt="image-20200613184750432"></p>
+<p>如图,添加webhooks,Payload URL为上一步生成的链接，Secret为密钥<br>就这么简单</p>
+]]></content>
+      <categories>
+        <category>Hexo</category>
+      </categories>
+      <tags>
+        <tag>Hexo</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>正向代理和反向代理</title>
+    <url>/2019/06/01/%E6%AD%A3%E5%90%91%E4%BB%A3%E7%90%86%E5%92%8C%E5%8F%8D%E5%90%91%E4%BB%A3%E7%90%86/</url>
+    <content><![CDATA[<h3 id="正向代理"><a href="#正向代理" class="headerlink" title="正向代理"></a>正向代理</h3><p>所谓正向代理就是顺着请求的方向进行的代理，即代理服务器他是由你配置为你服务，去请求目标服务器地址。</p>
+<p>比如我们要去访问谷歌网站，我们直接访问不通，那么我们就可以找一个代理服务器为我们服务，我们通过代理服务器请求到谷歌网站。对于谷歌而言他只知道有一个服务器访问了自己，并不知道这件事你是访问不了他,找了一个代理服务器访问自己。</p>
+<p>在举一个通俗的例子。你需要钱，C正好有钱，但是你C不直接借给你。你和B关系比较好，B可以找C借到钱。你和B沟通后，由B来找C借到钱后在给你。<br>上面的两个例子中的共同特点是 代理服务器和B都是你找到的，为你而服务的，代表你的利益。我们还可以让代理服务器给你代理到推特、Facebook等，他是代理的你。<br><img src="https://img-blog.csdnimg.cn/20190531180703829.jpg?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2xpdWhlbmdodWk1MjAx,size_16,color_FFFFFF,t_70" alt=""></p>
+<h3 id="反向代理"><a href="#反向代理" class="headerlink" title="反向代理"></a>反向代理</h3><p>所谓反向代理正好与正向代理相反，代理服务器是为目标服务器服务的，虽然整体的请求返回路线都是一样的都是Client到Proxy到Server。</p>
+<p>比如 我们访问百度网站，百度的代理服务器对外的域名为 <a href="https://www.baidu.com" target="_blank" rel="noopener">https://www.baidu.com</a> 。具体内部的服务器节点我们不知道。现实中我们通过访问百度的代理服务器后，代理服务器给我们转发请求到他们N多的服务器节点中的一个给我们进行搜索后将结果返回。</p>
+<p>再举例：我们同样需要钱，但是我们又不知道谁有钱，所以我们找了一家网贷平台，你提交资料后，网贷平台直接将钱打给你。但是你不知道，也不用关注网贷平台的钱从哪里来。网贷平台内部他们可能从哪一个财主哪里融的钱。对你而言网贷平台和他们的金主是一起的。</p>
+<p>同样通过上面我们例子可以看到，此时的代理服务器和后面的目标主机是一个系统的（百度公司、网贷平台）。他们是对外提供服务的，所以称为反向代理，代理的是后的人。<br><img src="https://img-blog.csdnimg.cn/20190531180723798.jpg?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2xpdWhlbmdodWk1MjAx,size_16,color_FFFFFF,t_70" alt=""></p>
+<h3 id="两者的区别"><a href="#两者的区别" class="headerlink" title="两者的区别"></a>两者的区别</h3><p><strong>正向代理代理的对象是客户端，反向代理代理的对象是服务端</strong></p>
+<p>原文链接：<a href="https://blog.csdn.net/liuhenghui5201/article/details/90720442" target="_blank" rel="noopener">https://blog.csdn.net/liuhenghui5201/article/details/90720442</a></p>
+]]></content>
+      <categories>
+        <category>Nginx</category>
+      </categories>
+      <tags>
+        <tag>Nginx</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>【js】判断字符串中是否包含某个字符串</title>
     <url>/2019/05/20/%E3%80%90js%E3%80%91%E5%88%A4%E6%96%AD%E5%AD%97%E7%AC%A6%E4%B8%B2%E4%B8%AD%E6%98%AF%E5%90%A6%E5%8C%85%E5%90%AB%E6%9F%90%E4%B8%AA%E5%AD%97%E7%AC%A6%E4%B8%B2/</url>
     <content><![CDATA[<h3 id="String对象方法"><a href="#String对象方法" class="headerlink" title="String对象方法"></a>String对象方法</h3><p>方法一: indexOf()   (推荐)</p>
@@ -823,59 +881,6 @@ if(isAndroid){
       </categories>
       <tags>
         <tag>JS</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>宝塔webhooks实现hexo自动部署</title>
-    <url>/2019/05/10/%E5%AE%9D%E5%A1%94hexo%E8%87%AA%E5%8A%A8%E9%83%A8%E7%BD%B2/</url>
-    <content><![CDATA[<h3 id="webhook自动部署"><a href="#webhook自动部署" class="headerlink" title="webhook自动部署"></a>webhook自动部署</h3><p>首先确保你的服务器已经安装了宝塔，安装webhook插件 ，添加hook 输入名称及一下脚本</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="meta">#!/bin/bash</span></span><br><span class="line"><span class="built_in">echo</span> <span class="string">""</span></span><br><span class="line"><span class="comment"># 输出当前时间</span></span><br><span class="line">date --date=<span class="string">'0 days ago'</span> <span class="string">"+%Y-%m-%d %H:%M:%S"</span></span><br><span class="line"><span class="built_in">echo</span> <span class="string">"Start"</span></span><br><span class="line"><span class="comment"># 判断宝塔WebHook参数是否存在</span></span><br><span class="line"><span class="keyword">if</span> [ ! -n <span class="string">"<span class="variable">$1</span>"</span> ];</span><br><span class="line"><span class="keyword">then</span></span><br><span class="line">          <span class="built_in">echo</span> <span class="string">"param参数错误"</span></span><br><span class="line">          <span class="built_in">echo</span> <span class="string">"End"</span></span><br><span class="line">          <span class="built_in">exit</span></span><br><span class="line"><span class="keyword">fi</span></span><br><span class="line"><span class="comment"># git项目路径</span></span><br><span class="line">gitPath=<span class="string">"/www/wwwroot/<span class="variable">$1</span>"</span></span><br><span class="line"><span class="comment"># git 网址</span></span><br><span class="line">gitHttp=<span class="string">"http://git.xxxxx.com/<span class="variable">$1</span>.git"</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">echo</span> <span class="string">"Web站点路径：<span class="variable">$gitPath</span>"</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 判断项目路径是否存在</span></span><br><span class="line"><span class="keyword">if</span> [ -d <span class="string">"<span class="variable">$gitPath</span>"</span> ]; <span class="keyword">then</span></span><br><span class="line">        <span class="built_in">cd</span> <span class="variable">$gitPath</span></span><br><span class="line">        <span class="comment"># 判断是否存在git目录</span></span><br><span class="line">        <span class="keyword">if</span> [ ! -d <span class="string">".git"</span> ]; <span class="keyword">then</span></span><br><span class="line">                <span class="built_in">echo</span> <span class="string">"在该目录下克隆 git"</span></span><br><span class="line">                git <span class="built_in">clone</span> <span class="variable">$gitHttp</span> gittemp</span><br><span class="line">                mv gittemp/.git .</span><br><span class="line">                rm -rf gittemp</span><br><span class="line">        <span class="keyword">fi</span></span><br><span class="line">        <span class="comment"># 拉取最新的项目文件</span></span><br><span class="line">        git reset --hard origin/master</span><br><span class="line">        git pull</span><br><span class="line">        <span class="comment"># 设置目录权限</span></span><br><span class="line">        chown -R www:www <span class="variable">$gitPath</span></span><br><span class="line">        <span class="built_in">echo</span> <span class="string">"End"</span></span><br><span class="line">        <span class="built_in">exit</span></span><br><span class="line"><span class="keyword">else</span></span><br><span class="line">        <span class="built_in">echo</span> <span class="string">"该项目路径不存在"</span></span><br><span class="line">        <span class="built_in">echo</span> <span class="string">"End"</span></span><br><span class="line">        <span class="built_in">exit</span></span><br><span class="line"><span class="keyword">fi</span></span><br></pre></td></tr></table></figure>
-
-<p>然后会生成 一个密钥 和 相关的链接</p>
-<h3 id="配置github"><a href="#配置github" class="headerlink" title="配置github"></a>配置github</h3><p><img src="http://cloud.asenper.cn//20200613184752.png" alt="image-20200613184750432"></p>
-<p>如图,添加webhooks,Payload URL为上一步生成的链接，Secret为密钥<br>就这么简单</p>
-]]></content>
-      <categories>
-        <category>hexo</category>
-      </categories>
-      <tags>
-        <tag>hexo</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>解决Git报错:error: You have not concluded your merge (MERGE_HEAD exists)</title>
-    <url>/2019/05/18/%E8%A7%A3%E5%86%B3Git%E6%8A%A5%E9%94%99-error-You-have-not-concluded-your-merge-MERGE-HEAD-exists/</url>
-    <content><![CDATA[<p>Git fetch和git pull的区别:</p>
-<a id="more"></a>
-<p>都可以从远程获取最新版本到本地<br>1.Git fetch:只是从远程获取最新版本到本地,不会merge(合并)<br>$:git fetch origin master   //从远程的origin的master主分支上获取最新版本到origin/master分支上<br>$:git log -p master..origin/master //比较本地的master分支和origin/master分支的区别<br>$:git merge origin/master          //合并</p>
-<p>2.Git pull:从远程获取最新版本并merge(合并)到本地<br>$:git pull origin master  //相当于进行了 git fetch 和 git merge两部操作<br>1<br>实际工作中,可能git fetch更好一些, 因为在merge前,可以根据实际情况决定是否merge<br>再说导致报错:error: You have not concluded your merge (MERGE_HEAD exists).的原因可能是在以前pull下来的代码自动合并失败<br>解决办法一:保留本地的更改,中止合并-&gt;重新合并-&gt;重新拉取<br>$:git merge –abort<br>$:git reset –merge<br>$:git pull</p>
-<p>解决办法二:舍弃本地代码,远端版本覆盖本地版本(慎重)<br>$:git fetch –all<br>$:git reset –hard origin/master<br>$:git fetch</p>
-]]></content>
-      <categories>
-        <category>Git</category>
-      </categories>
-      <tags>
-        <tag>Git</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>正向代理和反向代理</title>
-    <url>/2019/06/01/%E6%AD%A3%E5%90%91%E4%BB%A3%E7%90%86%E5%92%8C%E5%8F%8D%E5%90%91%E4%BB%A3%E7%90%86/</url>
-    <content><![CDATA[<h3 id="正向代理"><a href="#正向代理" class="headerlink" title="正向代理"></a>正向代理</h3><p>所谓正向代理就是顺着请求的方向进行的代理，即代理服务器他是由你配置为你服务，去请求目标服务器地址。</p>
-<p>比如我们要去访问谷歌网站，我们直接访问不通，那么我们就可以找一个代理服务器为我们服务，我们通过代理服务器请求到谷歌网站。对于谷歌而言他只知道有一个服务器访问了自己，并不知道这件事你是访问不了他,找了一个代理服务器访问自己。</p>
-<p>在举一个通俗的例子。你需要钱，C正好有钱，但是你C不直接借给你。你和B关系比较好，B可以找C借到钱。你和B沟通后，由B来找C借到钱后在给你。<br>上面的两个例子中的共同特点是 代理服务器和B都是你找到的，为你而服务的，代表你的利益。我们还可以让代理服务器给你代理到推特、Facebook等，他是代理的你。<br><img src="https://img-blog.csdnimg.cn/20190531180703829.jpg?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2xpdWhlbmdodWk1MjAx,size_16,color_FFFFFF,t_70" alt=""></p>
-<h3 id="反向代理"><a href="#反向代理" class="headerlink" title="反向代理"></a>反向代理</h3><p>所谓反向代理正好与正向代理相反，代理服务器是为目标服务器服务的，虽然整体的请求返回路线都是一样的都是Client到Proxy到Server。</p>
-<p>比如 我们访问百度网站，百度的代理服务器对外的域名为 <a href="https://www.baidu.com" target="_blank" rel="noopener">https://www.baidu.com</a> 。具体内部的服务器节点我们不知道。现实中我们通过访问百度的代理服务器后，代理服务器给我们转发请求到他们N多的服务器节点中的一个给我们进行搜索后将结果返回。</p>
-<p>再举例：我们同样需要钱，但是我们又不知道谁有钱，所以我们找了一家网贷平台，你提交资料后，网贷平台直接将钱打给你。但是你不知道，也不用关注网贷平台的钱从哪里来。网贷平台内部他们可能从哪一个财主哪里融的钱。对你而言网贷平台和他们的金主是一起的。</p>
-<p>同样通过上面我们例子可以看到，此时的代理服务器和后面的目标主机是一个系统的（百度公司、网贷平台）。他们是对外提供服务的，所以称为反向代理，代理的是后的人。<br><img src="https://img-blog.csdnimg.cn/20190531180723798.jpg?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2xpdWhlbmdodWk1MjAx,size_16,color_FFFFFF,t_70" alt=""></p>
-<h3 id="两者的区别"><a href="#两者的区别" class="headerlink" title="两者的区别"></a>两者的区别</h3><p><strong>正向代理代理的对象是客户端，反向代理代理的对象是服务端</strong></p>
-<p>原文链接：<a href="https://blog.csdn.net/liuhenghui5201/article/details/90720442" target="_blank" rel="noopener">https://blog.csdn.net/liuhenghui5201/article/details/90720442</a></p>
-]]></content>
-      <categories>
-        <category>Nginx</category>
-      </categories>
-      <tags>
-        <tag>Nginx</tag>
       </tags>
   </entry>
   <entry>
@@ -926,6 +931,26 @@ if(isAndroid){
     <url>/2019/07/14/%E5%86%85%E8%92%99%E5%8F%A4%E4%B9%8B%E6%97%85/</url>
     <content><![CDATA[<h5 id="去内蒙出差，觉得来一趟不容易，就一块去玩了一圈（天忒热，快中暑了）"><a href="#去内蒙出差，觉得来一趟不容易，就一块去玩了一圈（天忒热，快中暑了）" class="headerlink" title="去内蒙出差，觉得来一趟不容易，就一块去玩了一圈（天忒热，快中暑了）"></a>去内蒙出差，觉得来一趟不容易，就一块去玩了一圈（天忒热，快中暑了）</h5><p><img src="http://cloud.asenper.cn//20200613191858.jpg" alt="仙沙岛"><br><img src="http://cloud.asenper.cn//20200613195203.jpg" alt="内蒙古鄂尔多斯响沙湾"><br><img src="http://cloud.asenper.cn//20200613195241.jpg" alt="内蒙古鄂尔多斯响沙湾"><br><img src="http://cloud.asenper.cn//20200613195316.jpg" alt="内蒙古鄂尔多斯响沙湾"><br><img src="http://common.msmk.tech/IMG_20190714_120831.jpg?imageslim" alt="内蒙古鄂尔多斯响沙湾"><br><img src="http://common.msmk.tech/IMG_20190714_122822.jpg?imageslim" alt="内蒙古鄂尔多斯响沙湾"><br><img src="http://common.msmk.tech/IMG_20190714_123545.jpg?imageslim" alt="内蒙古鄂尔多斯响沙湾"><br><img src="http://common.msmk.tech/IMG_20190714_131239.jpg?imageslim" alt="内蒙古鄂尔多斯响沙湾"><br><img src="http://common.msmk.tech/IMG_20190714_131239.jpg?imageslim" alt="内蒙古鄂尔多斯响沙湾"><br><img src="http://cloud.asenper.cn//20200613192909.jpg" alt="杂技表演"><br><img src="http://cloud.asenper.cn//20200613192717.jpg" alt="杂技表演"><br><img src="http://common.msmk.tech/IMG_20190713_184312.jpg?imageslim" alt="呼和浩特成吉思汗公园"><br><img src="http://common.msmk.tech/IMG_20190713_184902.jpg?imageslim" alt="呼和浩特成吉思汗公园"><br><img src="http://cloud.asenper.cn//20200613194650.jpg" alt="呼和浩特跑马场"><br><img src="http://common.msmk.tech/IMG_20190713_194229.jpg?imageslim" alt="呼和浩特跑马场"></p>
 ]]></content>
+  </entry>
+  <entry>
+    <title>宝塔webhooks插件清除日志</title>
+    <url>/2019/07/02/%E5%AE%9D%E5%A1%94webhooks%E6%8F%92%E4%BB%B6%E6%B8%85%E9%99%A4%E6%97%A5%E5%BF%97/</url>
+    <content><![CDATA[<p>&emsp;&emsp;博客提交的多了，webhooks的日志也越来越多，每次都要把滚动条拉到最底，滚动条还特别小，就想着能不能添加一个清除日志的功能。正好在宝塔论坛里看到了这样的一边文章，转载过来，记录一下<br><a href="https://www.bt.cn/bbs/thread-30978-1-2.html" target="_blank" rel="noopener">https://www.bt.cn/bbs/thread-30978-1-2.html</a></p>
+<p>打开文件路径 /www/server/panel/plugin/webhook<br>找到 index.html 文件 编辑</p>
+<p>修改 获取列表方法<br>第78行  直接替换</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">zbody += <span class="string">'&lt;tr&gt;'</span></span><br><span class="line">      +<span class="string">'&lt;td&gt;'</span>+mlist[i].title+<span class="string">'&lt;/td&gt;'</span></span><br><span class="line">      +<span class="string">'&lt;td&gt;'</span>+getLocalTime(mlist[i].addtime)+<span class="string">'&lt;/td&gt;'</span></span><br><span class="line">      +<span class="string">'&lt;td&gt;'</span>+getLocalTime(mlist[i].uptime)+<span class="string">'&lt;/td&gt;'</span></span><br><span class="line">      +<span class="string">'&lt;td&gt;'</span>+mlist[i].count+<span class="string">'&lt;/td&gt;'</span></span><br><span class="line">      +<span class="string">'&lt;td&gt;&lt;a href="javascript:showWebHookCode(\''</span>+mlist[i].url+<span class="string">'\',\''</span>+mlist[i].access_key+<span class="string">'\')" class="btlink"&gt;查看密钥&lt;/a&gt;&lt;/td&gt;'</span></span><br><span class="line">      +<span class="string">'&lt;td&gt;&lt;div style="text-align: right;"&gt;&lt;a href="javascript:RunHook(\''</span>+mlist[i].access_key+<span class="string">'\');" class="btlink"&gt;测试&lt;/a&gt; | '</span></span><br><span class="line">      +<span class="string">'&lt;a href="javascript:OnlineEditFile(0,\'/www/server/panel/plugin/webhook/script/'</span>+mlist[i].access_key+<span class="string">'\');" class="btlink"&gt;编辑&lt;/a&gt; | '</span></span><br><span class="line">      +<span class="string">'&lt;a href="javascript:DeleteHook(\''</span>+mlist[i].access_key+<span class="string">'\');" class="btlink"&gt;删除&lt;/a&gt;&lt;/div&gt;'</span></span><br><span class="line">      +<span class="string">'&lt;div style="text-align: right;"&gt;&lt;a href="javascript:GetLogs(\'/www/server/panel/plugin/webhook/script/'</span>+mlist[i].access_key+<span class="string">'.log\');" class="btlink"&gt;日志&lt;/a&gt; | '</span></span><br><span class="line">      +<span class="string">'&lt;a href="javascript:ClearLogs(\'/www/server/panel/plugin/webhook/script/'</span>+mlist[i].access_key+<span class="string">'.log\');" class="btlink"&gt;清除日志&lt;/a&gt;&lt;/div&gt;&lt;/td&gt;'</span></span><br><span class="line">      +<span class="string">'&lt;/tr&gt;'</span></span><br></pre></td></tr></table></figure>
+
+
+<p>添加清除日志的方法</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">//清除日志</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">ClearLogs</span>(<span class="params">path</span>)</span>&#123;</span><br><span class="line">    loadT = layer.msg(<span class="string">'正在清除...'</span>,&#123;<span class="attr">icon</span>:<span class="number">16</span>,<span class="attr">time</span>:<span class="number">0</span>,<span class="attr">shade</span>: [<span class="number">0.3</span>, <span class="string">'#000'</span>]&#125;);</span><br><span class="line">    <span class="keyword">var</span> data=<span class="string">'&amp;path='</span>+path</span><br><span class="line">    $.post(<span class="string">'/files?action=DeleteFile'</span>,data,<span class="function"><span class="keyword">function</span>(<span class="params">rdata</span>)</span>&#123;</span><br><span class="line">        layer.close(loadT);</span><br><span class="line">        <span class="keyword">if</span>(!rdata.status) &#123;</span><br><span class="line">            layer.msg(rdata.msg,&#123;<span class="attr">icon</span>:<span class="number">2</span>&#125;);</span><br><span class="line">            <span class="keyword">return</span>;</span><br><span class="line">        &#125;;</span><br><span class="line">        layer.msg(rdata.msg,&#123;<span class="attr">icon</span>:rdata.status?<span class="number">1</span>:<span class="number">2</span>&#125;);</span><br><span class="line">    &#125;);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>完工<br><img src="https://img2020.cnblogs.com/blog/1524685/202006/1524685-20200630090102486-1644179180.png" alt=""></p>
+]]></content>
+      <categories>
+        <category>Hexo</category>
+      </categories>
+      <tags>
+        <tag>Hexo</tag>
+      </tags>
   </entry>
   <entry>
     <title>JS中的prototype、__proto__与constructor</title>
@@ -1296,8 +1321,8 @@ if(isAndroid){
   <entry>
     <title>创建对象的几种方式</title>
     <url>/2020/01/13/%E5%88%9B%E5%BB%BA%E5%AF%B9%E8%B1%A1%E7%9A%84%E5%87%A0%E7%A7%8D%E6%96%B9%E5%BC%8F/</url>
-    <content><![CDATA[<h3 id="对象："><a href="#对象：" class="headerlink" title="对象："></a>对象：</h3><p>对象的属性类型分为：<strong>数据属性</strong> 和 <strong>访问器属性</strong></p>
-<h4 id="数据属性："><a href="#数据属性：" class="headerlink" title="数据属性："></a>数据属性：</h4><p>四个描述其行为的特性：</p>
+    <content><![CDATA[<h2 id="对象："><a href="#对象：" class="headerlink" title="对象："></a>对象：</h2><p>对象的属性类型分为：<strong>数据属性</strong> 和 <strong>访问器属性</strong></p>
+<h3 id="数据属性："><a href="#数据属性：" class="headerlink" title="数据属性："></a>数据属性：</h3><p>四个描述其行为的特性：</p>
 <ul>
 <li><p><strong>configurable</strong>：默认值为 true；表示能否delete该属性</p>
 </li>
@@ -1308,7 +1333,7 @@ if(isAndroid){
 <li><p><strong>value</strong>：表示该属性的值</p>
 </li>
 </ul>
-<h4 id="访问器属性："><a href="#访问器属性：" class="headerlink" title="访问器属性："></a>访问器属性：</h4><p>相比数据属性，没有<em>writable</em>和<em>value</em>特性；而新增了<strong>get</strong>和<strong>set</strong>方法</p>
+<h3 id="访问器属性："><a href="#访问器属性：" class="headerlink" title="访问器属性："></a>访问器属性：</h3><p>相比数据属性，没有<em>writable</em>和<em>value</em>特性；而新增了<strong>get</strong>和<strong>set</strong>方法</p>
 <ul>
 <li><p><strong>get</strong>：读取属性值</p>
 </li>
@@ -1319,12 +1344,12 @@ if(isAndroid){
 
 </li>
 </ul>
-<h4 id="Object-defineProperties"><a href="#Object-defineProperties" class="headerlink" title="Object.defineProperties"></a>Object.defineProperties</h4><p>定义多个属性</p>
+<h3 id="Object-defineProperties"><a href="#Object-defineProperties" class="headerlink" title="Object.defineProperties"></a>Object.defineProperties</h3><p>定义多个属性</p>
   <figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> book = &#123;&#125;; </span><br><span class="line"><span class="built_in">Object</span>.defineProperties(book, &#123; </span><br><span class="line"> 	_year: &#123; </span><br><span class="line"> 		value: <span class="number">2004</span> </span><br><span class="line">  &#125;, </span><br><span class="line">  edition: &#123; </span><br><span class="line"> 		value: <span class="number">1</span> </span><br><span class="line">  &#125;, </span><br><span class="line">  year: &#123; </span><br><span class="line">    <span class="keyword">get</span>: function()&#123;</span><br><span class="line">      <span class="keyword">return</span> <span class="keyword">this</span>._year; </span><br><span class="line">    &#125;, </span><br><span class="line">    <span class="keyword">set</span>: function(newValue)&#123; </span><br><span class="line">     <span class="keyword">if</span> (newValue &gt; <span class="number">2004</span>) &#123; </span><br><span class="line">       <span class="keyword">this</span>._year = newValue; </span><br><span class="line">       <span class="keyword">this</span>.edition += newValue - <span class="number">2004</span>; </span><br><span class="line">     &#125; </span><br><span class="line">   &#125; </span><br><span class="line"> &#125; </span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
 
 
 
-<h4 id="Object-getOwnPropertyDescriptor"><a href="#Object-getOwnPropertyDescriptor" class="headerlink" title="Object.getOwnPropertyDescriptor()"></a>Object.getOwnPropertyDescriptor()</h4><p>获取给定属性的描述符。</p>
+<h3 id="Object-getOwnPropertyDescriptor"><a href="#Object-getOwnPropertyDescriptor" class="headerlink" title="Object.getOwnPropertyDescriptor()"></a>Object.getOwnPropertyDescriptor()</h3><p>获取给定属性的描述符。</p>
 <p>接收两个参数：属性所在的对象和要读取其描述符的属性名称</p>
 <h2 id="创建对象"><a href="#创建对象" class="headerlink" title="创建对象"></a>创建对象</h2><h3 id="工厂模式"><a href="#工厂模式" class="headerlink" title="工厂模式"></a>工厂模式</h3><figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">createPerson</span>(<span class="params">name, age, job</span>)</span>&#123; </span><br><span class="line">   <span class="keyword">var</span> o = <span class="keyword">new</span> <span class="built_in">Object</span>(); </span><br><span class="line">   o.name = name; </span><br><span class="line">   o.age = age; </span><br><span class="line">   o.job = job; </span><br><span class="line">   o.sayName = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123; </span><br><span class="line">     alert(<span class="keyword">this</span>.name); </span><br><span class="line">   &#125;; </span><br><span class="line">   <span class="keyword">return</span> o; </span><br><span class="line">&#125; </span><br><span class="line"><span class="keyword">var</span> person1 = createPerson(<span class="string">"Nicholas"</span>, <span class="number">29</span>, <span class="string">"Software Engineer"</span>); </span><br><span class="line"><span class="keyword">var</span> person2 = createPerson(<span class="string">"Greg"</span>, <span class="number">27</span>, <span class="string">"Doctor"</span>);</span><br></pre></td></tr></table></figure>
 
@@ -1340,7 +1365,7 @@ if(isAndroid){
 <li>直接将属性和方法赋值给了this对象</li>
 <li>没有return</li>
 </ul>
-<h4 id="new操作符完成的事："><a href="#new操作符完成的事：" class="headerlink" title="new操作符完成的事："></a><strong>new</strong>操作符完成的事：</h4><ol>
+<h3 id="new操作符完成的事："><a href="#new操作符完成的事：" class="headerlink" title="new操作符完成的事："></a><strong>new</strong>操作符完成的事：</h3><ol>
 <li>创建一个新的对象</li>
 <li>将构造函数的作用域指向该对象</li>
 <li>为该新对象添加属性</li>
@@ -1364,15 +1389,15 @@ if(isAndroid){
 <p>   使用 hasOwnProperty()方法可以检测一个属性是存在于实例中，还是存在于原型中</p>
 <figure class="highlight js"><table><tr><td class="code"><pre><span class="line">实例对象.hasOwnProperty(<span class="string">'name'</span>) <span class="comment">//true 就是存在于实例中，false就是存在于原型中</span></span><br></pre></td></tr></table></figure>
 
-<h4 id="in操作符"><a href="#in操作符" class="headerlink" title="in操作符"></a>in操作符</h4><p>有两种方式使用 in 操作符：单独使用和在 for-in 循环中使用。在单独使用时，in 操作符会在通过对象能够访问给定属性时返回 true，无论该属性存在于实例中还是原型中。</p>
+<h3 id="in操作符"><a href="#in操作符" class="headerlink" title="in操作符"></a>in操作符</h3><p>有两种方式使用 in 操作符：单独使用和在 for-in 循环中使用。在单独使用时，in 操作符会在通过对象能够访问给定属性时返回 true，无论该属性存在于实例中还是原型中。</p>
 <p>在使用 for-in 循环时，返回的是所有能够通过对象访问的、可枚举的（enumerated）属性，其中既包括存在于实例中的属性，也包括存在于原型中的属性</p>
 <p>可以通过 <strong>Object.keys()</strong> 取得对象上所有可枚举的实例属性，接收一个对象作为参数，返回一个包含所有可枚举属性的字符串数组</p>
-<h4 id="构造函数、原型和实例的关系："><a href="#构造函数、原型和实例的关系：" class="headerlink" title="构造函数、原型和实例的关系："></a>构造函数、原型和实例的关系：</h4><p><strong>每个构造函数都有一个原型对象，原型对象都包含一个指向构造函数的指针，而实例都包含一个指向原型对象的内部指针</strong></p>
+<h3 id="构造函数、原型和实例的关系："><a href="#构造函数、原型和实例的关系：" class="headerlink" title="构造函数、原型和实例的关系："></a>构造函数、原型和实例的关系：</h3><p><strong>每个构造函数都有一个原型对象，原型对象都包含一个指向构造函数的指针，而实例都包含一个指向原型对象的内部指针</strong></p>
 <h3 id="组合使用构造函数模式和原型模式"><a href="#组合使用构造函数模式和原型模式" class="headerlink" title="组合使用构造函数模式和原型模式"></a>组合使用构造函数模式和原型模式</h3><figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Person</span>(<span class="params">name, age, job</span>)</span>&#123; </span><br><span class="line">  <span class="comment">//实例自身的属性</span></span><br><span class="line"> <span class="keyword">this</span>.name = name; </span><br><span class="line"> <span class="keyword">this</span>.age = age; </span><br><span class="line"> <span class="keyword">this</span>.job = job; </span><br><span class="line"> <span class="keyword">this</span>.friends = [<span class="string">"Shelby"</span>, <span class="string">"Court"</span>]; </span><br><span class="line">&#125; </span><br><span class="line">Person.prototype = &#123; </span><br><span class="line">  <span class="comment">//实例共享的属性和方法</span></span><br><span class="line"> <span class="keyword">constructor</span> : Person, </span><br><span class="line"> sayName : function()&#123; </span><br><span class="line"> alert(<span class="keyword">this</span>.name); </span><br><span class="line"> &#125; </span><br><span class="line">&#125; </span><br><span class="line"><span class="keyword">var</span> person1 = <span class="keyword">new</span> Person(<span class="string">"Nicholas"</span>, <span class="number">29</span>, <span class="string">"Software Engineer"</span>); </span><br><span class="line"><span class="keyword">var</span> person2 = <span class="keyword">new</span> Person(<span class="string">"Greg"</span>, <span class="number">27</span>, <span class="string">"Doctor"</span>); </span><br><span class="line">person1.friends.push(<span class="string">"Van"</span>); </span><br><span class="line">alert(person1.friends); <span class="comment">//"Shelby,Count,Van" </span></span><br><span class="line">alert(person2.friends); <span class="comment">//"Shelby,Count" </span></span><br><span class="line">alert(person1.friends === person2.friends); <span class="comment">//false </span></span><br><span class="line">alert(person1.sayName === person2.sayName); <span class="comment">//true</span></span><br></pre></td></tr></table></figure>
 
 <h3 id="动态原型模式"><a href="#动态原型模式" class="headerlink" title="动态原型模式"></a>动态原型模式</h3><figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Person</span>(<span class="params">name, age, job</span>)</span>&#123; </span><br><span class="line">   <span class="comment">//属性</span></span><br><span class="line">   <span class="keyword">this</span>.name = name; </span><br><span class="line">   <span class="keyword">this</span>.age = age; </span><br><span class="line">   <span class="keyword">this</span>.job = job;</span><br><span class="line">    <span class="comment">//方法</span></span><br><span class="line">   <span class="keyword">if</span> (<span class="keyword">typeof</span> <span class="keyword">this</span>.sayName != <span class="string">"function"</span>)&#123; </span><br><span class="line">     Person.prototype.sayName = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123; </span><br><span class="line">     	 alert(<span class="keyword">this</span>.name); </span><br><span class="line">     &#125;; </span><br><span class="line">   &#125; </span><br><span class="line">&#125; </span><br><span class="line"><span class="keyword">var</span> friend = <span class="keyword">new</span> Person(<span class="string">"Nicholas"</span>, <span class="number">29</span>, <span class="string">"Software Engineer"</span>); </span><br><span class="line">friend.sayName();</span><br></pre></td></tr></table></figure>
 
-<h3 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h3><ul>
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><ul>
 <li><p>工厂模式，使用简单的函数创建对象，为对象添加属性和方法，然后返回对象。这个模式后来被构造函数模式所取代。</p>
 </li>
 <li><p>构造函数模式，可以创建自定义引用类型，可以像创建内置对象实例一样使用 new 操作符。不过，构造函数模式也有缺点，它的每个成员都无法得到复用，包括函数。由于函数可以不局限于任何对象（即与对象具有松散耦合的特点），因此没有理由不在多个对象间共享函数。</p>
@@ -1386,21 +1411,6 @@ if(isAndroid){
       </categories>
       <tags>
         <tag>JS</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>微信小程序点击多次navigator跳转无反应</title>
-    <url>/2020/05/27/%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F%E7%82%B9%E5%87%BB%E5%A4%9A%E6%AC%A1navigator%E8%B7%B3%E8%BD%AC%E6%97%A0%E5%8F%8D%E5%BA%94/</url>
-    <content><![CDATA[<p><code>navigator</code>组件<code>open-type</code>属性默认值为<code>navigate</code></p>
-<p>而<code>navigate</code>对应<code>navigateTo</code>方法，可以看到文档中对<code>navigateTo</code>的说明：</p>
-<p>保留当前页面，跳转到应用内的某个页面。但是不能跳到 tabbar 页面。使用 wx.navigateBack 可以返回到原页面。小程序中页面栈<strong>最多十层</strong>。</p>
-<p><strong>将 <code>open-type</code>属性值设为<code>redirect</code>即可</strong></p>
-]]></content>
-      <categories>
-        <category>小程序</category>
-      </categories>
-      <tags>
-        <tag>小程序</tag>
       </tags>
   </entry>
   <entry>
@@ -1629,6 +1639,21 @@ if(isAndroid){
       </categories>
   </entry>
   <entry>
+    <title>微信小程序点击多次navigator跳转无反应</title>
+    <url>/2020/05/27/%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F%E7%82%B9%E5%87%BB%E5%A4%9A%E6%AC%A1navigator%E8%B7%B3%E8%BD%AC%E6%97%A0%E5%8F%8D%E5%BA%94/</url>
+    <content><![CDATA[<p><code>navigator</code>组件<code>open-type</code>属性默认值为<code>navigate</code></p>
+<p>而<code>navigate</code>对应<code>navigateTo</code>方法，可以看到文档中对<code>navigateTo</code>的说明：</p>
+<p>保留当前页面，跳转到应用内的某个页面。但是不能跳到 tabbar 页面。使用 wx.navigateBack 可以返回到原页面。小程序中页面栈<strong>最多十层</strong>。</p>
+<p><strong>将 <code>open-type</code>属性值设为<code>redirect</code>即可</strong></p>
+]]></content>
+      <categories>
+        <category>小程序</category>
+      </categories>
+      <tags>
+        <tag>小程序</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>服务器登录显示version N/A -&gt; N/A is not yet installed</title>
     <url>/2020/06/09/nvm%E9%97%AE%E9%A2%98/</url>
     <content><![CDATA[<p>服务器登录显示 </p>
@@ -1651,7 +1676,24 @@ if(isAndroid){
       </tags>
   </entry>
   <entry>
-    <title>补课vue</title>
+    <title>糟糕的一天</title>
+    <url>/2020/06/29/%E7%B3%9F%E7%B3%95%E7%9A%84%E4%B8%80%E5%A4%A9/</url>
+    <content><![CDATA[<p>每天早晚我都会骑上我心爱的小车车上班、回家。但是！今天下班突然发现我的小车车不见了！心里一咯噔，完蛋，被小偷光顾了！我悲惨的人生啊😟😭😭😭。找了好几圈都没有找到，彻底放弃了，去问了保安大爷，有没有动那边的车子，大爷说没有，然后我想要调监控看看能不能逮个大盗，结果人家不让查，必须报警，出证明，才给让查。这都8点了，我上哪给他弄证明去，平时还得上班，也没有空啊！我的小车车刚骑了一年呐，就这么不幸的被盗了！真的是从来没想过这事会发生在我身上~</p>
+<p>唉，就这样吧，破财免灾，盗我车车的人呐， 你说你有手有脚，做点什么不好，要来偷。但愿你拿到钱后能把你全家人的命救活，如果救不活，就当为地球环保社会文明做贡献了！！！🤬🤬🤬</p>
+<p>  贴上一张车车的图（好像没有拍过照片，只能从店家拿来了）。再见了。小红~ ~ ~</p>
+<p><img src="http://cloud.asenper.cn//20200629231315.jpg" alt=""></p>
+<p>一辆车子，丢了就丢了，也不是啥大事，但我心情还是很不好啊。心里骂那贼子一万遍了~ ~ ~ ~</p>
+<p>算了算了，明天又是美好的一天！睡觉！good night 😴</p>
+]]></content>
+      <categories>
+        <category>朝花夕拾</category>
+      </categories>
+      <tags>
+        <tag>朝花夕拾</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>vue补课</title>
     <url>/2020/06/28/%E8%A1%A5%E8%AF%BEvue/</url>
     <content><![CDATA[<h2 id="hookEvent"><a href="#hookEvent" class="headerlink" title="hookEvent"></a>hookEvent</h2><h3 id="组件内部监听生命周期函数"><a href="#组件内部监听生命周期函数" class="headerlink" title="组件内部监听生命周期函数"></a>组件内部监听生命周期函数</h3><figure class="highlight js"><table><tr><td class="code"><pre><span class="line">mounted()&#123;</span><br><span class="line">    <span class="comment">// 通过hook监听组件销毁钩子函数，并取消监听事件</span></span><br><span class="line">    <span class="keyword">this</span>.$once(<span class="string">'hook:updated'</span>, () =&gt; &#123;&#125;)</span><br><span class="line">    <span class="comment">//或</span></span><br><span class="line">    <span class="keyword">this</span>.$on(<span class="string">'hook:updated'</span>,()=&gt;&#123;&#125;)   </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
@@ -1709,12 +1751,44 @@ if(isAndroid){
 <p>使用方法：</p>
 <figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> files = <span class="built_in">require</span>.context(<span class="string">'.'</span>, <span class="literal">true</span>, /\.js$/)</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(files.keys()) <span class="comment">// ["./home.js"] 返回一个数组</span></span><br><span class="line"><span class="keyword">let</span> configRouters = []</span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment">* inject routers</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line">files.keys().forEach(<span class="function"><span class="params">key</span> =&gt;</span> &#123;</span><br><span class="line">  <span class="keyword">if</span> (key === <span class="string">'./index.js'</span>) <span class="keyword">return</span></span><br><span class="line">  configRouters = configRouters.concat(files(key).default) <span class="comment">// 读取出文件中的default模块</span></span><br><span class="line">&#125;)</span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> configRouters <span class="comment">// 抛出一个Vue-router期待的结构的数组</span></span><br></pre></td></tr></table></figure>
 
+<h2 id="sync修饰符实现props的双向绑定"><a href="#sync修饰符实现props的双向绑定" class="headerlink" title=".sync修饰符实现props的双向绑定"></a>.sync修饰符实现props的双向绑定</h2><p>一个简单的小demo <a href="https://cn.vuejs.org/v2/guide/components-custom-events.html#sync-%E4%BF%AE%E9%A5%B0%E7%AC%A6" target="_blank" rel="noopener">官方文档</a></p>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"app"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">costum-show</span> <span class="attr">:isshow.sync</span>=<span class="string">"show"</span>&gt;</span><span class="tag">&lt;/<span class="name">costum-show</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"show"</span> <span class="attr">v-show</span>=<span class="string">"show"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">"https://cdn.bootcdn.net/ajax/libs/vue/2.6.11/vue.js"</span>&gt;</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="actionscript">    Vue.component(<span class="string">'costum-show'</span>, &#123;</span></span><br><span class="line"><span class="actionscript">      props: [<span class="string">'isshow'</span>],</span></span><br><span class="line">      template: `</span><br><span class="line"><span class="handlebars"><span class="xml">     <span class="tag">&lt;<span class="name">div</span>&gt;</span></span></span></span><br><span class="line"><span class="handlebars"><span class="xml">          <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"text"</span> <span class="attr">val</span>=<span class="string">""</span> @<span class="attr">click</span>=<span class="string">"showHandle"</span>&gt;</span></span></span></span><br><span class="line"><span class="handlebars"><span class="xml">     <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span></span></span><br><span class="line">`,</span><br><span class="line">      methods: &#123;</span><br><span class="line">        showHandle() &#123;</span><br><span class="line"><span class="actionscript">          <span class="keyword">this</span>.$emit(<span class="string">"update:isshow"</span>, !<span class="keyword">this</span>.isshow);</span></span><br><span class="line">        &#125;</span><br><span class="line">      &#125;,</span><br><span class="line">      mounted() &#123;</span><br><span class="line"><span class="javascript">        <span class="built_in">console</span>.log(<span class="keyword">this</span>.isShow);</span></span><br><span class="line">      &#125;,</span><br><span class="line">    &#125;)</span><br><span class="line"><span class="actionscript">    <span class="keyword">var</span> vm = <span class="keyword">new</span> Vue(&#123;</span></span><br><span class="line"><span class="actionscript">      el: <span class="string">'#app'</span>,</span></span><br><span class="line">      data: &#123;</span><br><span class="line"><span class="actionscript">        show: <span class="literal">true</span></span></span><br><span class="line">      &#125;</span><br><span class="line">    &#125;)</span><br><span class="line">  <span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>注意带有 <code>.sync</code> 修饰符的 <code>v-bind</code> <strong>不能</strong>和表达式一起使用 (例如 <code>v-bind:title.sync=”doc.title + ‘!’”</code> 是无效的)。取而代之的是，你只能提供你想要绑定的 property 名，类似 <code>v-model</code>。</p>
+<p>将 <code>v-bind.sync</code> 用在一个字面量的对象上，例如 <code>v-bind.sync=”{ title: doc.title }”</code>，是无法正常工作的，因为在解析一个像这样的复杂表达式的时候，有很多边缘情况需要考虑。</p>
+</blockquote>
+<h2 id="provide-amp-inject-—-依赖注入"><a href="#provide-amp-inject-—-依赖注入" class="headerlink" title="provide&amp;inject —-依赖注入"></a>provide&amp;inject —-依赖注入</h2><p><code>Vue</code>相关的面试经常会被面试官问道，<code>Vue</code>父子之间传值的方式有哪些，通常我们会回答，<code>props</code>传值，<code>$emit</code>事件传值，<code>vuex</code>传值，还有<code>eventbus</code>传值等等，今天再加一种<code>provide</code>与<code>inject</code>传值 <a href="https://cn.vuejs.org/v2/guide/components-edge-cases.html#%E4%BE%9D%E8%B5%96%E6%B3%A8%E5%85%A5" target="_blank" rel="noopener">官方文档</a></p>
+<p><code>provide</code> 选项允许我们指定我们想要<strong>提供</strong>给后代组件的数据/方法。</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">//祖先组件</span></span><br><span class="line">provide: <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> &#123;</span><br><span class="line">    getMap: <span class="keyword">this</span>.getMap</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>然后在任何后代组件里，我们都可以使用 <code>inject</code> 选项来接收指定的我们想要添加在这个实例上的 property：</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">inject: [<span class="string">'getMap'</span>]</span><br></pre></td></tr></table></figure>
+
+<p>注意点:</p>
+<ul>
+<li><code>provide</code> 和 <code>inject</code> 绑定并不是可响应的。</li>
+<li><code>provide</code> 和 <code>inject</code> 主要在开发高阶插件/组件库时使用。并不推荐用于普通应用程序代码中。</li>
+</ul>
 ]]></content>
       <categories>
         <category>Vue</category>
       </categories>
       <tags>
         <tag>Vue</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>github图片加载问题</title>
+    <url>/2020/07/01/github%E5%9B%BE%E7%89%87%E5%8A%A0%E8%BD%BD%E9%97%AE%E9%A2%98/</url>
+    <content><![CDATA[<p>没有梯子的情况下GitHub中的图片大概率是无法访问的</p>
+<p>修改<code>hosts</code>文件<br>添加以下内容<br>来自 <a href="https://github.com/521xueweihan/GitHub520" target="_blank" rel="noopener">https://github.com/521xueweihan/GitHub520</a></p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"># GitHub520 Host Start</span><br><span class="line">185.199.108.154               github.githubassets.com</span><br><span class="line">199.232.68.133                camo.githubusercontent.com</span><br><span class="line">199.232.68.133                github.map.fastly.net</span><br><span class="line">199.232.69.194                github.global.ssl.fastly.net</span><br><span class="line">140.82.112.4                  github.com</span><br><span class="line">140.82.112.6                  api.github.com</span><br><span class="line">199.232.68.133                raw.githubusercontent.com</span><br><span class="line">199.232.68.133                user-images.githubusercontent.com</span><br><span class="line">199.232.68.133                favicons.githubusercontent.com</span><br><span class="line">199.232.68.133                avatars5.githubusercontent.com</span><br><span class="line">199.232.68.133                avatars4.githubusercontent.com</span><br><span class="line">199.232.68.133                avatars3.githubusercontent.com</span><br><span class="line">199.232.68.133                avatars2.githubusercontent.com</span><br><span class="line">199.232.68.133                avatars1.githubusercontent.com</span><br><span class="line">199.232.68.133                avatars0.githubusercontent.com</span><br><span class="line"></span><br><span class="line"># GitHub520 Host End</span><br></pre></td></tr></table></figure>]]></content>
+      <categories>
+        <category>其它</category>
+      </categories>
+      <tags>
+        <tag>其它</tag>
       </tags>
   </entry>
 </search>
