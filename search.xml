@@ -1,35 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title>markdown基本语法</title>
-    <url>/2019/04/12/markdown%E5%9F%BA%E6%9C%AC%E8%AF%AD%E6%B3%95/</url>
-    <content><![CDATA[<h4 id="标题"><a href="#标题" class="headerlink" title="标题"></a>标题</h4><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"># 这是一级标题</span><br><span class="line">## 这是二级标题</span><br><span class="line">### 这是三级标题</span><br></pre></td></tr></table></figure>
-
-<h4 id="字体"><a href="#字体" class="headerlink" title="字体"></a>字体</h4><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">**这是加粗的文字**</span><br><span class="line">*这是倾斜的文字*&#96;</span><br><span class="line">***这是斜体加粗的文字***</span><br><span class="line">~~这是加删除线的文字~~</span><br></pre></td></tr></table></figure>
-
-<h4 id="引用"><a href="#引用" class="headerlink" title="引用"></a>引用</h4><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&gt;这是引用的内容</span><br><span class="line">&gt;&gt;这是引用的内容</span><br><span class="line">&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;这是引用的内容</span><br></pre></td></tr></table></figure>
-
-<h4 id="分割线"><a href="#分割线" class="headerlink" title="分割线"></a>分割线</h4><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">---</span><br><span class="line">----</span><br><span class="line">***</span><br><span class="line">*****</span><br></pre></td></tr></table></figure>
-
-<h4 id="图片"><a href="#图片" class="headerlink" title="图片"></a>图片</h4><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">![图片alt](图片地址 &#39;&#39;图片title&#39;&#39;)</span><br><span class="line"> </span><br><span class="line">图片alt就是显示在图片下面的文字，相当于对图片内容的解释。</span><br><span class="line">图片title是图片的标题，当鼠标移到图片上时显示的内容。title可加可不加</span><br></pre></td></tr></table></figure>
-
-<h4 id="超链接"><a href="#超链接" class="headerlink" title="超链接"></a>超链接</h4><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">[超链接名](超链接地址 &quot;超链接title&quot;)</span><br><span class="line">title可加可不加</span><br></pre></td></tr></table></figure>
-
-<h4 id="列表"><a href="#列表" class="headerlink" title="列表"></a>列表</h4><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">- 列表内容</span><br><span class="line">+ 列表内容</span><br><span class="line">* 列表内容</span><br><span class="line"> </span><br><span class="line">注意：- + * 跟内容之间都要有一个空格</span><br></pre></td></tr></table></figure>
-
-<h4 id="表格"><a href="#表格" class="headerlink" title="表格"></a>表格</h4><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">表头|表头|表头</span><br><span class="line">---|:--:|---:</span><br><span class="line">内容|内容|内容</span><br><span class="line">内容|内容|内容</span><br><span class="line"> </span><br><span class="line">注意：</span><br><span class="line">1.第二行分割表头和内容“-”有一个就行，为了对齐，多加了几个</span><br><span class="line">2.文字默认居左，“-”两边加：表示文字居中；“-”右边加：表示文字居右</span><br></pre></td></tr></table></figure>
-
-<h4 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h4><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">​   &#96;&#96;&#96; 语言类型 如 js &#x2F; html &#x2F; php</span><br><span class="line">    代码...</span><br><span class="line">    代码...</span><br><span class="line">    代码...</span><br><span class="line">​</span><br></pre></td></tr></table></figure>
-<p>```</p>
-]]></content>
-      <categories>
-        <category>markdown</category>
-      </categories>
-      <tags>
-        <tag>markdown</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>Linux服务器中配置Nginx一个域名访问多个项目</title>
     <url>/2019/04/12/Linux%E6%9C%8D%E5%8A%A1%E5%99%A8%E4%B8%AD%E9%85%8D%E7%BD%AENginx%E4%B8%80%E4%B8%AA%E5%9F%9F%E5%90%8D%E8%AE%BF%E9%97%AE%E5%A4%9A%E4%B8%AA%E9%A1%B9%E7%9B%AE/</url>
     <content><![CDATA[<p>服务器配置个人博客和其它项目使其能够根据不同 url 跳转到不同项目，(例如:<em>localhosh://A 项目/，localhosh://B 项目/</em> )因为对服务器和 Nginx 部署了解甚少，在此记录一下</p>
@@ -86,6 +57,35 @@
       </categories>
       <tags>
         <tag>Nginx</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>markdown基本语法</title>
+    <url>/2019/04/12/markdown%E5%9F%BA%E6%9C%AC%E8%AF%AD%E6%B3%95/</url>
+    <content><![CDATA[<h4 id="标题"><a href="#标题" class="headerlink" title="标题"></a>标题</h4><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"># 这是一级标题</span><br><span class="line">## 这是二级标题</span><br><span class="line">### 这是三级标题</span><br></pre></td></tr></table></figure>
+
+<h4 id="字体"><a href="#字体" class="headerlink" title="字体"></a>字体</h4><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">**这是加粗的文字**</span><br><span class="line">*这是倾斜的文字*&#96;</span><br><span class="line">***这是斜体加粗的文字***</span><br><span class="line">~~这是加删除线的文字~~</span><br></pre></td></tr></table></figure>
+
+<h4 id="引用"><a href="#引用" class="headerlink" title="引用"></a>引用</h4><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&gt;这是引用的内容</span><br><span class="line">&gt;&gt;这是引用的内容</span><br><span class="line">&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;这是引用的内容</span><br></pre></td></tr></table></figure>
+
+<h4 id="分割线"><a href="#分割线" class="headerlink" title="分割线"></a>分割线</h4><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">---</span><br><span class="line">----</span><br><span class="line">***</span><br><span class="line">*****</span><br></pre></td></tr></table></figure>
+
+<h4 id="图片"><a href="#图片" class="headerlink" title="图片"></a>图片</h4><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">![图片alt](图片地址 &#39;&#39;图片title&#39;&#39;)</span><br><span class="line"> </span><br><span class="line">图片alt就是显示在图片下面的文字，相当于对图片内容的解释。</span><br><span class="line">图片title是图片的标题，当鼠标移到图片上时显示的内容。title可加可不加</span><br></pre></td></tr></table></figure>
+
+<h4 id="超链接"><a href="#超链接" class="headerlink" title="超链接"></a>超链接</h4><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">[超链接名](超链接地址 &quot;超链接title&quot;)</span><br><span class="line">title可加可不加</span><br></pre></td></tr></table></figure>
+
+<h4 id="列表"><a href="#列表" class="headerlink" title="列表"></a>列表</h4><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">- 列表内容</span><br><span class="line">+ 列表内容</span><br><span class="line">* 列表内容</span><br><span class="line"> </span><br><span class="line">注意：- + * 跟内容之间都要有一个空格</span><br></pre></td></tr></table></figure>
+
+<h4 id="表格"><a href="#表格" class="headerlink" title="表格"></a>表格</h4><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">表头|表头|表头</span><br><span class="line">---|:--:|---:</span><br><span class="line">内容|内容|内容</span><br><span class="line">内容|内容|内容</span><br><span class="line"> </span><br><span class="line">注意：</span><br><span class="line">1.第二行分割表头和内容“-”有一个就行，为了对齐，多加了几个</span><br><span class="line">2.文字默认居左，“-”两边加：表示文字居中；“-”右边加：表示文字居右</span><br></pre></td></tr></table></figure>
+
+<h4 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h4><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">​   &#96;&#96;&#96; 语言类型 如 js &#x2F; html &#x2F; php</span><br><span class="line">    代码...</span><br><span class="line">    代码...</span><br><span class="line">    代码...</span><br><span class="line">​</span><br></pre></td></tr></table></figure>
+<p>```</p>
+]]></content>
+      <categories>
+        <category>markdown</category>
+      </categories>
+      <tags>
+        <tag>markdown</tag>
       </tags>
   </entry>
   <entry>
@@ -370,18 +370,6 @@
       </tags>
   </entry>
   <entry>
-    <title>【Vue】vuecli3 favicon 的修改</title>
-    <url>/2019/04/20/%E3%80%90Vue%E3%80%91vuecli3%20favicon%20%E7%9A%84%E4%BF%AE%E6%94%B9/</url>
-    <content><![CDATA[<p>在vue.config.js中配置pwa，重跑下项目就行了 // 以下是pwa配置</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">pwa: &#123;</span><br><span class="line">     iconPaths: &#123;</span><br><span class="line">       favicon32     : <span class="string">'faviconfc.ico'</span>,</span><br><span class="line">       favicon16     : <span class="string">'faviconfc.ico'</span>,</span><br><span class="line">       appleTouchIcon: <span class="string">'faviconfc.ico'</span>,</span><br><span class="line">       maskIcon      : <span class="string">'faviconfc.ico'</span>,</span><br><span class="line">       msTileImage   : <span class="string">'faviconfc.ico'</span> &#125;</span><br><span class="line">   &#125;,</span><br></pre></td></tr></table></figure>]]></content>
-      <categories>
-        <category>Vue</category>
-      </categories>
-      <tags>
-        <tag>Vue</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>闭包</title>
     <url>/2019/04/18/%E3%80%90JS%E3%80%91%E9%97%AD%E5%8C%85%E9%97%AE%E9%A2%98/</url>
     <content><![CDATA[<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">fun</span>(<span class="params">n,o</span>) </span>&#123;</span><br><span class="line"> <span class="built_in">console</span>.log(o) <span class="keyword">return</span> &#123;</span><br><span class="line">  fun:<span class="function"><span class="keyword">function</span>(<span class="params">m</span>)</span>&#123; <span class="keyword">return</span> fun(m,n);</span><br><span class="line">  &#125;</span><br><span class="line"> &#125;;</span><br><span class="line">&#125; <span class="keyword">var</span> a = fun(<span class="number">0</span>); a.fun(<span class="number">1</span>); a.fun(<span class="number">2</span>); a.fun(<span class="number">3</span>);<span class="comment">//undefined,?,?,?</span></span><br><span class="line"><span class="keyword">var</span> b = fun(<span class="number">0</span>).fun(<span class="number">1</span>).fun(<span class="number">2</span>).fun(<span class="number">3</span>);<span class="comment">//undefined,?,?,?</span></span><br><span class="line"><span class="keyword">var</span> c = fun(<span class="number">0</span>).fun(<span class="number">1</span>); c.fun(<span class="number">2</span>); c.fun(<span class="number">3</span>);<span class="comment">//undefined,?,?,? //问:三行a,b,c的输出分别是什么？</span></span><br></pre></td></tr></table></figure>
@@ -485,6 +473,18 @@
       </categories>
       <tags>
         <tag>JS</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>【Vue】vuecli3 favicon 的修改</title>
+    <url>/2019/04/20/%E3%80%90Vue%E3%80%91vuecli3%20favicon%20%E7%9A%84%E4%BF%AE%E6%94%B9/</url>
+    <content><![CDATA[<p>在vue.config.js中配置pwa，重跑下项目就行了 // 以下是pwa配置</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">pwa: &#123;</span><br><span class="line">     iconPaths: &#123;</span><br><span class="line">       favicon32     : <span class="string">'faviconfc.ico'</span>,</span><br><span class="line">       favicon16     : <span class="string">'faviconfc.ico'</span>,</span><br><span class="line">       appleTouchIcon: <span class="string">'faviconfc.ico'</span>,</span><br><span class="line">       maskIcon      : <span class="string">'faviconfc.ico'</span>,</span><br><span class="line">       msTileImage   : <span class="string">'faviconfc.ico'</span> &#125;</span><br><span class="line">   &#125;,</span><br></pre></td></tr></table></figure>]]></content>
+      <categories>
+        <category>Vue</category>
+      </categories>
+      <tags>
+        <tag>Vue</tag>
       </tags>
   </entry>
   <entry>
@@ -636,6 +636,44 @@
       </tags>
   </entry>
   <entry>
+    <title>【JS】判断数据类型的方法</title>
+    <url>/2019/05/20/%E3%80%90JS%E3%80%91%E5%88%A4%E6%96%AD%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B%E7%9A%84%E6%96%B9%E6%B3%95/</url>
+    <content><![CDATA[<p>对js中不同数据的布尔值类型总结：false:空字符串；null；undefined；0；NaN。<br>true：除了上面的false的情况其他都为true；</p>
+<p>如下：</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> o = &#123; </span><br><span class="line">          <span class="string">'name'</span>:<span class="string">'lee'</span></span><br><span class="line">        &#125;;</span><br><span class="line"><span class="keyword">var</span> a = \[<span class="string">'reg'</span>,<span class="string">'blue'</span>\];</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">checkBoolean</span>(<span class="params">a</span>)</span>&#123;</span><br><span class="line">         <span class="keyword">if</span>(a)&#123;</span><br><span class="line">              <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">         &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">              <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">         &#125;</span><br><span class="line"> &#125;</span><br><span class="line"><span class="built_in">console</span>.log(checkBoolean(<span class="string">''</span>)); <span class="comment">//false</span></span><br><span class="line"><span class="built_in">console</span>.log(checkBoolean(<span class="number">0</span>)); <span class="comment">//false</span></span><br><span class="line"><span class="built_in">console</span>.log(checkBoolean(<span class="literal">null</span>)); <span class="comment">//false</span></span><br><span class="line"><span class="built_in">console</span>.log(checkBoolean(<span class="literal">undefined</span>)); <span class="comment">//false</span></span><br><span class="line"><span class="built_in">console</span>.log(checkBoolean(<span class="literal">NaN</span>)); <span class="comment">//false</span></span><br><span class="line"><span class="built_in">console</span>.log(checkBoolean(a));<span class="comment">//true</span></span><br><span class="line"><span class="built_in">console</span>.log(checkBoolean(c));<span class="comment">//true</span></span><br></pre></td></tr></table></figure>
+
+<p>javascript中有六种数据类型：string；boolean；Array；Object；null;undefined。如何检测这些数据类型呢，总结方法如下：</p>
+<p><strong>方法一：采用typeof</strong></p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> fn = <span class="function"><span class="keyword">function</span>(<span class="params">n</span>)</span>&#123;</span><br><span class="line">   <span class="built_in">console</span>.log(n);</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> str = <span class="string">'string'</span>;</span><br><span class="line"><span class="keyword">var</span> arr = \[<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>\];</span><br><span class="line"><span class="keyword">var</span> obj = &#123;</span><br><span class="line">    a:<span class="number">123</span>,</span><br><span class="line">    b:<span class="number">456</span></span><br><span class="line">&#125;;</span><br><span class="line"><span class="keyword">var</span> num = <span class="number">1</span>;</span><br><span class="line"><span class="keyword">var</span> b = <span class="literal">true</span>;</span><br><span class="line"><span class="keyword">var</span> n = <span class="literal">null</span>;       <span class="keyword">var</span> u = <span class="literal">undefined</span>;</span><br><span class="line"><span class="comment">//方法一使用typeof方法。</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="keyword">typeof</span> str);<span class="comment">//string</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="keyword">typeof</span> arr);<span class="comment">//object</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="keyword">typeof</span> obj);<span class="comment">//object</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="keyword">typeof</span> num);<span class="comment">//number</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="keyword">typeof</span> b);<span class="comment">//boolean</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="keyword">typeof</span> n);<span class="comment">//null是一个空的对象</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="keyword">typeof</span> u);<span class="comment">//undefined</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="keyword">typeof</span> fn);<span class="comment">//function</span></span><br></pre></td></tr></table></figure>
+
+
+<p>通过上面的检测我们发现typeof检测的Array和Object的返回类型都是Object，因此用typeof是无法检测出来数组和对象的，采用方法二和方法三则可以检测出来。</p>
+<p><strong>方法二：instanceof</strong></p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> o = &#123; </span><br><span class="line">          <span class="string">'name'</span>:<span class="string">'lee'</span></span><br><span class="line">        &#125;;</span><br><span class="line"><span class="keyword">var</span> a = \[<span class="string">'reg'</span>,<span class="string">'blue'</span>\];</span><br><span class="line"><span class="built_in">console</span>.log(o <span class="keyword">instanceof</span> <span class="built_in">Object</span>);<span class="comment">// true</span></span><br><span class="line"><span class="built_in">console</span>.log(a <span class="keyword">instanceof</span> <span class="built_in">Array</span>);<span class="comment">//  true</span></span><br><span class="line"><span class="built_in">console</span>.log(o <span class="keyword">instanceof</span> <span class="built_in">Array</span>);<span class="comment">//  false</span></span><br></pre></td></tr></table></figure>
+
+
+<p> 注意：instaceof只可以用来判断数组和对象，不能判断string和boolean类型，要判断string和boolean类型需要采用方法四。<br> 由于数组也属于对象因此我们使用instanceof判断一个数组是否为对象的时候结果也会是true。如：</p>
+<p>console.log(a instanceof Object);//true。</p>
+<p>下面封装一个方法进行改进：</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line"><span class="keyword">var</span> o = &#123; </span><br><span class="line">          <span class="string">'name'</span>:<span class="string">'lee'</span></span><br><span class="line">        &#125;;</span><br><span class="line"><span class="keyword">var</span> a = \[<span class="string">'reg'</span>,<span class="string">'blue'</span>\];</span><br><span class="line"><span class="keyword">var</span> getDataType = <span class="function"><span class="keyword">function</span>(<span class="params">o</span>)</span>&#123;</span><br><span class="line">            <span class="keyword">if</span>(o <span class="keyword">instanceof</span> <span class="built_in">Array</span>)&#123;</span><br><span class="line">                <span class="keyword">return</span> <span class="string">'Array'</span></span><br><span class="line">            &#125;<span class="keyword">else</span> <span class="keyword">if</span>( o <span class="keyword">instanceof</span> <span class="built_in">Object</span> )&#123;</span><br><span class="line">                <span class="keyword">return</span> <span class="string">'Object'</span>;</span><br><span class="line">            &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">                <span class="keyword">return</span> <span class="string">'param is no object type'</span>;</span><br><span class="line">            &#125;</span><br><span class="line">       &#125;;</span><br><span class="line"><span class="built_in">console</span>.log(getDataType(o));<span class="comment">//Object。</span></span><br><span class="line"><span class="built_in">console</span>.log(getDataType(a));<span class="comment">//Array。</span></span><br></pre></td></tr></table></figure>
+
+<p><strong>方法三：使用constructor方法</strong></p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> o = &#123; </span><br><span class="line">           <span class="string">'name'</span>:<span class="string">'lee'</span></span><br><span class="line">        &#125;;</span><br><span class="line"><span class="keyword">var</span> a = \[<span class="string">'reg'</span>,<span class="string">'blue'</span>\];</span><br><span class="line"><span class="built_in">console</span>.log(o.constructor == <span class="built_in">Object</span>);<span class="comment">//true</span></span><br><span class="line"><span class="built_in">console</span>.log(a.constructor == <span class="built_in">Array</span>);<span class="comment">//true</span></span><br></pre></td></tr></table></figure>
+
+<p><strong>方法四：利用tostring()方法，这个方法是最佳的方案。</strong></p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> o = &#123; </span><br><span class="line">          <span class="string">'name'</span>:<span class="string">'lee'</span></span><br><span class="line">        &#125;;</span><br><span class="line"><span class="keyword">var</span> a = \[<span class="string">'reg'</span>,<span class="string">'blue'</span>\];</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">c</span>(<span class="params">name,age</span>)</span>&#123;</span><br><span class="line">         <span class="keyword">this</span>.name = name;</span><br><span class="line">         <span class="keyword">this</span>.age = age;</span><br><span class="line"> &#125;</span><br><span class="line"><span class="keyword">var</span> c = <span class="keyword">new</span> c(<span class="string">'kingw'</span>,<span class="string">'27'</span>);</span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">Object</span>.prototype.toString.call(a));<span class="comment">//\[object Array\]</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">Object</span>.prototype.toString.call(o));<span class="comment">//\[Object Object\]</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">Object</span>.prototype.toString.call(c));<span class="comment">//\[Object Object\]</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//封装一个方法判断数组和对象</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">isType</span>(<span class="params">obj</span>)</span>&#123;</span><br><span class="line">       <span class="keyword">var</span> type = <span class="built_in">Object</span>.prototype.toString.call(obj);</span><br><span class="line">       <span class="keyword">if</span>(type == <span class="string">'\[object Array\]'</span>)&#123;</span><br><span class="line">              <span class="keyword">return</span> <span class="string">'Array'</span>;</span><br><span class="line">        &#125;<span class="keyword">else</span> <span class="keyword">if</span>(type == <span class="string">'\[object Object\]'</span>)&#123;</span><br><span class="line">              <span class="keyword">return</span> <span class="string">"Object"</span></span><br><span class="line">        &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">              <span class="keyword">return</span> <span class="string">'param is no object type'</span>;</span><br><span class="line">        &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">console</span>.log(isType(o));<span class="comment">//Object</span></span><br><span class="line"><span class="built_in">console</span>.log(isType(a));<span class="comment">//Array</span></span><br></pre></td></tr></table></figure>
+
+<p><strong>方法五：利用jquery的$.isPlainObject();$.isArray(obj);$.isFunction(obj)进行判断。</strong></p>
+<p> 出处：<a href="http://www.cnblogs.com/xinggood" target="_blank" rel="noopener">http://www.cnblogs.com/xinggood</a></p>
+]]></content>
+      <categories>
+        <category>JS</category>
+      </categories>
+      <tags>
+        <tag>JS</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>【JS】判断客户端类型</title>
     <url>/2019/05/22/%E3%80%90JS%E3%80%91%E5%88%A4%E6%96%AD%E5%AE%A2%E6%88%B7%E7%AB%AF%E7%B1%BB%E5%9E%8B/</url>
     <content><![CDATA[<h1 id="JS-判断客户端是iOS还是Android"><a href="#JS-判断客户端是iOS还是Android" class="headerlink" title="JS 判断客户端是iOS还是Android"></a>JS 判断客户端是iOS还是Android</h1><blockquote>
@@ -670,44 +708,6 @@ if(isAndroid){
 
 
 <h3 id="五-判断浏览器当前使用的语言"><a href="#五-判断浏览器当前使用的语言" class="headerlink" title="五.判断浏览器当前使用的语言"></a>五.判断浏览器当前使用的语言</h3><figure class="highlight js"><table><tr><td class="code"><pre><span class="line"> </span><br><span class="line">judgeLanguage() &#123;</span><br><span class="line">  <span class="comment">// 判断浏览器当前使用的语言</span></span><br><span class="line">  <span class="keyword">let</span> currentLanguage = (navigator.browserLanguage || navigator.language).toLowerCase();    <span class="comment">// 非IE</span></span><br><span class="line">  <span class="keyword">if</span> (!currentLanguage) &#123;    <span class="comment">// IE浏览器</span></span><br><span class="line">    currentLanguage = navigator.browserLanguage;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="built_in">console</span>.log(currentLanguage);</span><br><span class="line">  <span class="keyword">return</span> currentLanguage;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>]]></content>
-      <categories>
-        <category>JS</category>
-      </categories>
-      <tags>
-        <tag>JS</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>【JS】判断数据类型的方法</title>
-    <url>/2019/05/20/%E3%80%90JS%E3%80%91%E5%88%A4%E6%96%AD%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B%E7%9A%84%E6%96%B9%E6%B3%95/</url>
-    <content><![CDATA[<p>对js中不同数据的布尔值类型总结：false:空字符串；null；undefined；0；NaN。<br>true：除了上面的false的情况其他都为true；</p>
-<p>如下：</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> o = &#123; </span><br><span class="line">          <span class="string">'name'</span>:<span class="string">'lee'</span></span><br><span class="line">        &#125;;</span><br><span class="line"><span class="keyword">var</span> a = \[<span class="string">'reg'</span>,<span class="string">'blue'</span>\];</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">checkBoolean</span>(<span class="params">a</span>)</span>&#123;</span><br><span class="line">         <span class="keyword">if</span>(a)&#123;</span><br><span class="line">              <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">         &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">              <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">         &#125;</span><br><span class="line"> &#125;</span><br><span class="line"><span class="built_in">console</span>.log(checkBoolean(<span class="string">''</span>)); <span class="comment">//false</span></span><br><span class="line"><span class="built_in">console</span>.log(checkBoolean(<span class="number">0</span>)); <span class="comment">//false</span></span><br><span class="line"><span class="built_in">console</span>.log(checkBoolean(<span class="literal">null</span>)); <span class="comment">//false</span></span><br><span class="line"><span class="built_in">console</span>.log(checkBoolean(<span class="literal">undefined</span>)); <span class="comment">//false</span></span><br><span class="line"><span class="built_in">console</span>.log(checkBoolean(<span class="literal">NaN</span>)); <span class="comment">//false</span></span><br><span class="line"><span class="built_in">console</span>.log(checkBoolean(a));<span class="comment">//true</span></span><br><span class="line"><span class="built_in">console</span>.log(checkBoolean(c));<span class="comment">//true</span></span><br></pre></td></tr></table></figure>
-
-<p>javascript中有六种数据类型：string；boolean；Array；Object；null;undefined。如何检测这些数据类型呢，总结方法如下：</p>
-<p><strong>方法一：采用typeof</strong></p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> fn = <span class="function"><span class="keyword">function</span>(<span class="params">n</span>)</span>&#123;</span><br><span class="line">   <span class="built_in">console</span>.log(n);</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> str = <span class="string">'string'</span>;</span><br><span class="line"><span class="keyword">var</span> arr = \[<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>\];</span><br><span class="line"><span class="keyword">var</span> obj = &#123;</span><br><span class="line">    a:<span class="number">123</span>,</span><br><span class="line">    b:<span class="number">456</span></span><br><span class="line">&#125;;</span><br><span class="line"><span class="keyword">var</span> num = <span class="number">1</span>;</span><br><span class="line"><span class="keyword">var</span> b = <span class="literal">true</span>;</span><br><span class="line"><span class="keyword">var</span> n = <span class="literal">null</span>;       <span class="keyword">var</span> u = <span class="literal">undefined</span>;</span><br><span class="line"><span class="comment">//方法一使用typeof方法。</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="keyword">typeof</span> str);<span class="comment">//string</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="keyword">typeof</span> arr);<span class="comment">//object</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="keyword">typeof</span> obj);<span class="comment">//object</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="keyword">typeof</span> num);<span class="comment">//number</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="keyword">typeof</span> b);<span class="comment">//boolean</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="keyword">typeof</span> n);<span class="comment">//null是一个空的对象</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="keyword">typeof</span> u);<span class="comment">//undefined</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="keyword">typeof</span> fn);<span class="comment">//function</span></span><br></pre></td></tr></table></figure>
-
-
-<p>通过上面的检测我们发现typeof检测的Array和Object的返回类型都是Object，因此用typeof是无法检测出来数组和对象的，采用方法二和方法三则可以检测出来。</p>
-<p><strong>方法二：instanceof</strong></p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> o = &#123; </span><br><span class="line">          <span class="string">'name'</span>:<span class="string">'lee'</span></span><br><span class="line">        &#125;;</span><br><span class="line"><span class="keyword">var</span> a = \[<span class="string">'reg'</span>,<span class="string">'blue'</span>\];</span><br><span class="line"><span class="built_in">console</span>.log(o <span class="keyword">instanceof</span> <span class="built_in">Object</span>);<span class="comment">// true</span></span><br><span class="line"><span class="built_in">console</span>.log(a <span class="keyword">instanceof</span> <span class="built_in">Array</span>);<span class="comment">//  true</span></span><br><span class="line"><span class="built_in">console</span>.log(o <span class="keyword">instanceof</span> <span class="built_in">Array</span>);<span class="comment">//  false</span></span><br></pre></td></tr></table></figure>
-
-
-<p> 注意：instaceof只可以用来判断数组和对象，不能判断string和boolean类型，要判断string和boolean类型需要采用方法四。<br> 由于数组也属于对象因此我们使用instanceof判断一个数组是否为对象的时候结果也会是true。如：</p>
-<p>console.log(a instanceof Object);//true。</p>
-<p>下面封装一个方法进行改进：</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line"><span class="keyword">var</span> o = &#123; </span><br><span class="line">          <span class="string">'name'</span>:<span class="string">'lee'</span></span><br><span class="line">        &#125;;</span><br><span class="line"><span class="keyword">var</span> a = \[<span class="string">'reg'</span>,<span class="string">'blue'</span>\];</span><br><span class="line"><span class="keyword">var</span> getDataType = <span class="function"><span class="keyword">function</span>(<span class="params">o</span>)</span>&#123;</span><br><span class="line">            <span class="keyword">if</span>(o <span class="keyword">instanceof</span> <span class="built_in">Array</span>)&#123;</span><br><span class="line">                <span class="keyword">return</span> <span class="string">'Array'</span></span><br><span class="line">            &#125;<span class="keyword">else</span> <span class="keyword">if</span>( o <span class="keyword">instanceof</span> <span class="built_in">Object</span> )&#123;</span><br><span class="line">                <span class="keyword">return</span> <span class="string">'Object'</span>;</span><br><span class="line">            &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">                <span class="keyword">return</span> <span class="string">'param is no object type'</span>;</span><br><span class="line">            &#125;</span><br><span class="line">       &#125;;</span><br><span class="line"><span class="built_in">console</span>.log(getDataType(o));<span class="comment">//Object。</span></span><br><span class="line"><span class="built_in">console</span>.log(getDataType(a));<span class="comment">//Array。</span></span><br></pre></td></tr></table></figure>
-
-<p><strong>方法三：使用constructor方法</strong></p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> o = &#123; </span><br><span class="line">           <span class="string">'name'</span>:<span class="string">'lee'</span></span><br><span class="line">        &#125;;</span><br><span class="line"><span class="keyword">var</span> a = \[<span class="string">'reg'</span>,<span class="string">'blue'</span>\];</span><br><span class="line"><span class="built_in">console</span>.log(o.constructor == <span class="built_in">Object</span>);<span class="comment">//true</span></span><br><span class="line"><span class="built_in">console</span>.log(a.constructor == <span class="built_in">Array</span>);<span class="comment">//true</span></span><br></pre></td></tr></table></figure>
-
-<p><strong>方法四：利用tostring()方法，这个方法是最佳的方案。</strong></p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> o = &#123; </span><br><span class="line">          <span class="string">'name'</span>:<span class="string">'lee'</span></span><br><span class="line">        &#125;;</span><br><span class="line"><span class="keyword">var</span> a = \[<span class="string">'reg'</span>,<span class="string">'blue'</span>\];</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">c</span>(<span class="params">name,age</span>)</span>&#123;</span><br><span class="line">         <span class="keyword">this</span>.name = name;</span><br><span class="line">         <span class="keyword">this</span>.age = age;</span><br><span class="line"> &#125;</span><br><span class="line"><span class="keyword">var</span> c = <span class="keyword">new</span> c(<span class="string">'kingw'</span>,<span class="string">'27'</span>);</span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">Object</span>.prototype.toString.call(a));<span class="comment">//\[object Array\]</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">Object</span>.prototype.toString.call(o));<span class="comment">//\[Object Object\]</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">Object</span>.prototype.toString.call(c));<span class="comment">//\[Object Object\]</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//封装一个方法判断数组和对象</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">isType</span>(<span class="params">obj</span>)</span>&#123;</span><br><span class="line">       <span class="keyword">var</span> type = <span class="built_in">Object</span>.prototype.toString.call(obj);</span><br><span class="line">       <span class="keyword">if</span>(type == <span class="string">'\[object Array\]'</span>)&#123;</span><br><span class="line">              <span class="keyword">return</span> <span class="string">'Array'</span>;</span><br><span class="line">        &#125;<span class="keyword">else</span> <span class="keyword">if</span>(type == <span class="string">'\[object Object\]'</span>)&#123;</span><br><span class="line">              <span class="keyword">return</span> <span class="string">"Object"</span></span><br><span class="line">        &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">              <span class="keyword">return</span> <span class="string">'param is no object type'</span>;</span><br><span class="line">        &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">console</span>.log(isType(o));<span class="comment">//Object</span></span><br><span class="line"><span class="built_in">console</span>.log(isType(a));<span class="comment">//Array</span></span><br></pre></td></tr></table></figure>
-
-<p><strong>方法五：利用jquery的$.isPlainObject();$.isArray(obj);$.isFunction(obj)进行判断。</strong></p>
-<p> 出处：<a href="http://www.cnblogs.com/xinggood" target="_blank" rel="noopener">http://www.cnblogs.com/xinggood</a></p>
-]]></content>
       <categories>
         <category>JS</category>
       </categories>
@@ -804,59 +804,6 @@ if(isAndroid){
       </tags>
   </entry>
   <entry>
-    <title>解决Git报错:error: You have not concluded your merge (MERGE_HEAD exists)</title>
-    <url>/2019/05/18/%E8%A7%A3%E5%86%B3Git%E6%8A%A5%E9%94%99-error-You-have-not-concluded-your-merge-MERGE-HEAD-exists/</url>
-    <content><![CDATA[<p>Git fetch和git pull的区别:</p>
-<a id="more"></a>
-<p>都可以从远程获取最新版本到本地<br>1.Git fetch:只是从远程获取最新版本到本地,不会merge(合并)<br>$:git fetch origin master   //从远程的origin的master主分支上获取最新版本到origin/master分支上<br>$:git log -p master..origin/master //比较本地的master分支和origin/master分支的区别<br>$:git merge origin/master          //合并</p>
-<p>2.Git pull:从远程获取最新版本并merge(合并)到本地<br>$:git pull origin master  //相当于进行了 git fetch 和 git merge两部操作<br>1<br>实际工作中,可能git fetch更好一些, 因为在merge前,可以根据实际情况决定是否merge<br>再说导致报错:error: You have not concluded your merge (MERGE_HEAD exists).的原因可能是在以前pull下来的代码自动合并失败<br>解决办法一:保留本地的更改,中止合并-&gt;重新合并-&gt;重新拉取<br>$:git merge –abort<br>$:git reset –merge<br>$:git pull</p>
-<p>解决办法二:舍弃本地代码,远端版本覆盖本地版本(慎重)<br>$:git fetch –all<br>$:git reset –hard origin/master<br>$:git fetch</p>
-]]></content>
-      <categories>
-        <category>Git</category>
-      </categories>
-      <tags>
-        <tag>Git</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>宝塔webhooks实现hexo自动部署</title>
-    <url>/2019/05/10/%E5%AE%9D%E5%A1%94hexo%E8%87%AA%E5%8A%A8%E9%83%A8%E7%BD%B2/</url>
-    <content><![CDATA[<h3 id="webhook自动部署"><a href="#webhook自动部署" class="headerlink" title="webhook自动部署"></a>webhook自动部署</h3><p>首先确保你的服务器已经安装了宝塔，安装webhook插件 ，添加hook 输入名称及一下脚本</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="meta">#!/bin/bash</span></span><br><span class="line"><span class="built_in">echo</span> <span class="string">""</span></span><br><span class="line"><span class="comment"># 输出当前时间</span></span><br><span class="line">date --date=<span class="string">'0 days ago'</span> <span class="string">"+%Y-%m-%d %H:%M:%S"</span></span><br><span class="line"><span class="built_in">echo</span> <span class="string">"Start"</span></span><br><span class="line"><span class="comment"># 判断宝塔WebHook参数是否存在</span></span><br><span class="line"><span class="keyword">if</span> [ ! -n <span class="string">"<span class="variable">$1</span>"</span> ];</span><br><span class="line"><span class="keyword">then</span></span><br><span class="line">          <span class="built_in">echo</span> <span class="string">"param参数错误"</span></span><br><span class="line">          <span class="built_in">echo</span> <span class="string">"End"</span></span><br><span class="line">          <span class="built_in">exit</span></span><br><span class="line"><span class="keyword">fi</span></span><br><span class="line"><span class="comment"># git项目路径</span></span><br><span class="line">gitPath=<span class="string">"/www/wwwroot/<span class="variable">$1</span>"</span></span><br><span class="line"><span class="comment"># git 网址</span></span><br><span class="line">gitHttp=<span class="string">"http://git.xxxxx.com/<span class="variable">$1</span>.git"</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">echo</span> <span class="string">"Web站点路径：<span class="variable">$gitPath</span>"</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 判断项目路径是否存在</span></span><br><span class="line"><span class="keyword">if</span> [ -d <span class="string">"<span class="variable">$gitPath</span>"</span> ]; <span class="keyword">then</span></span><br><span class="line">        <span class="built_in">cd</span> <span class="variable">$gitPath</span></span><br><span class="line">        <span class="comment"># 判断是否存在git目录</span></span><br><span class="line">        <span class="keyword">if</span> [ ! -d <span class="string">".git"</span> ]; <span class="keyword">then</span></span><br><span class="line">                <span class="built_in">echo</span> <span class="string">"在该目录下克隆 git"</span></span><br><span class="line">                git <span class="built_in">clone</span> <span class="variable">$gitHttp</span> gittemp</span><br><span class="line">                mv gittemp/.git .</span><br><span class="line">                rm -rf gittemp</span><br><span class="line">        <span class="keyword">fi</span></span><br><span class="line">        <span class="comment"># 拉取最新的项目文件</span></span><br><span class="line">        git reset --hard origin/master</span><br><span class="line">        git pull</span><br><span class="line">        <span class="comment"># 设置目录权限</span></span><br><span class="line">        chown -R www:www <span class="variable">$gitPath</span></span><br><span class="line">        <span class="built_in">echo</span> <span class="string">"End"</span></span><br><span class="line">        <span class="built_in">exit</span></span><br><span class="line"><span class="keyword">else</span></span><br><span class="line">        <span class="built_in">echo</span> <span class="string">"该项目路径不存在"</span></span><br><span class="line">        <span class="built_in">echo</span> <span class="string">"End"</span></span><br><span class="line">        <span class="built_in">exit</span></span><br><span class="line"><span class="keyword">fi</span></span><br></pre></td></tr></table></figure>
-
-<p>然后会生成 一个密钥 和 相关的链接</p>
-<h3 id="配置github"><a href="#配置github" class="headerlink" title="配置github"></a>配置github</h3><p><img src="http://cloud.asenper.cn//20200613184752.png" alt="image-20200613184750432"></p>
-<p>如图,添加webhooks,Payload URL为上一步生成的链接，Secret为密钥<br>就这么简单</p>
-]]></content>
-      <categories>
-        <category>Hexo</category>
-      </categories>
-      <tags>
-        <tag>Hexo</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>正向代理和反向代理</title>
-    <url>/2019/06/01/%E6%AD%A3%E5%90%91%E4%BB%A3%E7%90%86%E5%92%8C%E5%8F%8D%E5%90%91%E4%BB%A3%E7%90%86/</url>
-    <content><![CDATA[<h3 id="正向代理"><a href="#正向代理" class="headerlink" title="正向代理"></a>正向代理</h3><p>所谓正向代理就是顺着请求的方向进行的代理，即代理服务器他是由你配置为你服务，去请求目标服务器地址。</p>
-<p>比如我们要去访问谷歌网站，我们直接访问不通，那么我们就可以找一个代理服务器为我们服务，我们通过代理服务器请求到谷歌网站。对于谷歌而言他只知道有一个服务器访问了自己，并不知道这件事你是访问不了他,找了一个代理服务器访问自己。</p>
-<p>在举一个通俗的例子。你需要钱，C正好有钱，但是你C不直接借给你。你和B关系比较好，B可以找C借到钱。你和B沟通后，由B来找C借到钱后在给你。<br>上面的两个例子中的共同特点是 代理服务器和B都是你找到的，为你而服务的，代表你的利益。我们还可以让代理服务器给你代理到推特、Facebook等，他是代理的你。<br><img src="https://img-blog.csdnimg.cn/20190531180703829.jpg?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2xpdWhlbmdodWk1MjAx,size_16,color_FFFFFF,t_70" alt=""></p>
-<h3 id="反向代理"><a href="#反向代理" class="headerlink" title="反向代理"></a>反向代理</h3><p>所谓反向代理正好与正向代理相反，代理服务器是为目标服务器服务的，虽然整体的请求返回路线都是一样的都是Client到Proxy到Server。</p>
-<p>比如 我们访问百度网站，百度的代理服务器对外的域名为 <a href="https://www.baidu.com" target="_blank" rel="noopener">https://www.baidu.com</a> 。具体内部的服务器节点我们不知道。现实中我们通过访问百度的代理服务器后，代理服务器给我们转发请求到他们N多的服务器节点中的一个给我们进行搜索后将结果返回。</p>
-<p>再举例：我们同样需要钱，但是我们又不知道谁有钱，所以我们找了一家网贷平台，你提交资料后，网贷平台直接将钱打给你。但是你不知道，也不用关注网贷平台的钱从哪里来。网贷平台内部他们可能从哪一个财主哪里融的钱。对你而言网贷平台和他们的金主是一起的。</p>
-<p>同样通过上面我们例子可以看到，此时的代理服务器和后面的目标主机是一个系统的（百度公司、网贷平台）。他们是对外提供服务的，所以称为反向代理，代理的是后的人。<br><img src="https://img-blog.csdnimg.cn/20190531180723798.jpg?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2xpdWhlbmdodWk1MjAx,size_16,color_FFFFFF,t_70" alt=""></p>
-<h3 id="两者的区别"><a href="#两者的区别" class="headerlink" title="两者的区别"></a>两者的区别</h3><p><strong>正向代理代理的对象是客户端，反向代理代理的对象是服务端</strong></p>
-<p>原文链接：<a href="https://blog.csdn.net/liuhenghui5201/article/details/90720442" target="_blank" rel="noopener">https://blog.csdn.net/liuhenghui5201/article/details/90720442</a></p>
-]]></content>
-      <categories>
-        <category>Nginx</category>
-      </categories>
-      <tags>
-        <tag>Nginx</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>【js】判断字符串中是否包含某个字符串</title>
     <url>/2019/05/20/%E3%80%90js%E3%80%91%E5%88%A4%E6%96%AD%E5%AD%97%E7%AC%A6%E4%B8%B2%E4%B8%AD%E6%98%AF%E5%90%A6%E5%8C%85%E5%90%AB%E6%9F%90%E4%B8%AA%E5%AD%97%E7%AC%A6%E4%B8%B2/</url>
     <content><![CDATA[<h3 id="String对象方法"><a href="#String对象方法" class="headerlink" title="String对象方法"></a>String对象方法</h3><p>方法一: indexOf()   (推荐)</p>
@@ -881,6 +828,59 @@ if(isAndroid){
       </categories>
       <tags>
         <tag>JS</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>宝塔webhooks实现hexo自动部署</title>
+    <url>/2019/05/10/%E5%AE%9D%E5%A1%94hexo%E8%87%AA%E5%8A%A8%E9%83%A8%E7%BD%B2/</url>
+    <content><![CDATA[<h3 id="webhook自动部署"><a href="#webhook自动部署" class="headerlink" title="webhook自动部署"></a>webhook自动部署</h3><p>首先确保你的服务器已经安装了宝塔，安装webhook插件 ，添加hook 输入名称及一下脚本</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="meta">#!/bin/bash</span></span><br><span class="line"><span class="built_in">echo</span> <span class="string">""</span></span><br><span class="line"><span class="comment"># 输出当前时间</span></span><br><span class="line">date --date=<span class="string">'0 days ago'</span> <span class="string">"+%Y-%m-%d %H:%M:%S"</span></span><br><span class="line"><span class="built_in">echo</span> <span class="string">"Start"</span></span><br><span class="line"><span class="comment"># 判断宝塔WebHook参数是否存在</span></span><br><span class="line"><span class="keyword">if</span> [ ! -n <span class="string">"<span class="variable">$1</span>"</span> ];</span><br><span class="line"><span class="keyword">then</span></span><br><span class="line">          <span class="built_in">echo</span> <span class="string">"param参数错误"</span></span><br><span class="line">          <span class="built_in">echo</span> <span class="string">"End"</span></span><br><span class="line">          <span class="built_in">exit</span></span><br><span class="line"><span class="keyword">fi</span></span><br><span class="line"><span class="comment"># git项目路径</span></span><br><span class="line">gitPath=<span class="string">"/www/wwwroot/<span class="variable">$1</span>"</span></span><br><span class="line"><span class="comment"># git 网址</span></span><br><span class="line">gitHttp=<span class="string">"http://git.xxxxx.com/<span class="variable">$1</span>.git"</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">echo</span> <span class="string">"Web站点路径：<span class="variable">$gitPath</span>"</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 判断项目路径是否存在</span></span><br><span class="line"><span class="keyword">if</span> [ -d <span class="string">"<span class="variable">$gitPath</span>"</span> ]; <span class="keyword">then</span></span><br><span class="line">        <span class="built_in">cd</span> <span class="variable">$gitPath</span></span><br><span class="line">        <span class="comment"># 判断是否存在git目录</span></span><br><span class="line">        <span class="keyword">if</span> [ ! -d <span class="string">".git"</span> ]; <span class="keyword">then</span></span><br><span class="line">                <span class="built_in">echo</span> <span class="string">"在该目录下克隆 git"</span></span><br><span class="line">                git <span class="built_in">clone</span> <span class="variable">$gitHttp</span> gittemp</span><br><span class="line">                mv gittemp/.git .</span><br><span class="line">                rm -rf gittemp</span><br><span class="line">        <span class="keyword">fi</span></span><br><span class="line">        <span class="comment"># 拉取最新的项目文件</span></span><br><span class="line">        git reset --hard origin/master</span><br><span class="line">        git pull</span><br><span class="line">        <span class="comment"># 设置目录权限</span></span><br><span class="line">        chown -R www:www <span class="variable">$gitPath</span></span><br><span class="line">        <span class="built_in">echo</span> <span class="string">"End"</span></span><br><span class="line">        <span class="built_in">exit</span></span><br><span class="line"><span class="keyword">else</span></span><br><span class="line">        <span class="built_in">echo</span> <span class="string">"该项目路径不存在"</span></span><br><span class="line">        <span class="built_in">echo</span> <span class="string">"End"</span></span><br><span class="line">        <span class="built_in">exit</span></span><br><span class="line"><span class="keyword">fi</span></span><br></pre></td></tr></table></figure>
+
+<p>然后会生成 一个密钥 和 相关的链接</p>
+<h3 id="配置github"><a href="#配置github" class="headerlink" title="配置github"></a>配置github</h3><p><img src="http://cloud.asenper.cn//20200613184752.png" alt="image-20200613184750432"></p>
+<p>如图,添加webhooks,Payload URL为上一步生成的链接，Secret为密钥<br>就这么简单</p>
+]]></content>
+      <categories>
+        <category>Hexo</category>
+      </categories>
+      <tags>
+        <tag>Hexo</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>解决Git报错:error: You have not concluded your merge (MERGE_HEAD exists)</title>
+    <url>/2019/05/18/%E8%A7%A3%E5%86%B3Git%E6%8A%A5%E9%94%99-error-You-have-not-concluded-your-merge-MERGE-HEAD-exists/</url>
+    <content><![CDATA[<p>Git fetch和git pull的区别:</p>
+<a id="more"></a>
+<p>都可以从远程获取最新版本到本地<br>1.Git fetch:只是从远程获取最新版本到本地,不会merge(合并)<br>$:git fetch origin master   //从远程的origin的master主分支上获取最新版本到origin/master分支上<br>$:git log -p master..origin/master //比较本地的master分支和origin/master分支的区别<br>$:git merge origin/master          //合并</p>
+<p>2.Git pull:从远程获取最新版本并merge(合并)到本地<br>$:git pull origin master  //相当于进行了 git fetch 和 git merge两部操作<br>1<br>实际工作中,可能git fetch更好一些, 因为在merge前,可以根据实际情况决定是否merge<br>再说导致报错:error: You have not concluded your merge (MERGE_HEAD exists).的原因可能是在以前pull下来的代码自动合并失败<br>解决办法一:保留本地的更改,中止合并-&gt;重新合并-&gt;重新拉取<br>$:git merge –abort<br>$:git reset –merge<br>$:git pull</p>
+<p>解决办法二:舍弃本地代码,远端版本覆盖本地版本(慎重)<br>$:git fetch –all<br>$:git reset –hard origin/master<br>$:git fetch</p>
+]]></content>
+      <categories>
+        <category>Git</category>
+      </categories>
+      <tags>
+        <tag>Git</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>正向代理和反向代理</title>
+    <url>/2019/06/01/%E6%AD%A3%E5%90%91%E4%BB%A3%E7%90%86%E5%92%8C%E5%8F%8D%E5%90%91%E4%BB%A3%E7%90%86/</url>
+    <content><![CDATA[<h3 id="正向代理"><a href="#正向代理" class="headerlink" title="正向代理"></a>正向代理</h3><p>所谓正向代理就是顺着请求的方向进行的代理，即代理服务器他是由你配置为你服务，去请求目标服务器地址。</p>
+<p>比如我们要去访问谷歌网站，我们直接访问不通，那么我们就可以找一个代理服务器为我们服务，我们通过代理服务器请求到谷歌网站。对于谷歌而言他只知道有一个服务器访问了自己，并不知道这件事你是访问不了他,找了一个代理服务器访问自己。</p>
+<p>在举一个通俗的例子。你需要钱，C正好有钱，但是你C不直接借给你。你和B关系比较好，B可以找C借到钱。你和B沟通后，由B来找C借到钱后在给你。<br>上面的两个例子中的共同特点是 代理服务器和B都是你找到的，为你而服务的，代表你的利益。我们还可以让代理服务器给你代理到推特、Facebook等，他是代理的你。<br><img src="https://img-blog.csdnimg.cn/20190531180703829.jpg?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2xpdWhlbmdodWk1MjAx,size_16,color_FFFFFF,t_70" alt=""></p>
+<h3 id="反向代理"><a href="#反向代理" class="headerlink" title="反向代理"></a>反向代理</h3><p>所谓反向代理正好与正向代理相反，代理服务器是为目标服务器服务的，虽然整体的请求返回路线都是一样的都是Client到Proxy到Server。</p>
+<p>比如 我们访问百度网站，百度的代理服务器对外的域名为 <a href="https://www.baidu.com" target="_blank" rel="noopener">https://www.baidu.com</a> 。具体内部的服务器节点我们不知道。现实中我们通过访问百度的代理服务器后，代理服务器给我们转发请求到他们N多的服务器节点中的一个给我们进行搜索后将结果返回。</p>
+<p>再举例：我们同样需要钱，但是我们又不知道谁有钱，所以我们找了一家网贷平台，你提交资料后，网贷平台直接将钱打给你。但是你不知道，也不用关注网贷平台的钱从哪里来。网贷平台内部他们可能从哪一个财主哪里融的钱。对你而言网贷平台和他们的金主是一起的。</p>
+<p>同样通过上面我们例子可以看到，此时的代理服务器和后面的目标主机是一个系统的（百度公司、网贷平台）。他们是对外提供服务的，所以称为反向代理，代理的是后的人。<br><img src="https://img-blog.csdnimg.cn/20190531180723798.jpg?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2xpdWhlbmdodWk1MjAx,size_16,color_FFFFFF,t_70" alt=""></p>
+<h3 id="两者的区别"><a href="#两者的区别" class="headerlink" title="两者的区别"></a>两者的区别</h3><p><strong>正向代理代理的对象是客户端，反向代理代理的对象是服务端</strong></p>
+<p>原文链接：<a href="https://blog.csdn.net/liuhenghui5201/article/details/90720442" target="_blank" rel="noopener">https://blog.csdn.net/liuhenghui5201/article/details/90720442</a></p>
+]]></content>
+      <categories>
+        <category>Nginx</category>
+      </categories>
+      <tags>
+        <tag>Nginx</tag>
       </tags>
   </entry>
   <entry>
@@ -1414,6 +1414,21 @@ if(isAndroid){
       </tags>
   </entry>
   <entry>
+    <title>微信小程序点击多次navigator跳转无反应</title>
+    <url>/2020/05/27/%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F%E7%82%B9%E5%87%BB%E5%A4%9A%E6%AC%A1navigator%E8%B7%B3%E8%BD%AC%E6%97%A0%E5%8F%8D%E5%BA%94/</url>
+    <content><![CDATA[<p><code>navigator</code>组件<code>open-type</code>属性默认值为<code>navigate</code></p>
+<p>而<code>navigate</code>对应<code>navigateTo</code>方法，可以看到文档中对<code>navigateTo</code>的说明：</p>
+<p>保留当前页面，跳转到应用内的某个页面。但是不能跳到 tabbar 页面。使用 wx.navigateBack 可以返回到原页面。小程序中页面栈<strong>最多十层</strong>。</p>
+<p><strong>将 <code>open-type</code>属性值设为<code>redirect</code>即可</strong></p>
+]]></content>
+      <categories>
+        <category>小程序</category>
+      </categories>
+      <tags>
+        <tag>小程序</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>动态图演示Promises&amp;Async、Await 的过程</title>
     <url>/2020/05/27/%E5%8A%A8%E6%80%81%E5%9B%BE%E6%BC%94%E7%A4%BAPromises&amp;Async%E3%80%81Await%20%E7%9A%84%E8%BF%87%E7%A8%8B/</url>
     <content><![CDATA[<p>原文： <a href="https://www.toutiao.com/i6830934809552880135" target="_blank" rel="noopener">https://www.toutiao.com/i6830934809552880135</a><br>非常好的一篇文章</p>
@@ -1637,21 +1652,6 @@ if(isAndroid){
       <categories>
         <category>安全</category>
       </categories>
-  </entry>
-  <entry>
-    <title>微信小程序点击多次navigator跳转无反应</title>
-    <url>/2020/05/27/%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F%E7%82%B9%E5%87%BB%E5%A4%9A%E6%AC%A1navigator%E8%B7%B3%E8%BD%AC%E6%97%A0%E5%8F%8D%E5%BA%94/</url>
-    <content><![CDATA[<p><code>navigator</code>组件<code>open-type</code>属性默认值为<code>navigate</code></p>
-<p>而<code>navigate</code>对应<code>navigateTo</code>方法，可以看到文档中对<code>navigateTo</code>的说明：</p>
-<p>保留当前页面，跳转到应用内的某个页面。但是不能跳到 tabbar 页面。使用 wx.navigateBack 可以返回到原页面。小程序中页面栈<strong>最多十层</strong>。</p>
-<p><strong>将 <code>open-type</code>属性值设为<code>redirect</code>即可</strong></p>
-]]></content>
-      <categories>
-        <category>小程序</category>
-      </categories>
-      <tags>
-        <tag>小程序</tag>
-      </tags>
   </entry>
   <entry>
     <title>服务器登录显示version N/A -&gt; N/A is not yet installed</title>
