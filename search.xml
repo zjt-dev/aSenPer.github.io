@@ -1,65 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title>Linux服务器中配置Nginx一个域名访问多个项目</title>
-    <url>/2019/04/12/Linux%E6%9C%8D%E5%8A%A1%E5%99%A8%E4%B8%AD%E9%85%8D%E7%BD%AENginx%E4%B8%80%E4%B8%AA%E5%9F%9F%E5%90%8D%E8%AE%BF%E9%97%AE%E5%A4%9A%E4%B8%AA%E9%A1%B9%E7%9B%AE/</url>
-    <content><![CDATA[<p>服务器配置个人博客和其它项目使其能够根据不同 url 跳转到不同项目，(例如:<em>localhosh://A 项目/，localhosh://B 项目/</em> )因为对服务器和 Nginx 部署了解甚少，在此记录一下</p>
-<a id="more"></a>
-
-<h2 id="location-模块的匹配介绍"><a href="#location-模块的匹配介绍" class="headerlink" title="location 模块的匹配介绍"></a>location 模块的匹配介绍</h2><blockquote>
-<ol>
-<li>”=”前缀指令匹配，如果匹配成功，则停止其他匹配。</li>
-<li>普通字符串指令匹配，顺序是从长到短，匹配成功的 location 如果使用^~，则停止其他匹配（正则匹配）。</li>
-<li>正则表达式指令匹配，按照配置文件里的顺序，成功就停止其他匹配。</li>
-<li>如果第三步中有匹配成功，则使用该结果，否则使用第二步结果。</li>
-</ol>
-</blockquote>
-<h3 id="注意点"><a href="#注意点" class="headerlink" title="注意点"></a>注意点</h3><blockquote>
-<ol>
-<li>匹配的顺序是先匹配普通字符串，然后再匹配正则表达式。另外普通字符串匹配顺序是根据配置中字符长度从长到短，也就是说使用普通字符串配置的 location 顺序是无关紧要的，反正最后 nginx 会根据配置的长短来进行匹配，但是需要注意的是正则表达式按照配置文件里的顺序测试。找到第一个匹配的正则表达式将停止搜索。</li>
-<li>一般情况下，匹配成功了普通字符串 location 后还会进行正则表达式 location 匹配。有两种方法改变这种行为，其一就是使用“=”前缀，这时执行的是严格匹配，并且匹配成功后立即停止其他匹配，同时处理这个请求；另外一种就是使用“^~”前缀，如果把这个前缀用于一个常规字符串那么告诉 nginx 如果路径匹配那么不测试正则表达式。</li>
-</ol>
-</blockquote>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">location = <span class="string">``</span> / uri;</span><br></pre></td></tr></table></figure>
-
-<p>=开头表示精确匹配，只有完全匹配上才能生效。</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">location ^ (~<span class="string">``</span> / uri);</span><br></pre></td></tr></table></figure>
-
-<p>^~ 开头对 URL 路径进行前缀匹配，并且在正则之前。</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">location ~ pattern</span><br></pre></td></tr></table></figure>
-
-<p>~开头表示区分大小写的正则匹配。</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">location ~* pattern</span><br></pre></td></tr></table></figure>
-
-<p>~*开头表示不区分大小写的正则匹配。</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">location<span class="string">``</span> / uri;</span><br></pre></td></tr></table></figure>
-
-<p>不带任何修饰符，也表示前缀匹配，但是在正则匹配之后。</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">location /</span><br></pre></td></tr></table></figure>
-
-<p>通用匹配，任何未匹配到其它 location 的请求都会匹配到，相当于 switch 中的 default。</p>
-<h2 id="alias-和-root-的区别"><a href="#alias-和-root-的区别" class="headerlink" title="alias 和 root 的区别"></a>alias 和 root 的区别</h2><p>在<a href="https://router.vuejs.org/zh/guide/essentials/redirect-and-alias.html#%E9%87%8D%E5%AE%9A%E5%90%91" target="_blank" rel="noopener">VUE</a>中也有alias的概念，感觉两者差不多</p>
-<ul>
-<li>alias 和 root 都是用来指定文件路径的，root与alias主要区别在于nginx如何解释location后面的uri，这会使两者分别以不同的方式将请求映射到服务器文件上。</li>
-<li>root的处理结果是：root路径＋location路径</li>
-<li>alias的处理结果是：使用alias路径替换location路径</li>
-<li>alias是一个目录别名的定义，root则是最上层目录的定义。</li>
-<li>还有一个重要的区别是alias后面必须要用“/”结束，否则会找不到文件</li>
-<li>alias在使用正则匹配时，必须捕捉要匹配的内容并在指定的内容处使用。</li>
-<li>alias只能位于location块中。（root可以不放在location中）</li>
-</ul>
-<h2 id="配置示例"><a href="#配置示例" class="headerlink" title="配置示例"></a>配置示例</h2><figure class="highlight js"><table><tr><td class="code"><pre><span class="line">server &#123;</span><br><span class="line"> *****</span><br><span class="line"> *****</span><br><span class="line"> # 域名+项目1名称</span><br><span class="line"> location ^~ <span class="regexp">/A/</span> &#123;</span><br><span class="line">   alias /data/A/;</span><br><span class="line"> &#125;</span><br><span class="line"> # 域名+项目2名称</span><br><span class="line"> location ^~ <span class="regexp">/B/</span> &#123;</span><br><span class="line">   alias /data/B/;</span><br><span class="line"> &#125;</span><br><span class="line">    ****</span><br><span class="line">    ****</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>参考：<a href="https://www.nginx.cn/4658.html" target="_blank" rel="noopener">nginx的location、root、alias指令用法和区别</a></p>
-]]></content>
-      <categories>
-        <category>Nginx</category>
-      </categories>
-      <tags>
-        <tag>Nginx</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>JS面试题</title>
     <url>/2019/04/10/js%E6%98%93%E9%94%99%E9%A2%98/</url>
     <content><![CDATA[<h2 id="普通函数和箭头函数的区别"><a href="#普通函数和箭头函数的区别" class="headerlink" title="普通函数和箭头函数的区别"></a>普通函数和箭头函数的区别</h2><ul>
@@ -191,6 +132,65 @@
       </categories>
       <tags>
         <tag>JS</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Linux服务器中配置Nginx一个域名访问多个项目</title>
+    <url>/2019/04/12/Linux%E6%9C%8D%E5%8A%A1%E5%99%A8%E4%B8%AD%E9%85%8D%E7%BD%AENginx%E4%B8%80%E4%B8%AA%E5%9F%9F%E5%90%8D%E8%AE%BF%E9%97%AE%E5%A4%9A%E4%B8%AA%E9%A1%B9%E7%9B%AE/</url>
+    <content><![CDATA[<p>服务器配置个人博客和其它项目使其能够根据不同 url 跳转到不同项目，(例如:<em>localhosh://A 项目/，localhosh://B 项目/</em> )因为对服务器和 Nginx 部署了解甚少，在此记录一下</p>
+<a id="more"></a>
+
+<h2 id="location-模块的匹配介绍"><a href="#location-模块的匹配介绍" class="headerlink" title="location 模块的匹配介绍"></a>location 模块的匹配介绍</h2><blockquote>
+<ol>
+<li>”=”前缀指令匹配，如果匹配成功，则停止其他匹配。</li>
+<li>普通字符串指令匹配，顺序是从长到短，匹配成功的 location 如果使用^~，则停止其他匹配（正则匹配）。</li>
+<li>正则表达式指令匹配，按照配置文件里的顺序，成功就停止其他匹配。</li>
+<li>如果第三步中有匹配成功，则使用该结果，否则使用第二步结果。</li>
+</ol>
+</blockquote>
+<h3 id="注意点"><a href="#注意点" class="headerlink" title="注意点"></a>注意点</h3><blockquote>
+<ol>
+<li>匹配的顺序是先匹配普通字符串，然后再匹配正则表达式。另外普通字符串匹配顺序是根据配置中字符长度从长到短，也就是说使用普通字符串配置的 location 顺序是无关紧要的，反正最后 nginx 会根据配置的长短来进行匹配，但是需要注意的是正则表达式按照配置文件里的顺序测试。找到第一个匹配的正则表达式将停止搜索。</li>
+<li>一般情况下，匹配成功了普通字符串 location 后还会进行正则表达式 location 匹配。有两种方法改变这种行为，其一就是使用“=”前缀，这时执行的是严格匹配，并且匹配成功后立即停止其他匹配，同时处理这个请求；另外一种就是使用“^~”前缀，如果把这个前缀用于一个常规字符串那么告诉 nginx 如果路径匹配那么不测试正则表达式。</li>
+</ol>
+</blockquote>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">location = <span class="string">``</span> / uri;</span><br></pre></td></tr></table></figure>
+
+<p>=开头表示精确匹配，只有完全匹配上才能生效。</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">location ^ (~<span class="string">``</span> / uri);</span><br></pre></td></tr></table></figure>
+
+<p>^~ 开头对 URL 路径进行前缀匹配，并且在正则之前。</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">location ~ pattern</span><br></pre></td></tr></table></figure>
+
+<p>~开头表示区分大小写的正则匹配。</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">location ~* pattern</span><br></pre></td></tr></table></figure>
+
+<p>~*开头表示不区分大小写的正则匹配。</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">location<span class="string">``</span> / uri;</span><br></pre></td></tr></table></figure>
+
+<p>不带任何修饰符，也表示前缀匹配，但是在正则匹配之后。</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">location /</span><br></pre></td></tr></table></figure>
+
+<p>通用匹配，任何未匹配到其它 location 的请求都会匹配到，相当于 switch 中的 default。</p>
+<h2 id="alias-和-root-的区别"><a href="#alias-和-root-的区别" class="headerlink" title="alias 和 root 的区别"></a>alias 和 root 的区别</h2><p>在<a href="https://router.vuejs.org/zh/guide/essentials/redirect-and-alias.html#%E9%87%8D%E5%AE%9A%E5%90%91" target="_blank" rel="noopener">VUE</a>中也有alias的概念，感觉两者差不多</p>
+<ul>
+<li>alias 和 root 都是用来指定文件路径的，root与alias主要区别在于nginx如何解释location后面的uri，这会使两者分别以不同的方式将请求映射到服务器文件上。</li>
+<li>root的处理结果是：root路径＋location路径</li>
+<li>alias的处理结果是：使用alias路径替换location路径</li>
+<li>alias是一个目录别名的定义，root则是最上层目录的定义。</li>
+<li>还有一个重要的区别是alias后面必须要用“/”结束，否则会找不到文件</li>
+<li>alias在使用正则匹配时，必须捕捉要匹配的内容并在指定的内容处使用。</li>
+<li>alias只能位于location块中。（root可以不放在location中）</li>
+</ul>
+<h2 id="配置示例"><a href="#配置示例" class="headerlink" title="配置示例"></a>配置示例</h2><figure class="highlight js"><table><tr><td class="code"><pre><span class="line">server &#123;</span><br><span class="line"> *****</span><br><span class="line"> *****</span><br><span class="line"> # 域名+项目1名称</span><br><span class="line"> location ^~ <span class="regexp">/A/</span> &#123;</span><br><span class="line">   alias /data/A/;</span><br><span class="line"> &#125;</span><br><span class="line"> # 域名+项目2名称</span><br><span class="line"> location ^~ <span class="regexp">/B/</span> &#123;</span><br><span class="line">   alias /data/B/;</span><br><span class="line"> &#125;</span><br><span class="line">    ****</span><br><span class="line">    ****</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>参考：<a href="https://www.nginx.cn/4658.html" target="_blank" rel="noopener">nginx的location、root、alias指令用法和区别</a></p>
+]]></content>
+      <categories>
+        <category>Nginx</category>
+      </categories>
+      <tags>
+        <tag>Nginx</tag>
       </tags>
   </entry>
   <entry>
@@ -1056,58 +1056,6 @@ if(isAndroid){
       </tags>
   </entry>
   <entry>
-    <title>promise、async、await与eventLoop</title>
-    <url>/2020/01/14/promise%E3%80%81async%E3%80%81await%E4%B8%8EeventLoop/</url>
-    <content><![CDATA[<h2 id="Promise"><a href="#Promise" class="headerlink" title="Promise"></a>Promise</h2><p>promise的作用是用来解决回调地狱，它使得异步操作具备同步操作的接口，使得程序具备正常的同步运行的流程，回调函数不必再一层层嵌套</p>
-<p>可以通过 <code>new Promise</code>来创建一个<code>promise</code>对象，</p>
-<p>该对象含有一个状态 <em>PromiseStatus<em>，一个值</em>PromiseValue</em></p>
-<p><em>PromiseStatus</em>的值，也就是promise的状态分为三种： <code>fulfilled/resolved</code> （已完成）<code>rejected</code>（已拒绝） <code>pending</code>（进行中）</p>
-<p>这三种的状态的变化途径只有两种。</p>
-<p>•  异步操作从“未完成”到“已完成”</p>
-<p>•  异步操作从“未完成”到“失败”</p>
-<p>Promise构造函数接受一个函数作为参数，该函数的两个参数分别是resolve和reject。</p>
-<p>resolve函数的作用是，将Promise对象的状态从“未完成”变为“成功”（即从Pending变为Resolved），在异步操作成功时调用，并将异步操作的结果，作为参数传递出去；</p>
-<p>reject函数的作用是，将Promise对象的状态从“未完成”变为“失败”（即从Pending变为Rejected），在异步操作失败时调用，并将异步操作报出的错误，作为参数传递出去。</p>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">new</span> <span class="built_in">Promise</span>(<span class="function">(<span class="params">resolve,reject</span>)=&gt;</span>&#123;</span><br><span class="line">  setTimeout(<span class="function"><span class="params">()</span>=&gt;</span>&#123;</span><br><span class="line">    resolve(<span class="string">'res'</span>)</span><br><span class="line">  &#125;,<span class="number">3000</span>)</span><br><span class="line">&#125;).then(<span class="function"><span class="params">res</span>=&gt;</span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(res) <span class="comment">//res</span></span><br><span class="line">  <span class="keyword">return</span> <span class="number">12</span></span><br><span class="line">&#125;).then(<span class="function"><span class="params">res</span>=&gt;</span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(res) <span class="comment">//12</span></span><br><span class="line">  <span class="keyword">return</span> <span class="number">34</span></span><br><span class="line">&#125;).then(<span class="function"><span class="params">res</span>=&gt;</span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(res) <span class="comment">//34</span></span><br><span class="line">&#125;).catch(<span class="function"><span class="params">err</span>=&gt;</span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(err)</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
-
-<p>从上面这个例子可以看出，<code>promise</code>的<code>then</code>方法接收上一个<code>then</code>方法的返回值，这个就是解决回调地狱的关键</p>
-<p>then方法可以接受两个回调函数，一个成功时的回调，一个失败时的回调（可以省略），当然也可以用catch接收失败的回调。这两个函数都接受异步操作传回的值作为参数</p>
-<p>上面这个<strong>例子是串行执行若干异步任务</strong>，promise还可以<strong>并行执行异步任务。</strong></p>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">promise.all([task1,task2]).then(<span class="function"><span class="params">res</span>=&gt;</span>&#123;  <span class="comment">//task1,task2皆为promise</span></span><br><span class="line">   res 为 一个包含 task1,task2结果的的数组</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
-
-<p><strong><code>Promise.race(iterable)</code></strong> 方法返回一个 promise，一旦迭代器中的某个promise解决或拒绝，返回的 promise就会解决或拒绝。</p>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> p5 = <span class="keyword">new</span> <span class="built_in">Promise</span>(<span class="function"><span class="keyword">function</span>(<span class="params">resolve, reject</span>) </span>&#123; </span><br><span class="line">  setTimeout(resolve, <span class="number">500</span>, <span class="string">"five"</span>); </span><br><span class="line">&#125;);</span><br><span class="line"><span class="keyword">var</span> p6 = <span class="keyword">new</span> <span class="built_in">Promise</span>(<span class="function"><span class="keyword">function</span>(<span class="params">resolve, reject</span>) </span>&#123; </span><br><span class="line">  setTimeout(reject, <span class="number">100</span>, <span class="string">"six"</span>);</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line"><span class="built_in">Promise</span>.race([p5, p6]).then(<span class="function"><span class="params">res</span>=&gt;</span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(res); <span class="comment">//不执行</span></span><br><span class="line">&#125;).catch(<span class="function"><span class="params">err</span>=&gt;</span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(err+<span class="string">'---------'</span>); <span class="comment">//six</span></span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
-
-<p><code>race</code> 函数返回一个 <code>Promise</code>，它将与第一个传递的 promise 相同的完成方式被完成。</p>
-<p><strong>它可以是完成（ resolves），也可以是失败（rejects），这要取决于第一个完成的方式是两个中的哪个</strong>。</p>
-<p>如果传的迭代是空的，则返回的 promise 将永远等待。</p>
-<p>如果迭代包含一个或多个非承诺值和/或已解决/拒绝的承诺，则<code>Promise.race</code> 将解析为迭代中找到的第一个值。</p>
-<h2 id="Event-Loop"><a href="#Event-Loop" class="headerlink" title="Event Loop"></a>Event Loop</h2><p>event loop是JS的运行机制，在事件循环内部，分为两种类型的列队：宏任务（<em>macrotask</em>）列队和微任务（<em>microtask</em>）列队，分别用于对应的宏任务与微任务</p>
-<p>JS中常见的宏任务和微任务有</p>
-<h3 id="MacroTask（宏任务）"><a href="#MacroTask（宏任务）" class="headerlink" title="MacroTask（宏任务）"></a>MacroTask（宏任务）</h3><ul>
-<li><code>setTimeout</code>、<code>setInterval</code>、<code>setImmediate</code>（浏览器暂时不支持，只有 IE10 支持，具体可见 <a href="https://developer.mozilla.org/zh-CN/docs/Web/API/Window/setImmediate" target="_blank" rel="noopener"><code>MDN</code></a>）、<code>I/O</code>、<code>UI Rendering</code>。</li>
-</ul>
-<h3 id="MicroTask（微任务）"><a href="#MicroTask（微任务）" class="headerlink" title="MicroTask（微任务）"></a>MicroTask（微任务）</h3><ul>
-<li><code>Process.nextTick</code>（<a href="https://nodejs.org/zh-cn/docs/guides/event-loop-timers-and-nexttick/" target="_blank" rel="noopener">Node独有</a>）、<code>Promise</code>、<code>Object.observe(废弃)</code>、<code>MutationObserver</code></li>
-</ul>
-<h3 id="浏览器中的-Event-Loop"><a href="#浏览器中的-Event-Loop" class="headerlink" title="浏览器中的 Event Loop"></a>浏览器中的 Event Loop</h3><p><code>Javascript</code> 有一个 <code>main thread</code> 主线程和 <code>call-stack</code> 调用栈 (执行栈)，所有的任务都会被放到调用栈等待主线程执行。</p>
-<h3 id="JS-调用栈"><a href="#JS-调用栈" class="headerlink" title="JS 调用栈"></a>JS 调用栈</h3><p>JS 调用栈采用的是后进先出的规则，当函数执行的时候，会被添加到栈的顶部，当执行栈执行完成后，就会从栈顶移出，直到栈内被清空。</p>
-<h3 id="同步任务和异步任务"><a href="#同步任务和异步任务" class="headerlink" title="同步任务和异步任务"></a>同步任务和异步任务</h3><p><code>Javascript</code> 单线程任务被分为<strong>同步任务</strong>和<strong>异步任务</strong>，同步任务会在调用栈中按照顺序等待主线程依次执行，异步任务会在异步任务有了结果后，将注册的回调函数放入任务队列中等待主线程空闲的时候（调用栈被清空），被读取到栈内等待主线程的执行</p>
-<p>执行栈在执行完<strong>同步任务</strong>后，查看<strong>执行栈</strong>是否为空，如果执行栈为空，就会去检查<strong>微任务</strong> (<code>microTask</code>) 队列是否为空，如果为空的话，就执行 <code>Task</code>（宏任务），否则就一次性执行完所有微任务。<br>每次单个<strong>宏任务</strong>执行完毕后，检查<strong>微任务</strong> (<code>microTask</code>) 队列是否为空，如果不为空的话，会按照<strong>先入先</strong>出的规则全部执行完<strong>微任务</strong> (<code>microTask</code>) 后，设置<strong>微任务</strong> (<code>microTask</code>) 队列为 <code>null</code>，然后再执行<strong>宏任务</strong>，如此循环。</p>
-<h2 id="async-await"><a href="#async-await" class="headerlink" title="async await"></a>async await</h2><p><code>async</code>函数 用来定义一个返回<code>AsyncFunction</code>对象的异步函数。异步函数是指通过事件循环异步执行的函数，它会通过一个隐式的 <code>Promise</code>返回其结果。</p>
-<p>当遇到 await 关键字的时候，异步函数被暂停。函数体的执行被暂停，async 函数中剩余的代码会在微任务中运行而不是一个常规任务！</p>
-<p>await关键字可以暂停异步函数的执行，并等待Promise执行，然后继续执行异步函数，并返回结果。<strong>只能在异步函数中使用</strong></p>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="comment">//检测一下学习成果</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">'script start'</span>)</span><br><span class="line"></span><br><span class="line"><span class="keyword">async</span> <span class="function"><span class="keyword">function</span> <span class="title">async1</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">await</span> async2()</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">'async1 end'</span>)</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">async</span> <span class="function"><span class="keyword">function</span> <span class="title">async2</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">'async2 end'</span>)</span><br><span class="line">&#125;</span><br><span class="line">async1()</span><br><span class="line"></span><br><span class="line">setTimeout(<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">'setTimeout'</span>)</span><br><span class="line">&#125;, <span class="number">0</span>)</span><br><span class="line"></span><br><span class="line"><span class="keyword">new</span> <span class="built_in">Promise</span>(<span class="function"><span class="params">resolve</span> =&gt;</span> &#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">'Promise'</span>)</span><br><span class="line">  resolve()</span><br><span class="line">&#125;)</span><br><span class="line">  .then(<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">'promise1'</span>)</span><br><span class="line">  &#125;)</span><br><span class="line">  .then(<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">'promise2'</span>)</span><br><span class="line">  &#125;)</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">'script end'</span>)</span><br></pre></td></tr></table></figure>
-
-]]></content>
-      <categories>
-        <category>每天一个知识点</category>
-      </categories>
-      <tags>
-        <tag>JS</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>一次弄懂EventLoop</title>
     <url>/2020/01/02/%E4%B8%80%E6%AC%A1%E5%BC%84%E6%87%82EventLoop/</url>
     <content><![CDATA[<p>关于EventLoop的文章实在太多了，但是好像至今都没有一篇比较权威的说明，从<br>阮一峰老师的<br><a href="http://www.ruanyifeng.com/blog/2013/10/event_loop.html" target="_blank" rel="noopener"><strong>什么是 Event Loop？</strong></a>——&gt;<br><a href="http://www.ruanyifeng.com/blog/2014/10/event-loop.html" target="_blank" rel="noopener"><strong>JavaScript 运行机制详解：再谈Event Loop</strong></a><br>再到朴灵老师的<br><a href="https://blog.csdn.net/lin_credible/article/details/40143961" target="_blank" rel="noopener"><strong>【朴灵评注】JavaScript 运行机制详解：再谈Event Loop</strong></a><br>还有MDN的<br><a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/EventLoop" target="_blank" rel="noopener"><strong>并发模型与事件循环</strong></a> 这篇讲的有些太精炼了😣</p>
@@ -1326,6 +1274,58 @@ if(isAndroid){
 ]]></content>
       <categories>
         <category>JS</category>
+      </categories>
+      <tags>
+        <tag>JS</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>promise、async、await与eventLoop</title>
+    <url>/2020/01/14/promise%E3%80%81async%E3%80%81await%E4%B8%8EeventLoop/</url>
+    <content><![CDATA[<h2 id="Promise"><a href="#Promise" class="headerlink" title="Promise"></a>Promise</h2><p>promise的作用是用来解决回调地狱，它使得异步操作具备同步操作的接口，使得程序具备正常的同步运行的流程，回调函数不必再一层层嵌套</p>
+<p>可以通过 <code>new Promise</code>来创建一个<code>promise</code>对象，</p>
+<p>该对象含有一个状态 <em>PromiseStatus<em>，一个值</em>PromiseValue</em></p>
+<p><em>PromiseStatus</em>的值，也就是promise的状态分为三种： <code>fulfilled/resolved</code> （已完成）<code>rejected</code>（已拒绝） <code>pending</code>（进行中）</p>
+<p>这三种的状态的变化途径只有两种。</p>
+<p>•  异步操作从“未完成”到“已完成”</p>
+<p>•  异步操作从“未完成”到“失败”</p>
+<p>Promise构造函数接受一个函数作为参数，该函数的两个参数分别是resolve和reject。</p>
+<p>resolve函数的作用是，将Promise对象的状态从“未完成”变为“成功”（即从Pending变为Resolved），在异步操作成功时调用，并将异步操作的结果，作为参数传递出去；</p>
+<p>reject函数的作用是，将Promise对象的状态从“未完成”变为“失败”（即从Pending变为Rejected），在异步操作失败时调用，并将异步操作报出的错误，作为参数传递出去。</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">new</span> <span class="built_in">Promise</span>(<span class="function">(<span class="params">resolve,reject</span>)=&gt;</span>&#123;</span><br><span class="line">  setTimeout(<span class="function"><span class="params">()</span>=&gt;</span>&#123;</span><br><span class="line">    resolve(<span class="string">'res'</span>)</span><br><span class="line">  &#125;,<span class="number">3000</span>)</span><br><span class="line">&#125;).then(<span class="function"><span class="params">res</span>=&gt;</span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(res) <span class="comment">//res</span></span><br><span class="line">  <span class="keyword">return</span> <span class="number">12</span></span><br><span class="line">&#125;).then(<span class="function"><span class="params">res</span>=&gt;</span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(res) <span class="comment">//12</span></span><br><span class="line">  <span class="keyword">return</span> <span class="number">34</span></span><br><span class="line">&#125;).then(<span class="function"><span class="params">res</span>=&gt;</span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(res) <span class="comment">//34</span></span><br><span class="line">&#125;).catch(<span class="function"><span class="params">err</span>=&gt;</span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(err)</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
+<p>从上面这个例子可以看出，<code>promise</code>的<code>then</code>方法接收上一个<code>then</code>方法的返回值，这个就是解决回调地狱的关键</p>
+<p>then方法可以接受两个回调函数，一个成功时的回调，一个失败时的回调（可以省略），当然也可以用catch接收失败的回调。这两个函数都接受异步操作传回的值作为参数</p>
+<p>上面这个<strong>例子是串行执行若干异步任务</strong>，promise还可以<strong>并行执行异步任务。</strong></p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">promise.all([task1,task2]).then(<span class="function"><span class="params">res</span>=&gt;</span>&#123;  <span class="comment">//task1,task2皆为promise</span></span><br><span class="line">   res 为 一个包含 task1,task2结果的的数组</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
+<p><strong><code>Promise.race(iterable)</code></strong> 方法返回一个 promise，一旦迭代器中的某个promise解决或拒绝，返回的 promise就会解决或拒绝。</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> p5 = <span class="keyword">new</span> <span class="built_in">Promise</span>(<span class="function"><span class="keyword">function</span>(<span class="params">resolve, reject</span>) </span>&#123; </span><br><span class="line">  setTimeout(resolve, <span class="number">500</span>, <span class="string">"five"</span>); </span><br><span class="line">&#125;);</span><br><span class="line"><span class="keyword">var</span> p6 = <span class="keyword">new</span> <span class="built_in">Promise</span>(<span class="function"><span class="keyword">function</span>(<span class="params">resolve, reject</span>) </span>&#123; </span><br><span class="line">  setTimeout(reject, <span class="number">100</span>, <span class="string">"six"</span>);</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line"><span class="built_in">Promise</span>.race([p5, p6]).then(<span class="function"><span class="params">res</span>=&gt;</span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(res); <span class="comment">//不执行</span></span><br><span class="line">&#125;).catch(<span class="function"><span class="params">err</span>=&gt;</span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(err+<span class="string">'---------'</span>); <span class="comment">//six</span></span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
+<p><code>race</code> 函数返回一个 <code>Promise</code>，它将与第一个传递的 promise 相同的完成方式被完成。</p>
+<p><strong>它可以是完成（ resolves），也可以是失败（rejects），这要取决于第一个完成的方式是两个中的哪个</strong>。</p>
+<p>如果传的迭代是空的，则返回的 promise 将永远等待。</p>
+<p>如果迭代包含一个或多个非承诺值和/或已解决/拒绝的承诺，则<code>Promise.race</code> 将解析为迭代中找到的第一个值。</p>
+<h2 id="Event-Loop"><a href="#Event-Loop" class="headerlink" title="Event Loop"></a>Event Loop</h2><p>event loop是JS的运行机制，在事件循环内部，分为两种类型的列队：宏任务（<em>macrotask</em>）列队和微任务（<em>microtask</em>）列队，分别用于对应的宏任务与微任务</p>
+<p>JS中常见的宏任务和微任务有</p>
+<h3 id="MacroTask（宏任务）"><a href="#MacroTask（宏任务）" class="headerlink" title="MacroTask（宏任务）"></a>MacroTask（宏任务）</h3><ul>
+<li><code>setTimeout</code>、<code>setInterval</code>、<code>setImmediate</code>（浏览器暂时不支持，只有 IE10 支持，具体可见 <a href="https://developer.mozilla.org/zh-CN/docs/Web/API/Window/setImmediate" target="_blank" rel="noopener"><code>MDN</code></a>）、<code>I/O</code>、<code>UI Rendering</code>。</li>
+</ul>
+<h3 id="MicroTask（微任务）"><a href="#MicroTask（微任务）" class="headerlink" title="MicroTask（微任务）"></a>MicroTask（微任务）</h3><ul>
+<li><code>Process.nextTick</code>（<a href="https://nodejs.org/zh-cn/docs/guides/event-loop-timers-and-nexttick/" target="_blank" rel="noopener">Node独有</a>）、<code>Promise</code>、<code>Object.observe(废弃)</code>、<code>MutationObserver</code></li>
+</ul>
+<h3 id="浏览器中的-Event-Loop"><a href="#浏览器中的-Event-Loop" class="headerlink" title="浏览器中的 Event Loop"></a>浏览器中的 Event Loop</h3><p><code>Javascript</code> 有一个 <code>main thread</code> 主线程和 <code>call-stack</code> 调用栈 (执行栈)，所有的任务都会被放到调用栈等待主线程执行。</p>
+<h3 id="JS-调用栈"><a href="#JS-调用栈" class="headerlink" title="JS 调用栈"></a>JS 调用栈</h3><p>JS 调用栈采用的是后进先出的规则，当函数执行的时候，会被添加到栈的顶部，当执行栈执行完成后，就会从栈顶移出，直到栈内被清空。</p>
+<h3 id="同步任务和异步任务"><a href="#同步任务和异步任务" class="headerlink" title="同步任务和异步任务"></a>同步任务和异步任务</h3><p><code>Javascript</code> 单线程任务被分为<strong>同步任务</strong>和<strong>异步任务</strong>，同步任务会在调用栈中按照顺序等待主线程依次执行，异步任务会在异步任务有了结果后，将注册的回调函数放入任务队列中等待主线程空闲的时候（调用栈被清空），被读取到栈内等待主线程的执行</p>
+<p>执行栈在执行完<strong>同步任务</strong>后，查看<strong>执行栈</strong>是否为空，如果执行栈为空，就会去检查<strong>微任务</strong> (<code>microTask</code>) 队列是否为空，如果为空的话，就执行 <code>Task</code>（宏任务），否则就一次性执行完所有微任务。<br>每次单个<strong>宏任务</strong>执行完毕后，检查<strong>微任务</strong> (<code>microTask</code>) 队列是否为空，如果不为空的话，会按照<strong>先入先</strong>出的规则全部执行完<strong>微任务</strong> (<code>microTask</code>) 后，设置<strong>微任务</strong> (<code>microTask</code>) 队列为 <code>null</code>，然后再执行<strong>宏任务</strong>，如此循环。</p>
+<h2 id="async-await"><a href="#async-await" class="headerlink" title="async await"></a>async await</h2><p><code>async</code>函数 用来定义一个返回<code>AsyncFunction</code>对象的异步函数。异步函数是指通过事件循环异步执行的函数，它会通过一个隐式的 <code>Promise</code>返回其结果。</p>
+<p>当遇到 await 关键字的时候，异步函数被暂停。函数体的执行被暂停，async 函数中剩余的代码会在微任务中运行而不是一个常规任务！</p>
+<p>await关键字可以暂停异步函数的执行，并等待Promise执行，然后继续执行异步函数，并返回结果。<strong>只能在异步函数中使用</strong></p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="comment">//检测一下学习成果</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">'script start'</span>)</span><br><span class="line"></span><br><span class="line"><span class="keyword">async</span> <span class="function"><span class="keyword">function</span> <span class="title">async1</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">await</span> async2()</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">'async1 end'</span>)</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">async</span> <span class="function"><span class="keyword">function</span> <span class="title">async2</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">'async2 end'</span>)</span><br><span class="line">&#125;</span><br><span class="line">async1()</span><br><span class="line"></span><br><span class="line">setTimeout(<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">'setTimeout'</span>)</span><br><span class="line">&#125;, <span class="number">0</span>)</span><br><span class="line"></span><br><span class="line"><span class="keyword">new</span> <span class="built_in">Promise</span>(<span class="function"><span class="params">resolve</span> =&gt;</span> &#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">'Promise'</span>)</span><br><span class="line">  resolve()</span><br><span class="line">&#125;)</span><br><span class="line">  .then(<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">'promise1'</span>)</span><br><span class="line">  &#125;)</span><br><span class="line">  .then(<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">'promise2'</span>)</span><br><span class="line">  &#125;)</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">'script end'</span>)</span><br></pre></td></tr></table></figure>
+
+]]></content>
+      <categories>
+        <category>每天一个知识点</category>
       </categories>
       <tags>
         <tag>JS</tag>
