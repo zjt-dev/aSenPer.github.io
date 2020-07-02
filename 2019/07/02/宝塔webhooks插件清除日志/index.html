@@ -17,7 +17,7 @@
 
 <script id="hexo-configurations">
     var NexT = window.NexT || {};
-    var CONFIG = {"hostname":"www.asenper.cn","root":"/","scheme":"Mist","version":"7.8.0","exturl":false,"sidebar":{"position":"right","Muse | Mist":320,"width":234,"display":"always","padding":18,"offset":12,"onmobile":true},"copycode":{"enable":"ture","show_result":true,"style":"mac"},"back2top":{"enable":true,"sidebar":false,"scrollpercent":true},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":true,"lazyload":false,"pangu":"ture","comments":{"style":"tabs","active":"valine","storage":true,"lazyload":false,"nav":null,"activeClass":"valine"},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"slideLeftIn","post_header":"slideLeftIn","post_body":"slideLeftIn","coll_header":"slideLeftIn","sidebar":"perspectiveUpIn"}},"path":"search.xml"};
+    var CONFIG = {"hostname":"www.asenper.cn","root":"/","scheme":"Mist","version":"7.8.0","exturl":false,"sidebar":{"position":"right","Muse | Mist":320,"width":234,"display":"always","padding":18,"offset":12,"onmobile":true},"copycode":{"enable":"ture","show_result":true,"style":"mac"},"back2top":{"enable":true,"sidebar":false,"scrollpercent":true},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":true,"lazyload":"ture","pangu":"ture","comments":{"style":"tabs","active":"valine","storage":true,"lazyload":false,"nav":null,"activeClass":"valine"},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"slideLeftIn","post_header":"slideLeftIn","post_body":"slideLeftIn","coll_header":"slideLeftIn","sidebar":"perspectiveUpIn"}},"path":"search.xml"};
   </script>
 
   <meta name="description" content="&amp;emsp;&amp;emsp;博客提交的多了，webhooks的日志也越来越多，每次都要把滚动条拉到最底，滚动条还特别小，就想着能不能添加一个清除日志的功能。正好在宝塔论坛里看到了这样的一边文章，转载过来，记录一下https:&#x2F;&#x2F;www.bt.cn&#x2F;bbs&#x2F;thread-30978-1-2.html 打开文件路径 &#x2F;www&#x2F;server&#x2F;panel&#x2F;plugin&#x2F;webhook找到 index.html">
@@ -120,11 +120,6 @@
         <li class="menu-item menu-item-home">
 
     <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a>
-
-  </li>
-        <li class="menu-item menu-item-tags">
-
-    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签<span class="badge">13</span></a>
 
   </li>
         <li class="menu-item menu-item-categories">
@@ -275,7 +270,7 @@
 
 <p>添加清除日志的方法</p>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//清除日志</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">ClearLogs</span>(<span class="params">path</span>)</span>&#123;</span><br><span class="line">    loadT = layer.msg(<span class="string">'正在清除...'</span>,&#123;<span class="attr">icon</span>:<span class="number">16</span>,<span class="attr">time</span>:<span class="number">0</span>,<span class="attr">shade</span>: [<span class="number">0.3</span>, <span class="string">'#000'</span>]&#125;);</span><br><span class="line">    <span class="keyword">var</span> data=<span class="string">'&amp;path='</span>+path</span><br><span class="line">    $.post(<span class="string">'/files?action=DeleteFile'</span>,data,<span class="function"><span class="keyword">function</span>(<span class="params">rdata</span>)</span>&#123;</span><br><span class="line">        layer.close(loadT);</span><br><span class="line">        <span class="keyword">if</span>(!rdata.status) &#123;</span><br><span class="line">            layer.msg(rdata.msg,&#123;<span class="attr">icon</span>:<span class="number">2</span>&#125;);</span><br><span class="line">            <span class="keyword">return</span>;</span><br><span class="line">        &#125;;</span><br><span class="line">        layer.msg(rdata.msg,&#123;<span class="attr">icon</span>:rdata.status?<span class="number">1</span>:<span class="number">2</span>&#125;);</span><br><span class="line">    &#125;);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>完工<br><img src="https://img2020.cnblogs.com/blog/1524685/202006/1524685-20200630090102486-1644179180.png" alt=""></p>
+<p>完工<br><img data-src="https://img2020.cnblogs.com/blog/1524685/202006/1524685-20200630090102486-1644179180.png" alt=""></p>
 
     </div>
 
@@ -439,7 +434,6 @@
       </div>
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
-          
         <span class="site-state-item-count">13</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
@@ -521,8 +515,6 @@
   
 <script src="https://cdn.jsdelivr.net/jquery/2.1.3/jquery.min.js"></script>
 
-<script src="/js/masonry.pkgd.min.js"></script>
-
 <script src="/js/lightGallery.min.js"></script>
 
 <script src="/js/lg-autoplay.min.js"></script>
@@ -531,8 +523,11 @@
 
 <script src="/js/lg-thumbnail.js"></script>
 
+<script src="/js/jquery.justifiedGallery.min.js"></script>
+
   <script src="/lib/anime.min.js"></script>
   <script src="//cdn.jsdelivr.net/npm/medium-zoom@1/dist/medium-zoom.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/lozad@1/dist/lozad.min.js"></script>
   <script src="//cdn.jsdelivr.net/npm/pangu@4/dist/browser/pangu.min.js"></script>
   <script src="/lib/velocity/velocity.min.js"></script>
   <script src="/lib/velocity/velocity.ui.min.js"></script>

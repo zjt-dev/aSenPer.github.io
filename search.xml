@@ -60,35 +60,6 @@
       </tags>
   </entry>
   <entry>
-    <title>markdown基本语法</title>
-    <url>/2019/04/12/markdown%E5%9F%BA%E6%9C%AC%E8%AF%AD%E6%B3%95/</url>
-    <content><![CDATA[<h4 id="标题"><a href="#标题" class="headerlink" title="标题"></a>标题</h4><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"># 这是一级标题</span><br><span class="line">## 这是二级标题</span><br><span class="line">### 这是三级标题</span><br></pre></td></tr></table></figure>
-
-<h4 id="字体"><a href="#字体" class="headerlink" title="字体"></a>字体</h4><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">**这是加粗的文字**</span><br><span class="line">*这是倾斜的文字*&#96;</span><br><span class="line">***这是斜体加粗的文字***</span><br><span class="line">~~这是加删除线的文字~~</span><br></pre></td></tr></table></figure>
-
-<h4 id="引用"><a href="#引用" class="headerlink" title="引用"></a>引用</h4><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&gt;这是引用的内容</span><br><span class="line">&gt;&gt;这是引用的内容</span><br><span class="line">&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;这是引用的内容</span><br></pre></td></tr></table></figure>
-
-<h4 id="分割线"><a href="#分割线" class="headerlink" title="分割线"></a>分割线</h4><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">---</span><br><span class="line">----</span><br><span class="line">***</span><br><span class="line">*****</span><br></pre></td></tr></table></figure>
-
-<h4 id="图片"><a href="#图片" class="headerlink" title="图片"></a>图片</h4><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">![图片alt](图片地址 &#39;&#39;图片title&#39;&#39;)</span><br><span class="line"> </span><br><span class="line">图片alt就是显示在图片下面的文字，相当于对图片内容的解释。</span><br><span class="line">图片title是图片的标题，当鼠标移到图片上时显示的内容。title可加可不加</span><br></pre></td></tr></table></figure>
-
-<h4 id="超链接"><a href="#超链接" class="headerlink" title="超链接"></a>超链接</h4><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">[超链接名](超链接地址 &quot;超链接title&quot;)</span><br><span class="line">title可加可不加</span><br></pre></td></tr></table></figure>
-
-<h4 id="列表"><a href="#列表" class="headerlink" title="列表"></a>列表</h4><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">- 列表内容</span><br><span class="line">+ 列表内容</span><br><span class="line">* 列表内容</span><br><span class="line"> </span><br><span class="line">注意：- + * 跟内容之间都要有一个空格</span><br></pre></td></tr></table></figure>
-
-<h4 id="表格"><a href="#表格" class="headerlink" title="表格"></a>表格</h4><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">表头|表头|表头</span><br><span class="line">---|:--:|---:</span><br><span class="line">内容|内容|内容</span><br><span class="line">内容|内容|内容</span><br><span class="line"> </span><br><span class="line">注意：</span><br><span class="line">1.第二行分割表头和内容“-”有一个就行，为了对齐，多加了几个</span><br><span class="line">2.文字默认居左，“-”两边加：表示文字居中；“-”右边加：表示文字居右</span><br></pre></td></tr></table></figure>
-
-<h4 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h4><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">​   &#96;&#96;&#96; 语言类型 如 js &#x2F; html &#x2F; php</span><br><span class="line">    代码...</span><br><span class="line">    代码...</span><br><span class="line">    代码...</span><br><span class="line">​</span><br></pre></td></tr></table></figure>
-<p>```</p>
-]]></content>
-      <categories>
-        <category>markdown</category>
-      </categories>
-      <tags>
-        <tag>markdown</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>JS面试题</title>
     <url>/2019/04/10/js%E6%98%93%E9%94%99%E9%A2%98/</url>
     <content><![CDATA[<h2 id="普通函数和箭头函数的区别"><a href="#普通函数和箭头函数的区别" class="headerlink" title="普通函数和箭头函数的区别"></a>普通函数和箭头函数的区别</h2><ul>
@@ -220,6 +191,35 @@
       </categories>
       <tags>
         <tag>JS</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>markdown基本语法</title>
+    <url>/2019/04/12/markdown%E5%9F%BA%E6%9C%AC%E8%AF%AD%E6%B3%95/</url>
+    <content><![CDATA[<h4 id="标题"><a href="#标题" class="headerlink" title="标题"></a>标题</h4><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"># 这是一级标题</span><br><span class="line">## 这是二级标题</span><br><span class="line">### 这是三级标题</span><br></pre></td></tr></table></figure>
+
+<h4 id="字体"><a href="#字体" class="headerlink" title="字体"></a>字体</h4><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">**这是加粗的文字**</span><br><span class="line">*这是倾斜的文字*&#96;</span><br><span class="line">***这是斜体加粗的文字***</span><br><span class="line">~~这是加删除线的文字~~</span><br></pre></td></tr></table></figure>
+
+<h4 id="引用"><a href="#引用" class="headerlink" title="引用"></a>引用</h4><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&gt;这是引用的内容</span><br><span class="line">&gt;&gt;这是引用的内容</span><br><span class="line">&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;这是引用的内容</span><br></pre></td></tr></table></figure>
+
+<h4 id="分割线"><a href="#分割线" class="headerlink" title="分割线"></a>分割线</h4><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">---</span><br><span class="line">----</span><br><span class="line">***</span><br><span class="line">*****</span><br></pre></td></tr></table></figure>
+
+<h4 id="图片"><a href="#图片" class="headerlink" title="图片"></a>图片</h4><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">![图片alt](图片地址 &#39;&#39;图片title&#39;&#39;)</span><br><span class="line"> </span><br><span class="line">图片alt就是显示在图片下面的文字，相当于对图片内容的解释。</span><br><span class="line">图片title是图片的标题，当鼠标移到图片上时显示的内容。title可加可不加</span><br></pre></td></tr></table></figure>
+
+<h4 id="超链接"><a href="#超链接" class="headerlink" title="超链接"></a>超链接</h4><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">[超链接名](超链接地址 &quot;超链接title&quot;)</span><br><span class="line">title可加可不加</span><br></pre></td></tr></table></figure>
+
+<h4 id="列表"><a href="#列表" class="headerlink" title="列表"></a>列表</h4><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">- 列表内容</span><br><span class="line">+ 列表内容</span><br><span class="line">* 列表内容</span><br><span class="line"> </span><br><span class="line">注意：- + * 跟内容之间都要有一个空格</span><br></pre></td></tr></table></figure>
+
+<h4 id="表格"><a href="#表格" class="headerlink" title="表格"></a>表格</h4><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">表头|表头|表头</span><br><span class="line">---|:--:|---:</span><br><span class="line">内容|内容|内容</span><br><span class="line">内容|内容|内容</span><br><span class="line"> </span><br><span class="line">注意：</span><br><span class="line">1.第二行分割表头和内容“-”有一个就行，为了对齐，多加了几个</span><br><span class="line">2.文字默认居左，“-”两边加：表示文字居中；“-”右边加：表示文字居右</span><br></pre></td></tr></table></figure>
+
+<h4 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h4><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">​   &#96;&#96;&#96; 语言类型 如 js &#x2F; html &#x2F; php</span><br><span class="line">    代码...</span><br><span class="line">    代码...</span><br><span class="line">    代码...</span><br><span class="line">​</span><br></pre></td></tr></table></figure>
+<p>```</p>
+]]></content>
+      <categories>
+        <category>markdown</category>
+      </categories>
+      <tags>
+        <tag>markdown</tag>
       </tags>
   </entry>
   <entry>
@@ -386,7 +386,7 @@
 <p>或是采用兼容IE的获取函数name方法来获取函数名称：</p>
 <p>/**<br>  * 获取指定函数的函数名称（用于兼容IE）<br>  * @param {Function} fun 任意函数 */<br>function getFunctionName(fun) { if (fun.name !== undefined) return fun.name; var ret = fun.toString();<br>  ret = ret.substr(‘function ‘.length);<br>  ret = ret.substr(0, ret.indexOf(‘(‘)); return ret;<br>}</p>
 <p>遂用上述函数测试是否为匿名函数：</p>
-<p><img src="https://files.jb51.net/file_images/article/201511/20151125161154422.png?2015102516123" alt=""></p>
+<p><img data-src="https://files.jb51.net/file_images/article/201511/20151125161154422.png?2015102516123" alt=""></p>
 <p>可以得知变量fn1是具名函数，fn2是匿名函数</p>
 <p><strong>创建函数的几种方式</strong></p>
 <p>说完函数的类型，还需要了解JS中创建函数都有几种创建方法。</p>
@@ -407,7 +407,7 @@
 <p><strong>注意：</strong>在对象内定义函数如var o={ fn : function (){…} }，也属于函数表达式</p>
 <p><strong>4、Function构造函数</strong></p>
 <p>可以给 Function 构造函数传一个函数字符串，返回包含这个字符串命令的函数，此种方法创建的是匿名函数。</p>
-<p><img src="https://files.jb51.net/file_images/article/201511/20151125161355276.png?2015102516143" alt=""></p>
+<p><img data-src="https://files.jb51.net/file_images/article/201511/20151125161355276.png?2015102516143" alt=""></p>
 <p><strong>5、自执行函数</strong></p>
 <p>(function(){alert(1);})();<br>(function fn1(){alert(1);})();</p>
 <p>自执行函数属于上述的“函数表达式”，规则相同</p>
@@ -425,10 +425,10 @@
 <p>再说第三个fun函数之前需要先说下，在函数表达式内部能不能访问存放当前函数的变量。</p>
 <p><strong>测试1：对象内部的函数表达式：</strong></p>
 <p>var o={<br> fn:function (){<br>  console.log(fn);<br> }<br>};<br>o.fn();//ERROR报错</p>
-<p><img src="https://files.jb51.net/file_images/article/201511/20151125161534228.png?20151025161556" alt=""></p>
+<p><img data-src="https://files.jb51.net/file_images/article/201511/20151125161534228.png?20151025161556" alt=""></p>
 <p><strong>测试2：非对象内部的函数表达式：</strong></p>
 <p>var fn=function (){<br> console.log(fn);<br>};<br>fn();//function (){console.log(fn);};正确</p>
-<p><img src="https://files.jb51.net/file_images/article/201511/20151125161644557.png?20151025161652" alt=""></p>
+<p><img data-src="https://files.jb51.net/file_images/article/201511/20151125161644557.png?20151025161652" alt=""></p>
 <p><strong>结论：</strong>使用var或是非对象内部的函数表达式内，可以访问到存放当前函数的变量；在对象内部的不能访问到。</p>
 <p>原因也非常简单，因为函数作用域链的问题，采用var的是在外部创建了一个fn变量，函数内部当然可以在内部寻找不到fn后向上册作用域查找fn，而在创建对象内部时，因为没有在函数作用域内创建fn，所以无法访问。</p>
 <p>所以综上所述，可以得知，最内层的return出去的fun函数不是第二层fun函数，是最外层的fun函数。</p>
@@ -560,7 +560,7 @@
 <p>│  └── app.382da24eb9c30ee2.js</p>
 <p>└── index.html</p>
 <p>我们在浏览器中打开打包后的 index.html</p>
-<p><img src="https://user-gold-cdn.xitu.io/2018/9/3/1659f420ecd33c50?imageView2/0/w/1280/h/960/format/webp/ignore-error/1" alt=""></p>
+<p><img data-src="https://user-gold-cdn.xitu.io/2018/9/3/1659f420ecd33c50?imageView2/0/w/1280/h/960/format/webp/ignore-error/1" alt=""></p>
 <p>可以看出我们在index.js 中 引入的图片是可以正常加载的， 但是我们在css中引入的背景图 并没有加载成功。</p>
 <ol start="2">
 <li>问题原因</li>
@@ -620,8 +620,8 @@
     <url>/2019/05/12/Node%E9%A1%B9%E7%9B%AE%E9%83%A8%E7%BD%B2/</url>
     <content><![CDATA[<h2 id="利用宝塔可以很快的搭建你需要的环境"><a href="#利用宝塔可以很快的搭建你需要的环境" class="headerlink" title="利用宝塔可以很快的搭建你需要的环境"></a>利用宝塔可以很快的搭建你需要的环境</h2><p>安装 ：<a href="https://www.bt.cn/bbs/thread-19376-1-1.html" target="_blank" rel="noopener">https://www.bt.cn/bbs/thread-19376-1-1.html</a></p>
 <h2 id="上传文件"><a href="#上传文件" class="headerlink" title="上传文件"></a>上传文件</h2><p>将你的项目上传到指定的目录</p>
-<h2 id="添加网站"><a href="#添加网站" class="headerlink" title="添加网站"></a>添加网站</h2><p><img src="https://img2020.cnblogs.com/blog/1524685/202006/1524685-20200601100634195-561242539.png" alt=""></p>
-<h2 id="安装pm2管理器，方便管理你的Node项目和版本"><a href="#安装pm2管理器，方便管理你的Node项目和版本" class="headerlink" title="安装pm2管理器，方便管理你的Node项目和版本"></a>安装pm2管理器，方便管理你的Node项目和版本</h2><p>PM2是Node.js应用程序的生产流程管理器，内置负载均衡。它可以帮助您保持Node应用程序永久活动，重起这些node应用程序也不需要停机，并简化常见的系统管理任务。<br>填写项目跟目录和启动文件,启动你的node服务，也可以自己安装<code>forever</code><br><img src="https://img2020.cnblogs.com/blog/1524685/202006/1524685-20200601100016539-687074251.png" alt=""></p>
+<h2 id="添加网站"><a href="#添加网站" class="headerlink" title="添加网站"></a>添加网站</h2><p><img data-src="https://img2020.cnblogs.com/blog/1524685/202006/1524685-20200601100634195-561242539.png" alt=""></p>
+<h2 id="安装pm2管理器，方便管理你的Node项目和版本"><a href="#安装pm2管理器，方便管理你的Node项目和版本" class="headerlink" title="安装pm2管理器，方便管理你的Node项目和版本"></a>安装pm2管理器，方便管理你的Node项目和版本</h2><p>PM2是Node.js应用程序的生产流程管理器，内置负载均衡。它可以帮助您保持Node应用程序永久活动，重起这些node应用程序也不需要停机，并简化常见的系统管理任务。<br>填写项目跟目录和启动文件,启动你的node服务，也可以自己安装<code>forever</code><br><img data-src="https://img2020.cnblogs.com/blog/1524685/202006/1524685-20200601100016539-687074251.png" alt=""></p>
 <h2 id="设置nginx反向代理"><a href="#设置nginx反向代理" class="headerlink" title="设置nginx反向代理"></a>设置nginx反向代理</h2><p>执行完以上步骤，你会发现并不能正常访问该项目，这时需要用到<strong><a href="/2019/06/01/正向代理和反向代理/">nginx的反向代理</a></strong><br>打开 网站——&gt;设置——&gt;配置文件<br>在 <code>server</code>中添加一个配置</p>
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">location &#x2F;</span><br><span class="line">    &#123;</span><br><span class="line">      proxy_pass  http:&#x2F;&#x2F;127.0.0.1:3000;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
 <p>注意格式，在宝塔中</p>
@@ -633,44 +633,6 @@
       </categories>
       <tags>
         <tag>Nginx</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>【JS】判断数据类型的方法</title>
-    <url>/2019/05/20/%E3%80%90JS%E3%80%91%E5%88%A4%E6%96%AD%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B%E7%9A%84%E6%96%B9%E6%B3%95/</url>
-    <content><![CDATA[<p>对js中不同数据的布尔值类型总结：false:空字符串；null；undefined；0；NaN。<br>true：除了上面的false的情况其他都为true；</p>
-<p>如下：</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> o = &#123; </span><br><span class="line">          <span class="string">'name'</span>:<span class="string">'lee'</span></span><br><span class="line">        &#125;;</span><br><span class="line"><span class="keyword">var</span> a = \[<span class="string">'reg'</span>,<span class="string">'blue'</span>\];</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">checkBoolean</span>(<span class="params">a</span>)</span>&#123;</span><br><span class="line">         <span class="keyword">if</span>(a)&#123;</span><br><span class="line">              <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">         &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">              <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">         &#125;</span><br><span class="line"> &#125;</span><br><span class="line"><span class="built_in">console</span>.log(checkBoolean(<span class="string">''</span>)); <span class="comment">//false</span></span><br><span class="line"><span class="built_in">console</span>.log(checkBoolean(<span class="number">0</span>)); <span class="comment">//false</span></span><br><span class="line"><span class="built_in">console</span>.log(checkBoolean(<span class="literal">null</span>)); <span class="comment">//false</span></span><br><span class="line"><span class="built_in">console</span>.log(checkBoolean(<span class="literal">undefined</span>)); <span class="comment">//false</span></span><br><span class="line"><span class="built_in">console</span>.log(checkBoolean(<span class="literal">NaN</span>)); <span class="comment">//false</span></span><br><span class="line"><span class="built_in">console</span>.log(checkBoolean(a));<span class="comment">//true</span></span><br><span class="line"><span class="built_in">console</span>.log(checkBoolean(c));<span class="comment">//true</span></span><br></pre></td></tr></table></figure>
-
-<p>javascript中有六种数据类型：string；boolean；Array；Object；null;undefined。如何检测这些数据类型呢，总结方法如下：</p>
-<p><strong>方法一：采用typeof</strong></p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> fn = <span class="function"><span class="keyword">function</span>(<span class="params">n</span>)</span>&#123;</span><br><span class="line">   <span class="built_in">console</span>.log(n);</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> str = <span class="string">'string'</span>;</span><br><span class="line"><span class="keyword">var</span> arr = \[<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>\];</span><br><span class="line"><span class="keyword">var</span> obj = &#123;</span><br><span class="line">    a:<span class="number">123</span>,</span><br><span class="line">    b:<span class="number">456</span></span><br><span class="line">&#125;;</span><br><span class="line"><span class="keyword">var</span> num = <span class="number">1</span>;</span><br><span class="line"><span class="keyword">var</span> b = <span class="literal">true</span>;</span><br><span class="line"><span class="keyword">var</span> n = <span class="literal">null</span>;       <span class="keyword">var</span> u = <span class="literal">undefined</span>;</span><br><span class="line"><span class="comment">//方法一使用typeof方法。</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="keyword">typeof</span> str);<span class="comment">//string</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="keyword">typeof</span> arr);<span class="comment">//object</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="keyword">typeof</span> obj);<span class="comment">//object</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="keyword">typeof</span> num);<span class="comment">//number</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="keyword">typeof</span> b);<span class="comment">//boolean</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="keyword">typeof</span> n);<span class="comment">//null是一个空的对象</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="keyword">typeof</span> u);<span class="comment">//undefined</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="keyword">typeof</span> fn);<span class="comment">//function</span></span><br></pre></td></tr></table></figure>
-
-
-<p>通过上面的检测我们发现typeof检测的Array和Object的返回类型都是Object，因此用typeof是无法检测出来数组和对象的，采用方法二和方法三则可以检测出来。</p>
-<p><strong>方法二：instanceof</strong></p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> o = &#123; </span><br><span class="line">          <span class="string">'name'</span>:<span class="string">'lee'</span></span><br><span class="line">        &#125;;</span><br><span class="line"><span class="keyword">var</span> a = \[<span class="string">'reg'</span>,<span class="string">'blue'</span>\];</span><br><span class="line"><span class="built_in">console</span>.log(o <span class="keyword">instanceof</span> <span class="built_in">Object</span>);<span class="comment">// true</span></span><br><span class="line"><span class="built_in">console</span>.log(a <span class="keyword">instanceof</span> <span class="built_in">Array</span>);<span class="comment">//  true</span></span><br><span class="line"><span class="built_in">console</span>.log(o <span class="keyword">instanceof</span> <span class="built_in">Array</span>);<span class="comment">//  false</span></span><br></pre></td></tr></table></figure>
-
-
-<p> 注意：instaceof只可以用来判断数组和对象，不能判断string和boolean类型，要判断string和boolean类型需要采用方法四。<br> 由于数组也属于对象因此我们使用instanceof判断一个数组是否为对象的时候结果也会是true。如：</p>
-<p>console.log(a instanceof Object);//true。</p>
-<p>下面封装一个方法进行改进：</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line"><span class="keyword">var</span> o = &#123; </span><br><span class="line">          <span class="string">'name'</span>:<span class="string">'lee'</span></span><br><span class="line">        &#125;;</span><br><span class="line"><span class="keyword">var</span> a = \[<span class="string">'reg'</span>,<span class="string">'blue'</span>\];</span><br><span class="line"><span class="keyword">var</span> getDataType = <span class="function"><span class="keyword">function</span>(<span class="params">o</span>)</span>&#123;</span><br><span class="line">            <span class="keyword">if</span>(o <span class="keyword">instanceof</span> <span class="built_in">Array</span>)&#123;</span><br><span class="line">                <span class="keyword">return</span> <span class="string">'Array'</span></span><br><span class="line">            &#125;<span class="keyword">else</span> <span class="keyword">if</span>( o <span class="keyword">instanceof</span> <span class="built_in">Object</span> )&#123;</span><br><span class="line">                <span class="keyword">return</span> <span class="string">'Object'</span>;</span><br><span class="line">            &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">                <span class="keyword">return</span> <span class="string">'param is no object type'</span>;</span><br><span class="line">            &#125;</span><br><span class="line">       &#125;;</span><br><span class="line"><span class="built_in">console</span>.log(getDataType(o));<span class="comment">//Object。</span></span><br><span class="line"><span class="built_in">console</span>.log(getDataType(a));<span class="comment">//Array。</span></span><br></pre></td></tr></table></figure>
-
-<p><strong>方法三：使用constructor方法</strong></p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> o = &#123; </span><br><span class="line">           <span class="string">'name'</span>:<span class="string">'lee'</span></span><br><span class="line">        &#125;;</span><br><span class="line"><span class="keyword">var</span> a = \[<span class="string">'reg'</span>,<span class="string">'blue'</span>\];</span><br><span class="line"><span class="built_in">console</span>.log(o.constructor == <span class="built_in">Object</span>);<span class="comment">//true</span></span><br><span class="line"><span class="built_in">console</span>.log(a.constructor == <span class="built_in">Array</span>);<span class="comment">//true</span></span><br></pre></td></tr></table></figure>
-
-<p><strong>方法四：利用tostring()方法，这个方法是最佳的方案。</strong></p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> o = &#123; </span><br><span class="line">          <span class="string">'name'</span>:<span class="string">'lee'</span></span><br><span class="line">        &#125;;</span><br><span class="line"><span class="keyword">var</span> a = \[<span class="string">'reg'</span>,<span class="string">'blue'</span>\];</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">c</span>(<span class="params">name,age</span>)</span>&#123;</span><br><span class="line">         <span class="keyword">this</span>.name = name;</span><br><span class="line">         <span class="keyword">this</span>.age = age;</span><br><span class="line"> &#125;</span><br><span class="line"><span class="keyword">var</span> c = <span class="keyword">new</span> c(<span class="string">'kingw'</span>,<span class="string">'27'</span>);</span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">Object</span>.prototype.toString.call(a));<span class="comment">//\[object Array\]</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">Object</span>.prototype.toString.call(o));<span class="comment">//\[Object Object\]</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">Object</span>.prototype.toString.call(c));<span class="comment">//\[Object Object\]</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//封装一个方法判断数组和对象</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">isType</span>(<span class="params">obj</span>)</span>&#123;</span><br><span class="line">       <span class="keyword">var</span> type = <span class="built_in">Object</span>.prototype.toString.call(obj);</span><br><span class="line">       <span class="keyword">if</span>(type == <span class="string">'\[object Array\]'</span>)&#123;</span><br><span class="line">              <span class="keyword">return</span> <span class="string">'Array'</span>;</span><br><span class="line">        &#125;<span class="keyword">else</span> <span class="keyword">if</span>(type == <span class="string">'\[object Object\]'</span>)&#123;</span><br><span class="line">              <span class="keyword">return</span> <span class="string">"Object"</span></span><br><span class="line">        &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">              <span class="keyword">return</span> <span class="string">'param is no object type'</span>;</span><br><span class="line">        &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">console</span>.log(isType(o));<span class="comment">//Object</span></span><br><span class="line"><span class="built_in">console</span>.log(isType(a));<span class="comment">//Array</span></span><br></pre></td></tr></table></figure>
-
-<p><strong>方法五：利用jquery的$.isPlainObject();$.isArray(obj);$.isFunction(obj)进行判断。</strong></p>
-<p> 出处：<a href="http://www.cnblogs.com/xinggood" target="_blank" rel="noopener">http://www.cnblogs.com/xinggood</a></p>
-]]></content>
-      <categories>
-        <category>JS</category>
-      </categories>
-      <tags>
-        <tag>JS</tag>
       </tags>
   </entry>
   <entry>
@@ -708,6 +670,44 @@ if(isAndroid){
 
 
 <h3 id="五-判断浏览器当前使用的语言"><a href="#五-判断浏览器当前使用的语言" class="headerlink" title="五.判断浏览器当前使用的语言"></a>五.判断浏览器当前使用的语言</h3><figure class="highlight js"><table><tr><td class="code"><pre><span class="line"> </span><br><span class="line">judgeLanguage() &#123;</span><br><span class="line">  <span class="comment">// 判断浏览器当前使用的语言</span></span><br><span class="line">  <span class="keyword">let</span> currentLanguage = (navigator.browserLanguage || navigator.language).toLowerCase();    <span class="comment">// 非IE</span></span><br><span class="line">  <span class="keyword">if</span> (!currentLanguage) &#123;    <span class="comment">// IE浏览器</span></span><br><span class="line">    currentLanguage = navigator.browserLanguage;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="built_in">console</span>.log(currentLanguage);</span><br><span class="line">  <span class="keyword">return</span> currentLanguage;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>]]></content>
+      <categories>
+        <category>JS</category>
+      </categories>
+      <tags>
+        <tag>JS</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>【JS】判断数据类型的方法</title>
+    <url>/2019/05/20/%E3%80%90JS%E3%80%91%E5%88%A4%E6%96%AD%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B%E7%9A%84%E6%96%B9%E6%B3%95/</url>
+    <content><![CDATA[<p>对js中不同数据的布尔值类型总结：false:空字符串；null；undefined；0；NaN。<br>true：除了上面的false的情况其他都为true；</p>
+<p>如下：</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> o = &#123; </span><br><span class="line">          <span class="string">'name'</span>:<span class="string">'lee'</span></span><br><span class="line">        &#125;;</span><br><span class="line"><span class="keyword">var</span> a = \[<span class="string">'reg'</span>,<span class="string">'blue'</span>\];</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">checkBoolean</span>(<span class="params">a</span>)</span>&#123;</span><br><span class="line">         <span class="keyword">if</span>(a)&#123;</span><br><span class="line">              <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">         &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">              <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">         &#125;</span><br><span class="line"> &#125;</span><br><span class="line"><span class="built_in">console</span>.log(checkBoolean(<span class="string">''</span>)); <span class="comment">//false</span></span><br><span class="line"><span class="built_in">console</span>.log(checkBoolean(<span class="number">0</span>)); <span class="comment">//false</span></span><br><span class="line"><span class="built_in">console</span>.log(checkBoolean(<span class="literal">null</span>)); <span class="comment">//false</span></span><br><span class="line"><span class="built_in">console</span>.log(checkBoolean(<span class="literal">undefined</span>)); <span class="comment">//false</span></span><br><span class="line"><span class="built_in">console</span>.log(checkBoolean(<span class="literal">NaN</span>)); <span class="comment">//false</span></span><br><span class="line"><span class="built_in">console</span>.log(checkBoolean(a));<span class="comment">//true</span></span><br><span class="line"><span class="built_in">console</span>.log(checkBoolean(c));<span class="comment">//true</span></span><br></pre></td></tr></table></figure>
+
+<p>javascript中有六种数据类型：string；boolean；Array；Object；null;undefined。如何检测这些数据类型呢，总结方法如下：</p>
+<p><strong>方法一：采用typeof</strong></p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> fn = <span class="function"><span class="keyword">function</span>(<span class="params">n</span>)</span>&#123;</span><br><span class="line">   <span class="built_in">console</span>.log(n);</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> str = <span class="string">'string'</span>;</span><br><span class="line"><span class="keyword">var</span> arr = \[<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>\];</span><br><span class="line"><span class="keyword">var</span> obj = &#123;</span><br><span class="line">    a:<span class="number">123</span>,</span><br><span class="line">    b:<span class="number">456</span></span><br><span class="line">&#125;;</span><br><span class="line"><span class="keyword">var</span> num = <span class="number">1</span>;</span><br><span class="line"><span class="keyword">var</span> b = <span class="literal">true</span>;</span><br><span class="line"><span class="keyword">var</span> n = <span class="literal">null</span>;       <span class="keyword">var</span> u = <span class="literal">undefined</span>;</span><br><span class="line"><span class="comment">//方法一使用typeof方法。</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="keyword">typeof</span> str);<span class="comment">//string</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="keyword">typeof</span> arr);<span class="comment">//object</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="keyword">typeof</span> obj);<span class="comment">//object</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="keyword">typeof</span> num);<span class="comment">//number</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="keyword">typeof</span> b);<span class="comment">//boolean</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="keyword">typeof</span> n);<span class="comment">//null是一个空的对象</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="keyword">typeof</span> u);<span class="comment">//undefined</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="keyword">typeof</span> fn);<span class="comment">//function</span></span><br></pre></td></tr></table></figure>
+
+
+<p>通过上面的检测我们发现typeof检测的Array和Object的返回类型都是Object，因此用typeof是无法检测出来数组和对象的，采用方法二和方法三则可以检测出来。</p>
+<p><strong>方法二：instanceof</strong></p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> o = &#123; </span><br><span class="line">          <span class="string">'name'</span>:<span class="string">'lee'</span></span><br><span class="line">        &#125;;</span><br><span class="line"><span class="keyword">var</span> a = \[<span class="string">'reg'</span>,<span class="string">'blue'</span>\];</span><br><span class="line"><span class="built_in">console</span>.log(o <span class="keyword">instanceof</span> <span class="built_in">Object</span>);<span class="comment">// true</span></span><br><span class="line"><span class="built_in">console</span>.log(a <span class="keyword">instanceof</span> <span class="built_in">Array</span>);<span class="comment">//  true</span></span><br><span class="line"><span class="built_in">console</span>.log(o <span class="keyword">instanceof</span> <span class="built_in">Array</span>);<span class="comment">//  false</span></span><br></pre></td></tr></table></figure>
+
+
+<p> 注意：instaceof只可以用来判断数组和对象，不能判断string和boolean类型，要判断string和boolean类型需要采用方法四。<br> 由于数组也属于对象因此我们使用instanceof判断一个数组是否为对象的时候结果也会是true。如：</p>
+<p>console.log(a instanceof Object);//true。</p>
+<p>下面封装一个方法进行改进：</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line"><span class="keyword">var</span> o = &#123; </span><br><span class="line">          <span class="string">'name'</span>:<span class="string">'lee'</span></span><br><span class="line">        &#125;;</span><br><span class="line"><span class="keyword">var</span> a = \[<span class="string">'reg'</span>,<span class="string">'blue'</span>\];</span><br><span class="line"><span class="keyword">var</span> getDataType = <span class="function"><span class="keyword">function</span>(<span class="params">o</span>)</span>&#123;</span><br><span class="line">            <span class="keyword">if</span>(o <span class="keyword">instanceof</span> <span class="built_in">Array</span>)&#123;</span><br><span class="line">                <span class="keyword">return</span> <span class="string">'Array'</span></span><br><span class="line">            &#125;<span class="keyword">else</span> <span class="keyword">if</span>( o <span class="keyword">instanceof</span> <span class="built_in">Object</span> )&#123;</span><br><span class="line">                <span class="keyword">return</span> <span class="string">'Object'</span>;</span><br><span class="line">            &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">                <span class="keyword">return</span> <span class="string">'param is no object type'</span>;</span><br><span class="line">            &#125;</span><br><span class="line">       &#125;;</span><br><span class="line"><span class="built_in">console</span>.log(getDataType(o));<span class="comment">//Object。</span></span><br><span class="line"><span class="built_in">console</span>.log(getDataType(a));<span class="comment">//Array。</span></span><br></pre></td></tr></table></figure>
+
+<p><strong>方法三：使用constructor方法</strong></p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> o = &#123; </span><br><span class="line">           <span class="string">'name'</span>:<span class="string">'lee'</span></span><br><span class="line">        &#125;;</span><br><span class="line"><span class="keyword">var</span> a = \[<span class="string">'reg'</span>,<span class="string">'blue'</span>\];</span><br><span class="line"><span class="built_in">console</span>.log(o.constructor == <span class="built_in">Object</span>);<span class="comment">//true</span></span><br><span class="line"><span class="built_in">console</span>.log(a.constructor == <span class="built_in">Array</span>);<span class="comment">//true</span></span><br></pre></td></tr></table></figure>
+
+<p><strong>方法四：利用tostring()方法，这个方法是最佳的方案。</strong></p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> o = &#123; </span><br><span class="line">          <span class="string">'name'</span>:<span class="string">'lee'</span></span><br><span class="line">        &#125;;</span><br><span class="line"><span class="keyword">var</span> a = \[<span class="string">'reg'</span>,<span class="string">'blue'</span>\];</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">c</span>(<span class="params">name,age</span>)</span>&#123;</span><br><span class="line">         <span class="keyword">this</span>.name = name;</span><br><span class="line">         <span class="keyword">this</span>.age = age;</span><br><span class="line"> &#125;</span><br><span class="line"><span class="keyword">var</span> c = <span class="keyword">new</span> c(<span class="string">'kingw'</span>,<span class="string">'27'</span>);</span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">Object</span>.prototype.toString.call(a));<span class="comment">//\[object Array\]</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">Object</span>.prototype.toString.call(o));<span class="comment">//\[Object Object\]</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">Object</span>.prototype.toString.call(c));<span class="comment">//\[Object Object\]</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//封装一个方法判断数组和对象</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">isType</span>(<span class="params">obj</span>)</span>&#123;</span><br><span class="line">       <span class="keyword">var</span> type = <span class="built_in">Object</span>.prototype.toString.call(obj);</span><br><span class="line">       <span class="keyword">if</span>(type == <span class="string">'\[object Array\]'</span>)&#123;</span><br><span class="line">              <span class="keyword">return</span> <span class="string">'Array'</span>;</span><br><span class="line">        &#125;<span class="keyword">else</span> <span class="keyword">if</span>(type == <span class="string">'\[object Object\]'</span>)&#123;</span><br><span class="line">              <span class="keyword">return</span> <span class="string">"Object"</span></span><br><span class="line">        &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">              <span class="keyword">return</span> <span class="string">'param is no object type'</span>;</span><br><span class="line">        &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">console</span>.log(isType(o));<span class="comment">//Object</span></span><br><span class="line"><span class="built_in">console</span>.log(isType(a));<span class="comment">//Array</span></span><br></pre></td></tr></table></figure>
+
+<p><strong>方法五：利用jquery的$.isPlainObject();$.isArray(obj);$.isFunction(obj)进行判断。</strong></p>
+<p> 出处：<a href="http://www.cnblogs.com/xinggood" target="_blank" rel="noopener">http://www.cnblogs.com/xinggood</a></p>
+]]></content>
       <categories>
         <category>JS</category>
       </categories>
@@ -837,7 +837,7 @@ if(isAndroid){
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="meta">#!/bin/bash</span></span><br><span class="line"><span class="built_in">echo</span> <span class="string">""</span></span><br><span class="line"><span class="comment"># 输出当前时间</span></span><br><span class="line">date --date=<span class="string">'0 days ago'</span> <span class="string">"+%Y-%m-%d %H:%M:%S"</span></span><br><span class="line"><span class="built_in">echo</span> <span class="string">"Start"</span></span><br><span class="line"><span class="comment"># 判断宝塔WebHook参数是否存在</span></span><br><span class="line"><span class="keyword">if</span> [ ! -n <span class="string">"<span class="variable">$1</span>"</span> ];</span><br><span class="line"><span class="keyword">then</span></span><br><span class="line">          <span class="built_in">echo</span> <span class="string">"param参数错误"</span></span><br><span class="line">          <span class="built_in">echo</span> <span class="string">"End"</span></span><br><span class="line">          <span class="built_in">exit</span></span><br><span class="line"><span class="keyword">fi</span></span><br><span class="line"><span class="comment"># git项目路径</span></span><br><span class="line">gitPath=<span class="string">"/www/wwwroot/<span class="variable">$1</span>"</span></span><br><span class="line"><span class="comment"># git 网址</span></span><br><span class="line">gitHttp=<span class="string">"http://git.xxxxx.com/<span class="variable">$1</span>.git"</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">echo</span> <span class="string">"Web站点路径：<span class="variable">$gitPath</span>"</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 判断项目路径是否存在</span></span><br><span class="line"><span class="keyword">if</span> [ -d <span class="string">"<span class="variable">$gitPath</span>"</span> ]; <span class="keyword">then</span></span><br><span class="line">        <span class="built_in">cd</span> <span class="variable">$gitPath</span></span><br><span class="line">        <span class="comment"># 判断是否存在git目录</span></span><br><span class="line">        <span class="keyword">if</span> [ ! -d <span class="string">".git"</span> ]; <span class="keyword">then</span></span><br><span class="line">                <span class="built_in">echo</span> <span class="string">"在该目录下克隆 git"</span></span><br><span class="line">                git <span class="built_in">clone</span> <span class="variable">$gitHttp</span> gittemp</span><br><span class="line">                mv gittemp/.git .</span><br><span class="line">                rm -rf gittemp</span><br><span class="line">        <span class="keyword">fi</span></span><br><span class="line">        <span class="comment"># 拉取最新的项目文件</span></span><br><span class="line">        git reset --hard origin/master</span><br><span class="line">        git pull</span><br><span class="line">        <span class="comment"># 设置目录权限</span></span><br><span class="line">        chown -R www:www <span class="variable">$gitPath</span></span><br><span class="line">        <span class="built_in">echo</span> <span class="string">"End"</span></span><br><span class="line">        <span class="built_in">exit</span></span><br><span class="line"><span class="keyword">else</span></span><br><span class="line">        <span class="built_in">echo</span> <span class="string">"该项目路径不存在"</span></span><br><span class="line">        <span class="built_in">echo</span> <span class="string">"End"</span></span><br><span class="line">        <span class="built_in">exit</span></span><br><span class="line"><span class="keyword">fi</span></span><br></pre></td></tr></table></figure>
 
 <p>然后会生成 一个密钥 和 相关的链接</p>
-<h3 id="配置github"><a href="#配置github" class="headerlink" title="配置github"></a>配置github</h3><p><img src="http://cloud.asenper.cn//20200613184752.png" alt="image-20200613184750432"></p>
+<h3 id="配置github"><a href="#配置github" class="headerlink" title="配置github"></a>配置github</h3><p><img data-src="http://cloud.asenper.cn//20200613184752.png" alt="image-20200613184750432"></p>
 <p>如图,添加webhooks,Payload URL为上一步生成的链接，Secret为密钥<br>就这么简单</p>
 ]]></content>
       <categories>
@@ -868,11 +868,11 @@ if(isAndroid){
     <url>/2019/06/01/%E6%AD%A3%E5%90%91%E4%BB%A3%E7%90%86%E5%92%8C%E5%8F%8D%E5%90%91%E4%BB%A3%E7%90%86/</url>
     <content><![CDATA[<h3 id="正向代理"><a href="#正向代理" class="headerlink" title="正向代理"></a>正向代理</h3><p>所谓正向代理就是顺着请求的方向进行的代理，即代理服务器他是由你配置为你服务，去请求目标服务器地址。</p>
 <p>比如我们要去访问谷歌网站，我们直接访问不通，那么我们就可以找一个代理服务器为我们服务，我们通过代理服务器请求到谷歌网站。对于谷歌而言他只知道有一个服务器访问了自己，并不知道这件事你是访问不了他,找了一个代理服务器访问自己。</p>
-<p>在举一个通俗的例子。你需要钱，C正好有钱，但是你C不直接借给你。你和B关系比较好，B可以找C借到钱。你和B沟通后，由B来找C借到钱后在给你。<br>上面的两个例子中的共同特点是 代理服务器和B都是你找到的，为你而服务的，代表你的利益。我们还可以让代理服务器给你代理到推特、Facebook等，他是代理的你。<br><img src="https://img-blog.csdnimg.cn/20190531180703829.jpg?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2xpdWhlbmdodWk1MjAx,size_16,color_FFFFFF,t_70" alt=""></p>
+<p>在举一个通俗的例子。你需要钱，C正好有钱，但是你C不直接借给你。你和B关系比较好，B可以找C借到钱。你和B沟通后，由B来找C借到钱后在给你。<br>上面的两个例子中的共同特点是 代理服务器和B都是你找到的，为你而服务的，代表你的利益。我们还可以让代理服务器给你代理到推特、Facebook等，他是代理的你。<br><img data-src="https://img-blog.csdnimg.cn/20190531180703829.jpg?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2xpdWhlbmdodWk1MjAx,size_16,color_FFFFFF,t_70" alt=""></p>
 <h3 id="反向代理"><a href="#反向代理" class="headerlink" title="反向代理"></a>反向代理</h3><p>所谓反向代理正好与正向代理相反，代理服务器是为目标服务器服务的，虽然整体的请求返回路线都是一样的都是Client到Proxy到Server。</p>
 <p>比如 我们访问百度网站，百度的代理服务器对外的域名为 <a href="https://www.baidu.com" target="_blank" rel="noopener">https://www.baidu.com</a> 。具体内部的服务器节点我们不知道。现实中我们通过访问百度的代理服务器后，代理服务器给我们转发请求到他们N多的服务器节点中的一个给我们进行搜索后将结果返回。</p>
 <p>再举例：我们同样需要钱，但是我们又不知道谁有钱，所以我们找了一家网贷平台，你提交资料后，网贷平台直接将钱打给你。但是你不知道，也不用关注网贷平台的钱从哪里来。网贷平台内部他们可能从哪一个财主哪里融的钱。对你而言网贷平台和他们的金主是一起的。</p>
-<p>同样通过上面我们例子可以看到，此时的代理服务器和后面的目标主机是一个系统的（百度公司、网贷平台）。他们是对外提供服务的，所以称为反向代理，代理的是后的人。<br><img src="https://img-blog.csdnimg.cn/20190531180723798.jpg?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2xpdWhlbmdodWk1MjAx,size_16,color_FFFFFF,t_70" alt=""></p>
+<p>同样通过上面我们例子可以看到，此时的代理服务器和后面的目标主机是一个系统的（百度公司、网贷平台）。他们是对外提供服务的，所以称为反向代理，代理的是后的人。<br><img data-src="https://img-blog.csdnimg.cn/20190531180723798.jpg?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2xpdWhlbmdodWk1MjAx,size_16,color_FFFFFF,t_70" alt=""></p>
 <h3 id="两者的区别"><a href="#两者的区别" class="headerlink" title="两者的区别"></a>两者的区别</h3><p><strong>正向代理代理的对象是客户端，反向代理代理的对象是服务端</strong></p>
 <p>原文链接：<a href="https://blog.csdn.net/liuhenghui5201/article/details/90720442" target="_blank" rel="noopener">https://blog.csdn.net/liuhenghui5201/article/details/90720442</a></p>
 ]]></content>
@@ -929,7 +929,20 @@ if(isAndroid){
   <entry>
     <title>内蒙古之旅</title>
     <url>/2019/07/14/%E5%86%85%E8%92%99%E5%8F%A4%E4%B9%8B%E6%97%85/</url>
-    <content><![CDATA[<h5 id="去内蒙出差，觉得来一趟不容易，就一块去玩了一圈（天忒热，快中暑了）"><a href="#去内蒙出差，觉得来一趟不容易，就一块去玩了一圈（天忒热，快中暑了）" class="headerlink" title="去内蒙出差，觉得来一趟不容易，就一块去玩了一圈（天忒热，快中暑了）"></a>去内蒙出差，觉得来一趟不容易，就一块去玩了一圈（天忒热，快中暑了）</h5><p><img src="http://cloud.asenper.cn//20200613191858.jpg" alt="仙沙岛"><br><img src="http://cloud.asenper.cn//20200613195203.jpg" alt="内蒙古鄂尔多斯响沙湾"><br><img src="http://cloud.asenper.cn//20200613195241.jpg" alt="内蒙古鄂尔多斯响沙湾"><br><img src="http://cloud.asenper.cn//20200613195316.jpg" alt="内蒙古鄂尔多斯响沙湾"><br><img src="http://common.msmk.tech/IMG_20190714_120831.jpg?imageslim" alt="内蒙古鄂尔多斯响沙湾"><br><img src="http://common.msmk.tech/IMG_20190714_122822.jpg?imageslim" alt="内蒙古鄂尔多斯响沙湾"><br><img src="http://common.msmk.tech/IMG_20190714_123545.jpg?imageslim" alt="内蒙古鄂尔多斯响沙湾"><br><img src="http://common.msmk.tech/IMG_20190714_131239.jpg?imageslim" alt="内蒙古鄂尔多斯响沙湾"><br><img src="http://common.msmk.tech/IMG_20190714_131239.jpg?imageslim" alt="内蒙古鄂尔多斯响沙湾"><br><img src="http://cloud.asenper.cn//20200613192909.jpg" alt="杂技表演"><br><img src="http://cloud.asenper.cn//20200613192717.jpg" alt="杂技表演"><br><img src="http://common.msmk.tech/IMG_20190713_184312.jpg?imageslim" alt="呼和浩特成吉思汗公园"><br><img src="http://common.msmk.tech/IMG_20190713_184902.jpg?imageslim" alt="呼和浩特成吉思汗公园"><br><img src="http://cloud.asenper.cn//20200613194650.jpg" alt="呼和浩特跑马场"><br><img src="http://common.msmk.tech/IMG_20190713_194229.jpg?imageslim" alt="呼和浩特跑马场"></p>
+    <content><![CDATA[<p>内蒙出差，出来放松下，好多第一见到的东西<br>沙漠啦，草原啦，跑马场啦，还有大电扇啦 🤭 (●’◡’●)</p>
+<p><img data-src="http://cloud.asenper.cn//20200613191858.jpg" alt="仙沙岛"><br>哈哈哈哈<br><img data-src="http://cloud.asenper.cn//20200613195203.jpg" alt="内蒙古鄂尔多斯响沙湾"><br><img data-src="http://cloud.asenper.cn//20200613195241.jpg" alt="内蒙古鄂尔多斯响沙湾"><br><img data-src="http://cloud.asenper.cn//20200613195316.jpg" alt="内蒙古鄂尔多斯响沙湾"><br><img data-src="http://common.msmk.tech/IMG_20190714_120831.jpg" alt="内蒙古鄂尔多斯响沙湾"><br><img data-src="http://common.msmk.tech/IMG_20190714_122822.jpg" alt="内蒙古鄂尔多斯响沙湾"><br><img data-src="http://common.msmk.tech/IMG_20190714_123545.jpg" alt="内蒙古鄂尔多斯响沙湾"><br><img data-src="http://common.msmk.tech/IMG_20190714_131239.jpg" alt="内蒙古鄂尔多斯响沙湾"><br><img data-src="http://cloud.asenper.cn//20200613192909.jpg" alt="杂技表演"><br><img data-src="http://cloud.asenper.cn//20200613192717.jpg" alt="杂技表演"><br><img data-src="http://common.msmk.tech/IMG_20190713_184312.jpg" alt="呼和浩特成吉思汗公园"><br><img data-src="http://common.msmk.tech/IMG_20190713_184902.jpg" alt="呼和浩特成吉思汗公园"><br><img data-src="http://cloud.asenper.cn//20200613194650.jpg" alt="呼和浩特跑马场"><br><img data-src="http://common.msmk.tech/IMG_20190713_194229.jpg" alt="呼和浩特跑马场"><br><img data-src="http://cloud.asenper.cn/6e58679dbcecd/6e58679dbcecd.jpg" alt="锡林郭勒大草原"><br><img data-src="http://cloud.asenper.cn/fd4ab180640fd/fd4ab180640fd.jpg" alt="锡林郭勒大草原"><br><img data-src="http://cloud.asenper.cn/d65a42aa60a2b/d65a42aa60a2b.jpg" alt="锡林郭勒大草原"><br><img data-src="http://cloud.asenper.cn/b370731611742/b370731611742.jpg" alt="锡林郭勒大草原"><br><img data-src="http://cloud.asenper.cn/5869f90254fca/5869f90254fca.jpg" alt="这大草原跟我想象的不太一样啊"><br><img data-src="http://cloud.asenper.cn/4ec97e8a2b5d9/4ec97e8a2b5d9.jpg" alt="锡林郭勒大草原"><br><img data-src="http://cloud.asenper.cn/8617ae239e776/8617ae239e776.jpg" alt="锡林郭勒大草原"><br><img data-src="http://cloud.asenper.cn/7992f6b75b17c/7992f6b75b17c.jpg" alt="锡林郭勒大草原"></p>
+<video src="http://cloud.asenper.cn/VID_20190710_121640.mp4" controls="controls" style="max-width: 100%; display: block; margin:0 auto;">
+    your browser does not support the video tag
+</video>
+<video src="http://cloud.asenper.cn/VID_20190714_112938.mp4" controls="controls" style="max-width: 100%; display: block; margin:0 auto;">
+    your browser does not support the video tag
+</video>
+<video src="http://cloud.asenper.cn/VID_20190714_115240.mp4" controls="controls" style="max-width: 100%; display: block; margin:0 auto;">
+    your browser does not support the video tag
+</video>
+<video src="http://cloud.asenper.cn/VID_20190714_133721.mp4" controls="controls" style="max-width: 100%; display: block; margin:0 auto;">
+    your browser does not support the video tag
+</video>
 ]]></content>
   </entry>
   <entry>
@@ -943,7 +956,7 @@ if(isAndroid){
 
 <p>添加清除日志的方法</p>
 <figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">//清除日志</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">ClearLogs</span>(<span class="params">path</span>)</span>&#123;</span><br><span class="line">    loadT = layer.msg(<span class="string">'正在清除...'</span>,&#123;<span class="attr">icon</span>:<span class="number">16</span>,<span class="attr">time</span>:<span class="number">0</span>,<span class="attr">shade</span>: [<span class="number">0.3</span>, <span class="string">'#000'</span>]&#125;);</span><br><span class="line">    <span class="keyword">var</span> data=<span class="string">'&amp;path='</span>+path</span><br><span class="line">    $.post(<span class="string">'/files?action=DeleteFile'</span>,data,<span class="function"><span class="keyword">function</span>(<span class="params">rdata</span>)</span>&#123;</span><br><span class="line">        layer.close(loadT);</span><br><span class="line">        <span class="keyword">if</span>(!rdata.status) &#123;</span><br><span class="line">            layer.msg(rdata.msg,&#123;<span class="attr">icon</span>:<span class="number">2</span>&#125;);</span><br><span class="line">            <span class="keyword">return</span>;</span><br><span class="line">        &#125;;</span><br><span class="line">        layer.msg(rdata.msg,&#123;<span class="attr">icon</span>:rdata.status?<span class="number">1</span>:<span class="number">2</span>&#125;);</span><br><span class="line">    &#125;);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>完工<br><img src="https://img2020.cnblogs.com/blog/1524685/202006/1524685-20200630090102486-1644179180.png" alt=""></p>
+<p>完工<br><img data-src="https://img2020.cnblogs.com/blog/1524685/202006/1524685-20200630090102486-1644179180.png" alt=""></p>
 ]]></content>
       <categories>
         <category>Hexo</category>
@@ -960,16 +973,16 @@ if(isAndroid){
 <figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Foo</span>(<span class="params"></span>) </span>&#123;...&#125;;</span><br><span class="line"><span class="keyword">let</span> f1 = <span class="keyword">new</span> Foo();</span><br></pre></td></tr></table></figure>
 
 <p>以上代码表示创建一个构造函数Foo()，并用new关键字实例化该构造函数得到一个实例化对象f1。这里稍微补充一下new操作符将函数作为构造器进行调用时的过程：函数被调用，然后新创建一个对象，并且成了函数的上下文（也就是此时函数内部的this是指向该新创建的对象，这意味着我们可以在构造器函数内部通过this参数初始化值），最后返回该新对象的引用，详细请看：详解JavaScript中的new操作符。虽然是简简单单的两行代码，然而它们背后的关系却是错综复杂的，如下图所示：<br>看到这图别怕，让我们一步步剖析，彻底搞懂它们！</p>
-<p><img src="https://raw.githubusercontent.com/asenper/images/master/js/1%20(6).png" alt=""></p>
+<p><img data-src="https://raw.githubusercontent.com/asenper/images/master/js/1%20(6).png" alt=""></p>
 <p>  图的说明：右下角为图例，红色箭头表示_ _ proto_ _ 属性指向、绿色箭头表示prototype属性的指向、棕色实线箭头表示本身具有的constructor属性的指向，棕色虚线箭头表示继承而来的constructor属性的指向；蓝色方块表示对象，浅绿色方块表示函数（这里为了更好看清，Foo()仅代表是函数，并不是指执行函数Foo后得到的结果，图中的其他函数同理）。图的中间部分即为它们之间的联系，图的最左边即为例子代码。</p>
 <h3 id="2-proto-属性"><a href="#2-proto-属性" class="headerlink" title="2. _ _ proto _ _ 属性  "></a>2. _ _ proto _ _ 属性  </h3><p>  首先，我们需要牢记两点：①_ _ proto_ _ 和constructor属性是对象所独有的；② prototype属性是函数所独有的。但是由于JS中函数也是一种对象，所以函数也拥有_ _ proto_ _ 和constructor属性，这点是致使我们产生困惑的很大原因之一。上图有点复杂，我们把它按照属性分别拆开，然后进行分析：</p>
-<p><img src="https://raw.githubusercontent.com/asenper/images/master/js/1%20(5).png" alt=""></p>
+<p><img data-src="https://raw.githubusercontent.com/asenper/images/master/js/1%20(5).png" alt=""></p>
 <p>  第一，这里我们仅留下 _ <em>proto</em> _ 属性，它是对象所独有的，可以看到_ _ proto_ _ 属性都是由一个对象指向一个对象，即指向它们的原型对象（也可以理解为父对象），那么这个属性的作用是什么呢？它的作用就是当访问一个对象的属性时，如果该对象内部不存在这个属性，那么就会去它的_ _ proto_ _ 属性所指向的那个对象（可以理解为父对象）里找，如果父对象也不存在这个属性，则继续往父对象的_ _ proto_ _ 属性所指向的那个对象（可以理解为爷爷对象）里找，如果还没找到，则继续往上找…直到原型链顶端null（可以理解为原始人。。。），再往上找就相当于在null上取值，会报错（可以理解为，再往上就已经不是“人”的范畴了，找不到了，到此结束，null为原型链的终点），由以上这种通过_ _ proto_ _ 属性来连接对象直到null的一条链即为我们所谓的原型链。<br>  其实我们平时调用的字符串方法、数组方法、对象方法、函数方法等都是靠_ _ proto_ _ 继承而来的。</p>
 <h3 id="3-prototype属性"><a href="#3-prototype属性" class="headerlink" title="3. prototype属性"></a>3. prototype属性</h3><p>  第二，接下来我们看 prototype 属性：</p>
-<p>  <img src="https://raw.githubusercontent.com/asenper/images/master/js/1%20(4).png" alt=""></p>
+<p>  <img data-src="https://raw.githubusercontent.com/asenper/images/master/js/1%20(4).png" alt=""></p>
 <p>prototype属性，别忘了一点，就是我们前面提到要牢记的两点中的第二点，它是函数所独有的，它是从一个函数指向一个对象。它的含义是函数的原型对象，也就是这个函数（其实所有函数都可以作为构造函数）所创建的实例的原型对象，由此可知：f1._ _ proto_ _  === Foo.prototype，它们两个完全一样。那prototype属性的作用又是什么呢？它的作用就是包含可以由特定类型的所有实例共享的属性和方法，也就是让该函数所实例化的对象们都可以找到公用的属性和方法。任何函数在创建的时候，其实会默认同时创建该函数的prototype对象。</p>
-<h3 id="4-constructor属性"><a href="#4-constructor属性" class="headerlink" title="4. constructor属性"></a>4. constructor属性</h3><p>最后，我们来看一下 constructor 属性：<br>    <img src="https://raw.githubusercontent.com/asenper/images/master/js/1%20(3).png" alt=""><br>    constructor属性也是对象才拥有的，它是从一个对象指向一个函数，含义就是指向该对象的构造函数，每个对象都有构造函数（本身拥有或继承而来，继承而来的要结合_ _ proto_ _ 属性查看会更清楚点，如下图所示），从上图中可以看出Function这个对象比较特殊，它的构造函数就是它自己（因为Function可以看成是一个函数，也可以是一个对象），所有函数和对象最终都是由Function构造函数得来，所以constructor属性的终点就是Function这个函数。<br><img src="https://raw.githubusercontent.com/asenper/images/master/js/1%20(2).png" alt=""></p>
-<p>  感谢网友的指出，这里解释一下上段中“每个对象都有构造函数”这句话。这里的意思是每个对象都可以找到其对应的constructor，因为创建对象的前提是需要有constructor，而这个constructor可能是对象自己本身显式定义的或者通过_ _ proto_ _ 在原型链中找到的。而单从constructor这个属性来讲，只有prototype对象才有。每个函数在创建的时候，JS会同时创建一个该函数对应的prototype对象，而函数创建的对象._ _ proto_ _  === 该函数.prototype，该函数.prototype.constructor===该函数本身，故通过函数创建的对象即使自己没有constructor属性，它也能通过_ _ proto_ _ 找到对应的constructor，所以任何对象最终都可以找到其构造函数（null如果当成对象的话，将null除外）。如下：<br><img src="https://raw.githubusercontent.com/asenper/images/master/js/1%20(1).png" alt=""></p>
+<h3 id="4-constructor属性"><a href="#4-constructor属性" class="headerlink" title="4. constructor属性"></a>4. constructor属性</h3><p>最后，我们来看一下 constructor 属性：<br>    <img data-src="https://raw.githubusercontent.com/asenper/images/master/js/1%20(3).png" alt=""><br>    constructor属性也是对象才拥有的，它是从一个对象指向一个函数，含义就是指向该对象的构造函数，每个对象都有构造函数（本身拥有或继承而来，继承而来的要结合_ _ proto_ _ 属性查看会更清楚点，如下图所示），从上图中可以看出Function这个对象比较特殊，它的构造函数就是它自己（因为Function可以看成是一个函数，也可以是一个对象），所有函数和对象最终都是由Function构造函数得来，所以constructor属性的终点就是Function这个函数。<br><img data-src="https://raw.githubusercontent.com/asenper/images/master/js/1%20(2).png" alt=""></p>
+<p>  感谢网友的指出，这里解释一下上段中“每个对象都有构造函数”这句话。这里的意思是每个对象都可以找到其对应的constructor，因为创建对象的前提是需要有constructor，而这个constructor可能是对象自己本身显式定义的或者通过_ _ proto_ _ 在原型链中找到的。而单从constructor这个属性来讲，只有prototype对象才有。每个函数在创建的时候，JS会同时创建一个该函数对应的prototype对象，而函数创建的对象._ _ proto_ _  === 该函数.prototype，该函数.prototype.constructor===该函数本身，故通过函数创建的对象即使自己没有constructor属性，它也能通过_ _ proto_ _ 找到对应的constructor，所以任何对象最终都可以找到其构造函数（null如果当成对象的话，将null除外）。如下：<br><img data-src="https://raw.githubusercontent.com/asenper/images/master/js/1%20(1).png" alt=""></p>
 <h3 id="5-总结"><a href="#5-总结" class="headerlink" title="5.总结"></a>5.总结</h3><p>我们需要牢记两点：①_ _ proto_ _ 和constructor属性是对象所独有的；② prototype属性是函数所独有的，因为函数也是一种对象，所以函数也拥有_ _ proto_ _ 和constructor属性。<br>_ _ proto_ _ 属性的作用就是当访问一个对象的属性时，如果该对象内部不存在这个属性，那么就会去它的_ _ proto_ _ 属性所指向的那个对象（父对象）里找，一直找，直到_ _ proto_ _ 属性的终点null，再往上找就相当于在null上取值，会报错。通过_ _ proto_ _ 属性将对象连接起来的这条链路即我们所谓的原型链。<br>prototype属性的作用就是让该函数所实例化的对象们都可以找到公用的属性和方法，即f1._ _ proto_ _  === Foo.prototype。<br>constructor属性的含义就是指向该对象的构造函数，所有函数（此时看成对象了）最终的构造函数都指向Function。</p>
 <figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Person</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">	<span class="keyword">this</span>.name;</span><br><span class="line">&#125;</span><br><span class="line">Person.prototype.say=<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">	<span class="built_in">console</span>.log(<span class="string">"hello"</span>);</span><br><span class="line">&#125;</span><br><span class="line"> </span><br><span class="line"><span class="keyword">var</span> person=<span class="keyword">new</span> Person();</span><br><span class="line"> </span><br><span class="line"><span class="built_in">console</span>.log(Person.__proto__);</span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">Function</span>.prototype);</span><br><span class="line"> </span><br><span class="line"><span class="built_in">console</span>.log(Person.prototype.__proto__);</span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">Object</span>.prototype);</span><br><span class="line"> </span><br><span class="line"><span class="built_in">console</span>.log(person.__proto__);</span><br><span class="line"><span class="built_in">console</span>.log(Person.prototype);</span><br><span class="line"> </span><br><span class="line"><span class="built_in">console</span>.log(Person.prototype.constructor);</span><br><span class="line"><span class="built_in">console</span>.log(Person);</span><br></pre></td></tr></table></figure>]]></content>
       <categories>
@@ -1109,15 +1122,15 @@ if(isAndroid){
 <li><p>应对各大互联网公司的面试，懂其原理，题目任其发挥。</p>
 </li>
 </ul>
-<h2 id="堆，栈、队列"><a href="#堆，栈、队列" class="headerlink" title="堆，栈、队列"></a>堆，栈、队列</h2><p><img src="https://imgconvert.csdnimg.cn/aHR0cHM6Ly91c2VyLWdvbGQtY2RuLnhpdHUuaW8vMjAxOS8xLzE3LzE2ODU5Yzk4NDgwNmM3OGQ?x-oss-process=image/format,png" alt=""></p>
+<h2 id="堆，栈、队列"><a href="#堆，栈、队列" class="headerlink" title="堆，栈、队列"></a>堆，栈、队列</h2><p><img data-src="https://imgconvert.csdnimg.cn/aHR0cHM6Ly91c2VyLWdvbGQtY2RuLnhpdHUuaW8vMjAxOS8xLzE3LzE2ODU5Yzk4NDgwNmM3OGQ?x-oss-process=image/format,png" alt=""></p>
 <h3 id="堆（Heap）"><a href="#堆（Heap）" class="headerlink" title="堆（Heap）"></a>堆（Heap）</h3><p><strong>堆</strong>是一种数据结构，是利用完全二叉树维护的一组数据，<strong>堆</strong>分为两种，一种为最大<strong>堆</strong>，一种为<strong>最小堆</strong>，将根节点<strong>最大</strong>的<strong>堆</strong>叫做<strong>最大堆</strong>或<strong>大根堆</strong>，根节点<strong>最小</strong>的<strong>堆</strong>叫做<strong>最小堆</strong>或<strong>小根堆</strong>。<br><strong>堆</strong>是<a href="https://www.cnblogs.com/mr-wuxiansheng/p/8688946.html" target="_blank" rel="noopener"><strong>线性数据结构</strong></a>，相当于<strong>一维数组</strong>，有唯一后继。</p>
 <p>如最大堆</p>
-<p><img src="https://imgconvert.csdnimg.cn/aHR0cHM6Ly91c2VyLWdvbGQtY2RuLnhpdHUuaW8vMjAxOS8xLzE3LzE2ODU5ZGJiNWI5YzdjYTE?x-oss-process=image/format,png" alt=""></p>
+<p><img data-src="https://imgconvert.csdnimg.cn/aHR0cHM6Ly91c2VyLWdvbGQtY2RuLnhpdHUuaW8vMjAxOS8xLzE3LzE2ODU5ZGJiNWI5YzdjYTE?x-oss-process=image/format,png" alt=""></p>
 <h3 id="栈（Stack）"><a href="#栈（Stack）" class="headerlink" title="栈（Stack）"></a>栈（Stack）</h3><p><strong>栈</strong>在计算机科学中是限定仅在<strong>表尾</strong>进行<strong>插入</strong>或<strong>删除</strong>操作的线性表。 <strong>栈</strong>是一种数据结构，它按照<strong>后进先出</strong>的原则存储数据，<strong>先进入</strong>的数据被压入<strong>栈底</strong>，<strong>最后的数据</strong>在<strong>栈顶</strong>，需要读数据的时候从<strong>栈顶</strong>开始<strong>弹出数据</strong>。<br><strong>栈</strong>是只能在<strong>某一端插入</strong>和<strong>删除</strong>的<strong>特殊线性表</strong>。</p>
-<p><img src="https://imgconvert.csdnimg.cn/aHR0cHM6Ly91c2VyLWdvbGQtY2RuLnhpdHUuaW8vMjAxOS8xLzE3LzE2ODU5ZWQ0ZjYxNDMwNDM?x-oss-process=image/format,png" alt=""></p>
+<p><img data-src="https://imgconvert.csdnimg.cn/aHR0cHM6Ly91c2VyLWdvbGQtY2RuLnhpdHUuaW8vMjAxOS8xLzE3LzE2ODU5ZWQ0ZjYxNDMwNDM?x-oss-process=image/format,png" alt=""></p>
 <h3 id="队列（Queue）"><a href="#队列（Queue）" class="headerlink" title="队列（Queue）"></a>队列（Queue）</h3><p>特殊之处在于它只允许在表的前端（<code>front</code>）进行<strong>删除</strong>操作，而在表的后端（<code>rear</code>）进行<strong>插入</strong>操作，和<strong>栈</strong>一样，<strong>队列</strong>是一种操作受限制的线性表。<br>进行<strong>插入</strong>操作的端称为<strong>队尾</strong>，进行<strong>删除</strong>操作的端称为<strong>队头</strong>。 队列中没有元素时，称为<strong>空队列</strong>。</p>
 <p><strong>队列</strong>的数据元素又称为<strong>队列元素</strong>。在队列中插入一个队列元素称为<strong>入队</strong>，从<strong>队列</strong>中<strong>删除</strong>一个队列元素称为<strong>出队</strong>。因为队列<strong>只允许</strong>在一端<strong>插入</strong>，在另一端<strong>删除</strong>，所以只有<strong>最早</strong>进入<strong>队列</strong>的元素<strong>才能最先从队列中</strong>删除，故队列又称为<strong>先进先出</strong>（<code>FIFO—first in first out</code>）</p>
-<p><img src="https://imgconvert.csdnimg.cn/aHR0cHM6Ly91c2VyLWdvbGQtY2RuLnhpdHUuaW8vMjAxOS8xLzE3LzE2ODU5ZjJmNGY1ZGEyYTg?x-oss-process=image/format,png" alt=""></p>
+<p><img data-src="https://imgconvert.csdnimg.cn/aHR0cHM6Ly91c2VyLWdvbGQtY2RuLnhpdHUuaW8vMjAxOS8xLzE3LzE2ODU5ZjJmNGY1ZGEyYTg?x-oss-process=image/format,png" alt=""></p>
 <h2 id="Event-Loop"><a href="#Event-Loop" class="headerlink" title="Event Loop"></a>Event Loop</h2><p>在<code>JavaScript</code>中，任务被分为两种，一种宏任务（<code>MacroTask</code>）也叫<code>Task</code>，一种叫微任务（<code>MicroTask</code>）。</p>
 <h3 id="MacroTask（宏任务）"><a href="#MacroTask（宏任务）" class="headerlink" title="MacroTask（宏任务）"></a>MacroTask（宏任务）</h3><ul>
 <li><code>script</code>全部代码、<code>setTimeout</code>、<code>setInterval</code>、<code>setImmediate</code>（浏览器暂时不支持，只有IE10支持，具体可见<a href="https://developer.mozilla.org/zh-CN/docs/Web/API/Window/setImmediate" target="_blank" rel="noopener"><code>MDN</code></a>）、<code>I/O</code>、<code>UI Rendering</code>。</li>
@@ -1128,9 +1141,9 @@ if(isAndroid){
 <h2 id="浏览器中的Event-Loop"><a href="#浏览器中的Event-Loop" class="headerlink" title="浏览器中的Event Loop"></a>浏览器中的Event Loop</h2><p><code>Javascript</code> 有一个 <code>main thread</code> 主线程和 <code>call-stack</code> 调用栈(执行栈)，所有的任务都会被放到调用栈等待主线程执行。</p>
 <h3 id="JS调用栈"><a href="#JS调用栈" class="headerlink" title="JS调用栈"></a>JS调用栈</h3><p>JS调用栈采用的是后进先出的规则，当函数执行的时候，会被添加到栈的顶部，当执行栈执行完成后，就会从栈顶移出，直到栈内被清空。</p>
 <h3 id="同步任务和异步任务"><a href="#同步任务和异步任务" class="headerlink" title="同步任务和异步任务"></a>同步任务和异步任务</h3><p><code>Javascript</code>单线程任务被分为<strong>同步任务</strong>和<strong>异步任务</strong>，同步任务会在调用栈中按照顺序等待主线程依次执行，异步任务会在异步任务有了结果后，将注册的回调函数放入任务队列中等待主线程空闲的时候（调用栈被清空），被读取到栈内等待主线程的执行。</p>
-<p><img src="https://imgconvert.csdnimg.cn/aHR0cHM6Ly91c2VyLWdvbGQtY2RuLnhpdHUuaW8vMjAxOS8xLzE4LzE2ODVmMDNkN2Y4ODc5MmI?x-oss-process=image/format,png" alt=""></p>
+<p><img data-src="https://imgconvert.csdnimg.cn/aHR0cHM6Ly91c2VyLWdvbGQtY2RuLnhpdHUuaW8vMjAxOS8xLzE4LzE2ODVmMDNkN2Y4ODc5MmI?x-oss-process=image/format,png" alt=""></p>
 <p>任务队列<code>Task Queue</code>，即队列，是一种先进先出的一种数据结构。</p>
-<p><img src="https://imgconvert.csdnimg.cn/aHR0cHM6Ly91c2VyLWdvbGQtY2RuLnhpdHUuaW8vMjAxOS8xLzE4LzE2ODVmMDM3ZDQ4ZGEwZGU?x-oss-process=image/format,png" alt=""></p>
+<p><img data-src="https://imgconvert.csdnimg.cn/aHR0cHM6Ly91c2VyLWdvbGQtY2RuLnhpdHUuaW8vMjAxOS8xLzE4LzE2ODVmMDM3ZDQ4ZGEwZGU?x-oss-process=image/format,png" alt=""></p>
 <h3 id="事件循环的进程模型"><a href="#事件循环的进程模型" class="headerlink" title="事件循环的进程模型"></a>事件循环的进程模型</h3><ul>
 <li>选择当前要执行的任务队列，选择任务队列中最先进入的任务，如果任务队列为空即<code>null</code>，则执行跳转到微任务（<code>MicroTask</code>）的执行步骤。</li>
 <li>将事件循环中的任务设置为已选择任务。</li>
@@ -1148,7 +1161,7 @@ if(isAndroid){
 <li>设置进入microtask检查点的标志为false。</li>
 </ul>
 <p>上述可能不太好理解，下图是我做的一张图片。</p>
-<p><img src="https://imgconvert.csdnimg.cn/aHR0cHM6Ly91c2VyLWdvbGQtY2RuLnhpdHUuaW8vMjAxOS8xLzE4LzE2ODYwNzhjN2EyZjYzZTU?x-oss-process=image/format,png" alt=""></p>
+<p><img data-src="https://imgconvert.csdnimg.cn/aHR0cHM6Ly91c2VyLWdvbGQtY2RuLnhpdHUuaW8vMjAxOS8xLzE4LzE2ODYwNzhjN2EyZjYzZTU?x-oss-process=image/format,png" alt=""></p>
 <p>执行栈在执行完<strong>同步任务</strong>后，查看<strong>执行栈</strong>是否为空，如果执行栈为空，就会去检查<strong>微任务</strong>(<code>microTask</code>)队列是否为空，如果为空的话，就执行<code>Task</code>（宏任务），否则就一次性执行完所有微任务。<br>每次单个<strong>宏任务</strong>执行完毕后，检查<strong>微任务</strong>(<code>microTask</code>)队列是否为空，如果不为空的话，会按照<strong>先入先</strong>出的规则全部执行完<strong>微任务</strong>(<code>microTask</code>)后，设置<strong>微任务</strong>(<code>microTask</code>)队列为<code>null</code>，然后再执行<strong>宏任务</strong>，如此循环。</p>
 <h2 id="举个例子"><a href="#举个例子" class="headerlink" title="举个例子"></a>举个例子</h2><figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="built_in">console</span>.log(<span class="string">'script start'</span>);</span><br><span class="line"></span><br><span class="line">setTimeout(<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">'setTimeout'</span>);</span><br><span class="line">&#125;, <span class="number">0</span>);</span><br><span class="line"></span><br><span class="line"><span class="built_in">Promise</span>.resolve().then(<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">'promise1'</span>);</span><br><span class="line">&#125;).then(<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">'promise2'</span>);</span><br><span class="line">&#125;);</span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">'script end'</span>);</span><br></pre></td></tr></table></figure>
 
@@ -1166,7 +1179,7 @@ if(isAndroid){
 
 <p>清空<strong>Tasks</strong>队列和<code>JS stack</code>。</p>
 <p>以上执行帧动画可以查看<a href="https://jakearchibald.com/2015/tasks-microtasks-queues-and-schedules/" target="_blank" rel="noopener">Tasks, microtasks, queues and schedules</a><br>或许这张图也更好理解些。</p>
-<p><img src="https://imgconvert.csdnimg.cn/aHR0cHM6Ly91c2VyLWdvbGQtY2RuLnhpdHUuaW8vMjAxOS8xLzE4LzE2ODYwYWU1YWQwMmY5OTM?x-oss-process=image/format,png" alt=""></p>
+<p><img data-src="https://imgconvert.csdnimg.cn/aHR0cHM6Ly91c2VyLWdvbGQtY2RuLnhpdHUuaW8vMjAxOS8xLzE4LzE2ODYwYWU1YWQwMmY5OTM?x-oss-process=image/format,png" alt=""></p>
 <h2 id="再举个例子"><a href="#再举个例子" class="headerlink" title="再举个例子"></a>再举个例子</h2><figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="built_in">console</span>.log(<span class="string">'script start'</span>)</span><br><span class="line"></span><br><span class="line"><span class="keyword">async</span> <span class="function"><span class="keyword">function</span> <span class="title">async1</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">await</span> async2()</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">'async1 end'</span>)</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">async</span> <span class="function"><span class="keyword">function</span> <span class="title">async2</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">'async2 end'</span>)</span><br><span class="line">&#125;</span><br><span class="line">async1()</span><br><span class="line"></span><br><span class="line">setTimeout(<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">'setTimeout'</span>)</span><br><span class="line">&#125;, <span class="number">0</span>)</span><br><span class="line"></span><br><span class="line"><span class="keyword">new</span> <span class="built_in">Promise</span>(<span class="function"><span class="params">resolve</span> =&gt;</span> &#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">'Promise'</span>)</span><br><span class="line">  resolve()</span><br><span class="line">&#125;)</span><br><span class="line">  .then(<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">'promise1'</span>)</span><br><span class="line">  &#125;)</span><br><span class="line">  .then(<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">'promise2'</span>)</span><br><span class="line">  &#125;)</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">'script end'</span>)</span><br></pre></td></tr></table></figure>
 
 <p>这里需要先理解<code>async/await</code>。</p>
@@ -1176,7 +1189,7 @@ if(isAndroid){
 <li>在73版本，先执行<code>async1</code>再执行<code>promise1</code>和<code>promise2</code>。</li>
 </ul>
 <p><strong>主要原因是因为在谷歌(金丝雀)73版本中更改了规范，如下图所示：</strong></p>
-<p><img src="https://imgconvert.csdnimg.cn/aHR0cHM6Ly91c2VyLWdvbGQtY2RuLnhpdHUuaW8vMjAxOS8xLzIxLzE2ODZlYjI5YTZhMTk2NTg?x-oss-process=image/format,png" alt=""></p>
+<p><img data-src="https://imgconvert.csdnimg.cn/aHR0cHM6Ly91c2VyLWdvbGQtY2RuLnhpdHUuaW8vMjAxOS8xLzIxLzE2ODZlYjI5YTZhMTk2NTg?x-oss-process=image/format,png" alt=""></p>
 <ul>
 <li>区别在于<code>RESOLVE(thenable)</code>和之间的区别<code>Promise.resolve(thenable)</code>。</li>
 </ul>
@@ -1214,9 +1227,9 @@ if(isAndroid){
 <li>现在 <code>promise</code> 指向了同一个 <code>Promise</code>，所以这个步骤什么也不需要做。然后引擎继续像以前一样，创建 <code>throwaway Promise</code>，安排 <code>PromiseReactionJob</code> 在 <code>microtask</code> 队列的下一个 <code>tick</code> 上恢复异步函数，暂停执行该函数，然后返回给调用者。</li>
 </ul>
 <p>具体详情查看（<a href="https://v8.js.cn/blog/fast-async/" target="_blank" rel="noopener">这里</a>）。</p>
-<h2 id="NodeJS的Event-Loop"><a href="#NodeJS的Event-Loop" class="headerlink" title="NodeJS的Event Loop"></a>NodeJS的Event Loop</h2><p><img src="https://imgconvert.csdnimg.cn/aHR0cHM6Ly91c2VyLWdvbGQtY2RuLnhpdHUuaW8vMjAxOS8xLzE4LzE2ODYwZjM1ZDNhM2U1MGQ?x-oss-process=image/format,png" alt=""></p>
+<h2 id="NodeJS的Event-Loop"><a href="#NodeJS的Event-Loop" class="headerlink" title="NodeJS的Event Loop"></a>NodeJS的Event Loop</h2><p><img data-src="https://imgconvert.csdnimg.cn/aHR0cHM6Ly91c2VyLWdvbGQtY2RuLnhpdHUuaW8vMjAxOS8xLzE4LzE2ODYwZjM1ZDNhM2U1MGQ?x-oss-process=image/format,png" alt=""></p>
 <p><code>Node</code>中的<code>Event Loop</code>是基于<code>libuv</code>实现的，而<code>libuv</code>是 <code>Node</code> 的新跨平台抽象层，libuv使用异步，事件驱动的编程方式，核心是提供<code>i/o</code>的事件循环和异步回调。libuv的<code>API</code>包含有时间，非阻塞的网络，异步文件操作，子进程等等。 <code>Event Loop</code>就是在<code>libuv</code>中实现的。</p>
-<p><img src="https://imgconvert.csdnimg.cn/aHR0cHM6Ly91c2VyLWdvbGQtY2RuLnhpdHUuaW8vMjAxOS8xLzE4LzE2ODYwZjhmOGY3ZjA1M2Q?x-oss-process=image/format,png" alt=""></p>
+<p><img data-src="https://imgconvert.csdnimg.cn/aHR0cHM6Ly91c2VyLWdvbGQtY2RuLnhpdHUuaW8vMjAxOS8xLzE4LzE2ODYwZjhmOGY3ZjA1M2Q?x-oss-process=image/format,png" alt=""></p>
 <h3 id="Node的Event-loop一共分为6个阶段，每个细节具体如下"><a href="#Node的Event-loop一共分为6个阶段，每个细节具体如下" class="headerlink" title="Node的Event loop一共分为6个阶段，每个细节具体如下"></a><code>Node</code>的<code>Event loop</code>一共分为6个阶段，每个细节具体如下</h3><ul>
 <li><code>timers</code>: 执行<code>setTimeout</code>和<code>setInterval</code>中到期的<code>callback</code>。</li>
 <li><code>pending callback</code>: 上一轮循环中少数的<code>callback</code>会放在这一阶段执行。</li>
@@ -1232,7 +1245,7 @@ if(isAndroid){
 <p>当进入事件循环时，它有一个空队列（<code>fs.readFile()</code>尚未完成），因此定时器将等待剩余毫秒数，当到达95ms时，<code>fs.readFile()</code>完成读取文件并且其完成需要10毫秒的回调被添加到轮询队列并执行。<br>当回调结束时，队列中不再有回调，因此事件循环将看到已达到最快定时器的<strong>阈值</strong>，然后回到<strong>timers阶段</strong>以执行定时器的回调。</p>
 <p>在此示例中，您将看到正在调度的计时器与正在执行的回调之间的总延迟将为105毫秒。</p>
 <p><strong>以下是我测试时间：</strong></p>
-<p><img src="https://imgconvert.csdnimg.cn/aHR0cHM6Ly91c2VyLWdvbGQtY2RuLnhpdHUuaW8vMjAxOS8xLzE5LzE2ODY0YjgxNzdjMjVlYWY?x-oss-process=image/format,png" alt=""></p>
+<p><img data-src="https://imgconvert.csdnimg.cn/aHR0cHM6Ly91c2VyLWdvbGQtY2RuLnhpdHUuaW8vMjAxOS8xLzE5LzE2ODY0YjgxNzdjMjVlYWY?x-oss-process=image/format,png" alt=""></p>
 <h3 id="pending-callbacks"><a href="#pending-callbacks" class="headerlink" title="pending callbacks"></a>pending callbacks</h3><p>此阶段执行某些系统操作（例如TCP错误类型）的回调。 例如，如果<code>TCP socket ECONNREFUSED</code>在尝试connect时receives，则某些* nix系统希望等待报告错误。 这将在<code>pending callbacks</code>阶段执行。</p>
 <h3 id="poll"><a href="#poll" class="headerlink" title="poll"></a>poll</h3><p><strong>该poll阶段有两个主要功能：</strong></p>
 <ul>
@@ -1273,7 +1286,7 @@ if(isAndroid){
 
 <p>具体情况可以参考<code>poll</code>阶段的两种情况。</p>
 <p>从下图可能更好理解：</p>
-<p><img src="https://imgconvert.csdnimg.cn/aHR0cHM6Ly91c2VyLWdvbGQtY2RuLnhpdHUuaW8vMjAxOS8xLzE5LzE2ODY1MzBiY2Q0ZTQ1NmE?x-oss-process=image/format,png" alt=""></p>
+<p><img data-src="https://imgconvert.csdnimg.cn/aHR0cHM6Ly91c2VyLWdvbGQtY2RuLnhpdHUuaW8vMjAxOS8xLzE5LzE2ODY1MzBiY2Q0ZTQ1NmE?x-oss-process=image/format,png" alt=""></p>
 <h2 id="setImmediate-的setTimeout-的区别"><a href="#setImmediate-的setTimeout-的区别" class="headerlink" title="setImmediate() 的setTimeout()的区别"></a>setImmediate() 的setTimeout()的区别</h2><p><strong><code>setImmediate</code>和<code>setTimeout()</code>是相似的，但根据它们被调用的时间以不同的方式表现。</strong></p>
 <ul>
 <li><code>setImmediate()</code>设计用于在当前<code>poll</code>阶段完成后check阶段执行脚本 。</li>
@@ -1321,8 +1334,8 @@ if(isAndroid){
   <entry>
     <title>创建对象的几种方式</title>
     <url>/2020/01/13/%E5%88%9B%E5%BB%BA%E5%AF%B9%E8%B1%A1%E7%9A%84%E5%87%A0%E7%A7%8D%E6%96%B9%E5%BC%8F/</url>
-    <content><![CDATA[<h2 id="对象："><a href="#对象：" class="headerlink" title="对象："></a>对象：</h2><p>对象的属性类型分为：<strong>数据属性</strong> 和 <strong>访问器属性</strong></p>
-<h3 id="数据属性："><a href="#数据属性：" class="headerlink" title="数据属性："></a>数据属性：</h3><p>四个描述其行为的特性：</p>
+    <content><![CDATA[<h2 id="对象"><a href="#对象" class="headerlink" title="对象"></a>对象</h2><p>对象的属性类型分为：<strong>数据属性</strong> 和 <strong>访问器属性</strong></p>
+<h3 id="数据属性"><a href="#数据属性" class="headerlink" title="数据属性"></a>数据属性</h3><p>四个描述其行为的特性：</p>
 <ul>
 <li><p><strong>configurable</strong>：默认值为 true；表示能否delete该属性</p>
 </li>
@@ -1333,31 +1346,29 @@ if(isAndroid){
 <li><p><strong>value</strong>：表示该属性的值</p>
 </li>
 </ul>
-<h3 id="访问器属性："><a href="#访问器属性：" class="headerlink" title="访问器属性："></a>访问器属性：</h3><p>相比数据属性，没有<em>writable</em>和<em>value</em>特性；而新增了<strong>get</strong>和<strong>set</strong>方法</p>
+<h3 id="访问器属性"><a href="#访问器属性" class="headerlink" title="访问器属性"></a>访问器属性</h3><p>相比数据属性，没有<em>writable</em>和<em>value</em>特性；而新增了<strong>get</strong>和<strong>set</strong>方法</p>
 <ul>
 <li><p><strong>get</strong>：读取属性值</p>
 </li>
 <li><p><strong>set</strong>：设置属性值</p>
 <p><strong>访问器属性不能直接定义</strong>，必须使用 <strong>Object.defineProperty()</strong>来定义.该方法接受三个参数，1：属性所在的对象；2：属性；3：描述属性的特性</p>
 <p>例如：</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> book = &#123; </span><br><span class="line"> _year: <span class="number">2004</span>, </span><br><span class="line"> edition: <span class="number">1</span> </span><br><span class="line">&#125;; </span><br><span class="line"><span class="built_in">Object</span>.defineProperty(book, <span class="string">"year"</span>, &#123; </span><br><span class="line"> <span class="keyword">get</span>: function()&#123; </span><br><span class="line"> 		<span class="keyword">return</span> <span class="keyword">this</span>._year; </span><br><span class="line"> &#125;, </span><br><span class="line"> <span class="keyword">set</span>: function(newValue)&#123; </span><br><span class="line">   <span class="keyword">if</span> (newValue &gt; <span class="number">2004</span>) &#123; </span><br><span class="line">     <span class="keyword">this</span>._year = newValue; </span><br><span class="line">     <span class="keyword">this</span>.edition += newValue - <span class="number">2004</span>; </span><br><span class="line">   &#125; </span><br><span class="line"> &#125; </span><br><span class="line">&#125;); </span><br><span class="line">book.year = <span class="number">2005</span>; </span><br><span class="line">alert(book.edition);</span><br></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> book = &#123;</span><br><span class="line"> _year: <span class="number">2004</span>,</span><br><span class="line"> edition: <span class="number">1</span></span><br><span class="line">&#125;;</span><br><span class="line"><span class="built_in">Object</span>.defineProperty(book, <span class="string">"year"</span>, &#123;</span><br><span class="line"> <span class="keyword">get</span>: function()&#123;</span><br><span class="line">   <span class="keyword">return</span> <span class="keyword">this</span>._year;</span><br><span class="line"> &#125;,</span><br><span class="line"> <span class="keyword">set</span>: function(newValue)&#123;</span><br><span class="line">   <span class="keyword">if</span> (newValue &gt; <span class="number">2004</span>) &#123;</span><br><span class="line">     <span class="keyword">this</span>._year = newValue;</span><br><span class="line">     <span class="keyword">this</span>.edition += newValue - <span class="number">2004</span>;</span><br><span class="line">   &#125;</span><br><span class="line"> &#125;</span><br><span class="line">&#125;);</span><br><span class="line">book.year = <span class="number">2005</span>;</span><br><span class="line">alert(book.edition);</span><br></pre></td></tr></table></figure>
 
 </li>
 </ul>
 <h3 id="Object-defineProperties"><a href="#Object-defineProperties" class="headerlink" title="Object.defineProperties"></a>Object.defineProperties</h3><p>定义多个属性</p>
-  <figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> book = &#123;&#125;; </span><br><span class="line"><span class="built_in">Object</span>.defineProperties(book, &#123; </span><br><span class="line"> 	_year: &#123; </span><br><span class="line"> 		value: <span class="number">2004</span> </span><br><span class="line">  &#125;, </span><br><span class="line">  edition: &#123; </span><br><span class="line"> 		value: <span class="number">1</span> </span><br><span class="line">  &#125;, </span><br><span class="line">  year: &#123; </span><br><span class="line">    <span class="keyword">get</span>: function()&#123;</span><br><span class="line">      <span class="keyword">return</span> <span class="keyword">this</span>._year; </span><br><span class="line">    &#125;, </span><br><span class="line">    <span class="keyword">set</span>: function(newValue)&#123; </span><br><span class="line">     <span class="keyword">if</span> (newValue &gt; <span class="number">2004</span>) &#123; </span><br><span class="line">       <span class="keyword">this</span>._year = newValue; </span><br><span class="line">       <span class="keyword">this</span>.edition += newValue - <span class="number">2004</span>; </span><br><span class="line">     &#125; </span><br><span class="line">   &#125; </span><br><span class="line"> &#125; </span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
-
-
+  <figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> book = &#123;&#125;;</span><br><span class="line"><span class="built_in">Object</span>.defineProperties(book, &#123;</span><br><span class="line">  _year: &#123;</span><br><span class="line">   value: <span class="number">2004</span></span><br><span class="line">  &#125;,</span><br><span class="line">  edition: &#123;</span><br><span class="line">   value: <span class="number">1</span></span><br><span class="line">  &#125;,</span><br><span class="line">  year: &#123;</span><br><span class="line">    <span class="keyword">get</span>: function()&#123;</span><br><span class="line">      <span class="keyword">return</span> <span class="keyword">this</span>._year;</span><br><span class="line">    &#125;,</span><br><span class="line">    <span class="keyword">set</span>: function(newValue)&#123;</span><br><span class="line">     <span class="keyword">if</span> (newValue &gt; <span class="number">2004</span>) &#123;</span><br><span class="line">       <span class="keyword">this</span>._year = newValue;</span><br><span class="line">       <span class="keyword">this</span>.edition += newValue - <span class="number">2004</span>;</span><br><span class="line">     &#125;</span><br><span class="line">   &#125;</span><br><span class="line"> &#125;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
 
 <h3 id="Object-getOwnPropertyDescriptor"><a href="#Object-getOwnPropertyDescriptor" class="headerlink" title="Object.getOwnPropertyDescriptor()"></a>Object.getOwnPropertyDescriptor()</h3><p>获取给定属性的描述符。</p>
 <p>接收两个参数：属性所在的对象和要读取其描述符的属性名称</p>
-<h2 id="创建对象"><a href="#创建对象" class="headerlink" title="创建对象"></a>创建对象</h2><h3 id="工厂模式"><a href="#工厂模式" class="headerlink" title="工厂模式"></a>工厂模式</h3><figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">createPerson</span>(<span class="params">name, age, job</span>)</span>&#123; </span><br><span class="line">   <span class="keyword">var</span> o = <span class="keyword">new</span> <span class="built_in">Object</span>(); </span><br><span class="line">   o.name = name; </span><br><span class="line">   o.age = age; </span><br><span class="line">   o.job = job; </span><br><span class="line">   o.sayName = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123; </span><br><span class="line">     alert(<span class="keyword">this</span>.name); </span><br><span class="line">   &#125;; </span><br><span class="line">   <span class="keyword">return</span> o; </span><br><span class="line">&#125; </span><br><span class="line"><span class="keyword">var</span> person1 = createPerson(<span class="string">"Nicholas"</span>, <span class="number">29</span>, <span class="string">"Software Engineer"</span>); </span><br><span class="line"><span class="keyword">var</span> person2 = createPerson(<span class="string">"Greg"</span>, <span class="number">27</span>, <span class="string">"Doctor"</span>);</span><br></pre></td></tr></table></figure>
+<h2 id="创建对象"><a href="#创建对象" class="headerlink" title="创建对象"></a>创建对象</h2><h3 id="工厂模式"><a href="#工厂模式" class="headerlink" title="工厂模式"></a>工厂模式</h3><figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">createPerson</span>(<span class="params">name, age, job</span>)</span>&#123;</span><br><span class="line">   <span class="keyword">var</span> o = <span class="keyword">new</span> <span class="built_in">Object</span>();</span><br><span class="line">   o.name = name;</span><br><span class="line">   o.age = age;</span><br><span class="line">   o.job = job;</span><br><span class="line">   o.sayName = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">     alert(<span class="keyword">this</span>.name);</span><br><span class="line">   &#125;;</span><br><span class="line">   <span class="keyword">return</span> o;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> person1 = createPerson(<span class="string">"Nicholas"</span>, <span class="number">29</span>, <span class="string">"Software Engineer"</span>);</span><br><span class="line"><span class="keyword">var</span> person2 = createPerson(<span class="string">"Greg"</span>, <span class="number">27</span>, <span class="string">"Doctor"</span>);</span><br></pre></td></tr></table></figure>
 
 <ul>
 <li>优点：解决了创建多个相似对象的问题</li>
 <li>缺点：没有解决对象识别的问题</li>
 </ul>
-<h3 id="构造函数模式"><a href="#构造函数模式" class="headerlink" title="构造函数模式"></a>构造函数模式</h3><figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Person</span>(<span class="params">name, age, job</span>)</span>&#123; </span><br><span class="line">   <span class="keyword">this</span>.name = name; </span><br><span class="line">   <span class="keyword">this</span>.age = age; </span><br><span class="line">   <span class="keyword">this</span>.job = job; </span><br><span class="line">   <span class="keyword">this</span>.sayName = sayName;</span><br><span class="line">   <span class="keyword">this</span>.sayBay = sayBay;</span><br><span class="line">&#125; </span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">sayName</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">  alert(<span class="keyword">this</span>.name)</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">sayBay</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">  alert(<span class="string">'bay'</span>)</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> person1 = <span class="keyword">new</span> Person(<span class="string">"Nicholas"</span>, <span class="number">29</span>, <span class="string">"Software Engineer"</span>); </span><br><span class="line"><span class="keyword">var</span> person2 = <span class="keyword">new</span> Person(<span class="string">"Greg"</span>, <span class="number">27</span>, <span class="string">"Doctor"</span>);</span><br></pre></td></tr></table></figure>
+<h3 id="构造函数模式"><a href="#构造函数模式" class="headerlink" title="构造函数模式"></a>构造函数模式</h3><figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Person</span>(<span class="params">name, age, job</span>)</span>&#123;</span><br><span class="line">   <span class="keyword">this</span>.name = name;</span><br><span class="line">   <span class="keyword">this</span>.age = age;</span><br><span class="line">   <span class="keyword">this</span>.job = job;</span><br><span class="line">   <span class="keyword">this</span>.sayName = sayName;</span><br><span class="line">   <span class="keyword">this</span>.sayBay = sayBay;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">sayName</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">  alert(<span class="keyword">this</span>.name)</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">sayBay</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">  alert(<span class="string">'bay'</span>)</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> person1 = <span class="keyword">new</span> Person(<span class="string">"Nicholas"</span>, <span class="number">29</span>, <span class="string">"Software Engineer"</span>);</span><br><span class="line"><span class="keyword">var</span> person2 = <span class="keyword">new</span> Person(<span class="string">"Greg"</span>, <span class="number">27</span>, <span class="string">"Doctor"</span>);</span><br></pre></td></tr></table></figure>
 
 <p>与 <strong>工厂模式</strong>相比：</p>
 <ul>
@@ -1365,7 +1376,7 @@ if(isAndroid){
 <li>直接将属性和方法赋值给了this对象</li>
 <li>没有return</li>
 </ul>
-<h3 id="new操作符完成的事："><a href="#new操作符完成的事：" class="headerlink" title="new操作符完成的事："></a><strong>new</strong>操作符完成的事：</h3><ol>
+<h3 id="new操作符完成的事"><a href="#new操作符完成的事" class="headerlink" title="new操作符完成的事"></a><strong>new</strong>操作符完成的事</h3><ol>
 <li>创建一个新的对象</li>
 <li>将构造函数的作用域指向该对象</li>
 <li>为该新对象添加属性</li>
@@ -1374,7 +1385,7 @@ if(isAndroid){
 <p>优点：可以将它的实例标识为一种特定的类型</p>
 <p>缺点：从上面的代码来看，在全局作用域中定义的函数实际上只能被某个对象调用；如果对象需要定义很多方</p>
 <p>法，那么就要定义很多个全局函数</p>
-<h3 id="原型模式"><a href="#原型模式" class="headerlink" title="原型模式"></a>原型模式</h3><figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Person</span>(<span class="params"></span>)</span>&#123; </span><br><span class="line">&#125; </span><br><span class="line">Person.prototype.name = <span class="string">"Nicholas"</span>; </span><br><span class="line">Person.prototype.age = <span class="number">29</span>; </span><br><span class="line">Person.prototype.job = <span class="string">"Software Engineer"</span>; </span><br><span class="line">Person.prototype.sayName = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123; </span><br><span class="line"> alert(<span class="keyword">this</span>.name); </span><br><span class="line">&#125;; </span><br><span class="line"><span class="keyword">var</span> person1 = <span class="keyword">new</span> Person(); </span><br><span class="line">person1.sayName(); <span class="comment">//"Nicholas" </span></span><br><span class="line"><span class="keyword">var</span> person2 = <span class="keyword">new</span> Person();</span><br><span class="line">person2.sayName(); <span class="comment">//"Nicholas" </span></span><br><span class="line">alert(person1.sayName == person2.sayName); <span class="comment">//true</span></span><br></pre></td></tr></table></figure>
+<h3 id="原型模式"><a href="#原型模式" class="headerlink" title="原型模式"></a>原型模式</h3><figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Person</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">&#125;</span><br><span class="line">Person.prototype.name = <span class="string">"Nicholas"</span>;</span><br><span class="line">Person.prototype.age = <span class="number">29</span>;</span><br><span class="line">Person.prototype.job = <span class="string">"Software Engineer"</span>;</span><br><span class="line">Person.prototype.sayName = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line"> alert(<span class="keyword">this</span>.name);</span><br><span class="line">&#125;;</span><br><span class="line"><span class="keyword">var</span> person1 = <span class="keyword">new</span> Person();</span><br><span class="line">person1.sayName(); <span class="comment">//"Nicholas"</span></span><br><span class="line"><span class="keyword">var</span> person2 = <span class="keyword">new</span> Person();</span><br><span class="line">person2.sayName(); <span class="comment">//"Nicholas"</span></span><br><span class="line">alert(person1.sayName == person2.sayName); <span class="comment">//true</span></span><br></pre></td></tr></table></figure>
 
 <p>相较构造函数：无需传递初始化参数</p>
 <p>缺点：属性共享；对于引用数据类型：改变其值；那么所有实例的该属性都会发生改变</p>
@@ -1392,10 +1403,10 @@ if(isAndroid){
 <h3 id="in操作符"><a href="#in操作符" class="headerlink" title="in操作符"></a>in操作符</h3><p>有两种方式使用 in 操作符：单独使用和在 for-in 循环中使用。在单独使用时，in 操作符会在通过对象能够访问给定属性时返回 true，无论该属性存在于实例中还是原型中。</p>
 <p>在使用 for-in 循环时，返回的是所有能够通过对象访问的、可枚举的（enumerated）属性，其中既包括存在于实例中的属性，也包括存在于原型中的属性</p>
 <p>可以通过 <strong>Object.keys()</strong> 取得对象上所有可枚举的实例属性，接收一个对象作为参数，返回一个包含所有可枚举属性的字符串数组</p>
-<h3 id="构造函数、原型和实例的关系："><a href="#构造函数、原型和实例的关系：" class="headerlink" title="构造函数、原型和实例的关系："></a>构造函数、原型和实例的关系：</h3><p><strong>每个构造函数都有一个原型对象，原型对象都包含一个指向构造函数的指针，而实例都包含一个指向原型对象的内部指针</strong></p>
-<h3 id="组合使用构造函数模式和原型模式"><a href="#组合使用构造函数模式和原型模式" class="headerlink" title="组合使用构造函数模式和原型模式"></a>组合使用构造函数模式和原型模式</h3><figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Person</span>(<span class="params">name, age, job</span>)</span>&#123; </span><br><span class="line">  <span class="comment">//实例自身的属性</span></span><br><span class="line"> <span class="keyword">this</span>.name = name; </span><br><span class="line"> <span class="keyword">this</span>.age = age; </span><br><span class="line"> <span class="keyword">this</span>.job = job; </span><br><span class="line"> <span class="keyword">this</span>.friends = [<span class="string">"Shelby"</span>, <span class="string">"Court"</span>]; </span><br><span class="line">&#125; </span><br><span class="line">Person.prototype = &#123; </span><br><span class="line">  <span class="comment">//实例共享的属性和方法</span></span><br><span class="line"> <span class="keyword">constructor</span> : Person, </span><br><span class="line"> sayName : function()&#123; </span><br><span class="line"> alert(<span class="keyword">this</span>.name); </span><br><span class="line"> &#125; </span><br><span class="line">&#125; </span><br><span class="line"><span class="keyword">var</span> person1 = <span class="keyword">new</span> Person(<span class="string">"Nicholas"</span>, <span class="number">29</span>, <span class="string">"Software Engineer"</span>); </span><br><span class="line"><span class="keyword">var</span> person2 = <span class="keyword">new</span> Person(<span class="string">"Greg"</span>, <span class="number">27</span>, <span class="string">"Doctor"</span>); </span><br><span class="line">person1.friends.push(<span class="string">"Van"</span>); </span><br><span class="line">alert(person1.friends); <span class="comment">//"Shelby,Count,Van" </span></span><br><span class="line">alert(person2.friends); <span class="comment">//"Shelby,Count" </span></span><br><span class="line">alert(person1.friends === person2.friends); <span class="comment">//false </span></span><br><span class="line">alert(person1.sayName === person2.sayName); <span class="comment">//true</span></span><br></pre></td></tr></table></figure>
+<h3 id="构造函数、原型和实例的关系"><a href="#构造函数、原型和实例的关系" class="headerlink" title="构造函数、原型和实例的关系"></a>构造函数、原型和实例的关系</h3><p><strong>每个构造函数都有一个原型对象，原型对象都包含一个指向构造函数的指针，而实例都包含一个指向原型对象的内部指针</strong></p>
+<h3 id="组合使用构造函数模式和原型模式"><a href="#组合使用构造函数模式和原型模式" class="headerlink" title="组合使用构造函数模式和原型模式"></a>组合使用构造函数模式和原型模式</h3><figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Person</span>(<span class="params">name, age, job</span>)</span>&#123;</span><br><span class="line">  <span class="comment">//实例自身的属性</span></span><br><span class="line"> <span class="keyword">this</span>.name = name;</span><br><span class="line"> <span class="keyword">this</span>.age = age;</span><br><span class="line"> <span class="keyword">this</span>.job = job;</span><br><span class="line"> <span class="keyword">this</span>.friends = [<span class="string">"Shelby"</span>, <span class="string">"Court"</span>];</span><br><span class="line">&#125;</span><br><span class="line">Person.prototype = &#123;</span><br><span class="line">  <span class="comment">//实例共享的属性和方法</span></span><br><span class="line"> <span class="keyword">constructor</span> : Person,</span><br><span class="line"> sayName : function()&#123;</span><br><span class="line"> alert(<span class="keyword">this</span>.name);</span><br><span class="line"> &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> person1 = <span class="keyword">new</span> Person(<span class="string">"Nicholas"</span>, <span class="number">29</span>, <span class="string">"Software Engineer"</span>);</span><br><span class="line"><span class="keyword">var</span> person2 = <span class="keyword">new</span> Person(<span class="string">"Greg"</span>, <span class="number">27</span>, <span class="string">"Doctor"</span>);</span><br><span class="line">person1.friends.push(<span class="string">"Van"</span>);</span><br><span class="line">alert(person1.friends); <span class="comment">//"Shelby,Count,Van"</span></span><br><span class="line">alert(person2.friends); <span class="comment">//"Shelby,Count"</span></span><br><span class="line">alert(person1.friends === person2.friends); <span class="comment">//false</span></span><br><span class="line">alert(person1.sayName === person2.sayName); <span class="comment">//true</span></span><br></pre></td></tr></table></figure>
 
-<h3 id="动态原型模式"><a href="#动态原型模式" class="headerlink" title="动态原型模式"></a>动态原型模式</h3><figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Person</span>(<span class="params">name, age, job</span>)</span>&#123; </span><br><span class="line">   <span class="comment">//属性</span></span><br><span class="line">   <span class="keyword">this</span>.name = name; </span><br><span class="line">   <span class="keyword">this</span>.age = age; </span><br><span class="line">   <span class="keyword">this</span>.job = job;</span><br><span class="line">    <span class="comment">//方法</span></span><br><span class="line">   <span class="keyword">if</span> (<span class="keyword">typeof</span> <span class="keyword">this</span>.sayName != <span class="string">"function"</span>)&#123; </span><br><span class="line">     Person.prototype.sayName = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123; </span><br><span class="line">     	 alert(<span class="keyword">this</span>.name); </span><br><span class="line">     &#125;; </span><br><span class="line">   &#125; </span><br><span class="line">&#125; </span><br><span class="line"><span class="keyword">var</span> friend = <span class="keyword">new</span> Person(<span class="string">"Nicholas"</span>, <span class="number">29</span>, <span class="string">"Software Engineer"</span>); </span><br><span class="line">friend.sayName();</span><br></pre></td></tr></table></figure>
+<h3 id="动态原型模式"><a href="#动态原型模式" class="headerlink" title="动态原型模式"></a>动态原型模式</h3><figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Person</span>(<span class="params">name, age, job</span>)</span>&#123;</span><br><span class="line">   <span class="comment">//属性</span></span><br><span class="line">   <span class="keyword">this</span>.name = name;</span><br><span class="line">   <span class="keyword">this</span>.age = age;</span><br><span class="line">   <span class="keyword">this</span>.job = job;</span><br><span class="line">    <span class="comment">//方法</span></span><br><span class="line">   <span class="keyword">if</span> (<span class="keyword">typeof</span> <span class="keyword">this</span>.sayName != <span class="string">"function"</span>)&#123;</span><br><span class="line">     Person.prototype.sayName = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">      alert(<span class="keyword">this</span>.name);</span><br><span class="line">     &#125;;</span><br><span class="line">   &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> friend = <span class="keyword">new</span> Person(<span class="string">"Nicholas"</span>, <span class="number">29</span>, <span class="string">"Software Engineer"</span>);</span><br><span class="line">friend.sayName();</span><br></pre></td></tr></table></figure>
 
 <h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><ul>
 <li><p>工厂模式，使用简单的函数创建对象，为对象添加属性和方法，然后返回对象。这个模式后来被构造函数模式所取代。</p>
@@ -1414,25 +1425,10 @@ if(isAndroid){
       </tags>
   </entry>
   <entry>
-    <title>微信小程序点击多次navigator跳转无反应</title>
-    <url>/2020/05/27/%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F%E7%82%B9%E5%87%BB%E5%A4%9A%E6%AC%A1navigator%E8%B7%B3%E8%BD%AC%E6%97%A0%E5%8F%8D%E5%BA%94/</url>
-    <content><![CDATA[<p><code>navigator</code>组件<code>open-type</code>属性默认值为<code>navigate</code></p>
-<p>而<code>navigate</code>对应<code>navigateTo</code>方法，可以看到文档中对<code>navigateTo</code>的说明：</p>
-<p>保留当前页面，跳转到应用内的某个页面。但是不能跳到 tabbar 页面。使用 wx.navigateBack 可以返回到原页面。小程序中页面栈<strong>最多十层</strong>。</p>
-<p><strong>将 <code>open-type</code>属性值设为<code>redirect</code>即可</strong></p>
-]]></content>
-      <categories>
-        <category>小程序</category>
-      </categories>
-      <tags>
-        <tag>小程序</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>动态图演示Promises&amp;Async、Await 的过程</title>
     <url>/2020/05/27/%E5%8A%A8%E6%80%81%E5%9B%BE%E6%BC%94%E7%A4%BAPromises&amp;Async%E3%80%81Await%20%E7%9A%84%E8%BF%87%E7%A8%8B/</url>
     <content><![CDATA[<p>原文： <a href="https://www.toutiao.com/i6830934809552880135" target="_blank" rel="noopener">https://www.toutiao.com/i6830934809552880135</a><br>非常好的一篇文章</p>
-<h2 id="动态图演示-Promises-amp-Async-Await-的过程"><a href="#动态图演示-Promises-amp-Async-Await-的过程" class="headerlink" title="动态图演示 Promises &amp; Async/Await 的过程"></a>动态图演示 Promises &amp; Async/Await 的过程</h2><p><img src="http://p1.pstatp.com/large/pgc-image/4c2c3b8dfca5459892f256bba6a37ee8" alt="动态图演示 Promises &amp; Async/Await 的过程"></p>
+<h2 id="动态图演示-Promises-amp-Async-Await-的过程"><a href="#动态图演示-Promises-amp-Async-Await-的过程" class="headerlink" title="动态图演示 Promises &amp; Async/Await 的过程"></a>动态图演示 Promises &amp; Async/Await 的过程</h2><p><img data-src="http://p1.pstatp.com/large/pgc-image/4c2c3b8dfca5459892f256bba6a37ee8" alt="动态图演示 Promises &amp; Async/Await 的过程"></p>
 <blockquote>
 <p>原文地址：<br><a href="https://dev.to/lydiahallie/javascript-visualized-promises-async-await-5gke原文作者：Lydia" target="_blank" rel="noopener">https://dev.to/lydiahallie/javascript-visualized-promises-async-await-5gke原文作者：Lydia</a> Hallie</p>
 </blockquote>
@@ -1448,7 +1444,7 @@ if(isAndroid){
 <p>当图片已经被成功地重新调整大小后，在 applyFilter 函数中为图片应用一个滤镜。</p>
 <p>在图片被压缩和添加滤镜后，保存图片并且打印成功的日志！</p>
 <p>最后，代码很简单如图：</p>
-<p><img src="http://p1.pstatp.com/large/pgc-image/0e90e4f9fcd544bb81e17ec9bfc33ed3" alt="动态图演示 Promises &amp; Async/Await 的过程"></p>
+<p><img data-src="http://p1.pstatp.com/large/pgc-image/0e90e4f9fcd544bb81e17ec9bfc33ed3" alt="动态图演示 Promises &amp; Async/Await 的过程"></p>
 <p>注意到了吗？尽管以上代码也能得到我们想要的结果，但是完成的过程并不是友好。</p>
 <p>使用了大量嵌套的回调函数，这使我们的代码阅读起来特别困难。</p>
 <p>因为写了许多嵌套的回调函数，这些回调函数又依赖于前一个回调函数，这通常被称为 回调地狱。</p>
@@ -1463,7 +1459,7 @@ if(isAndroid){
 <p>接下来让我们看看 promise 真正是什么？</p>
 <p>我们可以使用一个接收一个回调函数的 Promise 构造器创建一个 promise。</p>
 <p>好酷，让我们尝试一下！</p>
-<p><img src="http://p3.pstatp.com/large/pgc-image/ffd3b44188854012b81afb73f44cf21c" alt="动态图演示 Promises &amp; Async/Await 的过程"></p>
+<p><img data-src="http://p3.pstatp.com/large/pgc-image/ffd3b44188854012b81afb73f44cf21c" alt="动态图演示 Promises &amp; Async/Await 的过程"></p>
 <p>等等，刚刚得到的返回值是什么？</p>
 <p>Promise 是一个对象，它包含一个状态 PromiseStatus 和一个值 PromiseValue。</p>
 <p>在上面的例子中，你可以看到 PromiseStatus 的值是 pending, PromiseValue 的值是 undefined。</p>
@@ -1483,10 +1479,10 @@ if(isAndroid){
 <li>第一个参数的值经常被叫做 resolve 或 res，它是一个函数，在 Promise 应该解决 resolve 的时候会被调用。</li>
 <li>第二个参数的值经常被叫做 reject 或 rej，它也是一个函数，在 Promise 出现一些错误应该被拒绝 reject 的时候被调用。</li>
 </ul>
-<p><img src="http://p3.pstatp.com/large/pgc-image/493f4c5a604848e5a7639974bc1c4724" alt="动态图演示 Promises &amp; Async/Await 的过程"></p>
+<p><img data-src="http://p3.pstatp.com/large/pgc-image/493f4c5a604848e5a7639974bc1c4724" alt="动态图演示 Promises &amp; Async/Await 的过程"></p>
 <p>让我们尝试看看当我们调用 resolve 或 reject 方法时得到的日志。</p>
 <p>在我的例子中，把 resolve 方法叫做 res，把 reject 方法叫做 rej。</p>
-<p><img src="http://p1.pstatp.com/large/pgc-image/5dcdd48f0dea49e2926ec6ea1a037210" alt="动态图演示 Promises &amp; Async/Await 的过程"></p>
+<p><img data-src="http://p1.pstatp.com/large/pgc-image/5dcdd48f0dea49e2926ec6ea1a037210" alt="动态图演示 Promises &amp; Async/Await 的过程"></p>
 <p>太好了！我们终于知道如何摆脱 pending 状态和 undefined 值了！</p>
 <ul>
 <li>当我们调用 resolve 方法时，promise 的状态是 fulfilled。</li>
@@ -1501,9 +1497,9 @@ if(isAndroid){
 <p>首先，让我们重写整个代码块，以便每个函数返回一个 Promise 来代替之前的函数。</p>
 <p>如果图片被加载完成并且一切正常，让我们用加载完的图片解决 (resolve)promise。</p>
 <p>否则，如果在加载文件时某个地方有一个错误，我们将会用发生的错误拒绝 (reject)promise 。</p>
-<p><img src="http://p1.pstatp.com/large/pgc-image/d0d5b7a8adde4b729330252d5fc02ddf" alt="动态图演示 Promises &amp; Async/Await 的过程"></p>
+<p><img data-src="http://p1.pstatp.com/large/pgc-image/d0d5b7a8adde4b729330252d5fc02ddf" alt="动态图演示 Promises &amp; Async/Await 的过程"></p>
 <p>让我们看下当我们在终端运行这段代码时会发生什么？</p>
-<p><img src="http://p1.pstatp.com/large/pgc-image/6845e3935ddc489cbcf652d752733baa" alt="动态图演示 Promises &amp; Async/Await 的过程"></p>
+<p><img data-src="http://p1.pstatp.com/large/pgc-image/6845e3935ddc489cbcf652d752733baa" alt="动态图演示 Promises &amp; Async/Await 的过程"></p>
 <p>非常酷！就像我们所期望的一样，promise 得到了解析数据后的值。</p>
 <p>但是现在呢？我们不关心整个 promise 对象，我们只关心数据的值！幸运的，有内置的方法来得到 promise 的值。</p>
 <p>对于一个 promise，我们可以使用它上面的 3 个方法：</p>
@@ -1512,27 +1508,27 @@ if(isAndroid){
 <li>.catch(): 在一个 promise 被 rejected 后被调用</li>
 <li>.finally(): 不论 promise 是被 resolved 还是 reject 总是调用</li>
 </ul>
-<p><img src="http://p3.pstatp.com/large/pgc-image/7f7fd9b7255c4dac91360c92ce9561f8" alt="动态图演示 Promises &amp; Async/Await 的过程"></p>
+<p><img data-src="http://p3.pstatp.com/large/pgc-image/7f7fd9b7255c4dac91360c92ce9561f8" alt="动态图演示 Promises &amp; Async/Await 的过程"></p>
 <p>.then 方法接收传递给 resolve 方法的值。</p>
-<p><img src="http://p1.pstatp.com/large/pgc-image/76074b7d96f8434c93819e792b765dcc" alt="动态图演示 Promises &amp; Async/Await 的过程"></p>
+<p><img data-src="http://p1.pstatp.com/large/pgc-image/76074b7d96f8434c93819e792b765dcc" alt="动态图演示 Promises &amp; Async/Await 的过程"></p>
 <p>.catch 方法接收传递给 rejected 方法的值。</p>
-<p><img src="http://p1.pstatp.com/large/pgc-image/1c62ef30bf5e4f5f9105a3f5c6a91b73" alt="动态图演示 Promises &amp; Async/Await 的过程"></p>
+<p><img data-src="http://p1.pstatp.com/large/pgc-image/1c62ef30bf5e4f5f9105a3f5c6a91b73" alt="动态图演示 Promises &amp; Async/Await 的过程"></p>
 <p>最终，我们拥有了 promise 被解决后 (resolved) 的值，并不需要整个 promise 对象！</p>
 <p>现在我们可以用这个值做任何我们想做的事。</p>
 <hr>
 <p>顺便提醒一下，当你知道一个 promise 总是 resolve 或者总是 reject 的时候，你可以写 Promise.resolve 或 Promise.reject，传入你想要 reject 或 resolve 的 promise 的值。</p>
-<p><img src="http://p1.pstatp.com/large/pgc-image/599fa9087742482e82e38fb87b79171d" alt="动态图演示 Promises &amp; Async/Await 的过程"></p>
+<p><img data-src="http://p1.pstatp.com/large/pgc-image/599fa9087742482e82e38fb87b79171d" alt="动态图演示 Promises &amp; Async/Await 的过程"></p>
 <p>在下边的例子中你将会经常看到这个语法。</p>
 <p>在 getImage 的例子中，为了运行它们，我们最终不得不嵌套多个回调。幸运的，.then 处理器可以帮助我们完成这件事！</p>
 <p>.then 它自己的执行结果是一个 promise。这意味着我们可以链接任意数量的 .then：前一个 then 回调的结果将会作为参数传递给下一个 then 回调！</p>
-<p><img src="http://p3.pstatp.com/large/pgc-image/b46032238abe4bafa65f47e64f447d21" alt="动态图演示 Promises &amp; Async/Await 的过程"></p>
+<p><img data-src="http://p3.pstatp.com/large/pgc-image/b46032238abe4bafa65f47e64f447d21" alt="动态图演示 Promises &amp; Async/Await 的过程"></p>
 <p>在 getImage 示例中，为了传递被处理的图片到下一个函数，我们可以链接多个 then 回调。</p>
 <p>相比于之前最终得到许多嵌套回调，现在我们得到了整洁的 then 链。</p>
-<p><img src="http://p3.pstatp.com/large/pgc-image/059337833e664979abe988e7f2e33f5a" alt="动态图演示 Promises &amp; Async/Await 的过程"></p>
+<p><img data-src="http://p3.pstatp.com/large/pgc-image/059337833e664979abe988e7f2e33f5a" alt="动态图演示 Promises &amp; Async/Await 的过程"></p>
 <p>完美！这个语法看起来已经比之前的嵌套回调好多了。</p>
 <h2 id="宏任务和微任务-macrotask-and-microtask"><a href="#宏任务和微任务-macrotask-and-microtask" class="headerlink" title="宏任务和微任务(macrotask and microtask)"></a>宏任务和微任务(macrotask and microtask)</h2><p>我们知道了一些如何创建 promise 以及如何提取出 promise 的值的方法。</p>
 <p>让我们为脚本添加一些更多的代码并且再次运行它：</p>
-<p><img src="http://p9.pstatp.com/large/pgc-image/aa9ea30928944273b27b282bce207139" alt="动态图演示 Promises &amp; Async/Await 的过程"></p>
+<p><img data-src="http://p9.pstatp.com/large/pgc-image/aa9ea30928944273b27b282bce207139" alt="动态图演示 Promises &amp; Async/Await 的过程"></p>
 <p>等下，发生了什么？！</p>
 <p>首先，Start! 被输出。</p>
 <p>好的，我们已经看到了那一个即将到来的消息：console.log(‘Start!’) 在最前一行输出！</p>
@@ -1582,10 +1578,10 @@ if(isAndroid){
 <li>Task2，Task3，Task4: 微任务，比如 promise 中 then 方法里的回调，或者用 queueMicrotask 添加的一个任务。</li>
 <li>Task5，Task6: 宏任务，比如 setTimeout 或者 setImmediate 里的回调</li>
 </ul>
-<p><img src="http://p3.pstatp.com/large/pgc-image/992a19061f1d48268bb7c571ab205858" alt="动态图演示 Promises &amp; Async/Await 的过程"></p>
+<p><img data-src="http://p3.pstatp.com/large/pgc-image/992a19061f1d48268bb7c571ab205858" alt="动态图演示 Promises &amp; Async/Await 的过程"></p>
 <p>首先，Task1 返回一个值并且从调用栈中弹出。然后，JavaScript 引擎检查微任务队列中排队的任务。一旦微任务中所有的任务被放入调用栈并且最终被弹出，JavaScript 引擎会检查宏任务队列中的任务，将他们弹入调用栈中并且在它们返回值的时候把它们弹出调用栈。</p>
 <p>图中足够粉色的盒子是不同的任务，让我们用一些真实的代码来使用它！</p>
-<p><img src="http://p1.pstatp.com/large/pgc-image/c15f982cbd5748138b20aec7c7ac3cd8" alt="动态图演示 Promises &amp; Async/Await 的过程"></p>
+<p><img data-src="http://p1.pstatp.com/large/pgc-image/c15f982cbd5748138b20aec7c7ac3cd8" alt="动态图演示 Promises &amp; Async/Await 的过程"></p>
 <p>在这段代码中，我们有宏任务 setTimeout 和 微任务 promise 的 then 回调。</p>
 <p>一旦 JavaScript 引擎到达 setTimeout 函数所在的那行就会涉及到事件循环。</p>
 <p>让我们一步一步地运行这段代码，看看会得到什么样的日志！</p>
@@ -1593,37 +1589,37 @@ if(isAndroid){
 <p>快速提一下：在下边的例子中，我正在展示的像 console.log，setTimeout 和 Promise.resolve 等方法正在被添加到调用栈中。它们是内部的方法实际上没有出现在堆栈痕迹中，因此如果你正在使用调试器，不用担心，你不会在任何地方见到它们。它只是在没有添加一堆样本文件代码的情况下使这个概念解释起来更加简单。</p>
 </blockquote>
 <p>在第一行，JavaScript 引擎遇到了 console.log() 方法，它被添加到调用栈，之后它在控制台输出值 Start!。console.log 函数从调用栈内弹出，之后 JavaScript 引擎继续执行代码。</p>
-<p><img src="http://p3.pstatp.com/large/pgc-image/e4f19d57e9c54245af253a0029089217" alt="动态图演示 Promises &amp; Async/Await 的过程"></p>
+<p><img data-src="http://p3.pstatp.com/large/pgc-image/e4f19d57e9c54245af253a0029089217" alt="动态图演示 Promises &amp; Async/Await 的过程"></p>
 <p>JavaScript 引擎遇到了 setTimeout 方法，他被弹入调用栈中。setTimeout 是浏览器的原生方法：它的回调函数 (() =&gt; console.log(‘In timeout’)) 将会被添加到 Web API，直到计时器完成计时。尽管我们为计时器提供的值是 0，在它被添加到宏任务队列 (setTimeout 是一个宏任务) 之后回调还是会被首先推入 Web API。</p>
-<p><img src="http://p3.pstatp.com/large/pgc-image/50ac03a0030943549da8d31136f99dfb" alt="动态图演示 Promises &amp; Async/Await 的过程"></p>
+<p><img data-src="http://p3.pstatp.com/large/pgc-image/50ac03a0030943549da8d31136f99dfb" alt="动态图演示 Promises &amp; Async/Await 的过程"></p>
 <p>JavaScript 引擎遇到了 Promise.resolve 方法。Promise.resolve 被添加到调用栈。在 Promise 解决 (resolve) 值之后，它的 then 中的回调函数被添加到微任务队列。</p>
-<p><img src="http://p1.pstatp.com/large/pgc-image/0a0926672a864adeb8d9576bd411a5c5" alt="动态图演示 Promises &amp; Async/Await 的过程"></p>
+<p><img data-src="http://p1.pstatp.com/large/pgc-image/0a0926672a864adeb8d9576bd411a5c5" alt="动态图演示 Promises &amp; Async/Await 的过程"></p>
 <p>JavaScript 引擎看到调用栈现在是空的。由于调用栈是空的，它将会去检查在微任务队列中是否有在排队的任务！是的，有任务在排队，promise 的 then 中的回调函数正在等待轮到它！它被弹入调用栈，之后它输出了 promise 被解决后( resolved )的值: 在这个例子中的字符串 Promise!。</p>
-<p><img src="http://p1.pstatp.com/large/pgc-image/becc3f5d0de0435db7bb5d10459d4952" alt="动态图演示 Promises &amp; Async/Await 的过程"></p>
+<p><img data-src="http://p1.pstatp.com/large/pgc-image/becc3f5d0de0435db7bb5d10459d4952" alt="动态图演示 Promises &amp; Async/Await 的过程"></p>
 <p>JavaScript 引擎看到调用栈是空的，因此，如果任务在排队的话，它将会再次去检查微任务队列。此时，微任务队列完全是空的。</p>
 <p>到了去检查宏任务队列的时候了：setTimeout 回调仍然在那里等待！setTimeout 被弹入调用栈。回调函数返回 console.log 方法，输出了字符串 In timeout!。setTimeout 回调从调用栈中弹出。</p>
-<p><img src="http://p1.pstatp.com/large/pgc-image/cc7ac61662004a7884def33c9aa12f03" alt="动态图演示 Promises &amp; Async/Await 的过程"></p>
+<p><img data-src="http://p1.pstatp.com/large/pgc-image/cc7ac61662004a7884def33c9aa12f03" alt="动态图演示 Promises &amp; Async/Await 的过程"></p>
 <p>终于，所有的事情完成了! 看起来我们之前看到的输出最终并不是那么出乎意料。</p>
 <h2 id="Async-Await"><a href="#Async-Await" class="headerlink" title="Async/Await"></a>Async/Await</h2><p>ES7 引入了一个新的在 JavaScript 中添加异步行为的方式并且使 promise 用起来更加简单！随着 async 和 await 关键字的引入，我们能够创建一个隐式的返回一个 promise 的 async 函数。但是，我们该怎么做呢？</p>
 <p>之前，我们看到不管是通过输入 new Promise(() =&gt; {})，Promise.resolve 或 Promise.reject，我们都可以显式的使用 Promise 对象创建 promise。</p>
 <p>我们现在能够创建隐式地返回一个对象的异步函数，而不是显式地使用 Promise 对象！这意味着我们不再需要写任何 Promise 对象了。</p>
-<p><img src="http://p3.pstatp.com/large/pgc-image/be4deb2f1f2b45b1b300975a3209f831" alt="动态图演示 Promises &amp; Async/Await 的过程"></p>
+<p><img data-src="http://p3.pstatp.com/large/pgc-image/be4deb2f1f2b45b1b300975a3209f831" alt="动态图演示 Promises &amp; Async/Await 的过程"></p>
 <p>尽管 async 函数隐式的返回 promise 是一个非常棒的事实，但是在使用 await 关键字的时候才能看到 async 函数的真正力量。当我们等待 await 后的值返回一个 resolved 的 promise 时，通过 await 关键字，我们可以暂停异步函数。如果我们想要得到这个 resolved 的 promise 的值，就像我们之前用 then 回调那样，我们可以为被 await 的 promise 的值赋值为变量！</p>
 <p>这样，我们就可以暂停一个异步函数吗？很好，但这到底是什么意思？</p>
 <p>当我们运行下面的代码块时让我们看下发生了什么：</p>
-<p><img src="http://p1.pstatp.com/large/pgc-image/93b4af8b508c45ba8e34576fe50937f9" alt="动态图演示 Promises &amp; Async/Await 的过程"></p>
+<p><img data-src="http://p1.pstatp.com/large/pgc-image/93b4af8b508c45ba8e34576fe50937f9" alt="动态图演示 Promises &amp; Async/Await 的过程"></p>
 <p>额，这里发生了什么呢？</p>
-<p><img src="http://p1.pstatp.com/large/pgc-image/d7179d56073c4dee97a0e4080e5f20db" alt="动态图演示 Promises &amp; Async/Await 的过程"></p>
+<p><img data-src="http://p1.pstatp.com/large/pgc-image/d7179d56073c4dee97a0e4080e5f20db" alt="动态图演示 Promises &amp; Async/Await 的过程"></p>
 <p>首先，JavaScript 引擎遇到了 console.log。它被弹入到调用栈中，这之后 Before function! 被输出。</p>
-<p><img src="http://p3.pstatp.com/large/pgc-image/1654e0ed40ff441087f7c8e08eab8800" alt="动态图演示 Promises &amp; Async/Await 的过程"></p>
+<p><img data-src="http://p3.pstatp.com/large/pgc-image/1654e0ed40ff441087f7c8e08eab8800" alt="动态图演示 Promises &amp; Async/Await 的过程"></p>
 <p>然后，我们调用了异步函数myFunc()，这之后myFunc函数体运行。函数主体内的最开始一行，我们调用了另一个console.log，这次传入的是字符串In function!。console.log被添加到调用栈中，输出值，然后从栈内弹出。</p>
-<p><img src="http://p1.pstatp.com/large/pgc-image/8d5e085171cf4ef293c93cdb5c8a6613" alt="动态图演示 Promises &amp; Async/Await 的过程"></p>
+<p><img data-src="http://p1.pstatp.com/large/pgc-image/8d5e085171cf4ef293c93cdb5c8a6613" alt="动态图演示 Promises &amp; Async/Await 的过程"></p>
 <p>函数体继续执行，将我们带到第二行。最终，我们看到一个await关键字！</p>
 <p>最先发生的事是被等待的值执行：在这个例子中是函数one。它被弹入调用栈，并且最终返回一个解决状态的promise。一旦Promise被解决并且one返回一个值，JavaScript遇到了await关键字。</p>
 <p>当遇到await关键字的时候，异步函数被暂停。函数体的执行被暂停，async函数中剩余的代码会在微任务中运行而不是一个常规任务！</p>
-<p><img src="http://p1.pstatp.com/large/pgc-image/534a2540a8fa45d19ea7a18bc26ddac6" alt="动态图演示 Promises &amp; Async/Await 的过程"></p>
+<p><img data-src="http://p1.pstatp.com/large/pgc-image/534a2540a8fa45d19ea7a18bc26ddac6" alt="动态图演示 Promises &amp; Async/Await 的过程"></p>
 <p>现在，因为遇到了await关键字，异步函数myFunc被暂停，JavaScript引擎跳出异步函数，并且在异步函数被调用的执行上下文中继续执行代码：在这个例子中是全局执行上下文！ ‍♀️</p>
-<p><img src="http://p9.pstatp.com/large/pgc-image/4b1bcd22d178472d93bd7dda4504e1e0" alt="动态图演示 Promises &amp; Async/Await 的过程"></p>
+<p><img data-src="http://p9.pstatp.com/large/pgc-image/4b1bcd22d178472d93bd7dda4504e1e0" alt="动态图演示 Promises &amp; Async/Await 的过程"></p>
 <p>最终，没有更多的任务在全局执行上下文中运行！事件循环检查看看是否有任何的微任务在排队：是的，有！在解决了one的值以后，异步函数myFunc开始排队。myFunc被弹入调用栈中，在它之前中断的地方继续运行。</p>
 <p>变量res最终获得了它的值，也就是one返回的promise被解决的值！我们用res的值(在这个例子中是字符串One!)调用console.log。One!被打印到控制台并且console.log从调用栈弹出。</p>
 <p>最终，所有的事情都完成了！你注意到async函数相比于promise的then有什么不同吗？await关键字暂停了async函数，然而如果我们使用then的话，Promise的主体将会继续被执行！</p>
@@ -1635,6 +1631,21 @@ if(isAndroid){
       </categories>
       <tags>
         <tag>Promise</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>微信小程序点击多次navigator跳转无反应</title>
+    <url>/2020/05/27/%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F%E7%82%B9%E5%87%BB%E5%A4%9A%E6%AC%A1navigator%E8%B7%B3%E8%BD%AC%E6%97%A0%E5%8F%8D%E5%BA%94/</url>
+    <content><![CDATA[<p><code>navigator</code>组件<code>open-type</code>属性默认值为<code>navigate</code></p>
+<p>而<code>navigate</code>对应<code>navigateTo</code>方法，可以看到文档中对<code>navigateTo</code>的说明：</p>
+<p>保留当前页面，跳转到应用内的某个页面。但是不能跳到 tabbar 页面。使用 wx.navigateBack 可以返回到原页面。小程序中页面栈<strong>最多十层</strong>。</p>
+<p><strong>将 <code>open-type</code>属性值设为<code>redirect</code>即可</strong></p>
+]]></content>
+      <categories>
+        <category>小程序</category>
+      </categories>
+      <tags>
+        <tag>小程序</tag>
       </tags>
   </entry>
   <entry>
@@ -1681,7 +1692,7 @@ if(isAndroid){
     <content><![CDATA[<p>每天早晚我都会骑上我心爱的小车车上班、回家。但是！今天下班突然发现我的小车车不见了！心里一咯噔，完蛋，被小偷光顾了！我悲惨的人生啊😟😭😭😭。找了好几圈都没有找到，彻底放弃了，去问了保安大爷，有没有动那边的车子，大爷说没有，然后我想要调监控看看能不能逮个大盗，结果人家不让查，必须报警，出证明，才给让查。这都8点了，我上哪给他弄证明去，平时还得上班，也没有空啊！我的小车车刚骑了一年呐，就这么不幸的被盗了！真的是从来没想过这事会发生在我身上~</p>
 <p>唉，就这样吧，破财免灾，盗我车车的人呐， 你说你有手有脚，做点什么不好，要来偷。但愿你拿到钱后能把你全家人的命救活，如果救不活，就当为地球环保社会文明做贡献了！！！🤬🤬🤬</p>
 <p>  贴上一张车车的图（好像没有拍过照片，只能从店家拿来了）。再见了。小红~ ~ ~</p>
-<p><img src="http://cloud.asenper.cn//20200629231315.jpg" alt=""></p>
+<p><img data-src="http://cloud.asenper.cn//20200629231315.jpg" alt=""></p>
 <p>一辆车子，丢了就丢了，也不是啥大事，但我心情还是很不好啊。心里骂那贼子一万遍了~ ~ ~ ~</p>
 <p>算了算了，明天又是美好的一天！睡觉！good night 😴</p>
 ]]></content>

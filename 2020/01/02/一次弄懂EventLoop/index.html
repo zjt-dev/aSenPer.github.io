@@ -17,7 +17,7 @@
 
 <script id="hexo-configurations">
     var NexT = window.NexT || {};
-    var CONFIG = {"hostname":"www.asenper.cn","root":"/","scheme":"Mist","version":"7.8.0","exturl":false,"sidebar":{"position":"right","Muse | Mist":320,"width":234,"display":"always","padding":18,"offset":12,"onmobile":true},"copycode":{"enable":"ture","show_result":true,"style":"mac"},"back2top":{"enable":true,"sidebar":false,"scrollpercent":true},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":true,"lazyload":false,"pangu":"ture","comments":{"style":"tabs","active":"valine","storage":true,"lazyload":false,"nav":null,"activeClass":"valine"},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"slideLeftIn","post_header":"slideLeftIn","post_body":"slideLeftIn","coll_header":"slideLeftIn","sidebar":"perspectiveUpIn"}},"path":"search.xml"};
+    var CONFIG = {"hostname":"www.asenper.cn","root":"/","scheme":"Mist","version":"7.8.0","exturl":false,"sidebar":{"position":"right","Muse | Mist":320,"width":234,"display":"always","padding":18,"offset":12,"onmobile":true},"copycode":{"enable":"ture","show_result":true,"style":"mac"},"back2top":{"enable":true,"sidebar":false,"scrollpercent":true},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":true,"lazyload":"ture","pangu":"ture","comments":{"style":"tabs","active":"valine","storage":true,"lazyload":false,"nav":null,"activeClass":"valine"},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"slideLeftIn","post_header":"slideLeftIn","post_body":"slideLeftIn","coll_header":"slideLeftIn","sidebar":"perspectiveUpIn"}},"path":"search.xml"};
   </script>
 
   <meta name="description" content="关于EventLoop的文章实在太多了，但是好像至今都没有一篇比较权威的说明，从阮一峰老师的什么是 Event Loop？——&gt;JavaScript 运行机制详解：再谈Event Loop再到朴灵老师的【朴灵评注】JavaScript 运行机制详解：再谈Event Loop还有MDN的并发模型与事件循环 这篇讲的有些太精炼了😣 都是大神咱也不知道咋评价，总之看完以后对一些东西还是很😵只能">
@@ -132,11 +132,6 @@
         <li class="menu-item menu-item-home">
 
     <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a>
-
-  </li>
-        <li class="menu-item menu-item-tags">
-
-    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签<span class="badge">13</span></a>
 
   </li>
         <li class="menu-item menu-item-categories">
@@ -291,15 +286,15 @@
 <li><p>应对各大互联网公司的面试，懂其原理，题目任其发挥。</p>
 </li>
 </ul>
-<h2 id="堆，栈、队列"><a href="#堆，栈、队列" class="headerlink" title="堆，栈、队列"></a>堆，栈、队列</h2><p><img src="https://imgconvert.csdnimg.cn/aHR0cHM6Ly91c2VyLWdvbGQtY2RuLnhpdHUuaW8vMjAxOS8xLzE3LzE2ODU5Yzk4NDgwNmM3OGQ?x-oss-process=image/format,png" alt=""></p>
+<h2 id="堆，栈、队列"><a href="#堆，栈、队列" class="headerlink" title="堆，栈、队列"></a>堆，栈、队列</h2><p><img data-src="https://imgconvert.csdnimg.cn/aHR0cHM6Ly91c2VyLWdvbGQtY2RuLnhpdHUuaW8vMjAxOS8xLzE3LzE2ODU5Yzk4NDgwNmM3OGQ?x-oss-process=image/format,png" alt=""></p>
 <h3 id="堆（Heap）"><a href="#堆（Heap）" class="headerlink" title="堆（Heap）"></a>堆（Heap）</h3><p><strong>堆</strong>是一种数据结构，是利用完全二叉树维护的一组数据，<strong>堆</strong>分为两种，一种为最大<strong>堆</strong>，一种为<strong>最小堆</strong>，将根节点<strong>最大</strong>的<strong>堆</strong>叫做<strong>最大堆</strong>或<strong>大根堆</strong>，根节点<strong>最小</strong>的<strong>堆</strong>叫做<strong>最小堆</strong>或<strong>小根堆</strong>。<br><strong>堆</strong>是<a href="https://www.cnblogs.com/mr-wuxiansheng/p/8688946.html" target="_blank" rel="noopener"><strong>线性数据结构</strong></a>，相当于<strong>一维数组</strong>，有唯一后继。</p>
 <p>如最大堆</p>
-<p><img src="https://imgconvert.csdnimg.cn/aHR0cHM6Ly91c2VyLWdvbGQtY2RuLnhpdHUuaW8vMjAxOS8xLzE3LzE2ODU5ZGJiNWI5YzdjYTE?x-oss-process=image/format,png" alt=""></p>
+<p><img data-src="https://imgconvert.csdnimg.cn/aHR0cHM6Ly91c2VyLWdvbGQtY2RuLnhpdHUuaW8vMjAxOS8xLzE3LzE2ODU5ZGJiNWI5YzdjYTE?x-oss-process=image/format,png" alt=""></p>
 <h3 id="栈（Stack）"><a href="#栈（Stack）" class="headerlink" title="栈（Stack）"></a>栈（Stack）</h3><p><strong>栈</strong>在计算机科学中是限定仅在<strong>表尾</strong>进行<strong>插入</strong>或<strong>删除</strong>操作的线性表。 <strong>栈</strong>是一种数据结构，它按照<strong>后进先出</strong>的原则存储数据，<strong>先进入</strong>的数据被压入<strong>栈底</strong>，<strong>最后的数据</strong>在<strong>栈顶</strong>，需要读数据的时候从<strong>栈顶</strong>开始<strong>弹出数据</strong>。<br><strong>栈</strong>是只能在<strong>某一端插入</strong>和<strong>删除</strong>的<strong>特殊线性表</strong>。</p>
-<p><img src="https://imgconvert.csdnimg.cn/aHR0cHM6Ly91c2VyLWdvbGQtY2RuLnhpdHUuaW8vMjAxOS8xLzE3LzE2ODU5ZWQ0ZjYxNDMwNDM?x-oss-process=image/format,png" alt=""></p>
+<p><img data-src="https://imgconvert.csdnimg.cn/aHR0cHM6Ly91c2VyLWdvbGQtY2RuLnhpdHUuaW8vMjAxOS8xLzE3LzE2ODU5ZWQ0ZjYxNDMwNDM?x-oss-process=image/format,png" alt=""></p>
 <h3 id="队列（Queue）"><a href="#队列（Queue）" class="headerlink" title="队列（Queue）"></a>队列（Queue）</h3><p>特殊之处在于它只允许在表的前端（<code>front</code>）进行<strong>删除</strong>操作，而在表的后端（<code>rear</code>）进行<strong>插入</strong>操作，和<strong>栈</strong>一样，<strong>队列</strong>是一种操作受限制的线性表。<br>进行<strong>插入</strong>操作的端称为<strong>队尾</strong>，进行<strong>删除</strong>操作的端称为<strong>队头</strong>。 队列中没有元素时，称为<strong>空队列</strong>。</p>
 <p><strong>队列</strong>的数据元素又称为<strong>队列元素</strong>。在队列中插入一个队列元素称为<strong>入队</strong>，从<strong>队列</strong>中<strong>删除</strong>一个队列元素称为<strong>出队</strong>。因为队列<strong>只允许</strong>在一端<strong>插入</strong>，在另一端<strong>删除</strong>，所以只有<strong>最早</strong>进入<strong>队列</strong>的元素<strong>才能最先从队列中</strong>删除，故队列又称为<strong>先进先出</strong>（<code>FIFO—first in first out</code>）</p>
-<p><img src="https://imgconvert.csdnimg.cn/aHR0cHM6Ly91c2VyLWdvbGQtY2RuLnhpdHUuaW8vMjAxOS8xLzE3LzE2ODU5ZjJmNGY1ZGEyYTg?x-oss-process=image/format,png" alt=""></p>
+<p><img data-src="https://imgconvert.csdnimg.cn/aHR0cHM6Ly91c2VyLWdvbGQtY2RuLnhpdHUuaW8vMjAxOS8xLzE3LzE2ODU5ZjJmNGY1ZGEyYTg?x-oss-process=image/format,png" alt=""></p>
 <h2 id="Event-Loop"><a href="#Event-Loop" class="headerlink" title="Event Loop"></a>Event Loop</h2><p>在<code>JavaScript</code>中，任务被分为两种，一种宏任务（<code>MacroTask</code>）也叫<code>Task</code>，一种叫微任务（<code>MicroTask</code>）。</p>
 <h3 id="MacroTask（宏任务）"><a href="#MacroTask（宏任务）" class="headerlink" title="MacroTask（宏任务）"></a>MacroTask（宏任务）</h3><ul>
 <li><code>script</code>全部代码、<code>setTimeout</code>、<code>setInterval</code>、<code>setImmediate</code>（浏览器暂时不支持，只有IE10支持，具体可见<a href="https://developer.mozilla.org/zh-CN/docs/Web/API/Window/setImmediate" target="_blank" rel="noopener"><code>MDN</code></a>）、<code>I/O</code>、<code>UI Rendering</code>。</li>
@@ -310,9 +305,9 @@
 <h2 id="浏览器中的Event-Loop"><a href="#浏览器中的Event-Loop" class="headerlink" title="浏览器中的Event Loop"></a>浏览器中的Event Loop</h2><p><code>Javascript</code> 有一个 <code>main thread</code> 主线程和 <code>call-stack</code> 调用栈(执行栈)，所有的任务都会被放到调用栈等待主线程执行。</p>
 <h3 id="JS调用栈"><a href="#JS调用栈" class="headerlink" title="JS调用栈"></a>JS调用栈</h3><p>JS调用栈采用的是后进先出的规则，当函数执行的时候，会被添加到栈的顶部，当执行栈执行完成后，就会从栈顶移出，直到栈内被清空。</p>
 <h3 id="同步任务和异步任务"><a href="#同步任务和异步任务" class="headerlink" title="同步任务和异步任务"></a>同步任务和异步任务</h3><p><code>Javascript</code>单线程任务被分为<strong>同步任务</strong>和<strong>异步任务</strong>，同步任务会在调用栈中按照顺序等待主线程依次执行，异步任务会在异步任务有了结果后，将注册的回调函数放入任务队列中等待主线程空闲的时候（调用栈被清空），被读取到栈内等待主线程的执行。</p>
-<p><img src="https://imgconvert.csdnimg.cn/aHR0cHM6Ly91c2VyLWdvbGQtY2RuLnhpdHUuaW8vMjAxOS8xLzE4LzE2ODVmMDNkN2Y4ODc5MmI?x-oss-process=image/format,png" alt=""></p>
+<p><img data-src="https://imgconvert.csdnimg.cn/aHR0cHM6Ly91c2VyLWdvbGQtY2RuLnhpdHUuaW8vMjAxOS8xLzE4LzE2ODVmMDNkN2Y4ODc5MmI?x-oss-process=image/format,png" alt=""></p>
 <p>任务队列<code>Task Queue</code>，即队列，是一种先进先出的一种数据结构。</p>
-<p><img src="https://imgconvert.csdnimg.cn/aHR0cHM6Ly91c2VyLWdvbGQtY2RuLnhpdHUuaW8vMjAxOS8xLzE4LzE2ODVmMDM3ZDQ4ZGEwZGU?x-oss-process=image/format,png" alt=""></p>
+<p><img data-src="https://imgconvert.csdnimg.cn/aHR0cHM6Ly91c2VyLWdvbGQtY2RuLnhpdHUuaW8vMjAxOS8xLzE4LzE2ODVmMDM3ZDQ4ZGEwZGU?x-oss-process=image/format,png" alt=""></p>
 <h3 id="事件循环的进程模型"><a href="#事件循环的进程模型" class="headerlink" title="事件循环的进程模型"></a>事件循环的进程模型</h3><ul>
 <li>选择当前要执行的任务队列，选择任务队列中最先进入的任务，如果任务队列为空即<code>null</code>，则执行跳转到微任务（<code>MicroTask</code>）的执行步骤。</li>
 <li>将事件循环中的任务设置为已选择任务。</li>
@@ -330,7 +325,7 @@
 <li>设置进入microtask检查点的标志为false。</li>
 </ul>
 <p>上述可能不太好理解，下图是我做的一张图片。</p>
-<p><img src="https://imgconvert.csdnimg.cn/aHR0cHM6Ly91c2VyLWdvbGQtY2RuLnhpdHUuaW8vMjAxOS8xLzE4LzE2ODYwNzhjN2EyZjYzZTU?x-oss-process=image/format,png" alt=""></p>
+<p><img data-src="https://imgconvert.csdnimg.cn/aHR0cHM6Ly91c2VyLWdvbGQtY2RuLnhpdHUuaW8vMjAxOS8xLzE4LzE2ODYwNzhjN2EyZjYzZTU?x-oss-process=image/format,png" alt=""></p>
 <p>执行栈在执行完<strong>同步任务</strong>后，查看<strong>执行栈</strong>是否为空，如果执行栈为空，就会去检查<strong>微任务</strong>(<code>microTask</code>)队列是否为空，如果为空的话，就执行<code>Task</code>（宏任务），否则就一次性执行完所有微任务。<br>每次单个<strong>宏任务</strong>执行完毕后，检查<strong>微任务</strong>(<code>microTask</code>)队列是否为空，如果不为空的话，会按照<strong>先入先</strong>出的规则全部执行完<strong>微任务</strong>(<code>microTask</code>)后，设置<strong>微任务</strong>(<code>microTask</code>)队列为<code>null</code>，然后再执行<strong>宏任务</strong>，如此循环。</p>
 <h2 id="举个例子"><a href="#举个例子" class="headerlink" title="举个例子"></a>举个例子</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">console</span>.log(<span class="string">'script start'</span>);</span><br><span class="line"></span><br><span class="line">setTimeout(<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">'setTimeout'</span>);</span><br><span class="line">&#125;, <span class="number">0</span>);</span><br><span class="line"></span><br><span class="line"><span class="built_in">Promise</span>.resolve().then(<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">'promise1'</span>);</span><br><span class="line">&#125;).then(<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">'promise2'</span>);</span><br><span class="line">&#125;);</span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">'script end'</span>);</span><br></pre></td></tr></table></figure>
 
@@ -348,7 +343,7 @@
 
 <p>清空<strong>Tasks</strong>队列和<code>JS stack</code>。</p>
 <p>以上执行帧动画可以查看<a href="https://jakearchibald.com/2015/tasks-microtasks-queues-and-schedules/" target="_blank" rel="noopener">Tasks, microtasks, queues and schedules</a><br>或许这张图也更好理解些。</p>
-<p><img src="https://imgconvert.csdnimg.cn/aHR0cHM6Ly91c2VyLWdvbGQtY2RuLnhpdHUuaW8vMjAxOS8xLzE4LzE2ODYwYWU1YWQwMmY5OTM?x-oss-process=image/format,png" alt=""></p>
+<p><img data-src="https://imgconvert.csdnimg.cn/aHR0cHM6Ly91c2VyLWdvbGQtY2RuLnhpdHUuaW8vMjAxOS8xLzE4LzE2ODYwYWU1YWQwMmY5OTM?x-oss-process=image/format,png" alt=""></p>
 <h2 id="再举个例子"><a href="#再举个例子" class="headerlink" title="再举个例子"></a>再举个例子</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">console</span>.log(<span class="string">'script start'</span>)</span><br><span class="line"></span><br><span class="line"><span class="keyword">async</span> <span class="function"><span class="keyword">function</span> <span class="title">async1</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">await</span> async2()</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">'async1 end'</span>)</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">async</span> <span class="function"><span class="keyword">function</span> <span class="title">async2</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">'async2 end'</span>)</span><br><span class="line">&#125;</span><br><span class="line">async1()</span><br><span class="line"></span><br><span class="line">setTimeout(<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">'setTimeout'</span>)</span><br><span class="line">&#125;, <span class="number">0</span>)</span><br><span class="line"></span><br><span class="line"><span class="keyword">new</span> <span class="built_in">Promise</span>(<span class="function"><span class="params">resolve</span> =&gt;</span> &#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">'Promise'</span>)</span><br><span class="line">  resolve()</span><br><span class="line">&#125;)</span><br><span class="line">  .then(<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">'promise1'</span>)</span><br><span class="line">  &#125;)</span><br><span class="line">  .then(<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">'promise2'</span>)</span><br><span class="line">  &#125;)</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">'script end'</span>)</span><br></pre></td></tr></table></figure>
 
 <p>这里需要先理解<code>async/await</code>。</p>
@@ -358,7 +353,7 @@
 <li>在73版本，先执行<code>async1</code>再执行<code>promise1</code>和<code>promise2</code>。</li>
 </ul>
 <p><strong>主要原因是因为在谷歌(金丝雀)73版本中更改了规范，如下图所示：</strong></p>
-<p><img src="https://imgconvert.csdnimg.cn/aHR0cHM6Ly91c2VyLWdvbGQtY2RuLnhpdHUuaW8vMjAxOS8xLzIxLzE2ODZlYjI5YTZhMTk2NTg?x-oss-process=image/format,png" alt=""></p>
+<p><img data-src="https://imgconvert.csdnimg.cn/aHR0cHM6Ly91c2VyLWdvbGQtY2RuLnhpdHUuaW8vMjAxOS8xLzIxLzE2ODZlYjI5YTZhMTk2NTg?x-oss-process=image/format,png" alt=""></p>
 <ul>
 <li>区别在于<code>RESOLVE(thenable)</code>和之间的区别<code>Promise.resolve(thenable)</code>。</li>
 </ul>
@@ -396,9 +391,9 @@
 <li>现在 <code>promise</code> 指向了同一个 <code>Promise</code>，所以这个步骤什么也不需要做。然后引擎继续像以前一样，创建 <code>throwaway Promise</code>，安排 <code>PromiseReactionJob</code> 在 <code>microtask</code> 队列的下一个 <code>tick</code> 上恢复异步函数，暂停执行该函数，然后返回给调用者。</li>
 </ul>
 <p>具体详情查看（<a href="https://v8.js.cn/blog/fast-async/" target="_blank" rel="noopener">这里</a>）。</p>
-<h2 id="NodeJS的Event-Loop"><a href="#NodeJS的Event-Loop" class="headerlink" title="NodeJS的Event Loop"></a>NodeJS的Event Loop</h2><p><img src="https://imgconvert.csdnimg.cn/aHR0cHM6Ly91c2VyLWdvbGQtY2RuLnhpdHUuaW8vMjAxOS8xLzE4LzE2ODYwZjM1ZDNhM2U1MGQ?x-oss-process=image/format,png" alt=""></p>
+<h2 id="NodeJS的Event-Loop"><a href="#NodeJS的Event-Loop" class="headerlink" title="NodeJS的Event Loop"></a>NodeJS的Event Loop</h2><p><img data-src="https://imgconvert.csdnimg.cn/aHR0cHM6Ly91c2VyLWdvbGQtY2RuLnhpdHUuaW8vMjAxOS8xLzE4LzE2ODYwZjM1ZDNhM2U1MGQ?x-oss-process=image/format,png" alt=""></p>
 <p><code>Node</code>中的<code>Event Loop</code>是基于<code>libuv</code>实现的，而<code>libuv</code>是 <code>Node</code> 的新跨平台抽象层，libuv使用异步，事件驱动的编程方式，核心是提供<code>i/o</code>的事件循环和异步回调。libuv的<code>API</code>包含有时间，非阻塞的网络，异步文件操作，子进程等等。 <code>Event Loop</code>就是在<code>libuv</code>中实现的。</p>
-<p><img src="https://imgconvert.csdnimg.cn/aHR0cHM6Ly91c2VyLWdvbGQtY2RuLnhpdHUuaW8vMjAxOS8xLzE4LzE2ODYwZjhmOGY3ZjA1M2Q?x-oss-process=image/format,png" alt=""></p>
+<p><img data-src="https://imgconvert.csdnimg.cn/aHR0cHM6Ly91c2VyLWdvbGQtY2RuLnhpdHUuaW8vMjAxOS8xLzE4LzE2ODYwZjhmOGY3ZjA1M2Q?x-oss-process=image/format,png" alt=""></p>
 <h3 id="Node的Event-loop一共分为6个阶段，每个细节具体如下"><a href="#Node的Event-loop一共分为6个阶段，每个细节具体如下" class="headerlink" title="Node的Event loop一共分为6个阶段，每个细节具体如下"></a><code>Node</code>的<code>Event loop</code>一共分为6个阶段，每个细节具体如下</h3><ul>
 <li><code>timers</code>: 执行<code>setTimeout</code>和<code>setInterval</code>中到期的<code>callback</code>。</li>
 <li><code>pending callback</code>: 上一轮循环中少数的<code>callback</code>会放在这一阶段执行。</li>
@@ -414,7 +409,7 @@
 <p>当进入事件循环时，它有一个空队列（<code>fs.readFile()</code>尚未完成），因此定时器将等待剩余毫秒数，当到达95ms时，<code>fs.readFile()</code>完成读取文件并且其完成需要10毫秒的回调被添加到轮询队列并执行。<br>当回调结束时，队列中不再有回调，因此事件循环将看到已达到最快定时器的<strong>阈值</strong>，然后回到<strong>timers阶段</strong>以执行定时器的回调。</p>
 <p>在此示例中，您将看到正在调度的计时器与正在执行的回调之间的总延迟将为105毫秒。</p>
 <p><strong>以下是我测试时间：</strong></p>
-<p><img src="https://imgconvert.csdnimg.cn/aHR0cHM6Ly91c2VyLWdvbGQtY2RuLnhpdHUuaW8vMjAxOS8xLzE5LzE2ODY0YjgxNzdjMjVlYWY?x-oss-process=image/format,png" alt=""></p>
+<p><img data-src="https://imgconvert.csdnimg.cn/aHR0cHM6Ly91c2VyLWdvbGQtY2RuLnhpdHUuaW8vMjAxOS8xLzE5LzE2ODY0YjgxNzdjMjVlYWY?x-oss-process=image/format,png" alt=""></p>
 <h3 id="pending-callbacks"><a href="#pending-callbacks" class="headerlink" title="pending callbacks"></a>pending callbacks</h3><p>此阶段执行某些系统操作（例如TCP错误类型）的回调。 例如，如果<code>TCP socket ECONNREFUSED</code>在尝试connect时receives，则某些* nix系统希望等待报告错误。 这将在<code>pending callbacks</code>阶段执行。</p>
 <h3 id="poll"><a href="#poll" class="headerlink" title="poll"></a>poll</h3><p><strong>该poll阶段有两个主要功能：</strong></p>
 <ul>
@@ -455,7 +450,7 @@
 
 <p>具体情况可以参考<code>poll</code>阶段的两种情况。</p>
 <p>从下图可能更好理解：</p>
-<p><img src="https://imgconvert.csdnimg.cn/aHR0cHM6Ly91c2VyLWdvbGQtY2RuLnhpdHUuaW8vMjAxOS8xLzE5LzE2ODY1MzBiY2Q0ZTQ1NmE?x-oss-process=image/format,png" alt=""></p>
+<p><img data-src="https://imgconvert.csdnimg.cn/aHR0cHM6Ly91c2VyLWdvbGQtY2RuLnhpdHUuaW8vMjAxOS8xLzE5LzE2ODY1MzBiY2Q0ZTQ1NmE?x-oss-process=image/format,png" alt=""></p>
 <h2 id="setImmediate-的setTimeout-的区别"><a href="#setImmediate-的setTimeout-的区别" class="headerlink" title="setImmediate() 的setTimeout()的区别"></a>setImmediate() 的setTimeout()的区别</h2><p><strong><code>setImmediate</code>和<code>setTimeout()</code>是相似的，但根据它们被调用的时间以不同的方式表现。</strong></p>
 <ul>
 <li><code>setImmediate()</code>设计用于在当前<code>poll</code>阶段完成后check阶段执行脚本 。</li>
@@ -668,7 +663,6 @@
       </div>
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
-          
         <span class="site-state-item-count">13</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
@@ -750,8 +744,6 @@
   
 <script src="https://cdn.jsdelivr.net/jquery/2.1.3/jquery.min.js"></script>
 
-<script src="/js/masonry.pkgd.min.js"></script>
-
 <script src="/js/lightGallery.min.js"></script>
 
 <script src="/js/lg-autoplay.min.js"></script>
@@ -760,8 +752,11 @@
 
 <script src="/js/lg-thumbnail.js"></script>
 
+<script src="/js/jquery.justifiedGallery.min.js"></script>
+
   <script src="/lib/anime.min.js"></script>
   <script src="//cdn.jsdelivr.net/npm/medium-zoom@1/dist/medium-zoom.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/lozad@1/dist/lozad.min.js"></script>
   <script src="//cdn.jsdelivr.net/npm/pangu@4/dist/browser/pangu.min.js"></script>
   <script src="/lib/velocity/velocity.min.js"></script>
   <script src="/lib/velocity/velocity.ui.min.js"></script>
