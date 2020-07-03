@@ -586,6 +586,17 @@
       </tags>
   </entry>
   <entry>
+    <title>【webpack】webpack基本配置</title>
+    <url>/2019/04/10/%E3%80%90webpack%E3%80%91webpack%E5%9F%BA%E6%9C%AC%E9%85%8D%E7%BD%AE/</url>
+    <content><![CDATA[<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> path = <span class="built_in">require</span>(<span class="string">"path"</span>);</span><br><span class="line"><span class="keyword">const</span> HtmlWebpackPlugin \= <span class="built_in">require</span>(<span class="string">"html-webpack-plugin"</span>); <span class="comment">//配置路径</span></span><br><span class="line"><span class="keyword">const</span> PATH = &#123; <span class="comment">//path.jion 把当前文件的绝对路径与相对路径相结合生成新的路径</span></span><br><span class="line">    app:path.join(\_\_dirname,<span class="string">"src/index.js"</span>),</span><br><span class="line">    build:path.join(\_\_dirname,<span class="string">"dist"</span>)</span><br><span class="line">&#125; <span class="comment">//module 打包的配置项</span></span><br><span class="line"><span class="built_in">module</span>.exports = &#123;</span><br><span class="line">    entry:&#123;</span><br><span class="line">        app:PATH.app</span><br><span class="line">    &#125;,</span><br><span class="line">    output:&#123;</span><br><span class="line">        filename:<span class="string">"\[name\].js"</span>,</span><br><span class="line">        path:PATH.build</span><br><span class="line">    &#125;,</span><br><span class="line">   <span class="built_in">module</span>:&#123; <span class="comment">//test  匹配类型 通过loader进行合并</span></span><br><span class="line"> rules:\[</span><br><span class="line">           &#123;</span><br><span class="line">                test:<span class="regexp">/\\.(js|jsx)$/</span>,</span><br><span class="line">                use:&#123; <span class="comment">//打包js  一个打包的工具</span></span><br><span class="line">                    loader:<span class="string">"babel-loader"</span>,</span><br><span class="line">                    options:&#123;</span><br><span class="line">                        presets:\[<span class="string">"@babel/env"</span>,<span class="string">"@babel/react"</span>\]</span><br><span class="line">                    &#125;</span><br><span class="line">                &#125;,</span><br><span class="line">               exclude:\_\_dirname+<span class="string">"node\_modules"</span> &#125;,&#123;</span><br><span class="line">               test:<span class="regexp">/\\.(css|scss)$/</span>,</span><br><span class="line">               loader:\[<span class="string">"style-loader"</span>,<span class="string">"css-loader"</span>,<span class="string">"sass-loader"</span>\]</span><br><span class="line">           &#125;</span><br><span class="line">       \]</span><br><span class="line">   &#125;, <span class="comment">//plugins  插件</span></span><br><span class="line"> plugins:\[ <span class="keyword">new</span> HtmlWebpackPlugin(&#123;</span><br><span class="line">            template:<span class="string">"index.html"</span>,</span><br><span class="line">            filename:<span class="string">"index.html"</span> &#125;)</span><br><span class="line">   \]</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>]]></content>
+      <categories>
+        <category>Webpack</category>
+      </categories>
+      <tags>
+        <tag>Webpack</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>解决cannot remove &#39;.user.ini&#39;Operation not permitted</title>
     <url>/2019/04/18/%E8%A7%A3%E5%86%B3cannot-remove-user-ini-Operation-not-permitted/</url>
     <content><![CDATA[<p>在Linux中删除整个git仓库，删除失败出现 cannot remove ‘.user.ini’Operation not permitted，原因就是文件中含有某种属性不可更改，删除该属性就可以了</p>
@@ -605,14 +616,23 @@
       </tags>
   </entry>
   <entry>
-    <title>【webpack】webpack基本配置</title>
-    <url>/2019/04/10/%E3%80%90webpack%E3%80%91webpack%E5%9F%BA%E6%9C%AC%E9%85%8D%E7%BD%AE/</url>
-    <content><![CDATA[<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> path = <span class="built_in">require</span>(<span class="string">"path"</span>);</span><br><span class="line"><span class="keyword">const</span> HtmlWebpackPlugin \= <span class="built_in">require</span>(<span class="string">"html-webpack-plugin"</span>); <span class="comment">//配置路径</span></span><br><span class="line"><span class="keyword">const</span> PATH = &#123; <span class="comment">//path.jion 把当前文件的绝对路径与相对路径相结合生成新的路径</span></span><br><span class="line">    app:path.join(\_\_dirname,<span class="string">"src/index.js"</span>),</span><br><span class="line">    build:path.join(\_\_dirname,<span class="string">"dist"</span>)</span><br><span class="line">&#125; <span class="comment">//module 打包的配置项</span></span><br><span class="line"><span class="built_in">module</span>.exports = &#123;</span><br><span class="line">    entry:&#123;</span><br><span class="line">        app:PATH.app</span><br><span class="line">    &#125;,</span><br><span class="line">    output:&#123;</span><br><span class="line">        filename:<span class="string">"\[name\].js"</span>,</span><br><span class="line">        path:PATH.build</span><br><span class="line">    &#125;,</span><br><span class="line">   <span class="built_in">module</span>:&#123; <span class="comment">//test  匹配类型 通过loader进行合并</span></span><br><span class="line"> rules:\[</span><br><span class="line">           &#123;</span><br><span class="line">                test:<span class="regexp">/\\.(js|jsx)$/</span>,</span><br><span class="line">                use:&#123; <span class="comment">//打包js  一个打包的工具</span></span><br><span class="line">                    loader:<span class="string">"babel-loader"</span>,</span><br><span class="line">                    options:&#123;</span><br><span class="line">                        presets:\[<span class="string">"@babel/env"</span>,<span class="string">"@babel/react"</span>\]</span><br><span class="line">                    &#125;</span><br><span class="line">                &#125;,</span><br><span class="line">               exclude:\_\_dirname+<span class="string">"node\_modules"</span> &#125;,&#123;</span><br><span class="line">               test:<span class="regexp">/\\.(css|scss)$/</span>,</span><br><span class="line">               loader:\[<span class="string">"style-loader"</span>,<span class="string">"css-loader"</span>,<span class="string">"sass-loader"</span>\]</span><br><span class="line">           &#125;</span><br><span class="line">       \]</span><br><span class="line">   &#125;, <span class="comment">//plugins  插件</span></span><br><span class="line"> plugins:\[ <span class="keyword">new</span> HtmlWebpackPlugin(&#123;</span><br><span class="line">            template:<span class="string">"index.html"</span>,</span><br><span class="line">            filename:<span class="string">"index.html"</span> &#125;)</span><br><span class="line">   \]</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>]]></content>
+    <title>Node项目部署</title>
+    <url>/2019/05/12/Node%E9%A1%B9%E7%9B%AE%E9%83%A8%E7%BD%B2/</url>
+    <content><![CDATA[<h2 id="利用宝塔可以很快的搭建你需要的环境"><a href="#利用宝塔可以很快的搭建你需要的环境" class="headerlink" title="利用宝塔可以很快的搭建你需要的环境"></a>利用宝塔可以很快的搭建你需要的环境</h2><p>安装 ：<a href="https://www.bt.cn/bbs/thread-19376-1-1.html" target="_blank" rel="noopener">https://www.bt.cn/bbs/thread-19376-1-1.html</a></p>
+<h2 id="上传文件"><a href="#上传文件" class="headerlink" title="上传文件"></a>上传文件</h2><p>将你的项目上传到指定的目录</p>
+<h2 id="添加网站"><a href="#添加网站" class="headerlink" title="添加网站"></a>添加网站</h2><p><img data-src="https://img2020.cnblogs.com/blog/1524685/202006/1524685-20200601100634195-561242539.png" alt=""></p>
+<h2 id="安装pm2管理器，方便管理你的Node项目和版本"><a href="#安装pm2管理器，方便管理你的Node项目和版本" class="headerlink" title="安装pm2管理器，方便管理你的Node项目和版本"></a>安装pm2管理器，方便管理你的Node项目和版本</h2><p>PM2是Node.js应用程序的生产流程管理器，内置负载均衡。它可以帮助您保持Node应用程序永久活动，重起这些node应用程序也不需要停机，并简化常见的系统管理任务。<br>填写项目跟目录和启动文件,启动你的node服务，也可以自己安装<code>forever</code><br><img data-src="https://img2020.cnblogs.com/blog/1524685/202006/1524685-20200601100016539-687074251.png" alt=""></p>
+<h2 id="设置nginx反向代理"><a href="#设置nginx反向代理" class="headerlink" title="设置nginx反向代理"></a>设置nginx反向代理</h2><p>执行完以上步骤，你会发现并不能正常访问该项目，这时需要用到<strong><a href="/2019/06/01/正向代理和反向代理/">nginx的反向代理</a></strong><br>打开 网站——&gt;设置——&gt;配置文件<br>在 <code>server</code>中添加一个配置</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">location &#x2F;</span><br><span class="line">    &#123;</span><br><span class="line">      proxy_pass  http:&#x2F;&#x2F;127.0.0.1:3000;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+<p>注意格式，在宝塔中</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">location &#x2F;&#123;</span><br><span class="line">      proxy_pass  http:&#x2F;&#x2F;127.0.0.1:3000;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+<p>这样配置会报错</p>
+<h3 id="配置完成后就可以用你配置的网站名访问了，如果有配置端口号，别忘了加"><a href="#配置完成后就可以用你配置的网站名访问了，如果有配置端口号，别忘了加" class="headerlink" title="配置完成后就可以用你配置的网站名访问了，如果有配置端口号，别忘了加"></a>配置完成后就可以用你配置的网站名访问了，如果有配置端口号，别忘了加</h3>]]></content>
       <categories>
-        <category>Webpack</category>
+        <category>Nginx</category>
       </categories>
       <tags>
-        <tag>Webpack</tag>
+        <tag>Nginx</tag>
       </tags>
   </entry>
   <entry>
@@ -655,26 +675,6 @@ if(isAndroid){
       </categories>
       <tags>
         <tag>JS</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Node项目部署</title>
-    <url>/2019/05/12/Node%E9%A1%B9%E7%9B%AE%E9%83%A8%E7%BD%B2/</url>
-    <content><![CDATA[<h2 id="利用宝塔可以很快的搭建你需要的环境"><a href="#利用宝塔可以很快的搭建你需要的环境" class="headerlink" title="利用宝塔可以很快的搭建你需要的环境"></a>利用宝塔可以很快的搭建你需要的环境</h2><p>安装 ：<a href="https://www.bt.cn/bbs/thread-19376-1-1.html" target="_blank" rel="noopener">https://www.bt.cn/bbs/thread-19376-1-1.html</a></p>
-<h2 id="上传文件"><a href="#上传文件" class="headerlink" title="上传文件"></a>上传文件</h2><p>将你的项目上传到指定的目录</p>
-<h2 id="添加网站"><a href="#添加网站" class="headerlink" title="添加网站"></a>添加网站</h2><p><img data-src="https://img2020.cnblogs.com/blog/1524685/202006/1524685-20200601100634195-561242539.png" alt=""></p>
-<h2 id="安装pm2管理器，方便管理你的Node项目和版本"><a href="#安装pm2管理器，方便管理你的Node项目和版本" class="headerlink" title="安装pm2管理器，方便管理你的Node项目和版本"></a>安装pm2管理器，方便管理你的Node项目和版本</h2><p>PM2是Node.js应用程序的生产流程管理器，内置负载均衡。它可以帮助您保持Node应用程序永久活动，重起这些node应用程序也不需要停机，并简化常见的系统管理任务。<br>填写项目跟目录和启动文件,启动你的node服务，也可以自己安装<code>forever</code><br><img data-src="https://img2020.cnblogs.com/blog/1524685/202006/1524685-20200601100016539-687074251.png" alt=""></p>
-<h2 id="设置nginx反向代理"><a href="#设置nginx反向代理" class="headerlink" title="设置nginx反向代理"></a>设置nginx反向代理</h2><p>执行完以上步骤，你会发现并不能正常访问该项目，这时需要用到<strong><a href="/2019/06/01/正向代理和反向代理/">nginx的反向代理</a></strong><br>打开 网站——&gt;设置——&gt;配置文件<br>在 <code>server</code>中添加一个配置</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">location &#x2F;</span><br><span class="line">    &#123;</span><br><span class="line">      proxy_pass  http:&#x2F;&#x2F;127.0.0.1:3000;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
-<p>注意格式，在宝塔中</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">location &#x2F;&#123;</span><br><span class="line">      proxy_pass  http:&#x2F;&#x2F;127.0.0.1:3000;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
-<p>这样配置会报错</p>
-<h3 id="配置完成后就可以用你配置的网站名访问了，如果有配置端口号，别忘了加"><a href="#配置完成后就可以用你配置的网站名访问了，如果有配置端口号，别忘了加" class="headerlink" title="配置完成后就可以用你配置的网站名访问了，如果有配置端口号，别忘了加"></a>配置完成后就可以用你配置的网站名访问了，如果有配置端口号，别忘了加</h3>]]></content>
-      <categories>
-        <category>Nginx</category>
-      </categories>
-      <tags>
-        <tag>Nginx</tag>
       </tags>
   </entry>
   <entry>
@@ -841,10 +841,10 @@ if(isAndroid){
 <p>如图,添加webhooks,Payload URL为上一步生成的链接，Secret为密钥<br>就这么简单</p>
 ]]></content>
       <categories>
-        <category>Hexo</category>
+        <category>hexo</category>
       </categories>
       <tags>
-        <tag>Hexo</tag>
+        <tag>hexo</tag>
       </tags>
   </entry>
   <entry>
@@ -953,16 +953,16 @@ if(isAndroid){
 <p>修改 获取列表方法<br>第78行  直接替换</p>
 <figure class="highlight js"><table><tr><td class="code"><pre><span class="line">zbody += <span class="string">'&lt;tr&gt;'</span></span><br><span class="line">      +<span class="string">'&lt;td&gt;'</span>+mlist[i].title+<span class="string">'&lt;/td&gt;'</span></span><br><span class="line">      +<span class="string">'&lt;td&gt;'</span>+getLocalTime(mlist[i].addtime)+<span class="string">'&lt;/td&gt;'</span></span><br><span class="line">      +<span class="string">'&lt;td&gt;'</span>+getLocalTime(mlist[i].uptime)+<span class="string">'&lt;/td&gt;'</span></span><br><span class="line">      +<span class="string">'&lt;td&gt;'</span>+mlist[i].count+<span class="string">'&lt;/td&gt;'</span></span><br><span class="line">      +<span class="string">'&lt;td&gt;&lt;a href="javascript:showWebHookCode(\''</span>+mlist[i].url+<span class="string">'\',\''</span>+mlist[i].access_key+<span class="string">'\')" class="btlink"&gt;查看密钥&lt;/a&gt;&lt;/td&gt;'</span></span><br><span class="line">      +<span class="string">'&lt;td&gt;&lt;div style="text-align: right;"&gt;&lt;a href="javascript:RunHook(\''</span>+mlist[i].access_key+<span class="string">'\');" class="btlink"&gt;测试&lt;/a&gt; | '</span></span><br><span class="line">      +<span class="string">'&lt;a href="javascript:OnlineEditFile(0,\'/www/server/panel/plugin/webhook/script/'</span>+mlist[i].access_key+<span class="string">'\');" class="btlink"&gt;编辑&lt;/a&gt; | '</span></span><br><span class="line">      +<span class="string">'&lt;a href="javascript:DeleteHook(\''</span>+mlist[i].access_key+<span class="string">'\');" class="btlink"&gt;删除&lt;/a&gt;&lt;/div&gt;'</span></span><br><span class="line">      +<span class="string">'&lt;div style="text-align: right;"&gt;&lt;a href="javascript:GetLogs(\'/www/server/panel/plugin/webhook/script/'</span>+mlist[i].access_key+<span class="string">'.log\');" class="btlink"&gt;日志&lt;/a&gt; | '</span></span><br><span class="line">      +<span class="string">'&lt;a href="javascript:ClearLogs(\'/www/server/panel/plugin/webhook/script/'</span>+mlist[i].access_key+<span class="string">'.log\');" class="btlink"&gt;清除日志&lt;/a&gt;&lt;/div&gt;&lt;/td&gt;'</span></span><br><span class="line">      +<span class="string">'&lt;/tr&gt;'</span></span><br></pre></td></tr></table></figure>
 
-
 <p>添加清除日志的方法</p>
 <figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">//清除日志</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">ClearLogs</span>(<span class="params">path</span>)</span>&#123;</span><br><span class="line">    loadT = layer.msg(<span class="string">'正在清除...'</span>,&#123;<span class="attr">icon</span>:<span class="number">16</span>,<span class="attr">time</span>:<span class="number">0</span>,<span class="attr">shade</span>: [<span class="number">0.3</span>, <span class="string">'#000'</span>]&#125;);</span><br><span class="line">    <span class="keyword">var</span> data=<span class="string">'&amp;path='</span>+path</span><br><span class="line">    $.post(<span class="string">'/files?action=DeleteFile'</span>,data,<span class="function"><span class="keyword">function</span>(<span class="params">rdata</span>)</span>&#123;</span><br><span class="line">        layer.close(loadT);</span><br><span class="line">        <span class="keyword">if</span>(!rdata.status) &#123;</span><br><span class="line">            layer.msg(rdata.msg,&#123;<span class="attr">icon</span>:<span class="number">2</span>&#125;);</span><br><span class="line">            <span class="keyword">return</span>;</span><br><span class="line">        &#125;;</span><br><span class="line">        layer.msg(rdata.msg,&#123;<span class="attr">icon</span>:rdata.status?<span class="number">1</span>:<span class="number">2</span>&#125;);</span><br><span class="line">    &#125;);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
 <p>完工<br><img data-src="https://img2020.cnblogs.com/blog/1524685/202006/1524685-20200630090102486-1644179180.png" alt=""></p>
 ]]></content>
       <categories>
-        <category>Hexo</category>
+        <category>hexo</category>
       </categories>
       <tags>
-        <tag>Hexo</tag>
+        <tag>hexo</tag>
       </tags>
   </entry>
   <entry>
@@ -1687,23 +1687,6 @@ if(isAndroid){
       </tags>
   </entry>
   <entry>
-    <title>糟糕的一天</title>
-    <url>/2020/06/29/%E7%B3%9F%E7%B3%95%E7%9A%84%E4%B8%80%E5%A4%A9/</url>
-    <content><![CDATA[<p>每天早晚我都会骑上我心爱的小车车上班、回家。但是！今天下班突然发现我的小车车不见了！心里一咯噔，完蛋，被小偷光顾了！我悲惨的人生啊😟😭😭😭。找了好几圈都没有找到，彻底放弃了，去问了保安大爷，有没有动那边的车子，大爷说没有，然后我想要调监控看看能不能逮个大盗，结果人家不让查，必须报警，出证明，才给让查。这都8点了，我上哪给他弄证明去，平时还得上班，也没有空啊！我的小车车刚骑了一年呐，就这么不幸的被盗了！真的是从来没想过这事会发生在我身上~</p>
-<p>唉，就这样吧，破财免灾，盗我车车的人呐， 你说你有手有脚，做点什么不好，要来偷。但愿你拿到钱后能把你全家人的命救活，如果救不活，就当为地球环保社会文明做贡献了！！！🤬🤬🤬</p>
-<p>  贴上一张车车的图（好像没有拍过照片，只能从店家拿来了）。再见了。小红~ ~ ~</p>
-<p><img data-src="http://cloud.asenper.cn//20200629231315.jpg" alt=""></p>
-<p>一辆车子，丢了就丢了，也不是啥大事，但我心情还是很不好啊。心里骂那贼子一万遍了~ ~ ~ ~</p>
-<p>算了算了，明天又是美好的一天！睡觉！good night 😴</p>
-]]></content>
-      <categories>
-        <category>朝花夕拾</category>
-      </categories>
-      <tags>
-        <tag>朝花夕拾</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>vue补课</title>
     <url>/2020/06/28/%E8%A1%A5%E8%AF%BEvue/</url>
     <content><![CDATA[<h2 id="hookEvent"><a href="#hookEvent" class="headerlink" title="hookEvent"></a>hookEvent</h2><h3 id="组件内部监听生命周期函数"><a href="#组件内部监听生命周期函数" class="headerlink" title="组件内部监听生命周期函数"></a>组件内部监听生命周期函数</h3><figure class="highlight js"><table><tr><td class="code"><pre><span class="line">mounted()&#123;</span><br><span class="line">    <span class="comment">// 通过hook监听组件销毁钩子函数，并取消监听事件</span></span><br><span class="line">    <span class="keyword">this</span>.$once(<span class="string">'hook:updated'</span>, () =&gt; &#123;&#125;)</span><br><span class="line">    <span class="comment">//或</span></span><br><span class="line">    <span class="keyword">this</span>.$on(<span class="string">'hook:updated'</span>,()=&gt;&#123;&#125;)   </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
@@ -1787,6 +1770,23 @@ if(isAndroid){
       </categories>
       <tags>
         <tag>Vue</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>糟糕的一天</title>
+    <url>/2020/06/29/%E7%B3%9F%E7%B3%95%E7%9A%84%E4%B8%80%E5%A4%A9/</url>
+    <content><![CDATA[<p>每天早晚我都会骑上我心爱的小车车上班、回家。但是！今天下班突然发现我的小车车不见了！心里一咯噔，完蛋，被小偷光顾了！我悲惨的人生啊😟😭😭😭。找了好几圈都没有找到，彻底放弃了，去问了保安大爷，有没有动那边的车子，大爷说没有，然后我想要调监控看看能不能逮个大盗，结果人家不让查，必须报警，出证明，才给让查。这都8点了，我上哪给他弄证明去，平时还得上班，也没有空啊！我的小车车刚骑了一年呐，就这么不幸的被盗了！真的是从来没想过这事会发生在我身上~</p>
+<p>唉，就这样吧，破财免灾，盗我车车的人呐， 你说你有手有脚，做点什么不好，要来偷。但愿你拿到钱后能把你全家人的命救活，如果救不活，就当为地球环保社会文明做贡献了！！！🤬🤬🤬</p>
+<p>  贴上一张车车的图（好像没有拍过照片，只能从店家拿来了）。再见了。小红~ ~ ~</p>
+<p><img data-src="http://cloud.asenper.cn//20200629231315.jpg" alt=""></p>
+<p>一辆车子，丢了就丢了，也不是啥大事，但我心情还是很不好啊。心里骂那贼子一万遍了~ ~ ~ ~</p>
+<p>算了算了，明天又是美好的一天！睡觉！good night 😴</p>
+]]></content>
+      <categories>
+        <category>朝花夕拾</category>
+      </categories>
+      <tags>
+        <tag>朝花夕拾</tag>
       </tags>
   </entry>
   <entry>

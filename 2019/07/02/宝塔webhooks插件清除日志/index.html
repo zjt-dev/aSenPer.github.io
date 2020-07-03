@@ -29,9 +29,9 @@
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://img2020.cnblogs.com/blog/1524685/202006/1524685-20200630090102486-1644179180.png">
 <meta property="article:published_time" content="2019-07-02T01:02:32.000Z">
-<meta property="article:modified_time" content="2020-06-30T01:07:10.397Z">
+<meta property="article:modified_time" content="2020-07-03T14:54:02.875Z">
 <meta property="article:author" content="ZJT">
-<meta property="article:tag" content="Hexo">
+<meta property="article:tag" content="hexo">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="https://img2020.cnblogs.com/blog/1524685/202006/1524685-20200630090102486-1644179180.png">
 
@@ -235,7 +235,7 @@
               </span>
               <span class="post-meta-item-text">分类于</span>
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Hexo/" itemprop="url" rel="index"><span itemprop="name">Hexo</span></a>
+                  <a href="/categories/hexo/" itemprop="url" rel="index"><span itemprop="name">hexo</span></a>
                 </span>
             </span>
 
@@ -267,9 +267,9 @@
 <p>修改 获取列表方法<br>第78行  直接替换</p>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">zbody += <span class="string">'&lt;tr&gt;'</span></span><br><span class="line">      +<span class="string">'&lt;td&gt;'</span>+mlist[i].title+<span class="string">'&lt;/td&gt;'</span></span><br><span class="line">      +<span class="string">'&lt;td&gt;'</span>+getLocalTime(mlist[i].addtime)+<span class="string">'&lt;/td&gt;'</span></span><br><span class="line">      +<span class="string">'&lt;td&gt;'</span>+getLocalTime(mlist[i].uptime)+<span class="string">'&lt;/td&gt;'</span></span><br><span class="line">      +<span class="string">'&lt;td&gt;'</span>+mlist[i].count+<span class="string">'&lt;/td&gt;'</span></span><br><span class="line">      +<span class="string">'&lt;td&gt;&lt;a href="javascript:showWebHookCode(\''</span>+mlist[i].url+<span class="string">'\',\''</span>+mlist[i].access_key+<span class="string">'\')" class="btlink"&gt;查看密钥&lt;/a&gt;&lt;/td&gt;'</span></span><br><span class="line">      +<span class="string">'&lt;td&gt;&lt;div style="text-align: right;"&gt;&lt;a href="javascript:RunHook(\''</span>+mlist[i].access_key+<span class="string">'\');" class="btlink"&gt;测试&lt;/a&gt; | '</span></span><br><span class="line">      +<span class="string">'&lt;a href="javascript:OnlineEditFile(0,\'/www/server/panel/plugin/webhook/script/'</span>+mlist[i].access_key+<span class="string">'\');" class="btlink"&gt;编辑&lt;/a&gt; | '</span></span><br><span class="line">      +<span class="string">'&lt;a href="javascript:DeleteHook(\''</span>+mlist[i].access_key+<span class="string">'\');" class="btlink"&gt;删除&lt;/a&gt;&lt;/div&gt;'</span></span><br><span class="line">      +<span class="string">'&lt;div style="text-align: right;"&gt;&lt;a href="javascript:GetLogs(\'/www/server/panel/plugin/webhook/script/'</span>+mlist[i].access_key+<span class="string">'.log\');" class="btlink"&gt;日志&lt;/a&gt; | '</span></span><br><span class="line">      +<span class="string">'&lt;a href="javascript:ClearLogs(\'/www/server/panel/plugin/webhook/script/'</span>+mlist[i].access_key+<span class="string">'.log\');" class="btlink"&gt;清除日志&lt;/a&gt;&lt;/div&gt;&lt;/td&gt;'</span></span><br><span class="line">      +<span class="string">'&lt;/tr&gt;'</span></span><br></pre></td></tr></table></figure>
 
-
 <p>添加清除日志的方法</p>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//清除日志</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">ClearLogs</span>(<span class="params">path</span>)</span>&#123;</span><br><span class="line">    loadT = layer.msg(<span class="string">'正在清除...'</span>,&#123;<span class="attr">icon</span>:<span class="number">16</span>,<span class="attr">time</span>:<span class="number">0</span>,<span class="attr">shade</span>: [<span class="number">0.3</span>, <span class="string">'#000'</span>]&#125;);</span><br><span class="line">    <span class="keyword">var</span> data=<span class="string">'&amp;path='</span>+path</span><br><span class="line">    $.post(<span class="string">'/files?action=DeleteFile'</span>,data,<span class="function"><span class="keyword">function</span>(<span class="params">rdata</span>)</span>&#123;</span><br><span class="line">        layer.close(loadT);</span><br><span class="line">        <span class="keyword">if</span>(!rdata.status) &#123;</span><br><span class="line">            layer.msg(rdata.msg,&#123;<span class="attr">icon</span>:<span class="number">2</span>&#125;);</span><br><span class="line">            <span class="keyword">return</span>;</span><br><span class="line">        &#125;;</span><br><span class="line">        layer.msg(rdata.msg,&#123;<span class="attr">icon</span>:rdata.status?<span class="number">1</span>:<span class="number">2</span>&#125;);</span><br><span class="line">    &#125;);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
 <p>完工<br><img data-src="https://img2020.cnblogs.com/blog/1524685/202006/1524685-20200630090102486-1644179180.png" alt=""></p>
 
     </div>
@@ -331,7 +331,7 @@
       <footer class="post-footer">
           
           <div class="post-tags">
-              <a href="/tags/Hexo/" rel="tag"><i class="fa fa-tag"></i> Hexo</a>
+              <a href="/tags/hexo/" rel="tag"><i class="fa fa-tag"></i> hexo</a>
           </div>
 
         
@@ -461,7 +461,7 @@
       <div class="widget-wrap">
         <h4>标签云</h4>
           <div id="myCanvasContainer" class="widget tagcloud">
-            <a href="/tags/Git/" style="font-size: 13px; color: #333">Git</a> <a href="/tags/Hexo/" style="font-size: 17.25px; color: #2b2b2b">Hexo</a> <a href="/tags/JS/" style="font-size: 30px; color: #111">JS</a> <a href="/tags/Linux/" style="font-size: 13px; color: #333">Linux</a> <a href="/tags/Nginx/" style="font-size: 21.5px; color: #222">Nginx</a> <a href="/tags/Node/" style="font-size: 17.25px; color: #2b2b2b">Node</a> <a href="/tags/Promise/" style="font-size: 13px; color: #333">Promise</a> <a href="/tags/Vue/" style="font-size: 25.75px; color: #1a1a1a">Vue</a> <a href="/tags/Webpack/" style="font-size: 21.5px; color: #222">Webpack</a> <a href="/tags/markdown/" style="font-size: 13px; color: #333">markdown</a> <a href="/tags/%E5%85%B6%E5%AE%83/" style="font-size: 17.25px; color: #2b2b2b">其它</a> <a href="/tags/%E5%B0%8F%E7%A8%8B%E5%BA%8F/" style="font-size: 13px; color: #333">小程序</a> <a href="/tags/%E6%9C%9D%E8%8A%B1%E5%A4%95%E6%8B%BE/" style="font-size: 13px; color: #333">朝花夕拾</a>
+            <a href="/tags/Git/" style="font-size: 13px; color: #333">Git</a> <a href="/tags/JS/" style="font-size: 30px; color: #111">JS</a> <a href="/tags/Linux/" style="font-size: 13px; color: #333">Linux</a> <a href="/tags/Nginx/" style="font-size: 21.5px; color: #222">Nginx</a> <a href="/tags/Node/" style="font-size: 17.25px; color: #2b2b2b">Node</a> <a href="/tags/Promise/" style="font-size: 13px; color: #333">Promise</a> <a href="/tags/Vue/" style="font-size: 25.75px; color: #1a1a1a">Vue</a> <a href="/tags/Webpack/" style="font-size: 21.5px; color: #222">Webpack</a> <a href="/tags/hexo/" style="font-size: 17.25px; color: #2b2b2b">hexo</a> <a href="/tags/markdown/" style="font-size: 13px; color: #333">markdown</a> <a href="/tags/%E5%85%B6%E5%AE%83/" style="font-size: 17.25px; color: #2b2b2b">其它</a> <a href="/tags/%E5%B0%8F%E7%A8%8B%E5%BA%8F/" style="font-size: 13px; color: #333">小程序</a> <a href="/tags/%E6%9C%9D%E8%8A%B1%E5%A4%95%E6%8B%BE/" style="font-size: 13px; color: #333">朝花夕拾</a>
           </div>
       </div>
       
