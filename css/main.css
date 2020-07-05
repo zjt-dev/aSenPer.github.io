@@ -2446,7 +2446,7 @@ pre .javascript .function {
 }
 .links-of-author a::before,
 .links-of-author span.exturl::before {
-  background: #ff051d;
+  background: #a7ffee;
   border-radius: 50%;
   content: ' ';
   display: inline-block;
@@ -4257,10 +4257,10 @@ body::-webkit-scrollbar {
 }
 @media (min-width: 992px) {
   .post-photos .photos:last-child:nth-child(3n - 1) {
-    margin-right: calc(30%);
+    margin-right: calc(28%);
   }
   .post-photos .photos:last-child:nth-child(3n - 2) {
-    margin-right: calc(70%);
+    margin-right: calc(67%);
   }
 }
 .post-photos .photos {
