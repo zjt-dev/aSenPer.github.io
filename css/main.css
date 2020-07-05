@@ -2446,7 +2446,7 @@ pre .javascript .function {
 }
 .links-of-author a::before,
 .links-of-author span.exturl::before {
-  background: #ffff2f;
+  background: #d522a1;
   border-radius: 50%;
   content: ' ';
   display: inline-block;
@@ -3012,7 +3012,7 @@ pre .javascript .function {
 }
 .post-body iframe,
 .post-body img,
-.post-body video {
+.post-body .dplayer {
   margin-bottom: 20px;
 }
 .post-body .video-container {
@@ -4347,6 +4347,10 @@ body::-webkit-scrollbar {
 }
 .comments {
   background: #fff;
+}
+.dplayer-full-in-icon {
+  opacity: 0;
+  visibility: hidden;
 }
 @media screen and (max-width: 750px) {
   .kwy-content {
