@@ -2446,7 +2446,7 @@ pre .javascript .function {
 }
 .links-of-author a::before,
 .links-of-author span.exturl::before {
-  background: #b8ff66;
+  background: #ac8f9e;
   border-radius: 50%;
   content: ' ';
   display: inline-block;
@@ -3842,6 +3842,18 @@ hr {
 .sub-menu .menu-item {
   display: inline-block;
 }
+body {
+  font-size: 0.93em;
+}
+p {
+  margin-bottom: 5px;
+}
+.highlight {
+  margin-bottom: 40px;
+}
+.highlight-container {
+  margin-top: 20px;
+}
 .header {
   box-shadow: 0 2px 8px rgba(0,0,0,0.15);
   position: sticky;
@@ -4265,7 +4277,7 @@ body::-webkit-scrollbar {
 }
 .post-photos .photos {
   width: 30%;
-  margin-bottom: 8px;
+  margin-bottom: 15px;
 }
 @media (max-width: 767px) {
   .post-photos .photos {
@@ -4275,8 +4287,9 @@ body::-webkit-scrollbar {
 .post-photos .photos .photos-meta {
   position: relative;
   padding: 15px;
-  background: #f4f4f4;
+  background: #ecf0f5;
   line-height: 1.5;
+  border-radius: 10px;
 }
 .post-photos .photos .photos-meta img {
   margin-bottom: 6px;
@@ -4352,6 +4365,13 @@ body::-webkit-scrollbar {
   opacity: 0;
   visibility: hidden;
 }
+.menu-item a::after {
+  background: #fff;
+}
+code {
+  background-color: #fff5f5;
+  color: #ff502c;
+}
 .header {
   background: #3e5062;
 }
@@ -4363,7 +4383,8 @@ body::-webkit-scrollbar {
 }
 .header a,
 .header .site-nav-toggle .toggle,
-.header .site-nav-right .toggle {
+.header .site-nav-right .toggle,
+.header .search-popup input.search-input {
   color: #fff;
 }
 .header .site-nav-toggle .toggle .toggle-line,
@@ -4386,8 +4407,12 @@ body::-webkit-scrollbar {
 .sidebar .site-author-name,
 .sidebar a,
 .sidebar .site-state-item-name,
-.sidebar .sidebar-inner {
+.sidebar .sidebar-inner,
+.sidebar .sidebar-nav li {
   color: #fff;
+}
+.sidebar a {
+  border-color: #fff;
 }
 @media screen and (max-width: 750px) {
   .kwy-content {
