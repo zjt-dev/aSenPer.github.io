@@ -2446,7 +2446,7 @@ pre .javascript .function {
 }
 .links-of-author a::before,
 .links-of-author span.exturl::before {
-  background: #ac8f9e;
+  background: #21a6d5;
   border-radius: 50%;
   content: ' ';
   display: inline-block;
@@ -3853,6 +3853,7 @@ p {
 }
 .highlight-container {
   margin-top: 20px;
+  box-shadow: none;
 }
 .header {
   box-shadow: 0 2px 8px rgba(0,0,0,0.15);
@@ -4158,10 +4159,10 @@ body::-webkit-scrollbar {
   color: #fff;
 }
 .post-nav-item .prev:before {
-  content: '←';
+  content: "👈";
   position: absolute;
-  font-size: 32px;
-  top: 5px;
+  font-size: 28px;
+  top: 0;
 }
 .post-nav-item .next {
   background: #59c493;
@@ -4169,10 +4170,10 @@ body::-webkit-scrollbar {
   float: right;
 }
 .post-nav-item .next:before {
-  content: '→';
+  content: '👉';
   position: absolute;
-  font-size: 32px;
-  top: 5px;
+  font-size: 28px;
+  top: 0;
 }
 .sidebar-toggle:hover .toggle-line {
   background: #fff;
