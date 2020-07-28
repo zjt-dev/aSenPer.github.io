@@ -2446,7 +2446,7 @@ pre .javascript .function {
 }
 .links-of-author a::before,
 .links-of-author span.exturl::before {
-  background: #21a6d5;
+  background: #dbffff;
   border-radius: 50%;
   content: ' ';
   display: inline-block;
@@ -3286,6 +3286,8 @@ pre .javascript .function {
   list-style: none;
   margin: 0;
   padding: 0;
+  display: flex;
+  flex-wrap: wrap;
 }
 .category-all-page .category-list-item {
   margin: 5px 10px;
