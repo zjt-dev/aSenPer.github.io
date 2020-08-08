@@ -1,35 +1,266 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title>JS面试题</title>
-    <url>/2019/04/10/js%E6%98%93%E9%94%99%E9%A2%98/</url>
-    <content><![CDATA[<h2 id="普通函数和箭头函数的区别"><a href="#普通函数和箭头函数的区别" class="headerlink" title="普通函数和箭头函数的区别"></a>普通函数和箭头函数的区别</h2><ul>
-<li>箭头函数不能作构造函数。</li>
-<li>箭头函数没有argument参数。如果你想访问箭头函数的直接参数，可以使用剩余参数 …args，剩余参数 … args 接受箭头函数的执行参数</li>
-<li>箭头函数没有自己的This.指向，箭头函数内部的 this 值始终等于外部函数的 this值。换句话说，箭头函数可按词法解析 this，箭头函数没有定义自己的执行上下文。</li>
-<li>常规函数如果缺少 return 语句，或者 return 语句后面没有表达式，则常规函数隐式返回undefined<br>如果箭头函数包含一个表达式，而你省略了该函数的花括号，则将显式返回该表达式。这些是内联箭头函数<h2 id="This指向问题"><a href="#This指向问题" class="headerlink" title="This指向问题"></a>This指向问题</h2></li>
-<li>this是声明函数时附加的参数，指向特定的对象，也就是隐藏参数。</li>
-<li>this提供了一种更加优雅的方式来隐式的传递对象引用。</li>
-<li>this永远指向调用他的对象<h4 id="一个测试题"><a href="#一个测试题" class="headerlink" title="一个测试题"></a>一个测试题</h4><figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> length = <span class="number">10</span>;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">fn</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="keyword">this</span>.length);</span><br><span class="line">&#125;</span><br><span class="line"> </span><br><span class="line"><span class="keyword">var</span> obj = &#123;</span><br><span class="line">  length: <span class="number">5</span>,</span><br><span class="line">  method: <span class="function"><span class="keyword">function</span>(<span class="params">fn</span>) </span>&#123;</span><br><span class="line">    fn();</span><br><span class="line">    <span class="built_in">arguments</span>[<span class="number">0</span>]();</span><br><span class="line">  &#125;</span><br><span class="line">&#125;;</span><br><span class="line"> </span><br><span class="line">obj.method(fn, <span class="number">1</span>);<span class="comment">//输出是什么？</span></span><br></pre></td></tr></table></figure>
-只要认准 <strong>this永远指向调用他的对象</strong>，这道题就很简单了<br>在执行 <code>obj.method()</code>时，如果函数内部执行<code>console.log(this.length)</code>，函数的调用对象为<code>obj</code>,<code>this</code>指向<code>obj</code>，但是<code>method()</code>内部执行的是<code>fn()</code>函数，而<code>fn()</code>函数的调用对象为<code>window</code>，即<code>window.fn()</code>，即<code>this</code>指向<code>window</code>，输出为 10；<br>参数<code>fn</code>和<code>1</code>属于<a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Functions/arguments" target="_blank" rel="noopener">arguments</a>类数组对象，<code>arguments[0]()</code>就是调用了<code>fn()</code>,此时<code>fn</code>的作用域为<code>arguments</code>，即<code>this</code>指向<code>arguments</code>，<code>this.length</code>即传入的参数的长度2<br>结果输出为 10，2</li>
+    <title>【JS】判断客户端类型</title>
+    <url>/2019/05/22/%E3%80%90JS%E3%80%91%E5%88%A4%E6%96%AD%E5%AE%A2%E6%88%B7%E7%AB%AF%E7%B1%BB%E5%9E%8B/</url>
+    <content><![CDATA[<h1 id="JS-判断客户端是iOS还是Android"><a href="#JS-判断客户端是iOS还是Android" class="headerlink" title="JS 判断客户端是iOS还是Android"></a>JS 判断客户端是iOS还是Android</h1><blockquote>
+<p>判断的逻辑是：客户端不是Android，就是iOS，就是PC，其实还有黑莓BlackBerry、塞班SymbianOS、Windows Phone等，如果需要可自行添加，我在第三条有写。</p>
+</blockquote>
+<h2 id="通过浏览器的-navigator-userAgent-判断是Android还是iOS："><a href="#通过浏览器的-navigator-userAgent-判断是Android还是iOS：" class="headerlink" title="通过浏览器的 navigator.userAgent 判断是Android还是iOS："></a>通过浏览器的 navigator.userAgent 判断是Android还是iOS：</h2><h3 id="一-判断是Android还是iOS"><a href="#一-判断是Android还是iOS" class="headerlink" title="一. 判断是Android还是iOS"></a>一. 判断是Android还是iOS</h3><figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">let</span> u = navigator.userAgent;</span><br><span class="line"><span class="keyword">let</span> isAndroid = u.indexOf(<span class="string">'Android'</span>) &gt; <span class="number">-1</span> || u.indexOf(<span class="string">'Adr'</span>) &gt; <span class="number">-1</span>;   <span class="comment">//判断是否是 android终端</span></span><br><span class="line"><span class="keyword">let</span> isIOS = !!u.match(<span class="regexp">/\(i[^;]+;( U;)? CPU.+Mac OS X/</span>);     <span class="comment">//判断是否是 iOS终端</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">'是否是Android：'</span>, isAndroid); <span class="comment">//true,false</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">'是否是iOS：'</span>, isIOS)</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><p>封装成方法：</p>
+<p>``  /<em>判断客户端</em>/<br>  judgeClient() {</p>
+<pre><code>let u = navigator.userAgent;
+let isAndroid = u.indexOf(&apos;Android&apos;) &gt; -1 || u.indexOf(&apos;Adr&apos;) &gt; -1;   //判断是否是 android终端
+let isIOS = !!u.match(/\(i[^;]+;( U;)? CPU.+Mac OS X/);     //判断是否是 iOS终端
+console.log(&apos;是否是Android：&apos; + isAndroid); //true,false
+console.log(&apos;是否是iOS：&apos; + isIOS);
+if(isAndroid){
+  return &apos;Android&apos;;
+}else if(isIOS){
+  return &apos;IOS&apos;;
+}else{
+  return &apos;PC&apos;;
+}</code></pre><p>  },```</p>
+</li>
 </ul>
-<h3 id="闭包和自执行参数"><a href="#闭包和自执行参数" class="headerlink" title="闭包和自执行参数"></a>闭包和自执行参数</h3><figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> test = <span class="function"><span class="keyword">function</span>(<span class="params">a</span>)</span>&#123;</span><br><span class="line">    <span class="keyword">this</span>.a = a;</span><br><span class="line">    <span class="keyword">return</span> <span class="function"><span class="keyword">function</span>(<span class="params">b</span>)</span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">this</span>.a + b;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;(<span class="function"><span class="keyword">function</span>(<span class="params">a,b</span>)</span>&#123;</span><br><span class="line">    <span class="keyword">return</span> a;</span><br><span class="line">&#125;(<span class="number">1</span>,<span class="number">2</span>))</span><br><span class="line">test(<span class="number">4</span>)</span><br></pre></td></tr></table></figure>
+<h3 id="二-判断是Android还是iOS"><a href="#二-判断是Android还是iOS" class="headerlink" title="二.判断是Android还是iOS"></a>二.判断是Android还是iOS</h3><figure class="highlight js"><table><tr><td class="code"><pre><span class="line">    <span class="keyword">if</span> (<span class="regexp">/(iPhone|iPad|iPod|iOS)/i</span>.test(navigator.userAgent)) &#123;</span><br><span class="line">      <span class="built_in">console</span>.log(<span class="string">'isIOS'</span>);</span><br><span class="line">    &#125; <span class="keyword">else</span> <span class="keyword">if</span> (<span class="regexp">/(Android)/i</span>.test(navigator.userAgent)) &#123;</span><br><span class="line">      <span class="built_in">console</span>.log(<span class="string">'isAndroid'</span>);</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">      <span class="built_in">console</span>.log(<span class="string">'isPC'</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line"></span><br><span class="line">*   封装成方法：</span><br><span class="line">      <span class="comment">/*判断客户端*/</span></span><br><span class="line">      judgeClient() &#123;</span><br><span class="line">        <span class="keyword">let</span> client = <span class="string">''</span>;</span><br><span class="line">        <span class="keyword">if</span> (<span class="regexp">/(iPhone|iPad|iPod|iOS)/i</span>.test(navigator.userAgent)) &#123;  <span class="comment">//判断iPhone|iPad|iPod|iOS</span></span><br><span class="line">          client = <span class="string">'iOS'</span>;</span><br><span class="line">        &#125; <span class="keyword">else</span> <span class="keyword">if</span> (<span class="regexp">/(Android)/i</span>.test(navigator.userAgent)) &#123;  <span class="comment">//判断Android</span></span><br><span class="line">          client = <span class="string">'Android'</span>;</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">          client = <span class="string">'PC'</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> client;</span><br><span class="line">      &#125;,</span><br></pre></td></tr></table></figure>
 
-<p>解析</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> test = <span class="function"><span class="keyword">function</span>(<span class="params">a</span>)</span>&#123;</span><br><span class="line">    <span class="keyword">this</span>.a = a;  <span class="comment">// this指向window</span></span><br><span class="line">    <span class="keyword">return</span> <span class="function"><span class="keyword">function</span>(<span class="params">b</span>)</span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">this</span>.a + b;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> getA = <span class="function"><span class="keyword">function</span>(<span class="params">a,b</span>)</span>&#123;</span><br><span class="line">    <span class="keyword">return</span> a;</span><br><span class="line">&#125;(<span class="number">1</span>,<span class="number">2</span>)   <span class="comment">//自执行函数 返回1，b没有用到</span></span><br><span class="line">即:  </span><br><span class="line">test(getA)(<span class="number">4</span>)  <span class="comment">// test(1)(4)</span></span><br><span class="line">test(<span class="number">1</span>) 返回函数</span><br><span class="line"><span class="function"><span class="keyword">function</span>(<span class="params">b</span>)</span>&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">this</span>.a+b</span><br><span class="line">&#125;</span><br><span class="line">此时 a 为 <span class="number">1</span> </span><br><span class="line"></span><br><span class="line">很明显 最后返回 <span class="number">1</span>+<span class="number">4</span> 结果为 <span class="number">5</span></span><br></pre></td></tr></table></figure>
+<h3 id="三-判断PC还是移动端"><a href="#三-判断PC还是移动端" class="headerlink" title="三.判断PC还是移动端"></a>三.判断PC还是移动端</h3><figure class="highlight js"><table><tr><td class="code"><pre><span class="line">isPC() &#123;</span><br><span class="line">  <span class="comment">/*true则pc，false则mobile*/</span></span><br><span class="line">  <span class="keyword">let</span> u = navigator.userAgent;</span><br><span class="line">  <span class="keyword">let</span> Agents = [<span class="string">"Android"</span>, <span class="string">"iPhone"</span>, <span class="string">"webOS"</span>, <span class="string">"BlackBerry"</span>, <span class="string">"SymbianOS"</span>, <span class="string">"Windows Phone"</span>, <span class="string">"iPad"</span>, <span class="string">"iPod"</span>];</span><br><span class="line">  <span class="keyword">let</span> flag = <span class="literal">true</span>;</span><br><span class="line">  <span class="keyword">for</span> (<span class="keyword">let</span> i = <span class="number">0</span>; i &lt; Agents.length; i++) &#123;</span><br><span class="line">    <span class="keyword">if</span> (u.indexOf(Agents[i]) &gt; <span class="number">0</span>) &#123;</span><br><span class="line">      flag = <span class="literal">false</span>;</span><br><span class="line">      <span class="keyword">break</span>;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span> flag;</span><br><span class="line">&#125;,</span><br></pre></td></tr></table></figure>
 
-<h2 id="扩展运算符"><a href="#扩展运算符" class="headerlink" title="扩展运算符"></a>扩展运算符</h2><figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">let</span> yd = &#123;<span class="attr">x</span>:<span class="number">1</span>,<span class="attr">y</span>:<span class="number">2</span>&#125;</span><br><span class="line"><span class="comment">//以下代码会不会报错</span></span><br><span class="line"><span class="keyword">let</span> yd1 = &#123; <span class="comment">//不会</span></span><br><span class="line">  ...yd,</span><br><span class="line">  <span class="keyword">get</span> x()&#123;</span><br><span class="line">    <span class="keyword">throw</span> <span class="keyword">new</span> <span class="built_in">Error</span>()</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">let</span> yd2 = &#123; <span class="comment">//会</span></span><br><span class="line">  ...yd,</span><br><span class="line">  ...&#123;</span><br><span class="line">    <span class="keyword">get</span> x()&#123;</span><br><span class="line">      <span class="keyword">throw</span> <span class="keyword">new</span> <span class="built_in">Error</span>()</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<p>扩展运算符的参数对象之中，如果有取值函数<code>get</code>，这个函数是会执行的。</p>
-<p><a href="https://es6.ruanyifeng.com/#docs/object#%E5%AF%B9%E8%B1%A1%E7%9A%84%E6%89%A9%E5%B1%95%E8%BF%90%E7%AE%97%E7%AC%A6" target="_blank" rel="noopener">对象的扩展运算符</a></p>
-<p><a href="https://es6.ruanyifeng.com/#docs/array#%E6%89%A9%E5%B1%95%E8%BF%90%E7%AE%97%E7%AC%A6" target="_blank" rel="noopener">数组的扩展运算符</a></p>
-]]></content>
+<h3 id="四-判断多种访问终端"><a href="#四-判断多种访问终端" class="headerlink" title="四.判断多种访问终端"></a>四.判断多种访问终端</h3><figure class="highlight js"><table><tr><td class="code"><pre><span class="line">    <span class="comment">//判断访问终端</span></span><br><span class="line">    <span class="keyword">let</span> browser = &#123;</span><br><span class="line">      versions: <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">        <span class="keyword">let</span> u = navigator.userAgent, app = navigator.appVersion;</span><br><span class="line">        <span class="keyword">return</span> &#123;</span><br><span class="line">          trident: u.indexOf(<span class="string">'Trident'</span>) &gt; <span class="number">-1</span>, <span class="comment">//IE内核</span></span><br><span class="line">          presto: u.indexOf(<span class="string">'Presto'</span>) &gt; <span class="number">-1</span>, <span class="comment">//opera内核</span></span><br><span class="line">          webKit: u.indexOf(<span class="string">'AppleWebKit'</span>) &gt; <span class="number">-1</span>, <span class="comment">//苹果、谷歌内核</span></span><br><span class="line">          gecko: u.indexOf(<span class="string">'Gecko'</span>) &gt; <span class="number">-1</span> &amp;&amp; u.indexOf(<span class="string">'KHTML'</span>) == <span class="number">-1</span>,<span class="comment">//火狐内核</span></span><br><span class="line">          mobile: !!u.match(<span class="regexp">/AppleWebKit.*Mobile.*/</span>), <span class="comment">//是否为移动终端</span></span><br><span class="line">          ios: !!u.match(<span class="regexp">/\(i[^;]+;( U;)? CPU.+Mac OS X/</span>), <span class="comment">//ios终端</span></span><br><span class="line">          android: u.indexOf(<span class="string">'Android'</span>) &gt; <span class="number">-1</span> || u.indexOf(<span class="string">'Adr'</span>) &gt; <span class="number">-1</span>, <span class="comment">//android终端</span></span><br><span class="line">          iPhone: u.indexOf(<span class="string">'iPhone'</span>) &gt; <span class="number">-1</span>, <span class="comment">//是否为iPhone或者QQHD浏览器</span></span><br><span class="line">          iPad: u.indexOf(<span class="string">'iPad'</span>) &gt; <span class="number">-1</span>, <span class="comment">//是否iPad</span></span><br><span class="line">          webApp: u.indexOf(<span class="string">'Safari'</span>) == <span class="number">-1</span>, <span class="comment">//是否web应该程序，没有头部与底部</span></span><br><span class="line">          weixin: u.indexOf(<span class="string">'MicroMessenger'</span>) &gt; <span class="number">-1</span>, <span class="comment">//是否微信</span></span><br><span class="line">          qq: u.match(<span class="regexp">/\sQQ/i</span>) == <span class="string">" qq"</span> <span class="comment">//是否QQ</span></span><br><span class="line">        &#125;;</span><br><span class="line">      &#125;(),</span><br><span class="line">      language: (navigator.browserLanguage || navigator.language).toLowerCase()</span><br><span class="line">    &#125;;</span><br><span class="line"></span><br><span class="line">使用</span><br><span class="line"></span><br><span class="line">  <span class="keyword">if</span> (browser.versions.mobile) &#123;</span><br><span class="line">      <span class="built_in">console</span>.log(<span class="string">"is mobile"</span>);</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">if</span> (browser.versions.ios) &#123;</span><br><span class="line">      <span class="built_in">console</span>.log(<span class="string">"is ios"</span>);</span><br><span class="line">  &#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="五-判断浏览器当前使用的语言"><a href="#五-判断浏览器当前使用的语言" class="headerlink" title="五.判断浏览器当前使用的语言"></a>五.判断浏览器当前使用的语言</h3><figure class="highlight js"><table><tr><td class="code"><pre><span class="line"> </span><br><span class="line">judgeLanguage() &#123;</span><br><span class="line">  <span class="comment">// 判断浏览器当前使用的语言</span></span><br><span class="line">  <span class="keyword">let</span> currentLanguage = (navigator.browserLanguage || navigator.language).toLowerCase();    <span class="comment">// 非IE</span></span><br><span class="line">  <span class="keyword">if</span> (!currentLanguage) &#123;    <span class="comment">// IE浏览器</span></span><br><span class="line">    currentLanguage = navigator.browserLanguage;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="built_in">console</span>.log(currentLanguage);</span><br><span class="line">  <span class="keyword">return</span> currentLanguage;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>]]></content>
       <categories>
-        <category>Webpack</category>
+        <category>JS</category>
       </categories>
       <tags>
-        <tag>Webpack</tag>
+        <tag>JS</tag>
       </tags>
+  </entry>
+  <entry>
+    <title>【JS】判断数据类型的方法</title>
+    <url>/2019/05/20/%E3%80%90JS%E3%80%91%E5%88%A4%E6%96%AD%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B%E7%9A%84%E6%96%B9%E6%B3%95/</url>
+    <content><![CDATA[<p>对js中不同数据的布尔值类型总结：false:空字符串；null；undefined；0；NaN。<br>true：除了上面的false的情况其他都为true；</p>
+<p>如下：</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> o = &#123; </span><br><span class="line">          <span class="string">'name'</span>:<span class="string">'lee'</span></span><br><span class="line">        &#125;;</span><br><span class="line"><span class="keyword">var</span> a = \[<span class="string">'reg'</span>,<span class="string">'blue'</span>\];</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">checkBoolean</span>(<span class="params">a</span>)</span>&#123;</span><br><span class="line">         <span class="keyword">if</span>(a)&#123;</span><br><span class="line">              <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">         &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">              <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">         &#125;</span><br><span class="line"> &#125;</span><br><span class="line"><span class="built_in">console</span>.log(checkBoolean(<span class="string">''</span>)); <span class="comment">//false</span></span><br><span class="line"><span class="built_in">console</span>.log(checkBoolean(<span class="number">0</span>)); <span class="comment">//false</span></span><br><span class="line"><span class="built_in">console</span>.log(checkBoolean(<span class="literal">null</span>)); <span class="comment">//false</span></span><br><span class="line"><span class="built_in">console</span>.log(checkBoolean(<span class="literal">undefined</span>)); <span class="comment">//false</span></span><br><span class="line"><span class="built_in">console</span>.log(checkBoolean(<span class="literal">NaN</span>)); <span class="comment">//false</span></span><br><span class="line"><span class="built_in">console</span>.log(checkBoolean(a));<span class="comment">//true</span></span><br><span class="line"><span class="built_in">console</span>.log(checkBoolean(c));<span class="comment">//true</span></span><br></pre></td></tr></table></figure>
+
+<p>javascript中有六种数据类型：string；boolean；Array；Object；null;undefined。如何检测这些数据类型呢，总结方法如下：</p>
+<p><strong>方法一：采用typeof</strong></p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> fn = <span class="function"><span class="keyword">function</span>(<span class="params">n</span>)</span>&#123;</span><br><span class="line">   <span class="built_in">console</span>.log(n);</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> str = <span class="string">'string'</span>;</span><br><span class="line"><span class="keyword">var</span> arr = \[<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>\];</span><br><span class="line"><span class="keyword">var</span> obj = &#123;</span><br><span class="line">    a:<span class="number">123</span>,</span><br><span class="line">    b:<span class="number">456</span></span><br><span class="line">&#125;;</span><br><span class="line"><span class="keyword">var</span> num = <span class="number">1</span>;</span><br><span class="line"><span class="keyword">var</span> b = <span class="literal">true</span>;</span><br><span class="line"><span class="keyword">var</span> n = <span class="literal">null</span>;       <span class="keyword">var</span> u = <span class="literal">undefined</span>;</span><br><span class="line"><span class="comment">//方法一使用typeof方法。</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="keyword">typeof</span> str);<span class="comment">//string</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="keyword">typeof</span> arr);<span class="comment">//object</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="keyword">typeof</span> obj);<span class="comment">//object</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="keyword">typeof</span> num);<span class="comment">//number</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="keyword">typeof</span> b);<span class="comment">//boolean</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="keyword">typeof</span> n);<span class="comment">//null是一个空的对象</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="keyword">typeof</span> u);<span class="comment">//undefined</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="keyword">typeof</span> fn);<span class="comment">//function</span></span><br></pre></td></tr></table></figure>
+
+
+<p>通过上面的检测我们发现typeof检测的Array和Object的返回类型都是Object，因此用typeof是无法检测出来数组和对象的，采用方法二和方法三则可以检测出来。</p>
+<p><strong>方法二：instanceof</strong></p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> o = &#123; </span><br><span class="line">          <span class="string">'name'</span>:<span class="string">'lee'</span></span><br><span class="line">        &#125;;</span><br><span class="line"><span class="keyword">var</span> a = \[<span class="string">'reg'</span>,<span class="string">'blue'</span>\];</span><br><span class="line"><span class="built_in">console</span>.log(o <span class="keyword">instanceof</span> <span class="built_in">Object</span>);<span class="comment">// true</span></span><br><span class="line"><span class="built_in">console</span>.log(a <span class="keyword">instanceof</span> <span class="built_in">Array</span>);<span class="comment">//  true</span></span><br><span class="line"><span class="built_in">console</span>.log(o <span class="keyword">instanceof</span> <span class="built_in">Array</span>);<span class="comment">//  false</span></span><br></pre></td></tr></table></figure>
+
+
+<p> 注意：instaceof只可以用来判断数组和对象，不能判断string和boolean类型，要判断string和boolean类型需要采用方法四。<br> 由于数组也属于对象因此我们使用instanceof判断一个数组是否为对象的时候结果也会是true。如：</p>
+<p>console.log(a instanceof Object);//true。</p>
+<p>下面封装一个方法进行改进：</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line"><span class="keyword">var</span> o = &#123; </span><br><span class="line">          <span class="string">'name'</span>:<span class="string">'lee'</span></span><br><span class="line">        &#125;;</span><br><span class="line"><span class="keyword">var</span> a = \[<span class="string">'reg'</span>,<span class="string">'blue'</span>\];</span><br><span class="line"><span class="keyword">var</span> getDataType = <span class="function"><span class="keyword">function</span>(<span class="params">o</span>)</span>&#123;</span><br><span class="line">            <span class="keyword">if</span>(o <span class="keyword">instanceof</span> <span class="built_in">Array</span>)&#123;</span><br><span class="line">                <span class="keyword">return</span> <span class="string">'Array'</span></span><br><span class="line">            &#125;<span class="keyword">else</span> <span class="keyword">if</span>( o <span class="keyword">instanceof</span> <span class="built_in">Object</span> )&#123;</span><br><span class="line">                <span class="keyword">return</span> <span class="string">'Object'</span>;</span><br><span class="line">            &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">                <span class="keyword">return</span> <span class="string">'param is no object type'</span>;</span><br><span class="line">            &#125;</span><br><span class="line">       &#125;;</span><br><span class="line"><span class="built_in">console</span>.log(getDataType(o));<span class="comment">//Object。</span></span><br><span class="line"><span class="built_in">console</span>.log(getDataType(a));<span class="comment">//Array。</span></span><br></pre></td></tr></table></figure>
+
+<p><strong>方法三：使用constructor方法</strong></p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> o = &#123; </span><br><span class="line">           <span class="string">'name'</span>:<span class="string">'lee'</span></span><br><span class="line">        &#125;;</span><br><span class="line"><span class="keyword">var</span> a = \[<span class="string">'reg'</span>,<span class="string">'blue'</span>\];</span><br><span class="line"><span class="built_in">console</span>.log(o.constructor == <span class="built_in">Object</span>);<span class="comment">//true</span></span><br><span class="line"><span class="built_in">console</span>.log(a.constructor == <span class="built_in">Array</span>);<span class="comment">//true</span></span><br></pre></td></tr></table></figure>
+
+<p><strong>方法四：利用tostring()方法，这个方法是最佳的方案。</strong></p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> o = &#123; </span><br><span class="line">          <span class="string">'name'</span>:<span class="string">'lee'</span></span><br><span class="line">        &#125;;</span><br><span class="line"><span class="keyword">var</span> a = \[<span class="string">'reg'</span>,<span class="string">'blue'</span>\];</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">c</span>(<span class="params">name,age</span>)</span>&#123;</span><br><span class="line">         <span class="keyword">this</span>.name = name;</span><br><span class="line">         <span class="keyword">this</span>.age = age;</span><br><span class="line"> &#125;</span><br><span class="line"><span class="keyword">var</span> c = <span class="keyword">new</span> c(<span class="string">'kingw'</span>,<span class="string">'27'</span>);</span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">Object</span>.prototype.toString.call(a));<span class="comment">//\[object Array\]</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">Object</span>.prototype.toString.call(o));<span class="comment">//\[Object Object\]</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">Object</span>.prototype.toString.call(c));<span class="comment">//\[Object Object\]</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//封装一个方法判断数组和对象</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">isType</span>(<span class="params">obj</span>)</span>&#123;</span><br><span class="line">       <span class="keyword">var</span> type = <span class="built_in">Object</span>.prototype.toString.call(obj);</span><br><span class="line">       <span class="keyword">if</span>(type == <span class="string">'\[object Array\]'</span>)&#123;</span><br><span class="line">              <span class="keyword">return</span> <span class="string">'Array'</span>;</span><br><span class="line">        &#125;<span class="keyword">else</span> <span class="keyword">if</span>(type == <span class="string">'\[object Object\]'</span>)&#123;</span><br><span class="line">              <span class="keyword">return</span> <span class="string">"Object"</span></span><br><span class="line">        &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">              <span class="keyword">return</span> <span class="string">'param is no object type'</span>;</span><br><span class="line">        &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">console</span>.log(isType(o));<span class="comment">//Object</span></span><br><span class="line"><span class="built_in">console</span>.log(isType(a));<span class="comment">//Array</span></span><br></pre></td></tr></table></figure>
+
+<p><strong>方法五：利用jquery的$.isPlainObject();$.isArray(obj);$.isFunction(obj)进行判断。</strong></p>
+<p> 出处：<a href="http://www.cnblogs.com/xinggood" target="_blank" rel="noopener">http://www.cnblogs.com/xinggood</a></p>
+]]></content>
+      <categories>
+        <category>JS</category>
+      </categories>
+      <tags>
+        <tag>JS</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Node项目部署</title>
+    <url>/2019/05/12/Node%E9%A1%B9%E7%9B%AE%E9%83%A8%E7%BD%B2/</url>
+    <content><![CDATA[<h2 id="利用宝塔可以很快的搭建你需要的环境"><a href="#利用宝塔可以很快的搭建你需要的环境" class="headerlink" title="利用宝塔可以很快的搭建你需要的环境"></a>利用宝塔可以很快的搭建你需要的环境</h2><p>安装 ：<a href="https://www.bt.cn/bbs/thread-19376-1-1.html" target="_blank" rel="noopener">https://www.bt.cn/bbs/thread-19376-1-1.html</a></p>
+<h2 id="上传文件"><a href="#上传文件" class="headerlink" title="上传文件"></a>上传文件</h2><p>将你的项目上传到指定的目录</p>
+<h2 id="添加网站"><a href="#添加网站" class="headerlink" title="添加网站"></a>添加网站</h2><p><img data-src="https://img2020.cnblogs.com/blog/1524685/202006/1524685-20200601100634195-561242539.png" alt=""></p>
+<h2 id="安装pm2管理器，方便管理你的Node项目和版本"><a href="#安装pm2管理器，方便管理你的Node项目和版本" class="headerlink" title="安装pm2管理器，方便管理你的Node项目和版本"></a>安装pm2管理器，方便管理你的Node项目和版本</h2><p>PM2是Node.js应用程序的生产流程管理器，内置负载均衡。它可以帮助您保持Node应用程序永久活动，重起这些node应用程序也不需要停机，并简化常见的系统管理任务。<br>填写项目跟目录和启动文件,启动你的node服务，也可以自己安装<code>forever</code><br><img data-src="https://img2020.cnblogs.com/blog/1524685/202006/1524685-20200601100016539-687074251.png" alt=""></p>
+<h2 id="设置nginx反向代理"><a href="#设置nginx反向代理" class="headerlink" title="设置nginx反向代理"></a>设置nginx反向代理</h2><p>执行完以上步骤，你会发现并不能正常访问该项目，这时需要用到<strong><a href="/2019/06/01/正向代理和反向代理/">nginx的反向代理</a></strong><br>打开 网站——&gt;设置——&gt;配置文件<br>在 <code>server</code>中添加一个配置</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">location &#x2F;</span><br><span class="line">    &#123;</span><br><span class="line">      proxy_pass  http:&#x2F;&#x2F;127.0.0.1:3000;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+<p>注意格式，在宝塔中</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">location &#x2F;&#123;</span><br><span class="line">      proxy_pass  http:&#x2F;&#x2F;127.0.0.1:3000;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+<p>这样配置会报错</p>
+<h3 id="配置完成后就可以用你配置的网站名访问了，如果有配置端口号，别忘了加"><a href="#配置完成后就可以用你配置的网站名访问了，如果有配置端口号，别忘了加" class="headerlink" title="配置完成后就可以用你配置的网站名访问了，如果有配置端口号，别忘了加"></a>配置完成后就可以用你配置的网站名访问了，如果有配置端口号，别忘了加</h3>]]></content>
+      <categories>
+        <category>Nginx</category>
+      </categories>
+      <tags>
+        <tag>Nginx</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>垃圾回收内存泄漏</title>
+    <url>/2019/05/02/%E3%80%90JS%E3%80%91%E5%9E%83%E5%9C%BE%E5%9B%9E%E6%94%B6%E5%86%85%E5%AD%98%E6%B3%84%E6%BC%8F/</url>
+    <content><![CDATA[<h2 id="内存的生命周期"><a href="#内存的生命周期" class="headerlink" title="内存的生命周期"></a>内存的生命周期</h2><ol>
+<li>分配你所需要的内存：</li>
+</ol>
+<p>由于字符串、对象等没有固定的大小，js程序在每次创建字符串、对象的时候，程序都会<strong>分配内存来存储那个实体</strong>。</p>
+<ol start="2">
+<li><p>使用分配到的内存做点什么。</p>
+</li>
+<li><p>不需要时将其释放回归：</p>
+</li>
+</ol>
+<p>在不需要字符串、对象的时候，需要释放其所占用的内存，否则将会消耗完系统中所有可用的内存，造成系统崩溃，这就是<strong>垃圾回收机制所存在的意义</strong>。</p>
+<p><strong>所谓的内存泄漏指的是</strong>：由于疏忽或错误造成程序未能释放那些已经不再使用的内存，造成内存的浪费。</p>
+<h2 id="垃圾回收机制"><a href="#垃圾回收机制" class="headerlink" title="垃圾回收机制"></a>垃圾回收机制</h2><p>在C和C++之类的语言中，需要手动来管理内存的，这也是造成许多不必要问题的根源。幸运的是，在编写js的过程中，内存的分配以及内存的回收完全实现了自动管理，我们不用操心这种事情。</p>
+<h3 id="垃圾收集机制的原理"><a href="#垃圾收集机制的原理" class="headerlink" title="垃圾收集机制的原理"></a>垃圾收集机制的原理</h3><p><strong>垃圾收集器会按照固定的时间间隔，周期性的找出不再继续使用的变量，然后释放其占用的内存</strong>。</p>
+<p><strong>什么叫不再继续使用的变量？</strong></p>
+<p>不再使用的变量也就是生命周期结束的变量，是局部变量，局部变量只在函数的执行过程中存在，当函数运行结束，没有其他引用(闭包)，那么该变量会被标记回收。</p>
+<p>全局变量的生命周期直至浏览器卸载页面才会结束，也就是说<strong>全局变量不会被当成垃圾回收</strong>。</p>
+<h3 id="标记清除：当前采用的垃圾收集策略"><a href="#标记清除：当前采用的垃圾收集策略" class="headerlink" title="标记清除：当前采用的垃圾收集策略"></a>标记清除：当前采用的垃圾收集策略</h3><p>工作原理：</p>
+<p>当变量进入环境时(例如在函数中声明一个变量)，将这个变量标记为“进入环境”，当变量离开环境时，则将其标记为“离开环境”。标记“离开环境”的就回收内存。</p>
+<p>工作流程：</p>
+<ol>
+<li>垃圾收集器会在运行的时候会给存储在内存中的<strong>所有变量都加上标记</strong>。</li>
+<li>去掉环境中的变量以及被环境中的变量引用的变量的标记。</li>
+<li>那些还存在标记的变量被视为准备删除的变量。</li>
+<li>最后垃圾收集器会执行最后一步内存清除的工作，销毁那些带标记的值并回收它们所占用的内存空间。</li>
+</ol>
+<p>到2008年为止,IE、Chorme、Fireofx、Safari、Opera <strong>都使用标记清除式的垃圾收集策略</strong>，只不过垃圾收集的时间间隔互有不同。</p>
+<h3 id="引用计数略：被废弃的垃圾收集策"><a href="#引用计数略：被废弃的垃圾收集策" class="headerlink" title="引用计数略：被废弃的垃圾收集策"></a>引用计数略：被废弃的垃圾收集策</h3><p>循环引用：跟踪记录每个值被引用的技术</p>
+<p>在老版本的浏览器中(对，又是IE)，IE9以下BOM和DOM对象就是使用C++以COM对象的形式实现的。</p>
+<p>COM的垃圾收集机制采用的就是引用计数策略，这种机制在出现循环引用的时候永远都释放不掉内存。</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> element = <span class="built_in">document</span>.getElementById(<span class="string">'something'</span>);</span><br><span class="line"><span class="keyword">var</span> myObject = <span class="keyword">new</span> <span class="built_in">Object</span>();</span><br><span class="line">myObject.element = element; <span class="comment">// element属性指向dom</span></span><br><span class="line">element.someThing = myObject; <span class="comment">// someThing回指myObject 出现循环引用(两个对象一直互相包含 一直存在计数)。</span></span><br></pre></td></tr></table></figure>
+<p>解决方式是，当我们不使用它们的时候，手动切断链接：</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">myObject.element = <span class="literal">null</span>; </span><br><span class="line">element.someThing = <span class="literal">null</span>;</span><br></pre></td></tr></table></figure>
+<p><strong>淘汰</strong>：</p>
+<p>IE9把BOM和DOM对象转为了真正的js对象，避免了使用这种垃圾收集策略，消除了IE9以下常见的内存泄漏的主要原因。</p>
+<p>IE7以下有一个声明狼藉的性能问题，大家了解一下：</p>
+<ol>
+<li>256个变量，4096个对象(或数组)字面或者64KB的字符串，达到任何一个临界值会触发垃圾收集器运行。</li>
+<li>如果一个js脚本的生命周期一直保有那么多变量，垃圾收集器会一直频繁的运行，引发严重的性能问题。</li>
+</ol>
+<p>IE7已修复这个问题。</p>
+<h2 id="哪些情况会引起内存泄漏"><a href="#哪些情况会引起内存泄漏" class="headerlink" title="哪些情况会引起内存泄漏"></a>哪些情况会引起内存泄漏</h2><p>虽然有垃圾回收机制，但我们在编写代码的时候，有些情况还是会造成内存泄漏，了解这些情况，并在编写程序的时候，注意避免，我们的程序会更具健壮性。</p>
+<h3 id="意外的全局变量"><a href="#意外的全局变量" class="headerlink" title="意外的全局变量"></a>意外的全局变量</h3><p>上文我们提到了<strong>全局变量不会被当成垃圾回收</strong>，我们在编码中有时会出现下面这种情况：</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">foo</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line"> <span class="keyword">this</span>.bar2 = <span class="string">'默认绑定this指向全局'</span> <span class="comment">// 全局变量=&gt; window.bar2</span></span><br><span class="line">  bar = <span class="string">'全局变量'</span>; <span class="comment">// 没有声明变量 实际上是全局变量=&gt;window.bar</span></span><br><span class="line">&#125;</span><br><span class="line">foo();</span><br></pre></td></tr></table></figure>
+
+<p>当我们使用<a href="https://juejin.im/post/5b3715def265da59af40a630#heading-3" target="_blank" rel="noopener">默认绑定</a>，this会指向全局，<code>this.something</code>也会创建一个全局变量，这一点可能很多人没有注意到。</p>
+<p><strong>解决方法：在函数内使用严格模式or细心一点</strong></p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">foo</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line"><span class="meta">  "use strict"</span>; </span><br><span class="line">  <span class="keyword">this</span>.bar2 = <span class="string">"严格模式下this指向undefined"</span>; </span><br><span class="line">  bar = <span class="string">"报错"</span>;</span><br><span class="line">&#125;</span><br><span class="line">foo();</span><br></pre></td></tr></table></figure>
+<p>当然我们也可以<strong>手动释放全局变量的内存</strong>：</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="built_in">window</span>.bar = <span class="literal">undefined</span></span><br><span class="line"><span class="keyword">delete</span> <span class="built_in">window</span>.bar2</span><br></pre></td></tr></table></figure>
+<h3 id="被遗忘的定时器和回调函数"><a href="#被遗忘的定时器和回调函数" class="headerlink" title="被遗忘的定时器和回调函数"></a>被遗忘的定时器和回调函数</h3><p>当<strong>不需要</strong><code>setInterval</code>或者<code>setTimeout</code>时，<strong>定时器没有被clear</strong>，定时器的<strong>回调函数以及内部依赖的变量都不能被回收</strong>，造成内存泄漏。</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> someResource = getData();</span><br><span class="line">setInterval(<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> node = <span class="built_in">document</span>.getElementById(<span class="string">'Node'</span>);</span><br><span class="line">    <span class="keyword">if</span>(node) &#123;</span><br><span class="line">        node.innerHTML = <span class="built_in">JSON</span>.stringify(someResource));</span><br><span class="line">        <span class="comment">// 定时器也没有清除</span></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">// node、someResource 存储了大量数据 无法回收</span></span><br><span class="line">&#125;, <span class="number">1000</span>);</span><br></pre></td></tr></table></figure>
+<p><strong>解决方法</strong>： 在定时器完成工作的时候，手动清除定时器。</p>
+<h3 id="闭包"><a href="#闭包" class="headerlink" title="闭包"></a>闭包</h3><p><strong>闭包可以维持函数内局部变量，使其得不到释放，造成内存泄漏</strong>。</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">bindEvent</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">var</span> obj = <span class="built_in">document</span>.createElement(<span class="string">"XXX"</span>);</span><br><span class="line">  <span class="keyword">var</span> unused = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">      <span class="built_in">console</span>.log(obj,<span class="string">'闭包内引用obj obj不会被释放'</span>);</span><br><span class="line">  &#125;;</span><br><span class="line">  <span class="comment">// obj = null;</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><strong>解决方法</strong>：手动解除引用，<code>obj = null</code>。</p>
+<h3 id="循环引用问题"><a href="#循环引用问题" class="headerlink" title="循环引用问题"></a>循环引用问题</h3><p>就是IE9以下的循环引用问题，上文讲过了。</p>
+<h3 id="没有清理DOM元素引用"><a href="#没有清理DOM元素引用" class="headerlink" title="没有清理DOM元素引用"></a>没有清理DOM元素引用</h3><figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> refA = <span class="built_in">document</span>.getElementById(<span class="string">'refA'</span>);</span><br><span class="line"><span class="built_in">document</span>.body.removeChild(refA); <span class="comment">// dom删除了</span></span><br><span class="line"><span class="built_in">console</span>.log(refA, <span class="string">"refA"</span>);  <span class="comment">// 但是还存在引用 能console出整个div 没有被回收</span></span><br></pre></td></tr></table></figure>
+<p>不信的话，可以看下这个<a href="https://codepen.io/OBKoro1/pen/vroKbg" target="_blank" rel="noopener">dom</a>。</p>
+<p><strong>解决办法</strong>：refA = null;</p>
+<h3 id="console保存大量数据在内存中"><a href="#console保存大量数据在内存中" class="headerlink" title="console保存大量数据在内存中"></a>console保存大量数据在内存中</h3><p>过多的console，比如定时器的console会导致浏览器卡死。</p>
+<p><strong>解决</strong>：合理利用console，线上项目尽量少的使用console，当然如果你要发招聘，除外。</p>
+<h3 id="如何避免内存泄漏"><a href="#如何避免内存泄漏" class="headerlink" title="如何避免内存泄漏"></a>如何避免内存泄漏</h3><p><strong>记住一个原则：不用的东西，及时归还，毕竟你是’借的’嘛</strong>。</p>
+<ol>
+<li>减少不必要的全局变量，使用严格模式避免意外创建全局变量。</li>
+<li>在你使用完数据后，及时解除引用(闭包中的变量，dom引用，定时器清除)。</li>
+<li>组织好你的逻辑，避免死循环等造成浏览器卡顿，崩溃的问题。</li>
+</ol>
+<h3 id="关于内存泄漏"><a href="#关于内存泄漏" class="headerlink" title="关于内存泄漏"></a>关于内存泄漏</h3><ol>
+<li>即使是1byte的内存，也叫内存泄漏，并不一定是导致浏览器崩溃、卡顿才能叫做内存泄漏。</li>
+<li>一般是堆区内存泄漏，栈区不会泄漏。</li>
+</ol>
+<p>基本类型的值存在内存中，被保存在栈内存中，引用类型的值是对象，保存在堆内存中。所以<strong>对象、数组之类的，才会发生内存泄漏</strong>。</p>
+<ol start="3">
+<li>使用chorme监控内存泄漏</li>
+</ol>
+<p>转自<a href="http://obkoro1.com/" target="_blank" rel="noopener">http://obkoro1.com/</a></p>
+]]></content>
+      <categories>
+        <category>JS</category>
+      </categories>
+      <tags>
+        <tag>JS</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>【js】判断字符串中是否包含某个字符串</title>
+    <url>/2019/05/20/%E3%80%90js%E3%80%91%E5%88%A4%E6%96%AD%E5%AD%97%E7%AC%A6%E4%B8%B2%E4%B8%AD%E6%98%AF%E5%90%A6%E5%8C%85%E5%90%AB%E6%9F%90%E4%B8%AA%E5%AD%97%E7%AC%A6%E4%B8%B2/</url>
+    <content><![CDATA[<h3 id="String对象方法"><a href="#String对象方法" class="headerlink" title="String对象方法"></a>String对象方法</h3><p>方法一: indexOf()   (推荐)</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> str = <span class="string">"123"</span>;</span><br><span class="line"><span class="built_in">console</span>.log(str.indexOf(<span class="string">"3"</span>) != <span class="number">-1</span> );  <span class="comment">// true</span></span><br></pre></td></tr></table></figure>
+<p>indexOf() 方法可返回某个指定的字符串值在字符串中首次出现的位置。如果要检索的字符串值没有出现，则该方法返回 -1。</p>
+<p>方法二: search() </p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> str = <span class="string">"123"</span>;</span><br><span class="line"><span class="built_in">console</span>.log(str.search(<span class="string">"3"</span>) != <span class="number">-1</span> );  <span class="comment">// true</span></span><br></pre></td></tr></table></figure>
+<p>search() 方法用于检索字符串中指定的子字符串，或检索与正则表达式相匹配的子字符串。如果没有找到任何匹配的子串，则返回 -1。</p>
+<p>方法三:match()</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> str = <span class="string">"123"</span>;</span><br><span class="line"><span class="keyword">var</span> reg = <span class="built_in">RegExp</span>(<span class="regexp">/3/</span>);</span><br><span class="line"><span class="keyword">if</span>(str.match(reg))&#123;</span><br><span class="line">    <span class="comment">// 包含        </span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>match() 方法可在字符串内检索指定的值，或找到一个或多个正则表达式的匹配。</p>
+<h3 id="RegExp-对象方法"><a href="#RegExp-对象方法" class="headerlink" title="RegExp 对象方法"></a>RegExp 对象方法</h3><p>方法四:test() </p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> str = <span class="string">"123"</span>;</span><br><span class="line"><span class="keyword">var</span> reg = <span class="built_in">RegExp</span>(<span class="regexp">/3/</span>);</span><br><span class="line"><span class="built_in">console</span>.log(reg.test(str)); <span class="comment">// true</span></span><br></pre></td></tr></table></figure>
+<p>test() 方法用于检索字符串中指定的值。返回 true 或 false。</p>
+<p>方法五:exec()</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> str = <span class="string">"123"</span>;</span><br><span class="line"><span class="keyword">var</span> reg = <span class="built_in">RegExp</span>(<span class="regexp">/3/</span>);</span><br><span class="line"><span class="keyword">if</span>(reg.exec(str))&#123;</span><br><span class="line">    <span class="comment">// 包含        </span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>exec() 方法用于检索字符串中的正则表达式的匹配。返回一个数组，其中存放匹配的结果。如果未找到匹配，则返回值为 null。</p>
+<p><a href="https://www.cnblogs.com/ooo0/p/7741651.html" target="_blank" rel="noopener">https://www.cnblogs.com/ooo0/p/7741651.html</a></p>
+]]></content>
+      <categories>
+        <category>JS</category>
+      </categories>
+      <tags>
+        <tag>JS</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>宝塔webhooks实现hexo自动部署</title>
+    <url>/2019/05/10/%E5%AE%9D%E5%A1%94hexo%E8%87%AA%E5%8A%A8%E9%83%A8%E7%BD%B2/</url>
+    <content><![CDATA[<h3 id="webhook自动部署"><a href="#webhook自动部署" class="headerlink" title="webhook自动部署"></a>webhook自动部署</h3><p>首先确保你的服务器已经安装了宝塔，安装webhook插件 ，添加hook 输入名称及一下脚本</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="meta">#!/bin/bash</span></span><br><span class="line"><span class="built_in">echo</span> <span class="string">""</span></span><br><span class="line"><span class="comment"># 输出当前时间</span></span><br><span class="line">date --date=<span class="string">'0 days ago'</span> <span class="string">"+%Y-%m-%d %H:%M:%S"</span></span><br><span class="line"><span class="built_in">echo</span> <span class="string">"Start"</span></span><br><span class="line"><span class="comment"># 判断宝塔WebHook参数是否存在</span></span><br><span class="line"><span class="keyword">if</span> [ ! -n <span class="string">"<span class="variable">$1</span>"</span> ];</span><br><span class="line"><span class="keyword">then</span></span><br><span class="line">          <span class="built_in">echo</span> <span class="string">"param参数错误"</span></span><br><span class="line">          <span class="built_in">echo</span> <span class="string">"End"</span></span><br><span class="line">          <span class="built_in">exit</span></span><br><span class="line"><span class="keyword">fi</span></span><br><span class="line"><span class="comment"># git项目路径</span></span><br><span class="line">gitPath=<span class="string">"/www/wwwroot/<span class="variable">$1</span>"</span></span><br><span class="line"><span class="comment"># git 网址</span></span><br><span class="line">gitHttp=<span class="string">"http://git.xxxxx.com/<span class="variable">$1</span>.git"</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">echo</span> <span class="string">"Web站点路径：<span class="variable">$gitPath</span>"</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 判断项目路径是否存在</span></span><br><span class="line"><span class="keyword">if</span> [ -d <span class="string">"<span class="variable">$gitPath</span>"</span> ]; <span class="keyword">then</span></span><br><span class="line">        <span class="built_in">cd</span> <span class="variable">$gitPath</span></span><br><span class="line">        <span class="comment"># 判断是否存在git目录</span></span><br><span class="line">        <span class="keyword">if</span> [ ! -d <span class="string">".git"</span> ]; <span class="keyword">then</span></span><br><span class="line">                <span class="built_in">echo</span> <span class="string">"在该目录下克隆 git"</span></span><br><span class="line">                git <span class="built_in">clone</span> <span class="variable">$gitHttp</span> gittemp</span><br><span class="line">                mv gittemp/.git .</span><br><span class="line">                rm -rf gittemp</span><br><span class="line">        <span class="keyword">fi</span></span><br><span class="line">        <span class="comment"># 拉取最新的项目文件</span></span><br><span class="line">        git reset --hard origin/master</span><br><span class="line">        git pull</span><br><span class="line">        <span class="comment"># 设置目录权限</span></span><br><span class="line">        chown -R www:www <span class="variable">$gitPath</span></span><br><span class="line">        <span class="built_in">echo</span> <span class="string">"End"</span></span><br><span class="line">        <span class="built_in">exit</span></span><br><span class="line"><span class="keyword">else</span></span><br><span class="line">        <span class="built_in">echo</span> <span class="string">"该项目路径不存在"</span></span><br><span class="line">        <span class="built_in">echo</span> <span class="string">"End"</span></span><br><span class="line">        <span class="built_in">exit</span></span><br><span class="line"><span class="keyword">fi</span></span><br></pre></td></tr></table></figure>
+
+<p>然后会生成 一个密钥 和 相关的链接</p>
+<h3 id="配置github"><a href="#配置github" class="headerlink" title="配置github"></a>配置github</h3><p><img data-src="http://cloud.asenper.cn//20200613184752.png" alt="image-20200613184750432"></p>
+<p>如图,添加webhooks,Payload URL为上一步生成的链接，Secret为密钥<br>就这么简单</p>
+]]></content>
+      <categories>
+        <category>hexo</category>
+      </categories>
+      <tags>
+        <tag>hexo</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>解决Git报错:error: You have not concluded your merge (MERGE_HEAD exists)</title>
+    <url>/2019/05/18/%E8%A7%A3%E5%86%B3Git%E6%8A%A5%E9%94%99-error-You-have-not-concluded-your-merge-MERGE-HEAD-exists/</url>
+    <content><![CDATA[<p>Git fetch和git pull的区别:</p>
+<a id="more"></a>
+<p>都可以从远程获取最新版本到本地<br>1.Git fetch:只是从远程获取最新版本到本地,不会merge(合并)<br>$:git fetch origin master   //从远程的origin的master主分支上获取最新版本到origin/master分支上<br>$:git log -p master..origin/master //比较本地的master分支和origin/master分支的区别<br>$:git merge origin/master          //合并</p>
+<p>2.Git pull:从远程获取最新版本并merge(合并)到本地<br>$:git pull origin master  //相当于进行了 git fetch 和 git merge两部操作<br>1<br>实际工作中,可能git fetch更好一些, 因为在merge前,可以根据实际情况决定是否merge<br>再说导致报错:error: You have not concluded your merge (MERGE_HEAD exists).的原因可能是在以前pull下来的代码自动合并失败<br>解决办法一:保留本地的更改,中止合并-&gt;重新合并-&gt;重新拉取<br>$:git merge –abort<br>$:git reset –merge<br>$:git pull</p>
+<p>解决办法二:舍弃本地代码,远端版本覆盖本地版本(慎重)<br>$:git fetch –all<br>$:git reset –hard origin/master<br>$:git fetch</p>
+]]></content>
+      <categories>
+        <category>Git</category>
+      </categories>
+      <tags>
+        <tag>Git</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>青州古城一游</title>
+    <url>/2019/05/03/%E9%9D%92%E5%B7%9E%E5%8F%A4%E5%9F%8E%E4%B8%80%E6%B8%B8/</url>
+    <content><![CDATA[<p>五一假期 青州古城一游</p>
+<p><img data-src="http://cloud.asenper.cn/1593960476/ea56f721270a5.jpg" alt="IMG_20190503_103714.jpg"><br><img data-src="http://cloud.asenper.cn/1593960476/bfa717a104df1.jpg" alt="IMG_20190503_105205.jpg"><br><img data-src="http://cloud.asenper.cn/1593960510/30093e12ddef9.jpg" alt="IMG_20190503_105521.jpg"><br><img data-src="http://cloud.asenper.cn/1593960541/6fdbb0b318d07.jpg" alt="IMG_20190503_110617.jpg"><br><img data-src="http://cloud.asenper.cn/1593960568/2d941fcae66fa.jpg" alt="IMG_20190503_110715.jpg"><br><img data-src="http://cloud.asenper.cn/1593960598/38461a5109529.jpg" alt="IMG_20190503_110929.jpg"><br><img data-src="http://cloud.asenper.cn/1593960694/77c479c212403.jpg" alt="IMG_20190503_112659.jpg"><br><img data-src="http://cloud.asenper.cn/1593960720/f74d19eb59e7f.jpg" alt="IMG_20190503_113039.jpg"><br><img data-src="http://cloud.asenper.cn/1593960945/4b4f8192a800d.jpg" alt="IMG_20190503_113810.jpg"><br><img data-src="http://cloud.asenper.cn/1593960945/e5dbc15893dda.jpg" alt="IMG_20190503_114336.jpg"><br><img data-src="http://cloud.asenper.cn/1593960954/34d6cd403205b.jpg" alt="IMG_20190503_114552.jpg"><br><img data-src="http://cloud.asenper.cn/1593962811/93b6508988859.jpg" alt="IMG_20190503_114640.jpg"><br><img data-src="http://cloud.asenper.cn/1593962812/a05be6929e14c.jpg" alt="IMG_20190503_115119.jpg"><br><img data-src="http://cloud.asenper.cn/1593962812/2fdc882f48f74.jpg" alt="IMG_20190503_115503.jpg"><br><img data-src="http://cloud.asenper.cn/1593962812/c1b3c2f398955.jpg" alt="IMG_20190503_114949.jpg"><br><img data-src="http://cloud.asenper.cn/1593962816/551dd2d2a8ed1.jpg" alt="IMG_20190503_115528.jpg"><br><img data-src="http://cloud.asenper.cn/1593962884/38b15e9fcd38f.jpg" alt="IMG_20190503_115554.jpg"><br><img data-src="http://cloud.asenper.cn/1593962885/7f8a504fb9639.jpg" alt="IMG_20190503_122539.jpg"><br><img data-src="http://cloud.asenper.cn/1593962890/f8c3e1faee66c.jpg" alt="IMG_20190503_122607.jpg"><br><img data-src="http://cloud.asenper.cn/1593962898/9e6aaf6e74438.jpg" alt="IMG_20190503_122616.jpg"><br><img data-src="http://cloud.asenper.cn/1593962972/2b565e07a1f62.jpg" alt="IMG_20190503_122653.jpg"><br><img data-src="http://cloud.asenper.cn/1593962972/66bfeaa4735b5.jpg" alt="IMG_20190503_122710.jpg"><br><img data-src="http://cloud.asenper.cn/1593962972/154b26f292027.jpg" alt="IMG_20190503_123401.jpg"><br><img data-src="http://cloud.asenper.cn/1593962972/b91b8a4f55872.jpg" alt="IMG_20190503_123717.jpg"><br><img data-src="http://cloud.asenper.cn/1593962972/f768b64f39ad4.jpg" alt="IMG_20190503_124449.jpg"><br><img data-src="http://cloud.asenper.cn/1593963305/b344d4c5691e3.jpg" alt="IMG_20190503_124645.jpg"><br><img data-src="http://cloud.asenper.cn/1593963305/afd2c616c710e.jpg" alt="IMG_20190503_124747.jpg"><br><img data-src="http://cloud.asenper.cn/1593963306/68ab940749d06.jpg" alt="IMG_20190503_125216.jpg"><br><img data-src="http://cloud.asenper.cn/1593963305/7783f74978b65.jpg" alt="IMG_20190503_125538.jpg"><br><img data-src="http://cloud.asenper.cn/1593963317/0a5f0290eda9b.jpg" alt="IMG_20190503_130653.jpg"><br><img data-src="http://cloud.asenper.cn/1593963336/7783cbb1287b9.jpg" alt="IMG_20190503_152302.jpg"><br><img data-src="http://cloud.asenper.cn/1593963350/7524994abe5f2.jpg" alt="IMG_20190503_153142.jpg"></p>
+<p><small>视频压缩的有点儿严重了😂</small></p>
+<video src="http://cloud.asenper.cn/VID_20190503_103736.mp4">
+    your browser does not support the video tag
+</video>
+<video src="http://cloud.asenper.cn/VID_20190503_110636.mp4">
+    your browser does not support the video tag
+</video>
+]]></content>
   </entry>
   <entry>
     <title>Linux服务器中配置Nginx一个域名访问多个项目</title>
@@ -88,6 +319,37 @@
       </categories>
       <tags>
         <tag>Nginx</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>JS面试题</title>
+    <url>/2019/04/10/js%E6%98%93%E9%94%99%E9%A2%98/</url>
+    <content><![CDATA[<h2 id="普通函数和箭头函数的区别"><a href="#普通函数和箭头函数的区别" class="headerlink" title="普通函数和箭头函数的区别"></a>普通函数和箭头函数的区别</h2><ul>
+<li>箭头函数不能作构造函数。</li>
+<li>箭头函数没有argument参数。如果你想访问箭头函数的直接参数，可以使用剩余参数 …args，剩余参数 … args 接受箭头函数的执行参数</li>
+<li>箭头函数没有自己的This.指向，箭头函数内部的 this 值始终等于外部函数的 this值。换句话说，箭头函数可按词法解析 this，箭头函数没有定义自己的执行上下文。</li>
+<li>常规函数如果缺少 return 语句，或者 return 语句后面没有表达式，则常规函数隐式返回undefined<br>如果箭头函数包含一个表达式，而你省略了该函数的花括号，则将显式返回该表达式。这些是内联箭头函数<h2 id="This指向问题"><a href="#This指向问题" class="headerlink" title="This指向问题"></a>This指向问题</h2></li>
+<li>this是声明函数时附加的参数，指向特定的对象，也就是隐藏参数。</li>
+<li>this提供了一种更加优雅的方式来隐式的传递对象引用。</li>
+<li>this永远指向调用他的对象<h4 id="一个测试题"><a href="#一个测试题" class="headerlink" title="一个测试题"></a>一个测试题</h4><figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> length = <span class="number">10</span>;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">fn</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="keyword">this</span>.length);</span><br><span class="line">&#125;</span><br><span class="line"> </span><br><span class="line"><span class="keyword">var</span> obj = &#123;</span><br><span class="line">  length: <span class="number">5</span>,</span><br><span class="line">  method: <span class="function"><span class="keyword">function</span>(<span class="params">fn</span>) </span>&#123;</span><br><span class="line">    fn();</span><br><span class="line">    <span class="built_in">arguments</span>[<span class="number">0</span>]();</span><br><span class="line">  &#125;</span><br><span class="line">&#125;;</span><br><span class="line"> </span><br><span class="line">obj.method(fn, <span class="number">1</span>);<span class="comment">//输出是什么？</span></span><br></pre></td></tr></table></figure>
+只要认准 <strong>this永远指向调用他的对象</strong>，这道题就很简单了<br>在执行 <code>obj.method()</code>时，如果函数内部执行<code>console.log(this.length)</code>，函数的调用对象为<code>obj</code>,<code>this</code>指向<code>obj</code>，但是<code>method()</code>内部执行的是<code>fn()</code>函数，而<code>fn()</code>函数的调用对象为<code>window</code>，即<code>window.fn()</code>，即<code>this</code>指向<code>window</code>，输出为 10；<br>参数<code>fn</code>和<code>1</code>属于<a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Functions/arguments" target="_blank" rel="noopener">arguments</a>类数组对象，<code>arguments[0]()</code>就是调用了<code>fn()</code>,此时<code>fn</code>的作用域为<code>arguments</code>，即<code>this</code>指向<code>arguments</code>，<code>this.length</code>即传入的参数的长度2<br>结果输出为 10，2</li>
+</ul>
+<h3 id="闭包和自执行参数"><a href="#闭包和自执行参数" class="headerlink" title="闭包和自执行参数"></a>闭包和自执行参数</h3><figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> test = <span class="function"><span class="keyword">function</span>(<span class="params">a</span>)</span>&#123;</span><br><span class="line">    <span class="keyword">this</span>.a = a;</span><br><span class="line">    <span class="keyword">return</span> <span class="function"><span class="keyword">function</span>(<span class="params">b</span>)</span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">this</span>.a + b;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;(<span class="function"><span class="keyword">function</span>(<span class="params">a,b</span>)</span>&#123;</span><br><span class="line">    <span class="keyword">return</span> a;</span><br><span class="line">&#125;(<span class="number">1</span>,<span class="number">2</span>))</span><br><span class="line">test(<span class="number">4</span>)</span><br></pre></td></tr></table></figure>
+
+<p>解析</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> test = <span class="function"><span class="keyword">function</span>(<span class="params">a</span>)</span>&#123;</span><br><span class="line">    <span class="keyword">this</span>.a = a;  <span class="comment">// this指向window</span></span><br><span class="line">    <span class="keyword">return</span> <span class="function"><span class="keyword">function</span>(<span class="params">b</span>)</span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">this</span>.a + b;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> getA = <span class="function"><span class="keyword">function</span>(<span class="params">a,b</span>)</span>&#123;</span><br><span class="line">    <span class="keyword">return</span> a;</span><br><span class="line">&#125;(<span class="number">1</span>,<span class="number">2</span>)   <span class="comment">//自执行函数 返回1，b没有用到</span></span><br><span class="line">即:  </span><br><span class="line">test(getA)(<span class="number">4</span>)  <span class="comment">// test(1)(4)</span></span><br><span class="line">test(<span class="number">1</span>) 返回函数</span><br><span class="line"><span class="function"><span class="keyword">function</span>(<span class="params">b</span>)</span>&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">this</span>.a+b</span><br><span class="line">&#125;</span><br><span class="line">此时 a 为 <span class="number">1</span> </span><br><span class="line"></span><br><span class="line">很明显 最后返回 <span class="number">1</span>+<span class="number">4</span> 结果为 <span class="number">5</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="扩展运算符"><a href="#扩展运算符" class="headerlink" title="扩展运算符"></a>扩展运算符</h2><figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">let</span> yd = &#123;<span class="attr">x</span>:<span class="number">1</span>,<span class="attr">y</span>:<span class="number">2</span>&#125;</span><br><span class="line"><span class="comment">//以下代码会不会报错</span></span><br><span class="line"><span class="keyword">let</span> yd1 = &#123; <span class="comment">//不会</span></span><br><span class="line">  ...yd,</span><br><span class="line">  <span class="keyword">get</span> x()&#123;</span><br><span class="line">    <span class="keyword">throw</span> <span class="keyword">new</span> <span class="built_in">Error</span>()</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">let</span> yd2 = &#123; <span class="comment">//会</span></span><br><span class="line">  ...yd,</span><br><span class="line">  ...&#123;</span><br><span class="line">    <span class="keyword">get</span> x()&#123;</span><br><span class="line">      <span class="keyword">throw</span> <span class="keyword">new</span> <span class="built_in">Error</span>()</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>扩展运算符的参数对象之中，如果有取值函数<code>get</code>，这个函数是会执行的。</p>
+<p><a href="https://es6.ruanyifeng.com/#docs/object#%E5%AF%B9%E8%B1%A1%E7%9A%84%E6%89%A9%E5%B1%95%E8%BF%90%E7%AE%97%E7%AC%A6" target="_blank" rel="noopener">对象的扩展运算符</a></p>
+<p><a href="https://es6.ruanyifeng.com/#docs/array#%E6%89%A9%E5%B1%95%E8%BF%90%E7%AE%97%E7%AC%A6" target="_blank" rel="noopener">数组的扩展运算符</a></p>
+]]></content>
+      <categories>
+        <category>Webpack</category>
+      </categories>
+      <tags>
+        <tag>Webpack</tag>
       </tags>
   </entry>
   <entry>
@@ -621,268 +883,6 @@
       </tags>
   </entry>
   <entry>
-    <title>Node项目部署</title>
-    <url>/2019/05/12/Node%E9%A1%B9%E7%9B%AE%E9%83%A8%E7%BD%B2/</url>
-    <content><![CDATA[<h2 id="利用宝塔可以很快的搭建你需要的环境"><a href="#利用宝塔可以很快的搭建你需要的环境" class="headerlink" title="利用宝塔可以很快的搭建你需要的环境"></a>利用宝塔可以很快的搭建你需要的环境</h2><p>安装 ：<a href="https://www.bt.cn/bbs/thread-19376-1-1.html" target="_blank" rel="noopener">https://www.bt.cn/bbs/thread-19376-1-1.html</a></p>
-<h2 id="上传文件"><a href="#上传文件" class="headerlink" title="上传文件"></a>上传文件</h2><p>将你的项目上传到指定的目录</p>
-<h2 id="添加网站"><a href="#添加网站" class="headerlink" title="添加网站"></a>添加网站</h2><p><img data-src="https://img2020.cnblogs.com/blog/1524685/202006/1524685-20200601100634195-561242539.png" alt=""></p>
-<h2 id="安装pm2管理器，方便管理你的Node项目和版本"><a href="#安装pm2管理器，方便管理你的Node项目和版本" class="headerlink" title="安装pm2管理器，方便管理你的Node项目和版本"></a>安装pm2管理器，方便管理你的Node项目和版本</h2><p>PM2是Node.js应用程序的生产流程管理器，内置负载均衡。它可以帮助您保持Node应用程序永久活动，重起这些node应用程序也不需要停机，并简化常见的系统管理任务。<br>填写项目跟目录和启动文件,启动你的node服务，也可以自己安装<code>forever</code><br><img data-src="https://img2020.cnblogs.com/blog/1524685/202006/1524685-20200601100016539-687074251.png" alt=""></p>
-<h2 id="设置nginx反向代理"><a href="#设置nginx反向代理" class="headerlink" title="设置nginx反向代理"></a>设置nginx反向代理</h2><p>执行完以上步骤，你会发现并不能正常访问该项目，这时需要用到<strong><a href="/2019/06/01/正向代理和反向代理/">nginx的反向代理</a></strong><br>打开 网站——&gt;设置——&gt;配置文件<br>在 <code>server</code>中添加一个配置</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">location &#x2F;</span><br><span class="line">    &#123;</span><br><span class="line">      proxy_pass  http:&#x2F;&#x2F;127.0.0.1:3000;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
-<p>注意格式，在宝塔中</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">location &#x2F;&#123;</span><br><span class="line">      proxy_pass  http:&#x2F;&#x2F;127.0.0.1:3000;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
-<p>这样配置会报错</p>
-<h3 id="配置完成后就可以用你配置的网站名访问了，如果有配置端口号，别忘了加"><a href="#配置完成后就可以用你配置的网站名访问了，如果有配置端口号，别忘了加" class="headerlink" title="配置完成后就可以用你配置的网站名访问了，如果有配置端口号，别忘了加"></a>配置完成后就可以用你配置的网站名访问了，如果有配置端口号，别忘了加</h3>]]></content>
-      <categories>
-        <category>Nginx</category>
-      </categories>
-      <tags>
-        <tag>Nginx</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>【JS】判断客户端类型</title>
-    <url>/2019/05/22/%E3%80%90JS%E3%80%91%E5%88%A4%E6%96%AD%E5%AE%A2%E6%88%B7%E7%AB%AF%E7%B1%BB%E5%9E%8B/</url>
-    <content><![CDATA[<h1 id="JS-判断客户端是iOS还是Android"><a href="#JS-判断客户端是iOS还是Android" class="headerlink" title="JS 判断客户端是iOS还是Android"></a>JS 判断客户端是iOS还是Android</h1><blockquote>
-<p>判断的逻辑是：客户端不是Android，就是iOS，就是PC，其实还有黑莓BlackBerry、塞班SymbianOS、Windows Phone等，如果需要可自行添加，我在第三条有写。</p>
-</blockquote>
-<h2 id="通过浏览器的-navigator-userAgent-判断是Android还是iOS："><a href="#通过浏览器的-navigator-userAgent-判断是Android还是iOS：" class="headerlink" title="通过浏览器的 navigator.userAgent 判断是Android还是iOS："></a>通过浏览器的 navigator.userAgent 判断是Android还是iOS：</h2><h3 id="一-判断是Android还是iOS"><a href="#一-判断是Android还是iOS" class="headerlink" title="一. 判断是Android还是iOS"></a>一. 判断是Android还是iOS</h3><figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">let</span> u = navigator.userAgent;</span><br><span class="line"><span class="keyword">let</span> isAndroid = u.indexOf(<span class="string">'Android'</span>) &gt; <span class="number">-1</span> || u.indexOf(<span class="string">'Adr'</span>) &gt; <span class="number">-1</span>;   <span class="comment">//判断是否是 android终端</span></span><br><span class="line"><span class="keyword">let</span> isIOS = !!u.match(<span class="regexp">/\(i[^;]+;( U;)? CPU.+Mac OS X/</span>);     <span class="comment">//判断是否是 iOS终端</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">'是否是Android：'</span>, isAndroid); <span class="comment">//true,false</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">'是否是iOS：'</span>, isIOS)</span><br></pre></td></tr></table></figure>
-
-<ul>
-<li><p>封装成方法：</p>
-<p>``  /<em>判断客户端</em>/<br>  judgeClient() {</p>
-<pre><code>let u = navigator.userAgent;
-let isAndroid = u.indexOf(&apos;Android&apos;) &gt; -1 || u.indexOf(&apos;Adr&apos;) &gt; -1;   //判断是否是 android终端
-let isIOS = !!u.match(/\(i[^;]+;( U;)? CPU.+Mac OS X/);     //判断是否是 iOS终端
-console.log(&apos;是否是Android：&apos; + isAndroid); //true,false
-console.log(&apos;是否是iOS：&apos; + isIOS);
-if(isAndroid){
-  return &apos;Android&apos;;
-}else if(isIOS){
-  return &apos;IOS&apos;;
-}else{
-  return &apos;PC&apos;;
-}</code></pre><p>  },```</p>
-</li>
-</ul>
-<h3 id="二-判断是Android还是iOS"><a href="#二-判断是Android还是iOS" class="headerlink" title="二.判断是Android还是iOS"></a>二.判断是Android还是iOS</h3><figure class="highlight js"><table><tr><td class="code"><pre><span class="line">    <span class="keyword">if</span> (<span class="regexp">/(iPhone|iPad|iPod|iOS)/i</span>.test(navigator.userAgent)) &#123;</span><br><span class="line">      <span class="built_in">console</span>.log(<span class="string">'isIOS'</span>);</span><br><span class="line">    &#125; <span class="keyword">else</span> <span class="keyword">if</span> (<span class="regexp">/(Android)/i</span>.test(navigator.userAgent)) &#123;</span><br><span class="line">      <span class="built_in">console</span>.log(<span class="string">'isAndroid'</span>);</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">      <span class="built_in">console</span>.log(<span class="string">'isPC'</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line"></span><br><span class="line">*   封装成方法：</span><br><span class="line">      <span class="comment">/*判断客户端*/</span></span><br><span class="line">      judgeClient() &#123;</span><br><span class="line">        <span class="keyword">let</span> client = <span class="string">''</span>;</span><br><span class="line">        <span class="keyword">if</span> (<span class="regexp">/(iPhone|iPad|iPod|iOS)/i</span>.test(navigator.userAgent)) &#123;  <span class="comment">//判断iPhone|iPad|iPod|iOS</span></span><br><span class="line">          client = <span class="string">'iOS'</span>;</span><br><span class="line">        &#125; <span class="keyword">else</span> <span class="keyword">if</span> (<span class="regexp">/(Android)/i</span>.test(navigator.userAgent)) &#123;  <span class="comment">//判断Android</span></span><br><span class="line">          client = <span class="string">'Android'</span>;</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">          client = <span class="string">'PC'</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> client;</span><br><span class="line">      &#125;,</span><br></pre></td></tr></table></figure>
-
-<h3 id="三-判断PC还是移动端"><a href="#三-判断PC还是移动端" class="headerlink" title="三.判断PC还是移动端"></a>三.判断PC还是移动端</h3><figure class="highlight js"><table><tr><td class="code"><pre><span class="line">isPC() &#123;</span><br><span class="line">  <span class="comment">/*true则pc，false则mobile*/</span></span><br><span class="line">  <span class="keyword">let</span> u = navigator.userAgent;</span><br><span class="line">  <span class="keyword">let</span> Agents = [<span class="string">"Android"</span>, <span class="string">"iPhone"</span>, <span class="string">"webOS"</span>, <span class="string">"BlackBerry"</span>, <span class="string">"SymbianOS"</span>, <span class="string">"Windows Phone"</span>, <span class="string">"iPad"</span>, <span class="string">"iPod"</span>];</span><br><span class="line">  <span class="keyword">let</span> flag = <span class="literal">true</span>;</span><br><span class="line">  <span class="keyword">for</span> (<span class="keyword">let</span> i = <span class="number">0</span>; i &lt; Agents.length; i++) &#123;</span><br><span class="line">    <span class="keyword">if</span> (u.indexOf(Agents[i]) &gt; <span class="number">0</span>) &#123;</span><br><span class="line">      flag = <span class="literal">false</span>;</span><br><span class="line">      <span class="keyword">break</span>;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span> flag;</span><br><span class="line">&#125;,</span><br></pre></td></tr></table></figure>
-
-
-<h3 id="四-判断多种访问终端"><a href="#四-判断多种访问终端" class="headerlink" title="四.判断多种访问终端"></a>四.判断多种访问终端</h3><figure class="highlight js"><table><tr><td class="code"><pre><span class="line">    <span class="comment">//判断访问终端</span></span><br><span class="line">    <span class="keyword">let</span> browser = &#123;</span><br><span class="line">      versions: <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">        <span class="keyword">let</span> u = navigator.userAgent, app = navigator.appVersion;</span><br><span class="line">        <span class="keyword">return</span> &#123;</span><br><span class="line">          trident: u.indexOf(<span class="string">'Trident'</span>) &gt; <span class="number">-1</span>, <span class="comment">//IE内核</span></span><br><span class="line">          presto: u.indexOf(<span class="string">'Presto'</span>) &gt; <span class="number">-1</span>, <span class="comment">//opera内核</span></span><br><span class="line">          webKit: u.indexOf(<span class="string">'AppleWebKit'</span>) &gt; <span class="number">-1</span>, <span class="comment">//苹果、谷歌内核</span></span><br><span class="line">          gecko: u.indexOf(<span class="string">'Gecko'</span>) &gt; <span class="number">-1</span> &amp;&amp; u.indexOf(<span class="string">'KHTML'</span>) == <span class="number">-1</span>,<span class="comment">//火狐内核</span></span><br><span class="line">          mobile: !!u.match(<span class="regexp">/AppleWebKit.*Mobile.*/</span>), <span class="comment">//是否为移动终端</span></span><br><span class="line">          ios: !!u.match(<span class="regexp">/\(i[^;]+;( U;)? CPU.+Mac OS X/</span>), <span class="comment">//ios终端</span></span><br><span class="line">          android: u.indexOf(<span class="string">'Android'</span>) &gt; <span class="number">-1</span> || u.indexOf(<span class="string">'Adr'</span>) &gt; <span class="number">-1</span>, <span class="comment">//android终端</span></span><br><span class="line">          iPhone: u.indexOf(<span class="string">'iPhone'</span>) &gt; <span class="number">-1</span>, <span class="comment">//是否为iPhone或者QQHD浏览器</span></span><br><span class="line">          iPad: u.indexOf(<span class="string">'iPad'</span>) &gt; <span class="number">-1</span>, <span class="comment">//是否iPad</span></span><br><span class="line">          webApp: u.indexOf(<span class="string">'Safari'</span>) == <span class="number">-1</span>, <span class="comment">//是否web应该程序，没有头部与底部</span></span><br><span class="line">          weixin: u.indexOf(<span class="string">'MicroMessenger'</span>) &gt; <span class="number">-1</span>, <span class="comment">//是否微信</span></span><br><span class="line">          qq: u.match(<span class="regexp">/\sQQ/i</span>) == <span class="string">" qq"</span> <span class="comment">//是否QQ</span></span><br><span class="line">        &#125;;</span><br><span class="line">      &#125;(),</span><br><span class="line">      language: (navigator.browserLanguage || navigator.language).toLowerCase()</span><br><span class="line">    &#125;;</span><br><span class="line"></span><br><span class="line">使用</span><br><span class="line"></span><br><span class="line">  <span class="keyword">if</span> (browser.versions.mobile) &#123;</span><br><span class="line">      <span class="built_in">console</span>.log(<span class="string">"is mobile"</span>);</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">if</span> (browser.versions.ios) &#123;</span><br><span class="line">      <span class="built_in">console</span>.log(<span class="string">"is ios"</span>);</span><br><span class="line">  &#125;</span><br></pre></td></tr></table></figure>
-
-
-
-<h3 id="五-判断浏览器当前使用的语言"><a href="#五-判断浏览器当前使用的语言" class="headerlink" title="五.判断浏览器当前使用的语言"></a>五.判断浏览器当前使用的语言</h3><figure class="highlight js"><table><tr><td class="code"><pre><span class="line"> </span><br><span class="line">judgeLanguage() &#123;</span><br><span class="line">  <span class="comment">// 判断浏览器当前使用的语言</span></span><br><span class="line">  <span class="keyword">let</span> currentLanguage = (navigator.browserLanguage || navigator.language).toLowerCase();    <span class="comment">// 非IE</span></span><br><span class="line">  <span class="keyword">if</span> (!currentLanguage) &#123;    <span class="comment">// IE浏览器</span></span><br><span class="line">    currentLanguage = navigator.browserLanguage;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="built_in">console</span>.log(currentLanguage);</span><br><span class="line">  <span class="keyword">return</span> currentLanguage;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>]]></content>
-      <categories>
-        <category>JS</category>
-      </categories>
-      <tags>
-        <tag>JS</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>【JS】判断数据类型的方法</title>
-    <url>/2019/05/20/%E3%80%90JS%E3%80%91%E5%88%A4%E6%96%AD%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B%E7%9A%84%E6%96%B9%E6%B3%95/</url>
-    <content><![CDATA[<p>对js中不同数据的布尔值类型总结：false:空字符串；null；undefined；0；NaN。<br>true：除了上面的false的情况其他都为true；</p>
-<p>如下：</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> o = &#123; </span><br><span class="line">          <span class="string">'name'</span>:<span class="string">'lee'</span></span><br><span class="line">        &#125;;</span><br><span class="line"><span class="keyword">var</span> a = \[<span class="string">'reg'</span>,<span class="string">'blue'</span>\];</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">checkBoolean</span>(<span class="params">a</span>)</span>&#123;</span><br><span class="line">         <span class="keyword">if</span>(a)&#123;</span><br><span class="line">              <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">         &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">              <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">         &#125;</span><br><span class="line"> &#125;</span><br><span class="line"><span class="built_in">console</span>.log(checkBoolean(<span class="string">''</span>)); <span class="comment">//false</span></span><br><span class="line"><span class="built_in">console</span>.log(checkBoolean(<span class="number">0</span>)); <span class="comment">//false</span></span><br><span class="line"><span class="built_in">console</span>.log(checkBoolean(<span class="literal">null</span>)); <span class="comment">//false</span></span><br><span class="line"><span class="built_in">console</span>.log(checkBoolean(<span class="literal">undefined</span>)); <span class="comment">//false</span></span><br><span class="line"><span class="built_in">console</span>.log(checkBoolean(<span class="literal">NaN</span>)); <span class="comment">//false</span></span><br><span class="line"><span class="built_in">console</span>.log(checkBoolean(a));<span class="comment">//true</span></span><br><span class="line"><span class="built_in">console</span>.log(checkBoolean(c));<span class="comment">//true</span></span><br></pre></td></tr></table></figure>
-
-<p>javascript中有六种数据类型：string；boolean；Array；Object；null;undefined。如何检测这些数据类型呢，总结方法如下：</p>
-<p><strong>方法一：采用typeof</strong></p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> fn = <span class="function"><span class="keyword">function</span>(<span class="params">n</span>)</span>&#123;</span><br><span class="line">   <span class="built_in">console</span>.log(n);</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> str = <span class="string">'string'</span>;</span><br><span class="line"><span class="keyword">var</span> arr = \[<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>\];</span><br><span class="line"><span class="keyword">var</span> obj = &#123;</span><br><span class="line">    a:<span class="number">123</span>,</span><br><span class="line">    b:<span class="number">456</span></span><br><span class="line">&#125;;</span><br><span class="line"><span class="keyword">var</span> num = <span class="number">1</span>;</span><br><span class="line"><span class="keyword">var</span> b = <span class="literal">true</span>;</span><br><span class="line"><span class="keyword">var</span> n = <span class="literal">null</span>;       <span class="keyword">var</span> u = <span class="literal">undefined</span>;</span><br><span class="line"><span class="comment">//方法一使用typeof方法。</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="keyword">typeof</span> str);<span class="comment">//string</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="keyword">typeof</span> arr);<span class="comment">//object</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="keyword">typeof</span> obj);<span class="comment">//object</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="keyword">typeof</span> num);<span class="comment">//number</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="keyword">typeof</span> b);<span class="comment">//boolean</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="keyword">typeof</span> n);<span class="comment">//null是一个空的对象</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="keyword">typeof</span> u);<span class="comment">//undefined</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="keyword">typeof</span> fn);<span class="comment">//function</span></span><br></pre></td></tr></table></figure>
-
-
-<p>通过上面的检测我们发现typeof检测的Array和Object的返回类型都是Object，因此用typeof是无法检测出来数组和对象的，采用方法二和方法三则可以检测出来。</p>
-<p><strong>方法二：instanceof</strong></p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> o = &#123; </span><br><span class="line">          <span class="string">'name'</span>:<span class="string">'lee'</span></span><br><span class="line">        &#125;;</span><br><span class="line"><span class="keyword">var</span> a = \[<span class="string">'reg'</span>,<span class="string">'blue'</span>\];</span><br><span class="line"><span class="built_in">console</span>.log(o <span class="keyword">instanceof</span> <span class="built_in">Object</span>);<span class="comment">// true</span></span><br><span class="line"><span class="built_in">console</span>.log(a <span class="keyword">instanceof</span> <span class="built_in">Array</span>);<span class="comment">//  true</span></span><br><span class="line"><span class="built_in">console</span>.log(o <span class="keyword">instanceof</span> <span class="built_in">Array</span>);<span class="comment">//  false</span></span><br></pre></td></tr></table></figure>
-
-
-<p> 注意：instaceof只可以用来判断数组和对象，不能判断string和boolean类型，要判断string和boolean类型需要采用方法四。<br> 由于数组也属于对象因此我们使用instanceof判断一个数组是否为对象的时候结果也会是true。如：</p>
-<p>console.log(a instanceof Object);//true。</p>
-<p>下面封装一个方法进行改进：</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line"><span class="keyword">var</span> o = &#123; </span><br><span class="line">          <span class="string">'name'</span>:<span class="string">'lee'</span></span><br><span class="line">        &#125;;</span><br><span class="line"><span class="keyword">var</span> a = \[<span class="string">'reg'</span>,<span class="string">'blue'</span>\];</span><br><span class="line"><span class="keyword">var</span> getDataType = <span class="function"><span class="keyword">function</span>(<span class="params">o</span>)</span>&#123;</span><br><span class="line">            <span class="keyword">if</span>(o <span class="keyword">instanceof</span> <span class="built_in">Array</span>)&#123;</span><br><span class="line">                <span class="keyword">return</span> <span class="string">'Array'</span></span><br><span class="line">            &#125;<span class="keyword">else</span> <span class="keyword">if</span>( o <span class="keyword">instanceof</span> <span class="built_in">Object</span> )&#123;</span><br><span class="line">                <span class="keyword">return</span> <span class="string">'Object'</span>;</span><br><span class="line">            &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">                <span class="keyword">return</span> <span class="string">'param is no object type'</span>;</span><br><span class="line">            &#125;</span><br><span class="line">       &#125;;</span><br><span class="line"><span class="built_in">console</span>.log(getDataType(o));<span class="comment">//Object。</span></span><br><span class="line"><span class="built_in">console</span>.log(getDataType(a));<span class="comment">//Array。</span></span><br></pre></td></tr></table></figure>
-
-<p><strong>方法三：使用constructor方法</strong></p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> o = &#123; </span><br><span class="line">           <span class="string">'name'</span>:<span class="string">'lee'</span></span><br><span class="line">        &#125;;</span><br><span class="line"><span class="keyword">var</span> a = \[<span class="string">'reg'</span>,<span class="string">'blue'</span>\];</span><br><span class="line"><span class="built_in">console</span>.log(o.constructor == <span class="built_in">Object</span>);<span class="comment">//true</span></span><br><span class="line"><span class="built_in">console</span>.log(a.constructor == <span class="built_in">Array</span>);<span class="comment">//true</span></span><br></pre></td></tr></table></figure>
-
-<p><strong>方法四：利用tostring()方法，这个方法是最佳的方案。</strong></p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> o = &#123; </span><br><span class="line">          <span class="string">'name'</span>:<span class="string">'lee'</span></span><br><span class="line">        &#125;;</span><br><span class="line"><span class="keyword">var</span> a = \[<span class="string">'reg'</span>,<span class="string">'blue'</span>\];</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">c</span>(<span class="params">name,age</span>)</span>&#123;</span><br><span class="line">         <span class="keyword">this</span>.name = name;</span><br><span class="line">         <span class="keyword">this</span>.age = age;</span><br><span class="line"> &#125;</span><br><span class="line"><span class="keyword">var</span> c = <span class="keyword">new</span> c(<span class="string">'kingw'</span>,<span class="string">'27'</span>);</span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">Object</span>.prototype.toString.call(a));<span class="comment">//\[object Array\]</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">Object</span>.prototype.toString.call(o));<span class="comment">//\[Object Object\]</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">Object</span>.prototype.toString.call(c));<span class="comment">//\[Object Object\]</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//封装一个方法判断数组和对象</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">isType</span>(<span class="params">obj</span>)</span>&#123;</span><br><span class="line">       <span class="keyword">var</span> type = <span class="built_in">Object</span>.prototype.toString.call(obj);</span><br><span class="line">       <span class="keyword">if</span>(type == <span class="string">'\[object Array\]'</span>)&#123;</span><br><span class="line">              <span class="keyword">return</span> <span class="string">'Array'</span>;</span><br><span class="line">        &#125;<span class="keyword">else</span> <span class="keyword">if</span>(type == <span class="string">'\[object Object\]'</span>)&#123;</span><br><span class="line">              <span class="keyword">return</span> <span class="string">"Object"</span></span><br><span class="line">        &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">              <span class="keyword">return</span> <span class="string">'param is no object type'</span>;</span><br><span class="line">        &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">console</span>.log(isType(o));<span class="comment">//Object</span></span><br><span class="line"><span class="built_in">console</span>.log(isType(a));<span class="comment">//Array</span></span><br></pre></td></tr></table></figure>
-
-<p><strong>方法五：利用jquery的$.isPlainObject();$.isArray(obj);$.isFunction(obj)进行判断。</strong></p>
-<p> 出处：<a href="http://www.cnblogs.com/xinggood" target="_blank" rel="noopener">http://www.cnblogs.com/xinggood</a></p>
-]]></content>
-      <categories>
-        <category>JS</category>
-      </categories>
-      <tags>
-        <tag>JS</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>垃圾回收内存泄漏</title>
-    <url>/2019/05/02/%E3%80%90JS%E3%80%91%E5%9E%83%E5%9C%BE%E5%9B%9E%E6%94%B6%E5%86%85%E5%AD%98%E6%B3%84%E6%BC%8F/</url>
-    <content><![CDATA[<h2 id="内存的生命周期"><a href="#内存的生命周期" class="headerlink" title="内存的生命周期"></a>内存的生命周期</h2><ol>
-<li>分配你所需要的内存：</li>
-</ol>
-<p>由于字符串、对象等没有固定的大小，js程序在每次创建字符串、对象的时候，程序都会<strong>分配内存来存储那个实体</strong>。</p>
-<ol start="2">
-<li><p>使用分配到的内存做点什么。</p>
-</li>
-<li><p>不需要时将其释放回归：</p>
-</li>
-</ol>
-<p>在不需要字符串、对象的时候，需要释放其所占用的内存，否则将会消耗完系统中所有可用的内存，造成系统崩溃，这就是<strong>垃圾回收机制所存在的意义</strong>。</p>
-<p><strong>所谓的内存泄漏指的是</strong>：由于疏忽或错误造成程序未能释放那些已经不再使用的内存，造成内存的浪费。</p>
-<h2 id="垃圾回收机制"><a href="#垃圾回收机制" class="headerlink" title="垃圾回收机制"></a>垃圾回收机制</h2><p>在C和C++之类的语言中，需要手动来管理内存的，这也是造成许多不必要问题的根源。幸运的是，在编写js的过程中，内存的分配以及内存的回收完全实现了自动管理，我们不用操心这种事情。</p>
-<h3 id="垃圾收集机制的原理"><a href="#垃圾收集机制的原理" class="headerlink" title="垃圾收集机制的原理"></a>垃圾收集机制的原理</h3><p><strong>垃圾收集器会按照固定的时间间隔，周期性的找出不再继续使用的变量，然后释放其占用的内存</strong>。</p>
-<p><strong>什么叫不再继续使用的变量？</strong></p>
-<p>不再使用的变量也就是生命周期结束的变量，是局部变量，局部变量只在函数的执行过程中存在，当函数运行结束，没有其他引用(闭包)，那么该变量会被标记回收。</p>
-<p>全局变量的生命周期直至浏览器卸载页面才会结束，也就是说<strong>全局变量不会被当成垃圾回收</strong>。</p>
-<h3 id="标记清除：当前采用的垃圾收集策略"><a href="#标记清除：当前采用的垃圾收集策略" class="headerlink" title="标记清除：当前采用的垃圾收集策略"></a>标记清除：当前采用的垃圾收集策略</h3><p>工作原理：</p>
-<p>当变量进入环境时(例如在函数中声明一个变量)，将这个变量标记为“进入环境”，当变量离开环境时，则将其标记为“离开环境”。标记“离开环境”的就回收内存。</p>
-<p>工作流程：</p>
-<ol>
-<li>垃圾收集器会在运行的时候会给存储在内存中的<strong>所有变量都加上标记</strong>。</li>
-<li>去掉环境中的变量以及被环境中的变量引用的变量的标记。</li>
-<li>那些还存在标记的变量被视为准备删除的变量。</li>
-<li>最后垃圾收集器会执行最后一步内存清除的工作，销毁那些带标记的值并回收它们所占用的内存空间。</li>
-</ol>
-<p>到2008年为止,IE、Chorme、Fireofx、Safari、Opera <strong>都使用标记清除式的垃圾收集策略</strong>，只不过垃圾收集的时间间隔互有不同。</p>
-<h3 id="引用计数略：被废弃的垃圾收集策"><a href="#引用计数略：被废弃的垃圾收集策" class="headerlink" title="引用计数略：被废弃的垃圾收集策"></a>引用计数略：被废弃的垃圾收集策</h3><p>循环引用：跟踪记录每个值被引用的技术</p>
-<p>在老版本的浏览器中(对，又是IE)，IE9以下BOM和DOM对象就是使用C++以COM对象的形式实现的。</p>
-<p>COM的垃圾收集机制采用的就是引用计数策略，这种机制在出现循环引用的时候永远都释放不掉内存。</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> element = <span class="built_in">document</span>.getElementById(<span class="string">'something'</span>);</span><br><span class="line"><span class="keyword">var</span> myObject = <span class="keyword">new</span> <span class="built_in">Object</span>();</span><br><span class="line">myObject.element = element; <span class="comment">// element属性指向dom</span></span><br><span class="line">element.someThing = myObject; <span class="comment">// someThing回指myObject 出现循环引用(两个对象一直互相包含 一直存在计数)。</span></span><br></pre></td></tr></table></figure>
-<p>解决方式是，当我们不使用它们的时候，手动切断链接：</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">myObject.element = <span class="literal">null</span>; </span><br><span class="line">element.someThing = <span class="literal">null</span>;</span><br></pre></td></tr></table></figure>
-<p><strong>淘汰</strong>：</p>
-<p>IE9把BOM和DOM对象转为了真正的js对象，避免了使用这种垃圾收集策略，消除了IE9以下常见的内存泄漏的主要原因。</p>
-<p>IE7以下有一个声明狼藉的性能问题，大家了解一下：</p>
-<ol>
-<li>256个变量，4096个对象(或数组)字面或者64KB的字符串，达到任何一个临界值会触发垃圾收集器运行。</li>
-<li>如果一个js脚本的生命周期一直保有那么多变量，垃圾收集器会一直频繁的运行，引发严重的性能问题。</li>
-</ol>
-<p>IE7已修复这个问题。</p>
-<h2 id="哪些情况会引起内存泄漏"><a href="#哪些情况会引起内存泄漏" class="headerlink" title="哪些情况会引起内存泄漏"></a>哪些情况会引起内存泄漏</h2><p>虽然有垃圾回收机制，但我们在编写代码的时候，有些情况还是会造成内存泄漏，了解这些情况，并在编写程序的时候，注意避免，我们的程序会更具健壮性。</p>
-<h3 id="意外的全局变量"><a href="#意外的全局变量" class="headerlink" title="意外的全局变量"></a>意外的全局变量</h3><p>上文我们提到了<strong>全局变量不会被当成垃圾回收</strong>，我们在编码中有时会出现下面这种情况：</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">foo</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line"> <span class="keyword">this</span>.bar2 = <span class="string">'默认绑定this指向全局'</span> <span class="comment">// 全局变量=&gt; window.bar2</span></span><br><span class="line">  bar = <span class="string">'全局变量'</span>; <span class="comment">// 没有声明变量 实际上是全局变量=&gt;window.bar</span></span><br><span class="line">&#125;</span><br><span class="line">foo();</span><br></pre></td></tr></table></figure>
-
-<p>当我们使用<a href="https://juejin.im/post/5b3715def265da59af40a630#heading-3" target="_blank" rel="noopener">默认绑定</a>，this会指向全局，<code>this.something</code>也会创建一个全局变量，这一点可能很多人没有注意到。</p>
-<p><strong>解决方法：在函数内使用严格模式or细心一点</strong></p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">foo</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line"><span class="meta">  "use strict"</span>; </span><br><span class="line">  <span class="keyword">this</span>.bar2 = <span class="string">"严格模式下this指向undefined"</span>; </span><br><span class="line">  bar = <span class="string">"报错"</span>;</span><br><span class="line">&#125;</span><br><span class="line">foo();</span><br></pre></td></tr></table></figure>
-<p>当然我们也可以<strong>手动释放全局变量的内存</strong>：</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="built_in">window</span>.bar = <span class="literal">undefined</span></span><br><span class="line"><span class="keyword">delete</span> <span class="built_in">window</span>.bar2</span><br></pre></td></tr></table></figure>
-<h3 id="被遗忘的定时器和回调函数"><a href="#被遗忘的定时器和回调函数" class="headerlink" title="被遗忘的定时器和回调函数"></a>被遗忘的定时器和回调函数</h3><p>当<strong>不需要</strong><code>setInterval</code>或者<code>setTimeout</code>时，<strong>定时器没有被clear</strong>，定时器的<strong>回调函数以及内部依赖的变量都不能被回收</strong>，造成内存泄漏。</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> someResource = getData();</span><br><span class="line">setInterval(<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> node = <span class="built_in">document</span>.getElementById(<span class="string">'Node'</span>);</span><br><span class="line">    <span class="keyword">if</span>(node) &#123;</span><br><span class="line">        node.innerHTML = <span class="built_in">JSON</span>.stringify(someResource));</span><br><span class="line">        <span class="comment">// 定时器也没有清除</span></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">// node、someResource 存储了大量数据 无法回收</span></span><br><span class="line">&#125;, <span class="number">1000</span>);</span><br></pre></td></tr></table></figure>
-<p><strong>解决方法</strong>： 在定时器完成工作的时候，手动清除定时器。</p>
-<h3 id="闭包"><a href="#闭包" class="headerlink" title="闭包"></a>闭包</h3><p><strong>闭包可以维持函数内局部变量，使其得不到释放，造成内存泄漏</strong>。</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">bindEvent</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">var</span> obj = <span class="built_in">document</span>.createElement(<span class="string">"XXX"</span>);</span><br><span class="line">  <span class="keyword">var</span> unused = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">      <span class="built_in">console</span>.log(obj,<span class="string">'闭包内引用obj obj不会被释放'</span>);</span><br><span class="line">  &#125;;</span><br><span class="line">  <span class="comment">// obj = null;</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p><strong>解决方法</strong>：手动解除引用，<code>obj = null</code>。</p>
-<h3 id="循环引用问题"><a href="#循环引用问题" class="headerlink" title="循环引用问题"></a>循环引用问题</h3><p>就是IE9以下的循环引用问题，上文讲过了。</p>
-<h3 id="没有清理DOM元素引用"><a href="#没有清理DOM元素引用" class="headerlink" title="没有清理DOM元素引用"></a>没有清理DOM元素引用</h3><figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> refA = <span class="built_in">document</span>.getElementById(<span class="string">'refA'</span>);</span><br><span class="line"><span class="built_in">document</span>.body.removeChild(refA); <span class="comment">// dom删除了</span></span><br><span class="line"><span class="built_in">console</span>.log(refA, <span class="string">"refA"</span>);  <span class="comment">// 但是还存在引用 能console出整个div 没有被回收</span></span><br></pre></td></tr></table></figure>
-<p>不信的话，可以看下这个<a href="https://codepen.io/OBKoro1/pen/vroKbg" target="_blank" rel="noopener">dom</a>。</p>
-<p><strong>解决办法</strong>：refA = null;</p>
-<h3 id="console保存大量数据在内存中"><a href="#console保存大量数据在内存中" class="headerlink" title="console保存大量数据在内存中"></a>console保存大量数据在内存中</h3><p>过多的console，比如定时器的console会导致浏览器卡死。</p>
-<p><strong>解决</strong>：合理利用console，线上项目尽量少的使用console，当然如果你要发招聘，除外。</p>
-<h3 id="如何避免内存泄漏"><a href="#如何避免内存泄漏" class="headerlink" title="如何避免内存泄漏"></a>如何避免内存泄漏</h3><p><strong>记住一个原则：不用的东西，及时归还，毕竟你是’借的’嘛</strong>。</p>
-<ol>
-<li>减少不必要的全局变量，使用严格模式避免意外创建全局变量。</li>
-<li>在你使用完数据后，及时解除引用(闭包中的变量，dom引用，定时器清除)。</li>
-<li>组织好你的逻辑，避免死循环等造成浏览器卡顿，崩溃的问题。</li>
-</ol>
-<h3 id="关于内存泄漏"><a href="#关于内存泄漏" class="headerlink" title="关于内存泄漏"></a>关于内存泄漏</h3><ol>
-<li>即使是1byte的内存，也叫内存泄漏，并不一定是导致浏览器崩溃、卡顿才能叫做内存泄漏。</li>
-<li>一般是堆区内存泄漏，栈区不会泄漏。</li>
-</ol>
-<p>基本类型的值存在内存中，被保存在栈内存中，引用类型的值是对象，保存在堆内存中。所以<strong>对象、数组之类的，才会发生内存泄漏</strong>。</p>
-<ol start="3">
-<li>使用chorme监控内存泄漏</li>
-</ol>
-<p>转自<a href="http://obkoro1.com/" target="_blank" rel="noopener">http://obkoro1.com/</a></p>
-]]></content>
-      <categories>
-        <category>JS</category>
-      </categories>
-      <tags>
-        <tag>JS</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>【js】判断字符串中是否包含某个字符串</title>
-    <url>/2019/05/20/%E3%80%90js%E3%80%91%E5%88%A4%E6%96%AD%E5%AD%97%E7%AC%A6%E4%B8%B2%E4%B8%AD%E6%98%AF%E5%90%A6%E5%8C%85%E5%90%AB%E6%9F%90%E4%B8%AA%E5%AD%97%E7%AC%A6%E4%B8%B2/</url>
-    <content><![CDATA[<h3 id="String对象方法"><a href="#String对象方法" class="headerlink" title="String对象方法"></a>String对象方法</h3><p>方法一: indexOf()   (推荐)</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> str = <span class="string">"123"</span>;</span><br><span class="line"><span class="built_in">console</span>.log(str.indexOf(<span class="string">"3"</span>) != <span class="number">-1</span> );  <span class="comment">// true</span></span><br></pre></td></tr></table></figure>
-<p>indexOf() 方法可返回某个指定的字符串值在字符串中首次出现的位置。如果要检索的字符串值没有出现，则该方法返回 -1。</p>
-<p>方法二: search() </p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> str = <span class="string">"123"</span>;</span><br><span class="line"><span class="built_in">console</span>.log(str.search(<span class="string">"3"</span>) != <span class="number">-1</span> );  <span class="comment">// true</span></span><br></pre></td></tr></table></figure>
-<p>search() 方法用于检索字符串中指定的子字符串，或检索与正则表达式相匹配的子字符串。如果没有找到任何匹配的子串，则返回 -1。</p>
-<p>方法三:match()</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> str = <span class="string">"123"</span>;</span><br><span class="line"><span class="keyword">var</span> reg = <span class="built_in">RegExp</span>(<span class="regexp">/3/</span>);</span><br><span class="line"><span class="keyword">if</span>(str.match(reg))&#123;</span><br><span class="line">    <span class="comment">// 包含        </span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>match() 方法可在字符串内检索指定的值，或找到一个或多个正则表达式的匹配。</p>
-<h3 id="RegExp-对象方法"><a href="#RegExp-对象方法" class="headerlink" title="RegExp 对象方法"></a>RegExp 对象方法</h3><p>方法四:test() </p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> str = <span class="string">"123"</span>;</span><br><span class="line"><span class="keyword">var</span> reg = <span class="built_in">RegExp</span>(<span class="regexp">/3/</span>);</span><br><span class="line"><span class="built_in">console</span>.log(reg.test(str)); <span class="comment">// true</span></span><br></pre></td></tr></table></figure>
-<p>test() 方法用于检索字符串中指定的值。返回 true 或 false。</p>
-<p>方法五:exec()</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> str = <span class="string">"123"</span>;</span><br><span class="line"><span class="keyword">var</span> reg = <span class="built_in">RegExp</span>(<span class="regexp">/3/</span>);</span><br><span class="line"><span class="keyword">if</span>(reg.exec(str))&#123;</span><br><span class="line">    <span class="comment">// 包含        </span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>exec() 方法用于检索字符串中的正则表达式的匹配。返回一个数组，其中存放匹配的结果。如果未找到匹配，则返回值为 null。</p>
-<p><a href="https://www.cnblogs.com/ooo0/p/7741651.html" target="_blank" rel="noopener">https://www.cnblogs.com/ooo0/p/7741651.html</a></p>
-]]></content>
-      <categories>
-        <category>JS</category>
-      </categories>
-      <tags>
-        <tag>JS</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>宝塔webhooks实现hexo自动部署</title>
-    <url>/2019/05/10/%E5%AE%9D%E5%A1%94hexo%E8%87%AA%E5%8A%A8%E9%83%A8%E7%BD%B2/</url>
-    <content><![CDATA[<h3 id="webhook自动部署"><a href="#webhook自动部署" class="headerlink" title="webhook自动部署"></a>webhook自动部署</h3><p>首先确保你的服务器已经安装了宝塔，安装webhook插件 ，添加hook 输入名称及一下脚本</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="meta">#!/bin/bash</span></span><br><span class="line"><span class="built_in">echo</span> <span class="string">""</span></span><br><span class="line"><span class="comment"># 输出当前时间</span></span><br><span class="line">date --date=<span class="string">'0 days ago'</span> <span class="string">"+%Y-%m-%d %H:%M:%S"</span></span><br><span class="line"><span class="built_in">echo</span> <span class="string">"Start"</span></span><br><span class="line"><span class="comment"># 判断宝塔WebHook参数是否存在</span></span><br><span class="line"><span class="keyword">if</span> [ ! -n <span class="string">"<span class="variable">$1</span>"</span> ];</span><br><span class="line"><span class="keyword">then</span></span><br><span class="line">          <span class="built_in">echo</span> <span class="string">"param参数错误"</span></span><br><span class="line">          <span class="built_in">echo</span> <span class="string">"End"</span></span><br><span class="line">          <span class="built_in">exit</span></span><br><span class="line"><span class="keyword">fi</span></span><br><span class="line"><span class="comment"># git项目路径</span></span><br><span class="line">gitPath=<span class="string">"/www/wwwroot/<span class="variable">$1</span>"</span></span><br><span class="line"><span class="comment"># git 网址</span></span><br><span class="line">gitHttp=<span class="string">"http://git.xxxxx.com/<span class="variable">$1</span>.git"</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">echo</span> <span class="string">"Web站点路径：<span class="variable">$gitPath</span>"</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 判断项目路径是否存在</span></span><br><span class="line"><span class="keyword">if</span> [ -d <span class="string">"<span class="variable">$gitPath</span>"</span> ]; <span class="keyword">then</span></span><br><span class="line">        <span class="built_in">cd</span> <span class="variable">$gitPath</span></span><br><span class="line">        <span class="comment"># 判断是否存在git目录</span></span><br><span class="line">        <span class="keyword">if</span> [ ! -d <span class="string">".git"</span> ]; <span class="keyword">then</span></span><br><span class="line">                <span class="built_in">echo</span> <span class="string">"在该目录下克隆 git"</span></span><br><span class="line">                git <span class="built_in">clone</span> <span class="variable">$gitHttp</span> gittemp</span><br><span class="line">                mv gittemp/.git .</span><br><span class="line">                rm -rf gittemp</span><br><span class="line">        <span class="keyword">fi</span></span><br><span class="line">        <span class="comment"># 拉取最新的项目文件</span></span><br><span class="line">        git reset --hard origin/master</span><br><span class="line">        git pull</span><br><span class="line">        <span class="comment"># 设置目录权限</span></span><br><span class="line">        chown -R www:www <span class="variable">$gitPath</span></span><br><span class="line">        <span class="built_in">echo</span> <span class="string">"End"</span></span><br><span class="line">        <span class="built_in">exit</span></span><br><span class="line"><span class="keyword">else</span></span><br><span class="line">        <span class="built_in">echo</span> <span class="string">"该项目路径不存在"</span></span><br><span class="line">        <span class="built_in">echo</span> <span class="string">"End"</span></span><br><span class="line">        <span class="built_in">exit</span></span><br><span class="line"><span class="keyword">fi</span></span><br></pre></td></tr></table></figure>
-
-<p>然后会生成 一个密钥 和 相关的链接</p>
-<h3 id="配置github"><a href="#配置github" class="headerlink" title="配置github"></a>配置github</h3><p><img data-src="http://cloud.asenper.cn//20200613184752.png" alt="image-20200613184750432"></p>
-<p>如图,添加webhooks,Payload URL为上一步生成的链接，Secret为密钥<br>就这么简单</p>
-]]></content>
-      <categories>
-        <category>hexo</category>
-      </categories>
-      <tags>
-        <tag>hexo</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>解决Git报错:error: You have not concluded your merge (MERGE_HEAD exists)</title>
-    <url>/2019/05/18/%E8%A7%A3%E5%86%B3Git%E6%8A%A5%E9%94%99-error-You-have-not-concluded-your-merge-MERGE-HEAD-exists/</url>
-    <content><![CDATA[<p>Git fetch和git pull的区别:</p>
-<a id="more"></a>
-<p>都可以从远程获取最新版本到本地<br>1.Git fetch:只是从远程获取最新版本到本地,不会merge(合并)<br>$:git fetch origin master   //从远程的origin的master主分支上获取最新版本到origin/master分支上<br>$:git log -p master..origin/master //比较本地的master分支和origin/master分支的区别<br>$:git merge origin/master          //合并</p>
-<p>2.Git pull:从远程获取最新版本并merge(合并)到本地<br>$:git pull origin master  //相当于进行了 git fetch 和 git merge两部操作<br>1<br>实际工作中,可能git fetch更好一些, 因为在merge前,可以根据实际情况决定是否merge<br>再说导致报错:error: You have not concluded your merge (MERGE_HEAD exists).的原因可能是在以前pull下来的代码自动合并失败<br>解决办法一:保留本地的更改,中止合并-&gt;重新合并-&gt;重新拉取<br>$:git merge –abort<br>$:git reset –merge<br>$:git pull</p>
-<p>解决办法二:舍弃本地代码,远端版本覆盖本地版本(慎重)<br>$:git fetch –all<br>$:git reset –hard origin/master<br>$:git fetch</p>
-]]></content>
-      <categories>
-        <category>Git</category>
-      </categories>
-      <tags>
-        <tag>Git</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>青州古城一游</title>
-    <url>/2019/05/03/%E9%9D%92%E5%B7%9E%E5%8F%A4%E5%9F%8E%E4%B8%80%E6%B8%B8/</url>
-    <content><![CDATA[<p>五一假期 青州古城一游</p>
-<p><img data-src="http://cloud.asenper.cn/1593960476/ea56f721270a5.jpg" alt="IMG_20190503_103714.jpg"><br><img data-src="http://cloud.asenper.cn/1593960476/bfa717a104df1.jpg" alt="IMG_20190503_105205.jpg"><br><img data-src="http://cloud.asenper.cn/1593960510/30093e12ddef9.jpg" alt="IMG_20190503_105521.jpg"><br><img data-src="http://cloud.asenper.cn/1593960541/6fdbb0b318d07.jpg" alt="IMG_20190503_110617.jpg"><br><img data-src="http://cloud.asenper.cn/1593960568/2d941fcae66fa.jpg" alt="IMG_20190503_110715.jpg"><br><img data-src="http://cloud.asenper.cn/1593960598/38461a5109529.jpg" alt="IMG_20190503_110929.jpg"><br><img data-src="http://cloud.asenper.cn/1593960694/77c479c212403.jpg" alt="IMG_20190503_112659.jpg"><br><img data-src="http://cloud.asenper.cn/1593960720/f74d19eb59e7f.jpg" alt="IMG_20190503_113039.jpg"><br><img data-src="http://cloud.asenper.cn/1593960945/4b4f8192a800d.jpg" alt="IMG_20190503_113810.jpg"><br><img data-src="http://cloud.asenper.cn/1593960945/e5dbc15893dda.jpg" alt="IMG_20190503_114336.jpg"><br><img data-src="http://cloud.asenper.cn/1593960954/34d6cd403205b.jpg" alt="IMG_20190503_114552.jpg"><br><img data-src="http://cloud.asenper.cn/1593962811/93b6508988859.jpg" alt="IMG_20190503_114640.jpg"><br><img data-src="http://cloud.asenper.cn/1593962812/a05be6929e14c.jpg" alt="IMG_20190503_115119.jpg"><br><img data-src="http://cloud.asenper.cn/1593962812/2fdc882f48f74.jpg" alt="IMG_20190503_115503.jpg"><br><img data-src="http://cloud.asenper.cn/1593962812/c1b3c2f398955.jpg" alt="IMG_20190503_114949.jpg"><br><img data-src="http://cloud.asenper.cn/1593962816/551dd2d2a8ed1.jpg" alt="IMG_20190503_115528.jpg"><br><img data-src="http://cloud.asenper.cn/1593962884/38b15e9fcd38f.jpg" alt="IMG_20190503_115554.jpg"><br><img data-src="http://cloud.asenper.cn/1593962885/7f8a504fb9639.jpg" alt="IMG_20190503_122539.jpg"><br><img data-src="http://cloud.asenper.cn/1593962890/f8c3e1faee66c.jpg" alt="IMG_20190503_122607.jpg"><br><img data-src="http://cloud.asenper.cn/1593962898/9e6aaf6e74438.jpg" alt="IMG_20190503_122616.jpg"><br><img data-src="http://cloud.asenper.cn/1593962972/2b565e07a1f62.jpg" alt="IMG_20190503_122653.jpg"><br><img data-src="http://cloud.asenper.cn/1593962972/66bfeaa4735b5.jpg" alt="IMG_20190503_122710.jpg"><br><img data-src="http://cloud.asenper.cn/1593962972/154b26f292027.jpg" alt="IMG_20190503_123401.jpg"><br><img data-src="http://cloud.asenper.cn/1593962972/b91b8a4f55872.jpg" alt="IMG_20190503_123717.jpg"><br><img data-src="http://cloud.asenper.cn/1593962972/f768b64f39ad4.jpg" alt="IMG_20190503_124449.jpg"><br><img data-src="http://cloud.asenper.cn/1593963305/b344d4c5691e3.jpg" alt="IMG_20190503_124645.jpg"><br><img data-src="http://cloud.asenper.cn/1593963305/afd2c616c710e.jpg" alt="IMG_20190503_124747.jpg"><br><img data-src="http://cloud.asenper.cn/1593963306/68ab940749d06.jpg" alt="IMG_20190503_125216.jpg"><br><img data-src="http://cloud.asenper.cn/1593963305/7783f74978b65.jpg" alt="IMG_20190503_125538.jpg"><br><img data-src="http://cloud.asenper.cn/1593963317/0a5f0290eda9b.jpg" alt="IMG_20190503_130653.jpg"><br><img data-src="http://cloud.asenper.cn/1593963336/7783cbb1287b9.jpg" alt="IMG_20190503_152302.jpg"><br><img data-src="http://cloud.asenper.cn/1593963350/7524994abe5f2.jpg" alt="IMG_20190503_153142.jpg"></p>
-<p><small>视频压缩的有点儿严重了😂</small></p>
-<video src="http://cloud.asenper.cn/VID_20190503_103736.mp4">
-    your browser does not support the video tag
-</video>
-<video src="http://cloud.asenper.cn/VID_20190503_110636.mp4">
-    your browser does not support the video tag
-</video>
-]]></content>
-  </entry>
-  <entry>
     <title>正向代理和反向代理</title>
     <url>/2019/06/01/%E6%AD%A3%E5%90%91%E4%BB%A3%E7%90%86%E5%92%8C%E5%8F%8D%E5%90%91%E4%BB%A3%E7%90%86/</url>
     <content><![CDATA[<h3 id="正向代理"><a href="#正向代理" class="headerlink" title="正向代理"></a>正向代理</h3><p>所谓正向代理就是顺着请求的方向进行的代理，即代理服务器他是由你配置为你服务，去请求目标服务器地址。</p>
@@ -1103,6 +1103,147 @@ if(isAndroid){
 <li>原型式继承，可以在不必预先定义构造函数的情况下实现继承，其本质是执行对给定对象的浅复制。而复制得到的副本还可以得到进一步改造。</li>
 <li>寄生式继承，与原型式继承非常相似，也是基于某个对象或某些信息创建一个对象，然后增强对象，最后返回对象。为了解决组合继承模式由于多次调用超类型构造函数而导致的低效率问题，可以将这个模式与组合继承一起使用。</li>
 <li>寄生组合式继承，集寄生式继承和组合继承的优点与一身，是实现基于类型继承的最有效方式。</li>
+</ul>
+]]></content>
+      <categories>
+        <category>每天一个知识点</category>
+      </categories>
+      <tags>
+        <tag>JS</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>http基础巩固</title>
+    <url>/2020/01/11/http%E5%9F%BA%E7%A1%80%E5%B7%A9%E5%9B%BA/</url>
+    <content><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p><code>http</code>基础梳理，各版本的对比，优劣势、缓存策略、请求方法、<code>https</code>和<code>http</code>的区别、正反向代理、负载均衡</p>
+<h2 id="http的定义"><a href="#http的定义" class="headerlink" title="http的定义"></a>http的定义</h2><p>超文本传输协议，<strong>「HTTP 是一个在计算机世界里专门在两点之间传输文字、图片、音频、视频等超文本数据的约定和规范」</strong></p>
+<h3 id="HTTP-特点"><a href="#HTTP-特点" class="headerlink" title="HTTP 特点"></a>HTTP 特点</h3><ol>
+<li><strong>「灵活可扩展」</strong>。一个是语法上只规定了基本格式，空格分隔单词，换行分隔字段等。另外一个就是传输形式上不仅可以传输文本，还可以传输图片，视频等任意数据。</li>
+<li><strong>「请求-应答模式」</strong>，通常而言，就是一方发送消息，另外一方要接受消息，或者是做出相应等。</li>
+<li><strong>「可靠传输」</strong>，HTTP是基于TCP/IP，因此把这一特性继承了下来。</li>
+<li><strong>「无状态」</strong>，这个分场景回答即可。</li>
+</ol>
+<h3 id="HTTP-缺点"><a href="#HTTP-缺点" class="headerlink" title="HTTP 缺点"></a>HTTP 缺点</h3><ol>
+<li><strong>「无状态」</strong>，有时候，需要保存信息，比如像购物系统，需要保留下顾客信息等等，另外一方面，有时候，无状态也会减少网络开销，比如类似直播行业这样子等，这个还是分场景来说。</li>
+<li><strong>「明文传输」</strong>，即协议里的报文(主要指的是头部)不使用二进制数据，而是文本形式。这让HTTP的报文信息暴露给了外界，给攻击者带来了便利。</li>
+<li><strong>「队头阻塞」</strong>，当http开启长连接时，共用一个TCP连接，当某个请求时间过长时，其他的请求只能处于阻塞状态，这就是队头阻塞问题。</li>
+</ol>
+<h2 id="HTTP1-0-HTTP1-1-HTTP2-0版本之间的差异"><a href="#HTTP1-0-HTTP1-1-HTTP2-0版本之间的差异" class="headerlink" title="HTTP1.0 HTTP1.1 HTTP2.0版本之间的差异"></a><strong>HTTP1.0 HTTP1.1 HTTP2.0版本之间的差异</strong></h2><h3 id="HTTP-1-0"><a href="#HTTP-1-0" class="headerlink" title="HTTP 1.0"></a>HTTP 1.0</h3><ul>
+<li>任何格式的内容都可以发送，这使得互联网不仅可以传输文字，还能传输图像、视频、二进制等文件。</li>
+<li>除了GET命令，还引入了POST命令和HEAD命令。</li>
+<li>http请求和回应的格式改变，除了数据部分，每次通信都必须包括头信息（HTTP header），用来描述一些元数据。</li>
+<li>只使用 header 中的 If-Modified-Since 和 Expires 作为缓存失效的标准。</li>
+<li>不支持断点续传，也就是说，每次都会传送全部的页面和数据。</li>
+<li>通常每台计算机只能绑定一个 IP，所以请求消息中的 URL 并没有传递主机名（hostname）</li>
+</ul>
+<h3 id="HTTP-1-1"><a href="#HTTP-1-1" class="headerlink" title="HTTP 1.1"></a>HTTP 1.1</h3><p>http1.1是目前最为主流的http协议版本，从1999年发布至今，仍是主流的http协议版本。</p>
+<ul>
+<li>引入了持久连接（ persistent connection），即TCP连接默认不关闭，可以被多个请求复用，不用声明Connection: keep-alive。长连接的连接时长可以通过请求头中的 <code>keep-alive</code> 来设置</li>
+<li>引入了管道机制（ pipelining），即在同一个TCP连接里，客户端可以同时发送多个 请求，进一步改进了HTTP协议的效率。</li>
+<li>HTTP 1.1 中新增加了 E-tag，If-Unmodified-Since, If-Match, If-None-Match 等缓存控制标头来控制缓存失效。</li>
+<li>支持断点续传，通过使用请求头中的 <code>Range</code> 来实现。</li>
+<li>使用了虚拟网络，在一台物理服务器上可以存在多个虚拟主机（Multi-homed Web Servers），并且它们共享一个IP地址。</li>
+<li>新增方法：PUT、 PATCH、 OPTIONS、 DELETE。</li>
+</ul>
+<h3 id="http1-x版本问题"><a href="#http1-x版本问题" class="headerlink" title="http1.x版本问题"></a>http1.x版本问题</h3><ul>
+<li>在传输数据过程中，所有内容都是明文，客户端和服务器端都无法验证对方的身份，无法保证数据的安全性。</li>
+<li>HTTP/1.1 版本默认允许复用TCP连接，但是在同一个TCP连接里，所有数据通信是按次序进行的，服务器通常在处理完一个回应后，才会继续去处理下一个，这样子就会造成队头阻塞。</li>
+<li>http/1.x 版本支持Keep-alive，用此方案来弥补创建多次连接产生的延迟，但是同样会给服务器带来压力，并且的话，对于单文件被不断请求的服务，Keep-alive会极大影响性能，因为它在文件被请求之后还保持了不必要的连接很长时间。</li>
+</ul>
+<h3 id="HTTP-2-0"><a href="#HTTP-2-0" class="headerlink" title="HTTP 2.0"></a>HTTP 2.0</h3><ul>
+<li><code>二进制分帧</code>  这是一次彻底的二进制协议，头信息和数据体都是二进制，并且统称为”帧”：头信息帧和数据帧。</li>
+<li><code>头部压缩</code>  HTTP 1.1版本会出现 <strong>「User-Agent、Cookie、Accept、Server、Range」</strong> 等字段可能会占用几百甚至几千字节，而 Body 却经常只有几十字节，所以导致头部偏重。HTTP 2.0 使用 <code>HPACK</code> 算法进行压缩。</li>
+<li><code>多路复用</code> 复用TCP连接，在一个连接里，客户端和浏览器都可以同时发送多个请求或回应，且不用按顺序一一对应，这样子解决了队头阻塞的问题。</li>
+<li><code>服务器推送</code> 允许服务器未经请求，主动向客户端发送资源，即服务器推送。</li>
+<li><code>请求优先级</code> 可以设置数据帧的优先级，让服务端先处理重要资源，优化用户体验</li>
+</ul>
+<h2 id="HTTP常见状态码"><a href="#HTTP常见状态码" class="headerlink" title="HTTP常见状态码"></a>HTTP常见状态码</h2><p>RFC 规定 HTTP 的状态码为<strong>「三位数」</strong>，第一个数字定义了响应的类别，被分为五类:</p>
+<ul>
+<li><strong>「1xx」</strong>: 代表请求已被接受，需要继续处理。</li>
+<li><strong>「2xx」</strong>: 表示成功状态。</li>
+<li><strong>「3xx」</strong>: 重定向状态。</li>
+<li><strong>「4xx」</strong>: 客户端错误。</li>
+<li><strong>「5xx」</strong>: 服务器端错误。</li>
+</ul>
+<h3 id="1xx-信息类"><a href="#1xx-信息类" class="headerlink" title="1xx 信息类"></a>1xx 信息类</h3><p>接受的请求正在处理，信息类状态码。</p>
+<h3 id="2xx-成功"><a href="#2xx-成功" class="headerlink" title="2xx 成功"></a>2xx 成功</h3><ul>
+<li>200 OK 表示从客户端发来的请求在服务器端被正确请求。</li>
+<li>204 No content，表示请求成功，但没有资源可返回。</li>
+<li>206 Partial Content，该状态码表示客户端进行了范围请求，而服务器成功执行了这部分的 GET 请求 响应报文中包含由 <strong>「Content-Range」</strong> 指定范围的实体内容。</li>
+</ul>
+<h3 id="3xx-重定向"><a href="#3xx-重定向" class="headerlink" title="3xx 重定向"></a>3xx 重定向</h3><ul>
+<li>301 moved permanently，永久性重定向，表示资源已被分配了新的 URL，这时应该按 Location 首部字段提示的 URI 重新保存。</li>
+<li>302 found，临时性重定向，表示资源临时被分配了新的 URL。</li>
+<li>303 see other，表示资源存在着另一个 URL，应使用 GET 方法获取资源。</li>
+<li>304 not modified，当协商缓存命中时会返回这个状态码。</li>
+<li>307 temporary redirect，临时重定向，和302含义相同,不会改变method</li>
+</ul>
+<blockquote>
+<p>当 301、302、303 响应状态码返回时，几乎所有的浏览器都会把 POST 改成 GET，并删除请求报文内的主体，之后请求会自动再次发送 301、302 标准是禁止将 POST 方法改变成 GET 方法的，但实际使用时大家都会这么做</p>
+</blockquote>
+<h3 id="4XX-客户端错误"><a href="#4XX-客户端错误" class="headerlink" title="4XX 客户端错误"></a>4XX 客户端错误</h3><ul>
+<li>400 bad request，请求报文存在语法错误。</li>
+<li>401 unauthorized，表示发送的请求需要有通过 HTTP 认证的认证信息。</li>
+<li>403 forbidden，表示对请求资源的访问被服务器拒绝。</li>
+<li>404 not found，表示在服务器上没有找到请求的资源。</li>
+<li>405 Method Not Allowed，服务器禁止使用该方法，客户端可以通过options方法来查看服务器允许的访问方法，如下 👇</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">Access-Control-Allow-Methods →GET,HEAD,PUT,PATCH,POST,DELETE</span><br><span class="line">复制代码</span><br></pre></td></tr></table></figure>
+
+<h3 id="5XX-服务器错误"><a href="#5XX-服务器错误" class="headerlink" title="5XX 服务器错误"></a>5XX 服务器错误</h3><ul>
+<li>500 internal sever error，表示服务器端在执行请求时发生了错误。</li>
+<li>502 Bad Gateway，服务器自身是正常的，访问的时候出了问题，具体啥错误我们不知道。</li>
+<li>503 service unavailable，表明服务器暂时处于超负载或正在停机维护，无法处理请求。</li>
+</ul>
+<h2 id="HTTP-的请求方法"><a href="#HTTP-的请求方法" class="headerlink" title="HTTP 的请求方法"></a>HTTP 的请求方法</h2><ul>
+<li>HTTP1.0定义了三种请求方法： GET, POST 和 HEAD方法</li>
+<li>HTTP1.1新增了五种请求方法：OPTIONS, PUT, DELETE, TRACE 和 CONNECT</li>
+</ul>
+<p><code>http/1.1</code>规定了以下请求方法:</p>
+<ul>
+<li>GET：                请求获取Request-URI所标识的资源</li>
+<li>POST：              在Request-URI所标识的资源后附加新的数据</li>
+<li>HEAD：             请求获取由Request-URI所标识的资源的响应消息报头</li>
+<li>PUT：                请求服务器存储一个资源，并用Request-URI作为其标识（修改数据）</li>
+<li>DELETE：          请求服务器删除对应所标识的资源</li>
+<li>TRACE：            请求服务器回送收到的请求信息，主要用于测试或诊断</li>
+<li>CONNECT：      建立连接隧道，用于代理服务器</li>
+<li>OPTIONS：       列出可对资源实行的请求方法，用来跨域请求</li>
+</ul>
+<h2 id="GET-和-POST-的区别"><a href="#GET-和-POST-的区别" class="headerlink" title="GET 和 POST 的区别"></a><strong>GET 和 POST 的区别</strong></h2><p>本质上，只是语义上的区别，GET 用于获取资源，POST 用于提交资源。</p>
+<p>参考 <a href="https://mp.weixin.qq.com/s?__biz=MzI3NzIzMzg3Mw==&mid=100000054&idx=1&sn=71f6c214f3833d9ca20b9f7dcd9d33e4#rd" target="_blank" rel="noopener">99%的人都理解错了HTTP中GET与POST的区别</a></p>
+<p>具体差别👇</p>
+<ul>
+<li>从缓存角度看，GET 请求后浏览器会主动缓存，POST 默认情况下不能。</li>
+<li>从参数角度来看，GET请求一般放在URL中，因此不安全，POST请求放在请求体中，相对而言较为安全，但是在抓包的情况下都是一样的。</li>
+<li>从编码角度看，GET请求只能经行URL编码，只能接受ASCII码，而POST支持更多的编码类型且不对数据类型限值。</li>
+<li>GET请求幂等，POST请求不幂等，幂等指发送 M 和 N 次请求（两者不相同且都大于1），服务器上资源的状态一致。</li>
+<li>GET请求会一次性发送请求报文，POST请求通常分为两个TCP数据包，首先发 header 部分，如果服务器响应 100(continue)， 然后发 body 部分。</li>
+</ul>
+<p>从应用场景角度来看，Get 多用于无副作用，幂等的场景，例如搜索关键字。Post 多用于副作用，不幂等的场景，例如注册。</p>
+<h2 id="HTTPS和HTTP区别"><a href="#HTTPS和HTTP区别" class="headerlink" title="HTTPS和HTTP区别"></a><strong>HTTPS和HTTP区别</strong></h2><p>HTTPS 要比 HTTPS 多了 secure 安全性这个概念，实际上， HTTPS 并不是一个新的应用层协议，它其实就是 HTTP + TLS/SSL 协议组合而成，而安全性的保证正是 SSL/TLS 所做的工作。</p>
+<p><strong>「SSL」</strong></p>
+<p>安全套接层（Secure Sockets Layer）</p>
+<p><strong>「TLS」</strong></p>
+<p>（传输层安全，Transport Layer Security）</p>
+<p>现在主流的版本是 TLS/1.2, 之前的 TLS1.0、TLS1.1 都被认为是不安全的，在不久的将来会被完全淘汰。</p>
+<p><strong>「HTTPS 就是身披了一层 SSL 的 HTTP」</strong>。</p>
+<h3 id="具体区别👇"><a href="#具体区别👇" class="headerlink" title="具体区别👇"></a>具体区别👇</h3><ul>
+<li>HTTP 是明文传输协议，HTTPS 协议是由 SSL+HTTP 协议构建的可进行加密传输、身份认证的网络协议，比 HTTP 协议安全。</li>
+<li>HTTPS比HTTP更加安全，对搜索引擎更友好，利于SEO,谷歌、百度优先索引HTTPS网页。</li>
+<li>HTTPS标准端口443，HTTP标准端口80。</li>
+<li>HTTPS需要用到SSL证书，而HTTP不用。</li>
+</ul>
+<p>我觉得记住以下两点HTTPS主要作用就行👇</p>
+<ol>
+<li>对数据进行加密，并建立一个信息安全通道，来保证传输过程中的数据安全;</li>
+<li>对网站服务器进行真实身份认证。</li>
+</ol>
+<h2 id="正向代理和反向代理"><a href="#正向代理和反向代理" class="headerlink" title="正向代理和反向代理"></a><strong>正向代理和反向代理</strong></h2><h3 id="正向代理"><a href="#正向代理" class="headerlink" title="正向代理"></a>正向代理</h3><p>我们常说的代理也就是指正向代理，正向代理的过程，它隐藏了真实的请求客户端，服务端不知道真实的客户端是谁，客户端请求的服务都被代理服务器代替来请求。</p>
+<h3 id="反向代理"><a href="#反向代理" class="headerlink" title="反向代理"></a>反向代理</h3><p>这种代理模式下，它隐藏了真实的服务端，当我们向一个网站发起请求的时候，背后可能有成千上万台服务器为我们服务，具体是哪一台，我们不清楚，我们只需要知道反向代理服务器是谁就行，而且反向代理服务器会帮我们把请求转发到真实的服务器那里去，一般而言反向代理服务器一般用来实现负载平衡。</p>
+<h2 id="负载平衡的两种实现方式？"><a href="#负载平衡的两种实现方式？" class="headerlink" title="负载平衡的两种实现方式？"></a><strong>负载平衡的两种实现方式？</strong></h2><ul>
+<li>一种是使用反向代理的方式，用户的请求都发送到反向代理服务上，然后由反向代理服务器来转发请求到真实的服务器上，以此来实现集群的负载平衡。</li>
+<li>另一种是 DNS 的方式，DNS 可以用于在冗余的服务器上实现负载平衡。因为现在一般的大型网站使用多台服务器提供服务，因此一个域名可能会对应多个服务器地址。当用户向网站域名请求的时候，DNS 服务器返回这个域名所对应的服务器 IP 地址的集合，但在每个回答中，会循环这些 IP 地址的顺序，用户一般会选择排在前面的地址发送请求。以此将用户的请求均衡的分配到各个不同的服务器上，这样来实现负载均衡。这种方式有一个缺点就是，由于 DNS 服务器中存在缓存，所以有可能一个服务器出现故障后，域名解析仍然返回的是那个 IP 地址，就会造成访问的问题。</li>
 </ul>
 ]]></content>
       <categories>
@@ -2012,6 +2153,34 @@ if(isAndroid){
       </tags>
   </entry>
   <entry>
+    <title>github图片加载问题</title>
+    <url>/2020/02/01/github%E5%9B%BE%E7%89%87%E5%8A%A0%E8%BD%BD%E9%97%AE%E9%A2%98/</url>
+    <content><![CDATA[<p>没有梯子的情况下GitHub中的图片大概率是无法访问的</p>
+<p>修改<code>hosts</code>文件<br>添加以下内容<br>来自 <a href="https://github.com/521xueweihan/GitHub520" target="_blank" rel="noopener">https://github.com/521xueweihan/GitHub520</a></p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"># GitHub520 Host Start</span><br><span class="line">185.199.108.154               github.githubassets.com</span><br><span class="line">199.232.68.133                camo.githubusercontent.com</span><br><span class="line">199.232.68.133                github.map.fastly.net</span><br><span class="line">199.232.69.194                github.global.ssl.fastly.net</span><br><span class="line">140.82.112.4                  github.com</span><br><span class="line">140.82.112.6                  api.github.com</span><br><span class="line">199.232.68.133                raw.githubusercontent.com</span><br><span class="line">199.232.68.133                user-images.githubusercontent.com</span><br><span class="line">199.232.68.133                favicons.githubusercontent.com</span><br><span class="line">199.232.68.133                avatars5.githubusercontent.com</span><br><span class="line">199.232.68.133                avatars4.githubusercontent.com</span><br><span class="line">199.232.68.133                avatars3.githubusercontent.com</span><br><span class="line">199.232.68.133                avatars2.githubusercontent.com</span><br><span class="line">199.232.68.133                avatars1.githubusercontent.com</span><br><span class="line">199.232.68.133                avatars0.githubusercontent.com</span><br><span class="line"></span><br><span class="line"># GitHub520 Host End</span><br></pre></td></tr></table></figure>]]></content>
+      <categories>
+        <category>其它</category>
+      </categories>
+      <tags>
+        <tag>其它</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>微信小程序点击多次navigator跳转无反应</title>
+    <url>/2020/03/27/%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F%E7%82%B9%E5%87%BB%E5%A4%9A%E6%AC%A1navigator%E8%B7%B3%E8%BD%AC%E6%97%A0%E5%8F%8D%E5%BA%94/</url>
+    <content><![CDATA[<p><code>navigator</code>组件<code>open-type</code>属性默认值为<code>navigate</code></p>
+<p>而<code>navigate</code>对应<code>navigateTo</code>方法，可以看到文档中对<code>navigateTo</code>的说明：</p>
+<p>保留当前页面，跳转到应用内的某个页面。但是不能跳到 tabbar 页面。使用 wx.navigateBack 可以返回到原页面。小程序中页面栈<strong>最多十层</strong>。</p>
+<p><strong>将 <code>open-type</code>属性值设为<code>redirect</code>即可</strong></p>
+]]></content>
+      <categories>
+        <category>小程序</category>
+      </categories>
+      <tags>
+        <tag>小程序</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>动态图演示Promises&amp;Async、Await 的过程</title>
     <url>/2020/05/27/%E5%8A%A8%E6%80%81%E5%9B%BE%E6%BC%94%E7%A4%BAPromises&amp;Async%E3%80%81Await%20%E7%9A%84%E8%BF%87%E7%A8%8B/</url>
     <content><![CDATA[<p>原文： <a href="https://www.toutiao.com/i6830934809552880135" target="_blank" rel="noopener">https://www.toutiao.com/i6830934809552880135</a><br>非常好的一篇文章</p>
@@ -2221,21 +2390,6 @@ if(isAndroid){
       </tags>
   </entry>
   <entry>
-    <title>微信小程序点击多次navigator跳转无反应</title>
-    <url>/2020/05/27/%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F%E7%82%B9%E5%87%BB%E5%A4%9A%E6%AC%A1navigator%E8%B7%B3%E8%BD%AC%E6%97%A0%E5%8F%8D%E5%BA%94/</url>
-    <content><![CDATA[<p><code>navigator</code>组件<code>open-type</code>属性默认值为<code>navigate</code></p>
-<p>而<code>navigate</code>对应<code>navigateTo</code>方法，可以看到文档中对<code>navigateTo</code>的说明：</p>
-<p>保留当前页面，跳转到应用内的某个页面。但是不能跳到 tabbar 页面。使用 wx.navigateBack 可以返回到原页面。小程序中页面栈<strong>最多十层</strong>。</p>
-<p><strong>将 <code>open-type</code>属性值设为<code>redirect</code>即可</strong></p>
-]]></content>
-      <categories>
-        <category>小程序</category>
-      </categories>
-      <tags>
-        <tag>小程序</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>a标签target=‘_blank’的安全问题</title>
     <url>/2020/06/12/a%E6%A0%87%E7%AD%BEtarget-%E2%80%98-blank%E2%80%99%E7%9A%84%E5%AE%89%E5%85%A8%E9%97%AE%E9%A2%98/</url>
     <content><![CDATA[<blockquote>
@@ -2377,19 +2531,6 @@ if(isAndroid){
       </tags>
   </entry>
   <entry>
-    <title>github图片加载问题</title>
-    <url>/2020/07/01/github%E5%9B%BE%E7%89%87%E5%8A%A0%E8%BD%BD%E9%97%AE%E9%A2%98/</url>
-    <content><![CDATA[<p>没有梯子的情况下GitHub中的图片大概率是无法访问的</p>
-<p>修改<code>hosts</code>文件<br>添加以下内容<br>来自 <a href="https://github.com/521xueweihan/GitHub520" target="_blank" rel="noopener">https://github.com/521xueweihan/GitHub520</a></p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"># GitHub520 Host Start</span><br><span class="line">185.199.108.154               github.githubassets.com</span><br><span class="line">199.232.68.133                camo.githubusercontent.com</span><br><span class="line">199.232.68.133                github.map.fastly.net</span><br><span class="line">199.232.69.194                github.global.ssl.fastly.net</span><br><span class="line">140.82.112.4                  github.com</span><br><span class="line">140.82.112.6                  api.github.com</span><br><span class="line">199.232.68.133                raw.githubusercontent.com</span><br><span class="line">199.232.68.133                user-images.githubusercontent.com</span><br><span class="line">199.232.68.133                favicons.githubusercontent.com</span><br><span class="line">199.232.68.133                avatars5.githubusercontent.com</span><br><span class="line">199.232.68.133                avatars4.githubusercontent.com</span><br><span class="line">199.232.68.133                avatars3.githubusercontent.com</span><br><span class="line">199.232.68.133                avatars2.githubusercontent.com</span><br><span class="line">199.232.68.133                avatars1.githubusercontent.com</span><br><span class="line">199.232.68.133                avatars0.githubusercontent.com</span><br><span class="line"></span><br><span class="line"># GitHub520 Host End</span><br></pre></td></tr></table></figure>]]></content>
-      <categories>
-        <category>其它</category>
-      </categories>
-      <tags>
-        <tag>其它</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>一张图了解开源许可证</title>
     <url>/2020/07/03/%E4%B8%80%E5%BC%A0%E5%9B%BE%E4%BA%86%E8%A7%A3%E5%BC%80%E6%BA%90%E8%AE%B8%E5%8F%AF%E8%AF%81/</url>
     <content><![CDATA[<p><img data-src="http://cloud.asenper.cn//20200703093606.png" alt=""></p>
@@ -2403,12 +2544,12 @@ if(isAndroid){
   </entry>
   <entry>
     <title>Debug[编译第三方库中的ES6语法]</title>
-    <url>/2020/08/06/Debug-%E7%BC%96%E8%AF%91%E7%AC%AC%E4%B8%89%E6%96%B9%E5%BA%93%E4%B8%AD%E7%9A%84ES6%E8%AF%AD%E6%B3%95/</url>
+    <url>/2020/07/01/Debug-%E7%BC%96%E8%AF%91%E7%AC%AC%E4%B8%89%E6%96%B9%E5%BA%93%E4%B8%AD%E7%9A%84ES6%E8%AF%AD%E6%B3%95/</url>
     <content><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>项目中不是所有包的编译输出都是es5，会导致打包后的项目包含未经编译的ES6语法，使项目在某些低版本手机或浏览器中出先问题。问题的解决方法就是对第三方包进行编译。</p>
 <h2 id="解决方式"><a href="#解决方式" class="headerlink" title="解决方式"></a>解决方式</h2><p>在项目的<code>babel.config.js</code>中按如下的配置：</p>
 <figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="built_in">module</span>.exports = &#123;  </span><br><span class="line">    ...  </span><br><span class="line">    overrides: [</span><br><span class="line">        &#123;</span><br><span class="line">            include: <span class="string">'./node_modules/$&#123;第三方库&#125;'</span>,<span class="comment">// 使用的第三方库</span></span><br><span class="line">            sourceType: <span class="string">'unambiguous'</span></span><br><span class="line">        &#125;  </span><br><span class="line">    ],  </span><br><span class="line">    ...  </span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
 
-<p>相关API </p>
+<p>相关API</p>
 <p><strong><a href="https://babeljs.io/docs/en/options#overrides" target="_blank" rel="noopener">overrides</a></strong> : <a href="https://babeljs.io/docs/en/options#overrides" target="_blank" rel="noopener">https://babeljs.io/docs/en/options#overrides</a><br><strong><a href="https://babeljs.io/docs/en/options#sourcetype" target="_blank" rel="noopener">sourceType</a></strong>: <a href="https://babeljs.io/docs/en/options#sourcetype" target="_blank" rel="noopener">https://babeljs.io/docs/en/options#sourcetype</a></p>
 ]]></content>
       <categories>
@@ -2420,7 +2561,7 @@ if(isAndroid){
   </entry>
   <entry>
     <title>http基础巩固</title>
-    <url>/2020/08/08/http%E5%9F%BA%E7%A1%80%E5%B7%A9%E5%9B%BA/</url>
+    <url>/2020/01/11/http%E5%9F%BA%E7%A1%80%E5%B7%A9%E5%9B%BA/</url>
     <content><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p><code>http</code>基础梳理，各版本的对比，优劣势、缓存策略、请求方法、<code>https</code>和<code>http</code>的区别、正反向代理、负载均衡</p>
 <h2 id="http的定义"><a href="#http的定义" class="headerlink" title="http的定义"></a>http的定义</h2><p>超文本传输协议，<strong>「HTTP 是一个在计算机世界里专门在两点之间传输文字、图片、音频、视频等超文本数据的约定和规范」</strong></p>
 <h3 id="HTTP-特点"><a href="#HTTP-特点" class="headerlink" title="HTTP 特点"></a>HTTP 特点</h3><ol>
