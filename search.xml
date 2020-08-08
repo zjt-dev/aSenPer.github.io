@@ -265,34 +265,6 @@
       </tags>
   </entry>
   <entry>
-    <title>【JS】作用域链与原型链</title>
-    <url>/2019/04/20/%E3%80%90JS%E3%80%91%E4%BD%9C%E7%94%A8%E5%9F%9F%E9%93%BE%E4%B8%8E%E5%8E%9F%E5%9E%8B%E9%93%BE/</url>
-    <content><![CDATA[<p>原文链接 <a href="https://www.cnblogs.com/pssp/p/5204324.html" target="_blank" rel="noopener">https://www.cnblogs.com/pssp/p/5204324.html</a></p>
-<h3 id="什么是作用域链，什么是原型链。"><a href="#什么是作用域链，什么是原型链。" class="headerlink" title="什么是作用域链，什么是原型链。"></a>什么是作用域链，什么是原型链。</h3><p>　　作用域是针对变量的，比如我们创建了一个函数，函数里面又包含了一个函数，那么现在就有三个作用域</p>
-<p>　　全局作用域==&gt;函数1作用域==&gt;函数2作用域</p>
-<p>作用域的特点就是，先在自己的变量范围中查找，如果找不到，就会沿着作用域往上找。</p>
-<p>如：</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> a = <span class="number">1</span>;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">b</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="keyword">var</span> a = <span class="number">2</span>;</span><br><span class="line">    <span class="function"><span class="keyword">function</span> <span class="title">c</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">        <span class="keyword">var</span> a = <span class="number">3</span>;</span><br><span class="line">        <span class="built_in">console</span>.log(a);</span><br><span class="line">    &#125;</span><br><span class="line">    c();</span><br><span class="line">&#125;</span><br><span class="line">b();</span><br></pre></td></tr></table></figure>
-
-
-
-<p>最后打印出来的是3，因为执行函数c（）的时候它在自己的范围内找到了变量a所以就不会越上继续查找，如果在函数c()中没有找到则会继续向上找，一直会找到全局变量a，这个查找的过程就叫作用域链。</p>
-<p>不知道你有没有疑问，函数c为什么可以在函数b中查找变量a，因为函数c是在函数b中创建的，也就是说函数c的作用域包括了函数b的作用域，当然也包括了全局作用域，但是函数b不能向函数c中查找变量，因为作用域只会向上查找。</p>
-<p>那么什么是原型链呢？</p>
-<p>　　原型链是针对构造函数的，比如我先创建了一个函数，然后通过一个变量new了这个函数，那么这个被new出来的函数就会继承创建出来的那个函数的属性，然后如果我访问new出来的这个函数的某个属性，但是我并没有在这个new出来的函数中定义这个变量，那么它就会往上（向创建出它的函数中）查找，这个查找的过程就叫做原型链。</p>
-<p>　　Object ==&gt; 构造函数1 ==&gt; 构造函数2</p>
-<p>　　就和css中的继承一样，如果自身没有定义就会继承父元素的样式。</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">a</span>(<span class="params"></span>)</span>&#123;&#125;;</span><br><span class="line">a.prototype.name = <span class="string">"追梦子"</span>;</span><br><span class="line"><span class="keyword">var</span> b = <span class="keyword">new</span> a();</span><br><span class="line"><span class="built_in">console</span>.log(b.name); <span class="comment">//追梦子</span></span><br></pre></td></tr></table></figure>
-
-]]></content>
-      <categories>
-        <category>JS</category>
-      </categories>
-      <tags>
-        <tag>JS</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>【JS】promise</title>
     <url>/2019/04/20/%E3%80%90JS%E3%80%91promise/</url>
     <content><![CDATA[<h3 id="八段代码彻底掌握-Promise"><a href="#八段代码彻底掌握-Promise" class="headerlink" title="八段代码彻底掌握 Promise"></a>八段代码彻底掌握 Promise</h3><h3 id="原文链接-https-juejin-im-post-597724c26fb9a06bb75260e8"><a href="#原文链接-https-juejin-im-post-597724c26fb9a06bb75260e8" class="headerlink" title="原文链接  https://juejin.im/post/597724c26fb9a06bb75260e8"></a>原文链接  <a href="https://juejin.im/post/597724c26fb9a06bb75260e8" target="_blank" rel="noopener">https://juejin.im/post/597724c26fb9a06bb75260e8</a></h3><h3 id="1-Promise的立即执行性"><a href="#1-Promise的立即执行性" class="headerlink" title="1.Promise的立即执行性"></a>1.Promise的立即执行性</h3><figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> p = <span class="keyword">new</span> <span class="built_in">Promise</span>(<span class="function"><span class="keyword">function</span>(<span class="params">resolve, reject</span>)</span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">"create a promise"</span>);</span><br><span class="line">  resolve(<span class="string">"success"</span>);</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">"after new Promise"</span>);</span><br><span class="line"></span><br><span class="line">p.then(<span class="function"><span class="keyword">function</span>(<span class="params">value</span>)</span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(value);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
@@ -359,15 +331,42 @@
       </tags>
   </entry>
   <entry>
-    <title>【Vue】vuecli3 favicon 的修改</title>
-    <url>/2019/04/20/%E3%80%90Vue%E3%80%91vuecli3%20favicon%20%E7%9A%84%E4%BF%AE%E6%94%B9/</url>
-    <content><![CDATA[<p>在vue.config.js中配置pwa，重跑下项目就行了 // 以下是pwa配置</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">pwa: &#123;</span><br><span class="line">     iconPaths: &#123;</span><br><span class="line">       favicon32     : <span class="string">'faviconfc.ico'</span>,</span><br><span class="line">       favicon16     : <span class="string">'faviconfc.ico'</span>,</span><br><span class="line">       appleTouchIcon: <span class="string">'faviconfc.ico'</span>,</span><br><span class="line">       maskIcon      : <span class="string">'faviconfc.ico'</span>,</span><br><span class="line">       msTileImage   : <span class="string">'faviconfc.ico'</span> &#125;</span><br><span class="line">   &#125;,</span><br></pre></td></tr></table></figure>]]></content>
+    <title>【JS】作用域链与原型链</title>
+    <url>/2019/04/20/%E3%80%90JS%E3%80%91%E4%BD%9C%E7%94%A8%E5%9F%9F%E9%93%BE%E4%B8%8E%E5%8E%9F%E5%9E%8B%E9%93%BE/</url>
+    <content><![CDATA[<p>原文链接 <a href="https://www.cnblogs.com/pssp/p/5204324.html" target="_blank" rel="noopener">https://www.cnblogs.com/pssp/p/5204324.html</a></p>
+<h3 id="什么是作用域链，什么是原型链。"><a href="#什么是作用域链，什么是原型链。" class="headerlink" title="什么是作用域链，什么是原型链。"></a>什么是作用域链，什么是原型链。</h3><p>　　作用域是针对变量的，比如我们创建了一个函数，函数里面又包含了一个函数，那么现在就有三个作用域</p>
+<p>　　全局作用域==&gt;函数1作用域==&gt;函数2作用域</p>
+<p>作用域的特点就是，先在自己的变量范围中查找，如果找不到，就会沿着作用域往上找。</p>
+<p>如：</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> a = <span class="number">1</span>;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">b</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="keyword">var</span> a = <span class="number">2</span>;</span><br><span class="line">    <span class="function"><span class="keyword">function</span> <span class="title">c</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">        <span class="keyword">var</span> a = <span class="number">3</span>;</span><br><span class="line">        <span class="built_in">console</span>.log(a);</span><br><span class="line">    &#125;</span><br><span class="line">    c();</span><br><span class="line">&#125;</span><br><span class="line">b();</span><br></pre></td></tr></table></figure>
+
+
+
+<p>最后打印出来的是3，因为执行函数c（）的时候它在自己的范围内找到了变量a所以就不会越上继续查找，如果在函数c()中没有找到则会继续向上找，一直会找到全局变量a，这个查找的过程就叫作用域链。</p>
+<p>不知道你有没有疑问，函数c为什么可以在函数b中查找变量a，因为函数c是在函数b中创建的，也就是说函数c的作用域包括了函数b的作用域，当然也包括了全局作用域，但是函数b不能向函数c中查找变量，因为作用域只会向上查找。</p>
+<p>那么什么是原型链呢？</p>
+<p>　　原型链是针对构造函数的，比如我先创建了一个函数，然后通过一个变量new了这个函数，那么这个被new出来的函数就会继承创建出来的那个函数的属性，然后如果我访问new出来的这个函数的某个属性，但是我并没有在这个new出来的函数中定义这个变量，那么它就会往上（向创建出它的函数中）查找，这个查找的过程就叫做原型链。</p>
+<p>　　Object ==&gt; 构造函数1 ==&gt; 构造函数2</p>
+<p>　　就和css中的继承一样，如果自身没有定义就会继承父元素的样式。</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">a</span>(<span class="params"></span>)</span>&#123;&#125;;</span><br><span class="line">a.prototype.name = <span class="string">"追梦子"</span>;</span><br><span class="line"><span class="keyword">var</span> b = <span class="keyword">new</span> a();</span><br><span class="line"><span class="built_in">console</span>.log(b.name); <span class="comment">//追梦子</span></span><br></pre></td></tr></table></figure>
+
+]]></content>
       <categories>
-        <category>Vue</category>
+        <category>JS</category>
       </categories>
       <tags>
-        <tag>Vue</tag>
+        <tag>JS</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>【JS】监听页面的后退返回(移动端PC端)</title>
+    <url>/2019/04/18/%E3%80%90JS%E3%80%91%E7%9B%91%E5%90%AC%E9%A1%B5%E9%9D%A2%E7%9A%84%E5%90%8E%E9%80%80%E8%BF%94%E5%9B%9E(%E7%A7%BB%E5%8A%A8%E7%AB%AFPC%E7%AB%AF)/</url>
+    <content><![CDATA[<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">$(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123; <span class="function"><span class="keyword">function</span> <span class="title">pushHistory</span>(<span class="params"></span>) </span>&#123; <span class="keyword">var</span> state = &#123;</span><br><span class="line">            title: <span class="string">"title"</span>,</span><br><span class="line">            url: <span class="string">"#"</span> &#125;;</span><br><span class="line">        <span class="built_in">window</span>.history.pushState(state, <span class="string">"title"</span>, <span class="string">"#"</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    pushHistory();</span><br><span class="line">    <span class="built_in">window</span>.addEventListener(<span class="string">"popstate"</span>, <span class="function"><span class="keyword">function</span>(<span class="params">e</span>) </span>&#123;</span><br><span class="line">        alert(<span class="string">"我监听到了浏览器的返回按钮事件啦"</span>); <span class="comment">// 根据自己的需求实现自己的功能</span></span><br><span class="line">    &#125;, <span class="literal">false</span>);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>]]></content>
+      <categories>
+        <category>JS</category>
+      </categories>
+      <tags>
+        <tag>JS</tag>
       </tags>
   </entry>
   <entry>
@@ -477,6 +476,18 @@
       </tags>
   </entry>
   <entry>
+    <title>【Vue】vuecli3 favicon 的修改</title>
+    <url>/2019/04/20/%E3%80%90Vue%E3%80%91vuecli3%20favicon%20%E7%9A%84%E4%BF%AE%E6%94%B9/</url>
+    <content><![CDATA[<p>在vue.config.js中配置pwa，重跑下项目就行了 // 以下是pwa配置</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">pwa: &#123;</span><br><span class="line">     iconPaths: &#123;</span><br><span class="line">       favicon32     : <span class="string">'faviconfc.ico'</span>,</span><br><span class="line">       favicon16     : <span class="string">'faviconfc.ico'</span>,</span><br><span class="line">       appleTouchIcon: <span class="string">'faviconfc.ico'</span>,</span><br><span class="line">       maskIcon      : <span class="string">'faviconfc.ico'</span>,</span><br><span class="line">       msTileImage   : <span class="string">'faviconfc.ico'</span> &#125;</span><br><span class="line">   &#125;,</span><br></pre></td></tr></table></figure>]]></content>
+      <categories>
+        <category>Vue</category>
+      </categories>
+      <tags>
+        <tag>Vue</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>【Vue】关于 vue动态绑定class的几种方式</title>
     <url>/2019/04/20/%E3%80%90Vue%E3%80%91%E5%85%B3%E4%BA%8E%20vue%E5%8A%A8%E6%80%81%E7%BB%91%E5%AE%9Aclass%E7%9A%84%E5%87%A0%E7%A7%8D%E6%96%B9%E5%BC%8F/</url>
     <content><![CDATA[<p>###对象方法<br>-最简单的绑定（这里的active加不加单引号都可以，以下也一样都能渲染）</p>
@@ -503,17 +514,6 @@
       </categories>
       <tags>
         <tag>Vue</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>【JS】监听页面的后退返回(移动端PC端)</title>
-    <url>/2019/04/18/%E3%80%90JS%E3%80%91%E7%9B%91%E5%90%AC%E9%A1%B5%E9%9D%A2%E7%9A%84%E5%90%8E%E9%80%80%E8%BF%94%E5%9B%9E(%E7%A7%BB%E5%8A%A8%E7%AB%AFPC%E7%AB%AF)/</url>
-    <content><![CDATA[<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">$(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123; <span class="function"><span class="keyword">function</span> <span class="title">pushHistory</span>(<span class="params"></span>) </span>&#123; <span class="keyword">var</span> state = &#123;</span><br><span class="line">            title: <span class="string">"title"</span>,</span><br><span class="line">            url: <span class="string">"#"</span> &#125;;</span><br><span class="line">        <span class="built_in">window</span>.history.pushState(state, <span class="string">"title"</span>, <span class="string">"#"</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    pushHistory();</span><br><span class="line">    <span class="built_in">window</span>.addEventListener(<span class="string">"popstate"</span>, <span class="function"><span class="keyword">function</span>(<span class="params">e</span>) </span>&#123;</span><br><span class="line">        alert(<span class="string">"我监听到了浏览器的返回按钮事件啦"</span>); <span class="comment">// 根据自己的需求实现自己的功能</span></span><br><span class="line">    &#125;, <span class="literal">false</span>);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>]]></content>
-      <categories>
-        <category>JS</category>
-      </categories>
-      <tags>
-        <tag>JS</tag>
       </tags>
   </entry>
   <entry>
@@ -941,6 +941,25 @@ if(isAndroid){
       </tags>
   </entry>
   <entry>
+    <title>内蒙古之旅</title>
+    <url>/2019/07/14/%E5%86%85%E8%92%99%E5%8F%A4%E4%B9%8B%E6%97%85/</url>
+    <content><![CDATA[<p>内蒙出差，出来放松下，好多第一见到的东西<br>沙漠啦，草原啦，跑马场啦，还有大电扇啦 🤭 (●’◡’●)</p>
+<p><img data-src="http://cloud.asenper.cn//20200613191858.jpg" alt="仙沙岛"><br>哈哈哈哈<br><img data-src="http://cloud.asenper.cn//20200613195203.jpg" alt="内蒙古鄂尔多斯响沙湾"><br><img data-src="http://cloud.asenper.cn//20200613195241.jpg" alt="内蒙古鄂尔多斯响沙湾"><br><img data-src="http://cloud.asenper.cn//20200613195316.jpg" alt="内蒙古鄂尔多斯响沙湾"><br><img data-src="http://common.msmk.tech/IMG_20190714_120831.jpg" alt="内蒙古鄂尔多斯响沙湾"><br><img data-src="http://common.msmk.tech/IMG_20190714_122822.jpg" alt="内蒙古鄂尔多斯响沙湾"><br><img data-src="http://common.msmk.tech/IMG_20190714_123545.jpg" alt="内蒙古鄂尔多斯响沙湾"><br><img data-src="http://common.msmk.tech/IMG_20190714_131239.jpg" alt="内蒙古鄂尔多斯响沙湾"><br><img data-src="http://cloud.asenper.cn//20200613192909.jpg" alt="杂技表演"><br><img data-src="http://cloud.asenper.cn//20200613192717.jpg" alt="杂技表演"><br><img data-src="http://common.msmk.tech/IMG_20190713_184312.jpg" alt="呼和浩特成吉思汗公园"><br><img data-src="http://common.msmk.tech/IMG_20190713_184902.jpg" alt="呼和浩特成吉思汗公园"><br><img data-src="http://cloud.asenper.cn//20200613194650.jpg" alt="呼和浩特跑马场"><br><img data-src="http://common.msmk.tech/IMG_20190713_194229.jpg" alt="呼和浩特跑马场"><br><img data-src="http://cloud.asenper.cn/6e58679dbcecd/6e58679dbcecd.jpg" alt="锡林郭勒大草原"><br><img data-src="http://cloud.asenper.cn/fd4ab180640fd/fd4ab180640fd.jpg" alt="锡林郭勒大草原"><br><img data-src="http://cloud.asenper.cn/d65a42aa60a2b/d65a42aa60a2b.jpg" alt="锡林郭勒大草原"><br><img data-src="http://cloud.asenper.cn/b370731611742/b370731611742.jpg" alt="锡林郭勒大草原"><br><img data-src="http://cloud.asenper.cn/5869f90254fca/5869f90254fca.jpg" alt="这大草原跟我想象的不太一样啊"><br><img data-src="http://cloud.asenper.cn/4ec97e8a2b5d9/4ec97e8a2b5d9.jpg" alt="锡林郭勒大草原"><br><img data-src="http://cloud.asenper.cn/8617ae239e776/8617ae239e776.jpg" alt="锡林郭勒大草原"><br><img data-src="http://cloud.asenper.cn/7992f6b75b17c/7992f6b75b17c.jpg" alt="锡林郭勒大草原"></p>
+<video src="http://cloud.asenper.cn/VID_20190710_121640.mp4">
+    your browser does not support the video tag
+</video>
+<video src="http://cloud.asenper.cn/VID_20190714_112938.mp4">
+    your browser does not support the video tag
+</video>
+<video src="http://cloud.asenper.cn/VID_20190714_115240.mp4">
+    your browser does not support the video tag
+</video>
+<video src="http://cloud.asenper.cn/VID_20190714_133721.mp4">
+    your browser does not support the video tag
+</video>
+]]></content>
+  </entry>
+  <entry>
     <title>【vue】代理方式跨域</title>
     <url>/2019/07/20/%E3%80%90vue%E3%80%91%E4%BB%A3%E7%90%86%E6%96%B9%E5%BC%8F%E8%B7%A8%E5%9F%9F/</url>
     <content><![CDATA[<h3 id="正向代理与反向代理"><a href="#正向代理与反向代理" class="headerlink" title="正向代理与反向代理"></a>正向代理与反向代理</h3><p>前端使用代理主要用于跨域请求，</p>
@@ -967,25 +986,6 @@ if(isAndroid){
       <tags>
         <tag>Vue</tag>
       </tags>
-  </entry>
-  <entry>
-    <title>内蒙古之旅</title>
-    <url>/2019/07/14/%E5%86%85%E8%92%99%E5%8F%A4%E4%B9%8B%E6%97%85/</url>
-    <content><![CDATA[<p>内蒙出差，出来放松下，好多第一见到的东西<br>沙漠啦，草原啦，跑马场啦，还有大电扇啦 🤭 (●’◡’●)</p>
-<p><img data-src="http://cloud.asenper.cn//20200613191858.jpg" alt="仙沙岛"><br>哈哈哈哈<br><img data-src="http://cloud.asenper.cn//20200613195203.jpg" alt="内蒙古鄂尔多斯响沙湾"><br><img data-src="http://cloud.asenper.cn//20200613195241.jpg" alt="内蒙古鄂尔多斯响沙湾"><br><img data-src="http://cloud.asenper.cn//20200613195316.jpg" alt="内蒙古鄂尔多斯响沙湾"><br><img data-src="http://common.msmk.tech/IMG_20190714_120831.jpg" alt="内蒙古鄂尔多斯响沙湾"><br><img data-src="http://common.msmk.tech/IMG_20190714_122822.jpg" alt="内蒙古鄂尔多斯响沙湾"><br><img data-src="http://common.msmk.tech/IMG_20190714_123545.jpg" alt="内蒙古鄂尔多斯响沙湾"><br><img data-src="http://common.msmk.tech/IMG_20190714_131239.jpg" alt="内蒙古鄂尔多斯响沙湾"><br><img data-src="http://cloud.asenper.cn//20200613192909.jpg" alt="杂技表演"><br><img data-src="http://cloud.asenper.cn//20200613192717.jpg" alt="杂技表演"><br><img data-src="http://common.msmk.tech/IMG_20190713_184312.jpg" alt="呼和浩特成吉思汗公园"><br><img data-src="http://common.msmk.tech/IMG_20190713_184902.jpg" alt="呼和浩特成吉思汗公园"><br><img data-src="http://cloud.asenper.cn//20200613194650.jpg" alt="呼和浩特跑马场"><br><img data-src="http://common.msmk.tech/IMG_20190713_194229.jpg" alt="呼和浩特跑马场"><br><img data-src="http://cloud.asenper.cn/6e58679dbcecd/6e58679dbcecd.jpg" alt="锡林郭勒大草原"><br><img data-src="http://cloud.asenper.cn/fd4ab180640fd/fd4ab180640fd.jpg" alt="锡林郭勒大草原"><br><img data-src="http://cloud.asenper.cn/d65a42aa60a2b/d65a42aa60a2b.jpg" alt="锡林郭勒大草原"><br><img data-src="http://cloud.asenper.cn/b370731611742/b370731611742.jpg" alt="锡林郭勒大草原"><br><img data-src="http://cloud.asenper.cn/5869f90254fca/5869f90254fca.jpg" alt="这大草原跟我想象的不太一样啊"><br><img data-src="http://cloud.asenper.cn/4ec97e8a2b5d9/4ec97e8a2b5d9.jpg" alt="锡林郭勒大草原"><br><img data-src="http://cloud.asenper.cn/8617ae239e776/8617ae239e776.jpg" alt="锡林郭勒大草原"><br><img data-src="http://cloud.asenper.cn/7992f6b75b17c/7992f6b75b17c.jpg" alt="锡林郭勒大草原"></p>
-<video src="http://cloud.asenper.cn/VID_20190710_121640.mp4">
-    your browser does not support the video tag
-</video>
-<video src="http://cloud.asenper.cn/VID_20190714_112938.mp4">
-    your browser does not support the video tag
-</video>
-<video src="http://cloud.asenper.cn/VID_20190714_115240.mp4">
-    your browser does not support the video tag
-</video>
-<video src="http://cloud.asenper.cn/VID_20190714_133721.mp4">
-    your browser does not support the video tag
-</video>
-]]></content>
   </entry>
   <entry>
     <title>宝塔webhooks插件清除日志</title>
@@ -1231,6 +1231,104 @@ if(isAndroid){
       </tags>
   </entry>
   <entry>
+    <title>创建对象的几种方式</title>
+    <url>/2020/01/13/%E5%88%9B%E5%BB%BA%E5%AF%B9%E8%B1%A1%E7%9A%84%E5%87%A0%E7%A7%8D%E6%96%B9%E5%BC%8F/</url>
+    <content><![CDATA[<h2 id="对象"><a href="#对象" class="headerlink" title="对象"></a>对象</h2><p>对象的属性类型分为：<strong>数据属性</strong> 和 <strong>访问器属性</strong></p>
+<h3 id="数据属性"><a href="#数据属性" class="headerlink" title="数据属性"></a>数据属性</h3><p>四个描述其行为的特性：</p>
+<ul>
+<li><p><strong>configurable</strong>：默认值为 true；表示能否delete该属性</p>
+</li>
+<li><p><strong>enumerable</strong>：默认值为true；表示能否通过for-in循环返回该属性；是否是可枚举的</p>
+</li>
+<li><p><strong>writable</strong>：默认值为true；表示能否修改该属性</p>
+</li>
+<li><p><strong>value</strong>：表示该属性的值</p>
+</li>
+</ul>
+<h3 id="访问器属性"><a href="#访问器属性" class="headerlink" title="访问器属性"></a>访问器属性</h3><p>相比数据属性，没有<em>writable</em>和<em>value</em>特性；而新增了<strong>get</strong>和<strong>set</strong>方法</p>
+<ul>
+<li><p><strong>get</strong>：读取属性值</p>
+</li>
+<li><p><strong>set</strong>：设置属性值</p>
+<p><strong>访问器属性不能直接定义</strong>，必须使用 <strong>Object.defineProperty()</strong>来定义.该方法接受三个参数，1：属性所在的对象；2：属性；3：描述属性的特性</p>
+<p>例如：</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> book = &#123;</span><br><span class="line"> _year: <span class="number">2004</span>,</span><br><span class="line"> edition: <span class="number">1</span></span><br><span class="line">&#125;;</span><br><span class="line"><span class="built_in">Object</span>.defineProperty(book, <span class="string">"year"</span>, &#123;</span><br><span class="line"> <span class="keyword">get</span>: function()&#123;</span><br><span class="line">   <span class="keyword">return</span> <span class="keyword">this</span>._year;</span><br><span class="line"> &#125;,</span><br><span class="line"> <span class="keyword">set</span>: function(newValue)&#123;</span><br><span class="line">   <span class="keyword">if</span> (newValue &gt; <span class="number">2004</span>) &#123;</span><br><span class="line">     <span class="keyword">this</span>._year = newValue;</span><br><span class="line">     <span class="keyword">this</span>.edition += newValue - <span class="number">2004</span>;</span><br><span class="line">   &#125;</span><br><span class="line"> &#125;</span><br><span class="line">&#125;);</span><br><span class="line">book.year = <span class="number">2005</span>;</span><br><span class="line">alert(book.edition);</span><br></pre></td></tr></table></figure>
+
+</li>
+</ul>
+<h3 id="Object-defineProperties"><a href="#Object-defineProperties" class="headerlink" title="Object.defineProperties"></a>Object.defineProperties</h3><p>定义多个属性</p>
+  <figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> book = &#123;&#125;;</span><br><span class="line"><span class="built_in">Object</span>.defineProperties(book, &#123;</span><br><span class="line">  _year: &#123;</span><br><span class="line">   value: <span class="number">2004</span></span><br><span class="line">  &#125;,</span><br><span class="line">  edition: &#123;</span><br><span class="line">   value: <span class="number">1</span></span><br><span class="line">  &#125;,</span><br><span class="line">  year: &#123;</span><br><span class="line">    <span class="keyword">get</span>: function()&#123;</span><br><span class="line">      <span class="keyword">return</span> <span class="keyword">this</span>._year;</span><br><span class="line">    &#125;,</span><br><span class="line">    <span class="keyword">set</span>: function(newValue)&#123;</span><br><span class="line">     <span class="keyword">if</span> (newValue &gt; <span class="number">2004</span>) &#123;</span><br><span class="line">       <span class="keyword">this</span>._year = newValue;</span><br><span class="line">       <span class="keyword">this</span>.edition += newValue - <span class="number">2004</span>;</span><br><span class="line">     &#125;</span><br><span class="line">   &#125;</span><br><span class="line"> &#125;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
+<h3 id="Object-getOwnPropertyDescriptor"><a href="#Object-getOwnPropertyDescriptor" class="headerlink" title="Object.getOwnPropertyDescriptor()"></a>Object.getOwnPropertyDescriptor()</h3><p>获取给定属性的描述符。</p>
+<p>接收两个参数：属性所在的对象和要读取其描述符的属性名称</p>
+<h2 id="创建对象"><a href="#创建对象" class="headerlink" title="创建对象"></a>创建对象</h2><h3 id="工厂模式"><a href="#工厂模式" class="headerlink" title="工厂模式"></a>工厂模式</h3><figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">createPerson</span>(<span class="params">name, age, job</span>)</span>&#123;</span><br><span class="line">   <span class="keyword">var</span> o = <span class="keyword">new</span> <span class="built_in">Object</span>();</span><br><span class="line">   o.name = name;</span><br><span class="line">   o.age = age;</span><br><span class="line">   o.job = job;</span><br><span class="line">   o.sayName = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">     alert(<span class="keyword">this</span>.name);</span><br><span class="line">   &#125;;</span><br><span class="line">   <span class="keyword">return</span> o;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> person1 = createPerson(<span class="string">"Nicholas"</span>, <span class="number">29</span>, <span class="string">"Software Engineer"</span>);</span><br><span class="line"><span class="keyword">var</span> person2 = createPerson(<span class="string">"Greg"</span>, <span class="number">27</span>, <span class="string">"Doctor"</span>);</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>优点：解决了创建多个相似对象的问题</li>
+<li>缺点：没有解决对象识别的问题</li>
+</ul>
+<h3 id="构造函数模式"><a href="#构造函数模式" class="headerlink" title="构造函数模式"></a>构造函数模式</h3><figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Person</span>(<span class="params">name, age, job</span>)</span>&#123;</span><br><span class="line">   <span class="keyword">this</span>.name = name;</span><br><span class="line">   <span class="keyword">this</span>.age = age;</span><br><span class="line">   <span class="keyword">this</span>.job = job;</span><br><span class="line">   <span class="keyword">this</span>.sayName = sayName;</span><br><span class="line">   <span class="keyword">this</span>.sayBay = sayBay;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">sayName</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">  alert(<span class="keyword">this</span>.name)</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">sayBay</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">  alert(<span class="string">'bay'</span>)</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> person1 = <span class="keyword">new</span> Person(<span class="string">"Nicholas"</span>, <span class="number">29</span>, <span class="string">"Software Engineer"</span>);</span><br><span class="line"><span class="keyword">var</span> person2 = <span class="keyword">new</span> Person(<span class="string">"Greg"</span>, <span class="number">27</span>, <span class="string">"Doctor"</span>);</span><br></pre></td></tr></table></figure>
+
+<p>与 <strong>工厂模式</strong>相比：</p>
+<ul>
+<li>没有显式的创建对象</li>
+<li>直接将属性和方法赋值给了this对象</li>
+<li>没有return</li>
+</ul>
+<h4 id="new操作符完成的事"><a href="#new操作符完成的事" class="headerlink" title="new操作符完成的事"></a><strong>new</strong>操作符完成的事</h4><ol>
+<li>创建一个新的对象</li>
+<li>将构造函数的作用域指向该对象</li>
+<li>为该新对象添加属性</li>
+<li>返回新对象</li>
+</ol>
+<p>优点：可以将它的实例标识为一种特定的类型</p>
+<p>缺点：从上面的代码来看，在全局作用域中定义的函数实际上只能被某个对象调用；如果对象需要定义很多方</p>
+<p>法，那么就要定义很多个全局函数</p>
+<h4 id="作用域安全的构造函数"><a href="#作用域安全的构造函数" class="headerlink" title="作用域安全的构造函数"></a>作用域安全的构造函数</h4><p>上述函数直接调用 Person(),会将 this 映射到 window 上可能会造成属性覆盖的问题，为了解决该问题，可以在该方法中加一层判断，先确认 this 对象是否是正确类型的实例</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Person</span>(<span class="params">name, age, job</span>)</span>&#123; </span><br><span class="line"> <span class="keyword">if</span> (<span class="keyword">this</span> <span class="keyword">instanceof</span> Person)&#123; </span><br><span class="line">   <span class="keyword">this</span>.name = name; </span><br><span class="line">   <span class="keyword">this</span>.age = age; </span><br><span class="line">   <span class="keyword">this</span>.job = job; </span><br><span class="line"> &#125; <span class="keyword">else</span> &#123; </span><br><span class="line"> 	<span class="keyword">return</span> <span class="keyword">new</span> Person(name, age, job); </span><br><span class="line"> &#125; </span><br><span class="line">&#125; </span><br><span class="line"><span class="keyword">var</span> person1 = Person(<span class="string">"Nicholas"</span>, <span class="number">29</span>, <span class="string">"Software Engineer"</span>); </span><br><span class="line">alert(<span class="built_in">window</span>.name); <span class="comment">//"" </span></span><br><span class="line">alert(person1.name); <span class="comment">//"Nicholas" </span></span><br><span class="line"><span class="keyword">var</span> person2 = <span class="keyword">new</span> Person(<span class="string">"Shelby"</span>, <span class="number">34</span>, <span class="string">"Ergonomist"</span>); </span><br><span class="line">alert(person2.name); <span class="comment">//"Shelby"</span></span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="原型模式"><a href="#原型模式" class="headerlink" title="原型模式"></a>原型模式</h3><figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Person</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">&#125;</span><br><span class="line">Person.prototype.name = <span class="string">"Nicholas"</span>;</span><br><span class="line">Person.prototype.age = <span class="number">29</span>;</span><br><span class="line">Person.prototype.job = <span class="string">"Software Engineer"</span>;</span><br><span class="line">Person.prototype.sayName = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line"> alert(<span class="keyword">this</span>.name);</span><br><span class="line">&#125;;</span><br><span class="line"><span class="keyword">var</span> person1 = <span class="keyword">new</span> Person();</span><br><span class="line">person1.sayName(); <span class="comment">//"Nicholas"</span></span><br><span class="line"><span class="keyword">var</span> person2 = <span class="keyword">new</span> Person();</span><br><span class="line">person2.sayName(); <span class="comment">//"Nicholas"</span></span><br><span class="line">alert(person1.sayName == person2.sayName); <span class="comment">//true</span></span><br></pre></td></tr></table></figure>
+
+<p>相较构造函数：无需传递初始化参数</p>
+<p>缺点：属性共享；对于引用数据类型：改变其值；那么所有实例的该属性都会发生改变</p>
+<p><strong>无论什么时候，只要创建了一个新函数，就会根据一组特定的规则为该函数创建一个 prototype属性，这个属性指向函数的原型对象。在默认情况下，所有原型对象都会自动获得一个 <code>constructor</code>（构造函数）属性，这个属性包含一个指向<code>prototype</code> 属性所在函数的指针。就拿前面的例子来说，<code>Person.prototype. constructor</code> 指向 <code>Person</code>。而通过这个构造函数，我们还可继续为原型对象添加其他属性和方法。</strong></p>
+<p><strong>当调用构造函数创建一个新实例后，该实例的内部将包含一个指针（内部属性），指向构造函数的原型对象；即<code>__proto__</code></strong></p>
+<p>可以通过 isPrototypeOf()方法来确定是否是该对象的实例</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">Person.prototype.isPrototype(person1)</span><br></pre></td></tr></table></figure>
+
+<p>Object.getPrototypeOf(  实例  ) 可以确定一个实例的原型对象</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="built_in">Object</span>.getPrototypeOf( person1 ) == Person.prototype</span><br></pre></td></tr></table></figure>
+
+<p>   使用 hasOwnProperty()方法可以检测一个属性是存在于实例中，还是存在于原型中</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">实例对象.hasOwnProperty(<span class="string">'name'</span>) <span class="comment">//true 就是存在于实例中，false就是存在于原型中</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="in操作符"><a href="#in操作符" class="headerlink" title="in操作符"></a>in操作符</h3><p>有两种方式使用 in 操作符：单独使用和在 for-in 循环中使用。在单独使用时，in 操作符会在通过对象能够访问给定属性时返回 true，无论该属性存在于实例中还是原型中。</p>
+<p>在使用 for-in 循环时，返回的是所有能够通过对象访问的、可枚举的（enumerated）属性，其中既包括存在于实例中的属性，也包括存在于原型中的属性</p>
+<p>可以通过 <strong>Object.keys()</strong> 取得对象上所有可枚举的实例属性，接收一个对象作为参数，返回一个包含所有可枚举属性的字符串数组</p>
+<h3 id="构造函数、原型和实例的关系"><a href="#构造函数、原型和实例的关系" class="headerlink" title="构造函数、原型和实例的关系"></a>构造函数、原型和实例的关系</h3><p><strong>每个构造函数都有一个原型对象，原型对象都包含一个指向构造函数的指针，而实例都包含一个指向原型对象的内部指针</strong></p>
+<h3 id="组合使用构造函数模式和原型模式"><a href="#组合使用构造函数模式和原型模式" class="headerlink" title="组合使用构造函数模式和原型模式"></a>组合使用构造函数模式和原型模式</h3><figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Person</span>(<span class="params">name, age, job</span>)</span>&#123;</span><br><span class="line">  <span class="comment">//实例自身的属性</span></span><br><span class="line"> <span class="keyword">this</span>.name = name;</span><br><span class="line"> <span class="keyword">this</span>.age = age;</span><br><span class="line"> <span class="keyword">this</span>.job = job;</span><br><span class="line"> <span class="keyword">this</span>.friends = [<span class="string">"Shelby"</span>, <span class="string">"Court"</span>];</span><br><span class="line">&#125;</span><br><span class="line">Person.prototype = &#123;</span><br><span class="line">  <span class="comment">//实例共享的属性和方法</span></span><br><span class="line"> <span class="keyword">constructor</span> : Person,</span><br><span class="line"> sayName : function()&#123;</span><br><span class="line"> alert(<span class="keyword">this</span>.name);</span><br><span class="line"> &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> person1 = <span class="keyword">new</span> Person(<span class="string">"Nicholas"</span>, <span class="number">29</span>, <span class="string">"Software Engineer"</span>);</span><br><span class="line"><span class="keyword">var</span> person2 = <span class="keyword">new</span> Person(<span class="string">"Greg"</span>, <span class="number">27</span>, <span class="string">"Doctor"</span>);</span><br><span class="line">person1.friends.push(<span class="string">"Van"</span>);</span><br><span class="line">alert(person1.friends); <span class="comment">//"Shelby,Count,Van"</span></span><br><span class="line">alert(person2.friends); <span class="comment">//"Shelby,Count"</span></span><br><span class="line">alert(person1.friends === person2.friends); <span class="comment">//false</span></span><br><span class="line">alert(person1.sayName === person2.sayName); <span class="comment">//true</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="动态原型模式"><a href="#动态原型模式" class="headerlink" title="动态原型模式"></a>动态原型模式</h3><figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Person</span>(<span class="params">name, age, job</span>)</span>&#123;</span><br><span class="line">   <span class="comment">//属性</span></span><br><span class="line">   <span class="keyword">this</span>.name = name;</span><br><span class="line">   <span class="keyword">this</span>.age = age;</span><br><span class="line">   <span class="keyword">this</span>.job = job;</span><br><span class="line">    <span class="comment">//方法</span></span><br><span class="line">   <span class="keyword">if</span> (<span class="keyword">typeof</span> <span class="keyword">this</span>.sayName != <span class="string">"function"</span>)&#123;</span><br><span class="line">     Person.prototype.sayName = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">      alert(<span class="keyword">this</span>.name);</span><br><span class="line">     &#125;;</span><br><span class="line">   &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> friend = <span class="keyword">new</span> Person(<span class="string">"Nicholas"</span>, <span class="number">29</span>, <span class="string">"Software Engineer"</span>);</span><br><span class="line">friend.sayName();</span><br></pre></td></tr></table></figure>
+
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><ul>
+<li><p>工厂模式，使用简单的函数创建对象，为对象添加属性和方法，然后返回对象。这个模式后来被构造函数模式所取代。</p>
+</li>
+<li><p>构造函数模式，可以创建自定义引用类型，可以像创建内置对象实例一样使用 new 操作符。不过，构造函数模式也有缺点，它的每个成员都无法得到复用，包括函数。由于函数可以不局限于任何对象（即与对象具有松散耦合的特点），因此没有理由不在多个对象间共享函数。</p>
+</li>
+<li><p>原型模式，使用构造函数的 prototype 属性来指定那些应该共享的属性和方法。组合使用构造函数模式和原型模式时，使用构造函数定义实例属性，而使用原型定义共享的属性和方法。</p>
+</li>
+</ul>
+]]></content>
+      <categories>
+        <category>每天一个知识点</category>
+      </categories>
+      <tags>
+        <tag>JS</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>一次弄懂EventLoop</title>
     <url>/2020/01/02/%E4%B8%80%E6%AC%A1%E5%BC%84%E6%87%82EventLoop/</url>
     <content><![CDATA[<p>关于EventLoop的文章实在太多了，但是好像至今都没有一篇比较权威的说明，从<br>阮一峰老师的<br><a href="http://www.ruanyifeng.com/blog/2013/10/event_loop.html" target="_blank" rel="noopener"><strong>什么是 Event Loop？</strong></a>——&gt;<br><a href="http://www.ruanyifeng.com/blog/2014/10/event-loop.html" target="_blank" rel="noopener"><strong>JavaScript 运行机制详解：再谈Event Loop</strong></a><br>再到朴灵老师的<br><a href="https://blog.csdn.net/lin_credible/article/details/40143961" target="_blank" rel="noopener"><strong>【朴灵评注】JavaScript 运行机制详解：再谈Event Loop</strong></a><br>还有MDN的<br><a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/EventLoop" target="_blank" rel="noopener"><strong>并发模型与事件循环</strong></a> 这篇讲的有些太精炼了😣</p>
@@ -1449,104 +1547,6 @@ if(isAndroid){
 ]]></content>
       <categories>
         <category>JS</category>
-      </categories>
-      <tags>
-        <tag>JS</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>创建对象的几种方式</title>
-    <url>/2020/01/13/%E5%88%9B%E5%BB%BA%E5%AF%B9%E8%B1%A1%E7%9A%84%E5%87%A0%E7%A7%8D%E6%96%B9%E5%BC%8F/</url>
-    <content><![CDATA[<h2 id="对象"><a href="#对象" class="headerlink" title="对象"></a>对象</h2><p>对象的属性类型分为：<strong>数据属性</strong> 和 <strong>访问器属性</strong></p>
-<h3 id="数据属性"><a href="#数据属性" class="headerlink" title="数据属性"></a>数据属性</h3><p>四个描述其行为的特性：</p>
-<ul>
-<li><p><strong>configurable</strong>：默认值为 true；表示能否delete该属性</p>
-</li>
-<li><p><strong>enumerable</strong>：默认值为true；表示能否通过for-in循环返回该属性；是否是可枚举的</p>
-</li>
-<li><p><strong>writable</strong>：默认值为true；表示能否修改该属性</p>
-</li>
-<li><p><strong>value</strong>：表示该属性的值</p>
-</li>
-</ul>
-<h3 id="访问器属性"><a href="#访问器属性" class="headerlink" title="访问器属性"></a>访问器属性</h3><p>相比数据属性，没有<em>writable</em>和<em>value</em>特性；而新增了<strong>get</strong>和<strong>set</strong>方法</p>
-<ul>
-<li><p><strong>get</strong>：读取属性值</p>
-</li>
-<li><p><strong>set</strong>：设置属性值</p>
-<p><strong>访问器属性不能直接定义</strong>，必须使用 <strong>Object.defineProperty()</strong>来定义.该方法接受三个参数，1：属性所在的对象；2：属性；3：描述属性的特性</p>
-<p>例如：</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> book = &#123;</span><br><span class="line"> _year: <span class="number">2004</span>,</span><br><span class="line"> edition: <span class="number">1</span></span><br><span class="line">&#125;;</span><br><span class="line"><span class="built_in">Object</span>.defineProperty(book, <span class="string">"year"</span>, &#123;</span><br><span class="line"> <span class="keyword">get</span>: function()&#123;</span><br><span class="line">   <span class="keyword">return</span> <span class="keyword">this</span>._year;</span><br><span class="line"> &#125;,</span><br><span class="line"> <span class="keyword">set</span>: function(newValue)&#123;</span><br><span class="line">   <span class="keyword">if</span> (newValue &gt; <span class="number">2004</span>) &#123;</span><br><span class="line">     <span class="keyword">this</span>._year = newValue;</span><br><span class="line">     <span class="keyword">this</span>.edition += newValue - <span class="number">2004</span>;</span><br><span class="line">   &#125;</span><br><span class="line"> &#125;</span><br><span class="line">&#125;);</span><br><span class="line">book.year = <span class="number">2005</span>;</span><br><span class="line">alert(book.edition);</span><br></pre></td></tr></table></figure>
-
-</li>
-</ul>
-<h3 id="Object-defineProperties"><a href="#Object-defineProperties" class="headerlink" title="Object.defineProperties"></a>Object.defineProperties</h3><p>定义多个属性</p>
-  <figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> book = &#123;&#125;;</span><br><span class="line"><span class="built_in">Object</span>.defineProperties(book, &#123;</span><br><span class="line">  _year: &#123;</span><br><span class="line">   value: <span class="number">2004</span></span><br><span class="line">  &#125;,</span><br><span class="line">  edition: &#123;</span><br><span class="line">   value: <span class="number">1</span></span><br><span class="line">  &#125;,</span><br><span class="line">  year: &#123;</span><br><span class="line">    <span class="keyword">get</span>: function()&#123;</span><br><span class="line">      <span class="keyword">return</span> <span class="keyword">this</span>._year;</span><br><span class="line">    &#125;,</span><br><span class="line">    <span class="keyword">set</span>: function(newValue)&#123;</span><br><span class="line">     <span class="keyword">if</span> (newValue &gt; <span class="number">2004</span>) &#123;</span><br><span class="line">       <span class="keyword">this</span>._year = newValue;</span><br><span class="line">       <span class="keyword">this</span>.edition += newValue - <span class="number">2004</span>;</span><br><span class="line">     &#125;</span><br><span class="line">   &#125;</span><br><span class="line"> &#125;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
-
-<h3 id="Object-getOwnPropertyDescriptor"><a href="#Object-getOwnPropertyDescriptor" class="headerlink" title="Object.getOwnPropertyDescriptor()"></a>Object.getOwnPropertyDescriptor()</h3><p>获取给定属性的描述符。</p>
-<p>接收两个参数：属性所在的对象和要读取其描述符的属性名称</p>
-<h2 id="创建对象"><a href="#创建对象" class="headerlink" title="创建对象"></a>创建对象</h2><h3 id="工厂模式"><a href="#工厂模式" class="headerlink" title="工厂模式"></a>工厂模式</h3><figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">createPerson</span>(<span class="params">name, age, job</span>)</span>&#123;</span><br><span class="line">   <span class="keyword">var</span> o = <span class="keyword">new</span> <span class="built_in">Object</span>();</span><br><span class="line">   o.name = name;</span><br><span class="line">   o.age = age;</span><br><span class="line">   o.job = job;</span><br><span class="line">   o.sayName = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">     alert(<span class="keyword">this</span>.name);</span><br><span class="line">   &#125;;</span><br><span class="line">   <span class="keyword">return</span> o;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> person1 = createPerson(<span class="string">"Nicholas"</span>, <span class="number">29</span>, <span class="string">"Software Engineer"</span>);</span><br><span class="line"><span class="keyword">var</span> person2 = createPerson(<span class="string">"Greg"</span>, <span class="number">27</span>, <span class="string">"Doctor"</span>);</span><br></pre></td></tr></table></figure>
-
-<ul>
-<li>优点：解决了创建多个相似对象的问题</li>
-<li>缺点：没有解决对象识别的问题</li>
-</ul>
-<h3 id="构造函数模式"><a href="#构造函数模式" class="headerlink" title="构造函数模式"></a>构造函数模式</h3><figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Person</span>(<span class="params">name, age, job</span>)</span>&#123;</span><br><span class="line">   <span class="keyword">this</span>.name = name;</span><br><span class="line">   <span class="keyword">this</span>.age = age;</span><br><span class="line">   <span class="keyword">this</span>.job = job;</span><br><span class="line">   <span class="keyword">this</span>.sayName = sayName;</span><br><span class="line">   <span class="keyword">this</span>.sayBay = sayBay;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">sayName</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">  alert(<span class="keyword">this</span>.name)</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">sayBay</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">  alert(<span class="string">'bay'</span>)</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> person1 = <span class="keyword">new</span> Person(<span class="string">"Nicholas"</span>, <span class="number">29</span>, <span class="string">"Software Engineer"</span>);</span><br><span class="line"><span class="keyword">var</span> person2 = <span class="keyword">new</span> Person(<span class="string">"Greg"</span>, <span class="number">27</span>, <span class="string">"Doctor"</span>);</span><br></pre></td></tr></table></figure>
-
-<p>与 <strong>工厂模式</strong>相比：</p>
-<ul>
-<li>没有显式的创建对象</li>
-<li>直接将属性和方法赋值给了this对象</li>
-<li>没有return</li>
-</ul>
-<h4 id="new操作符完成的事"><a href="#new操作符完成的事" class="headerlink" title="new操作符完成的事"></a><strong>new</strong>操作符完成的事</h4><ol>
-<li>创建一个新的对象</li>
-<li>将构造函数的作用域指向该对象</li>
-<li>为该新对象添加属性</li>
-<li>返回新对象</li>
-</ol>
-<p>优点：可以将它的实例标识为一种特定的类型</p>
-<p>缺点：从上面的代码来看，在全局作用域中定义的函数实际上只能被某个对象调用；如果对象需要定义很多方</p>
-<p>法，那么就要定义很多个全局函数</p>
-<h4 id="作用域安全的构造函数"><a href="#作用域安全的构造函数" class="headerlink" title="作用域安全的构造函数"></a>作用域安全的构造函数</h4><p>上述函数直接调用 Person(),会将 this 映射到 window 上可能会造成属性覆盖的问题，为了解决该问题，可以在该方法中加一层判断，先确认 this 对象是否是正确类型的实例</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Person</span>(<span class="params">name, age, job</span>)</span>&#123; </span><br><span class="line"> <span class="keyword">if</span> (<span class="keyword">this</span> <span class="keyword">instanceof</span> Person)&#123; </span><br><span class="line">   <span class="keyword">this</span>.name = name; </span><br><span class="line">   <span class="keyword">this</span>.age = age; </span><br><span class="line">   <span class="keyword">this</span>.job = job; </span><br><span class="line"> &#125; <span class="keyword">else</span> &#123; </span><br><span class="line"> 	<span class="keyword">return</span> <span class="keyword">new</span> Person(name, age, job); </span><br><span class="line"> &#125; </span><br><span class="line">&#125; </span><br><span class="line"><span class="keyword">var</span> person1 = Person(<span class="string">"Nicholas"</span>, <span class="number">29</span>, <span class="string">"Software Engineer"</span>); </span><br><span class="line">alert(<span class="built_in">window</span>.name); <span class="comment">//"" </span></span><br><span class="line">alert(person1.name); <span class="comment">//"Nicholas" </span></span><br><span class="line"><span class="keyword">var</span> person2 = <span class="keyword">new</span> Person(<span class="string">"Shelby"</span>, <span class="number">34</span>, <span class="string">"Ergonomist"</span>); </span><br><span class="line">alert(person2.name); <span class="comment">//"Shelby"</span></span><br></pre></td></tr></table></figure>
-
-
-
-<h3 id="原型模式"><a href="#原型模式" class="headerlink" title="原型模式"></a>原型模式</h3><figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Person</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">&#125;</span><br><span class="line">Person.prototype.name = <span class="string">"Nicholas"</span>;</span><br><span class="line">Person.prototype.age = <span class="number">29</span>;</span><br><span class="line">Person.prototype.job = <span class="string">"Software Engineer"</span>;</span><br><span class="line">Person.prototype.sayName = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line"> alert(<span class="keyword">this</span>.name);</span><br><span class="line">&#125;;</span><br><span class="line"><span class="keyword">var</span> person1 = <span class="keyword">new</span> Person();</span><br><span class="line">person1.sayName(); <span class="comment">//"Nicholas"</span></span><br><span class="line"><span class="keyword">var</span> person2 = <span class="keyword">new</span> Person();</span><br><span class="line">person2.sayName(); <span class="comment">//"Nicholas"</span></span><br><span class="line">alert(person1.sayName == person2.sayName); <span class="comment">//true</span></span><br></pre></td></tr></table></figure>
-
-<p>相较构造函数：无需传递初始化参数</p>
-<p>缺点：属性共享；对于引用数据类型：改变其值；那么所有实例的该属性都会发生改变</p>
-<p><strong>无论什么时候，只要创建了一个新函数，就会根据一组特定的规则为该函数创建一个 prototype属性，这个属性指向函数的原型对象。在默认情况下，所有原型对象都会自动获得一个 <code>constructor</code>（构造函数）属性，这个属性包含一个指向<code>prototype</code> 属性所在函数的指针。就拿前面的例子来说，<code>Person.prototype. constructor</code> 指向 <code>Person</code>。而通过这个构造函数，我们还可继续为原型对象添加其他属性和方法。</strong></p>
-<p><strong>当调用构造函数创建一个新实例后，该实例的内部将包含一个指针（内部属性），指向构造函数的原型对象；即<code>__proto__</code></strong></p>
-<p>可以通过 isPrototypeOf()方法来确定是否是该对象的实例</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">Person.prototype.isPrototype(person1)</span><br></pre></td></tr></table></figure>
-
-<p>Object.getPrototypeOf(  实例  ) 可以确定一个实例的原型对象</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="built_in">Object</span>.getPrototypeOf( person1 ) == Person.prototype</span><br></pre></td></tr></table></figure>
-
-<p>   使用 hasOwnProperty()方法可以检测一个属性是存在于实例中，还是存在于原型中</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">实例对象.hasOwnProperty(<span class="string">'name'</span>) <span class="comment">//true 就是存在于实例中，false就是存在于原型中</span></span><br></pre></td></tr></table></figure>
-
-<h3 id="in操作符"><a href="#in操作符" class="headerlink" title="in操作符"></a>in操作符</h3><p>有两种方式使用 in 操作符：单独使用和在 for-in 循环中使用。在单独使用时，in 操作符会在通过对象能够访问给定属性时返回 true，无论该属性存在于实例中还是原型中。</p>
-<p>在使用 for-in 循环时，返回的是所有能够通过对象访问的、可枚举的（enumerated）属性，其中既包括存在于实例中的属性，也包括存在于原型中的属性</p>
-<p>可以通过 <strong>Object.keys()</strong> 取得对象上所有可枚举的实例属性，接收一个对象作为参数，返回一个包含所有可枚举属性的字符串数组</p>
-<h3 id="构造函数、原型和实例的关系"><a href="#构造函数、原型和实例的关系" class="headerlink" title="构造函数、原型和实例的关系"></a>构造函数、原型和实例的关系</h3><p><strong>每个构造函数都有一个原型对象，原型对象都包含一个指向构造函数的指针，而实例都包含一个指向原型对象的内部指针</strong></p>
-<h3 id="组合使用构造函数模式和原型模式"><a href="#组合使用构造函数模式和原型模式" class="headerlink" title="组合使用构造函数模式和原型模式"></a>组合使用构造函数模式和原型模式</h3><figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Person</span>(<span class="params">name, age, job</span>)</span>&#123;</span><br><span class="line">  <span class="comment">//实例自身的属性</span></span><br><span class="line"> <span class="keyword">this</span>.name = name;</span><br><span class="line"> <span class="keyword">this</span>.age = age;</span><br><span class="line"> <span class="keyword">this</span>.job = job;</span><br><span class="line"> <span class="keyword">this</span>.friends = [<span class="string">"Shelby"</span>, <span class="string">"Court"</span>];</span><br><span class="line">&#125;</span><br><span class="line">Person.prototype = &#123;</span><br><span class="line">  <span class="comment">//实例共享的属性和方法</span></span><br><span class="line"> <span class="keyword">constructor</span> : Person,</span><br><span class="line"> sayName : function()&#123;</span><br><span class="line"> alert(<span class="keyword">this</span>.name);</span><br><span class="line"> &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> person1 = <span class="keyword">new</span> Person(<span class="string">"Nicholas"</span>, <span class="number">29</span>, <span class="string">"Software Engineer"</span>);</span><br><span class="line"><span class="keyword">var</span> person2 = <span class="keyword">new</span> Person(<span class="string">"Greg"</span>, <span class="number">27</span>, <span class="string">"Doctor"</span>);</span><br><span class="line">person1.friends.push(<span class="string">"Van"</span>);</span><br><span class="line">alert(person1.friends); <span class="comment">//"Shelby,Count,Van"</span></span><br><span class="line">alert(person2.friends); <span class="comment">//"Shelby,Count"</span></span><br><span class="line">alert(person1.friends === person2.friends); <span class="comment">//false</span></span><br><span class="line">alert(person1.sayName === person2.sayName); <span class="comment">//true</span></span><br></pre></td></tr></table></figure>
-
-<h3 id="动态原型模式"><a href="#动态原型模式" class="headerlink" title="动态原型模式"></a>动态原型模式</h3><figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Person</span>(<span class="params">name, age, job</span>)</span>&#123;</span><br><span class="line">   <span class="comment">//属性</span></span><br><span class="line">   <span class="keyword">this</span>.name = name;</span><br><span class="line">   <span class="keyword">this</span>.age = age;</span><br><span class="line">   <span class="keyword">this</span>.job = job;</span><br><span class="line">    <span class="comment">//方法</span></span><br><span class="line">   <span class="keyword">if</span> (<span class="keyword">typeof</span> <span class="keyword">this</span>.sayName != <span class="string">"function"</span>)&#123;</span><br><span class="line">     Person.prototype.sayName = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">      alert(<span class="keyword">this</span>.name);</span><br><span class="line">     &#125;;</span><br><span class="line">   &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> friend = <span class="keyword">new</span> Person(<span class="string">"Nicholas"</span>, <span class="number">29</span>, <span class="string">"Software Engineer"</span>);</span><br><span class="line">friend.sayName();</span><br></pre></td></tr></table></figure>
-
-<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><ul>
-<li><p>工厂模式，使用简单的函数创建对象，为对象添加属性和方法，然后返回对象。这个模式后来被构造函数模式所取代。</p>
-</li>
-<li><p>构造函数模式，可以创建自定义引用类型，可以像创建内置对象实例一样使用 new 操作符。不过，构造函数模式也有缺点，它的每个成员都无法得到复用，包括函数。由于函数可以不局限于任何对象（即与对象具有松散耦合的特点），因此没有理由不在多个对象间共享函数。</p>
-</li>
-<li><p>原型模式，使用构造函数的 prototype 属性来指定那些应该共享的属性和方法。组合使用构造函数模式和原型模式时，使用构造函数定义实例属性，而使用原型定义共享的属性和方法。</p>
-</li>
-</ul>
-]]></content>
-      <categories>
-        <category>每天一个知识点</category>
       </categories>
       <tags>
         <tag>JS</tag>
@@ -2377,6 +2377,18 @@ if(isAndroid){
       </tags>
   </entry>
   <entry>
+    <title>一张图了解开源许可证</title>
+    <url>/2020/07/03/%E4%B8%80%E5%BC%A0%E5%9B%BE%E4%BA%86%E8%A7%A3%E5%BC%80%E6%BA%90%E8%AE%B8%E5%8F%AF%E8%AF%81/</url>
+    <content><![CDATA[<p><img data-src="http://cloud.asenper.cn//20200703093606.png" alt=""></p>
+]]></content>
+      <categories>
+        <category>其它</category>
+      </categories>
+      <tags>
+        <tag>其它</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>github图片加载问题</title>
     <url>/2020/07/01/github%E5%9B%BE%E7%89%87%E5%8A%A0%E8%BD%BD%E9%97%AE%E9%A2%98/</url>
     <content><![CDATA[<p>没有梯子的情况下GitHub中的图片大概率是无法访问的</p>
@@ -2390,15 +2402,161 @@ if(isAndroid){
       </tags>
   </entry>
   <entry>
-    <title>一张图了解开源许可证</title>
-    <url>/2020/07/03/%E4%B8%80%E5%BC%A0%E5%9B%BE%E4%BA%86%E8%A7%A3%E5%BC%80%E6%BA%90%E8%AE%B8%E5%8F%AF%E8%AF%81/</url>
-    <content><![CDATA[<p><img data-src="http://cloud.asenper.cn//20200703093606.png" alt=""></p>
+    <title>Debug[编译第三方库中的ES6语法]</title>
+    <url>/2020/08/06/Debug-%E7%BC%96%E8%AF%91%E7%AC%AC%E4%B8%89%E6%96%B9%E5%BA%93%E4%B8%AD%E7%9A%84ES6%E8%AF%AD%E6%B3%95/</url>
+    <content><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>项目中不是所有包的编译输出都是es5，会导致打包后的项目包含未经编译的ES6语法，使项目在某些低版本手机或浏览器中出先问题。问题的解决方法就是对第三方包进行编译。</p>
+<h2 id="解决方式"><a href="#解决方式" class="headerlink" title="解决方式"></a>解决方式</h2><p>在项目的<code>babel.config.js</code>中按如下的配置：</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="built_in">module</span>.exports = &#123;  </span><br><span class="line">    ...  </span><br><span class="line">    overrides: [</span><br><span class="line">        &#123;</span><br><span class="line">            include: <span class="string">'./node_modules/$&#123;第三方库&#125;'</span>,<span class="comment">// 使用的第三方库</span></span><br><span class="line">            sourceType: <span class="string">'unambiguous'</span></span><br><span class="line">        &#125;  </span><br><span class="line">    ],  </span><br><span class="line">    ...  </span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+<p>相关API </p>
+<p><strong><a href="https://babeljs.io/docs/en/options#overrides" target="_blank" rel="noopener">overrides</a></strong> : <a href="https://babeljs.io/docs/en/options#overrides" target="_blank" rel="noopener">https://babeljs.io/docs/en/options#overrides</a><br><strong><a href="https://babeljs.io/docs/en/options#sourcetype" target="_blank" rel="noopener">sourceType</a></strong>: <a href="https://babeljs.io/docs/en/options#sourcetype" target="_blank" rel="noopener">https://babeljs.io/docs/en/options#sourcetype</a></p>
 ]]></content>
       <categories>
-        <category>其它</category>
+        <category>Debug</category>
       </categories>
       <tags>
-        <tag>其它</tag>
+        <tag>Debug</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>http基础巩固</title>
+    <url>/2020/08/08/http%E5%9F%BA%E7%A1%80%E5%B7%A9%E5%9B%BA/</url>
+    <content><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p><code>http</code>基础梳理，各版本的对比，优劣势、缓存策略、请求方法、<code>https</code>和<code>http</code>的区别、正反向代理、负载均衡</p>
+<h2 id="http的定义"><a href="#http的定义" class="headerlink" title="http的定义"></a>http的定义</h2><p>超文本传输协议，<strong>「HTTP 是一个在计算机世界里专门在两点之间传输文字、图片、音频、视频等超文本数据的约定和规范」</strong></p>
+<h3 id="HTTP-特点"><a href="#HTTP-特点" class="headerlink" title="HTTP 特点"></a>HTTP 特点</h3><ol>
+<li><strong>「灵活可扩展」</strong>。一个是语法上只规定了基本格式，空格分隔单词，换行分隔字段等。另外一个就是传输形式上不仅可以传输文本，还可以传输图片，视频等任意数据。</li>
+<li><strong>「请求-应答模式」</strong>，通常而言，就是一方发送消息，另外一方要接受消息，或者是做出相应等。</li>
+<li><strong>「可靠传输」</strong>，HTTP是基于TCP/IP，因此把这一特性继承了下来。</li>
+<li><strong>「无状态」</strong>，这个分场景回答即可。</li>
+</ol>
+<h3 id="HTTP-缺点"><a href="#HTTP-缺点" class="headerlink" title="HTTP 缺点"></a>HTTP 缺点</h3><ol>
+<li><strong>「无状态」</strong>，有时候，需要保存信息，比如像购物系统，需要保留下顾客信息等等，另外一方面，有时候，无状态也会减少网络开销，比如类似直播行业这样子等，这个还是分场景来说。</li>
+<li><strong>「明文传输」</strong>，即协议里的报文(主要指的是头部)不使用二进制数据，而是文本形式。这让HTTP的报文信息暴露给了外界，给攻击者带来了便利。</li>
+<li><strong>「队头阻塞」</strong>，当http开启长连接时，共用一个TCP连接，当某个请求时间过长时，其他的请求只能处于阻塞状态，这就是队头阻塞问题。</li>
+</ol>
+<h2 id="HTTP1-0-HTTP1-1-HTTP2-0版本之间的差异"><a href="#HTTP1-0-HTTP1-1-HTTP2-0版本之间的差异" class="headerlink" title="HTTP1.0 HTTP1.1 HTTP2.0版本之间的差异"></a><strong>HTTP1.0 HTTP1.1 HTTP2.0版本之间的差异</strong></h2><h3 id="HTTP-1-0"><a href="#HTTP-1-0" class="headerlink" title="HTTP 1.0"></a>HTTP 1.0</h3><ul>
+<li>任何格式的内容都可以发送，这使得互联网不仅可以传输文字，还能传输图像、视频、二进制等文件。</li>
+<li>除了GET命令，还引入了POST命令和HEAD命令。</li>
+<li>http请求和回应的格式改变，除了数据部分，每次通信都必须包括头信息（HTTP header），用来描述一些元数据。</li>
+<li>只使用 header 中的 If-Modified-Since 和 Expires 作为缓存失效的标准。</li>
+<li>不支持断点续传，也就是说，每次都会传送全部的页面和数据。</li>
+<li>通常每台计算机只能绑定一个 IP，所以请求消息中的 URL 并没有传递主机名（hostname）</li>
+</ul>
+<h3 id="HTTP-1-1"><a href="#HTTP-1-1" class="headerlink" title="HTTP 1.1"></a>HTTP 1.1</h3><p>http1.1是目前最为主流的http协议版本，从1999年发布至今，仍是主流的http协议版本。</p>
+<ul>
+<li>引入了持久连接（ persistent connection），即TCP连接默认不关闭，可以被多个请求复用，不用声明Connection: keep-alive。长连接的连接时长可以通过请求头中的 <code>keep-alive</code> 来设置</li>
+<li>引入了管道机制（ pipelining），即在同一个TCP连接里，客户端可以同时发送多个 请求，进一步改进了HTTP协议的效率。</li>
+<li>HTTP 1.1 中新增加了 E-tag，If-Unmodified-Since, If-Match, If-None-Match 等缓存控制标头来控制缓存失效。</li>
+<li>支持断点续传，通过使用请求头中的 <code>Range</code> 来实现。</li>
+<li>使用了虚拟网络，在一台物理服务器上可以存在多个虚拟主机（Multi-homed Web Servers），并且它们共享一个IP地址。</li>
+<li>新增方法：PUT、 PATCH、 OPTIONS、 DELETE。</li>
+</ul>
+<h3 id="http1-x版本问题"><a href="#http1-x版本问题" class="headerlink" title="http1.x版本问题"></a>http1.x版本问题</h3><ul>
+<li>在传输数据过程中，所有内容都是明文，客户端和服务器端都无法验证对方的身份，无法保证数据的安全性。</li>
+<li>HTTP/1.1 版本默认允许复用TCP连接，但是在同一个TCP连接里，所有数据通信是按次序进行的，服务器通常在处理完一个回应后，才会继续去处理下一个，这样子就会造成队头阻塞。</li>
+<li>http/1.x 版本支持Keep-alive，用此方案来弥补创建多次连接产生的延迟，但是同样会给服务器带来压力，并且的话，对于单文件被不断请求的服务，Keep-alive会极大影响性能，因为它在文件被请求之后还保持了不必要的连接很长时间。</li>
+</ul>
+<h3 id="HTTP-2-0"><a href="#HTTP-2-0" class="headerlink" title="HTTP 2.0"></a>HTTP 2.0</h3><ul>
+<li><code>二进制分帧</code>  这是一次彻底的二进制协议，头信息和数据体都是二进制，并且统称为”帧”：头信息帧和数据帧。</li>
+<li><code>头部压缩</code>  HTTP 1.1版本会出现 <strong>「User-Agent、Cookie、Accept、Server、Range」</strong> 等字段可能会占用几百甚至几千字节，而 Body 却经常只有几十字节，所以导致头部偏重。HTTP 2.0 使用 <code>HPACK</code> 算法进行压缩。</li>
+<li><code>多路复用</code> 复用TCP连接，在一个连接里，客户端和浏览器都可以同时发送多个请求或回应，且不用按顺序一一对应，这样子解决了队头阻塞的问题。</li>
+<li><code>服务器推送</code> 允许服务器未经请求，主动向客户端发送资源，即服务器推送。</li>
+<li><code>请求优先级</code> 可以设置数据帧的优先级，让服务端先处理重要资源，优化用户体验</li>
+</ul>
+<h2 id="HTTP常见状态码"><a href="#HTTP常见状态码" class="headerlink" title="HTTP常见状态码"></a>HTTP常见状态码</h2><p>RFC 规定 HTTP 的状态码为<strong>「三位数」</strong>，第一个数字定义了响应的类别，被分为五类:</p>
+<ul>
+<li><strong>「1xx」</strong>: 代表请求已被接受，需要继续处理。</li>
+<li><strong>「2xx」</strong>: 表示成功状态。</li>
+<li><strong>「3xx」</strong>: 重定向状态。</li>
+<li><strong>「4xx」</strong>: 客户端错误。</li>
+<li><strong>「5xx」</strong>: 服务器端错误。</li>
+</ul>
+<h3 id="1xx-信息类"><a href="#1xx-信息类" class="headerlink" title="1xx 信息类"></a>1xx 信息类</h3><p>接受的请求正在处理，信息类状态码。</p>
+<h3 id="2xx-成功"><a href="#2xx-成功" class="headerlink" title="2xx 成功"></a>2xx 成功</h3><ul>
+<li>200 OK 表示从客户端发来的请求在服务器端被正确请求。</li>
+<li>204 No content，表示请求成功，但没有资源可返回。</li>
+<li>206 Partial Content，该状态码表示客户端进行了范围请求，而服务器成功执行了这部分的 GET 请求 响应报文中包含由 <strong>「Content-Range」</strong> 指定范围的实体内容。</li>
+</ul>
+<h3 id="3xx-重定向"><a href="#3xx-重定向" class="headerlink" title="3xx 重定向"></a>3xx 重定向</h3><ul>
+<li>301 moved permanently，永久性重定向，表示资源已被分配了新的 URL，这时应该按 Location 首部字段提示的 URI 重新保存。</li>
+<li>302 found，临时性重定向，表示资源临时被分配了新的 URL。</li>
+<li>303 see other，表示资源存在着另一个 URL，应使用 GET 方法获取资源。</li>
+<li>304 not modified，当协商缓存命中时会返回这个状态码。</li>
+<li>307 temporary redirect，临时重定向，和302含义相同,不会改变method</li>
+</ul>
+<blockquote>
+<p>当 301、302、303 响应状态码返回时，几乎所有的浏览器都会把 POST 改成 GET，并删除请求报文内的主体，之后请求会自动再次发送 301、302 标准是禁止将 POST 方法改变成 GET 方法的，但实际使用时大家都会这么做</p>
+</blockquote>
+<h3 id="4XX-客户端错误"><a href="#4XX-客户端错误" class="headerlink" title="4XX 客户端错误"></a>4XX 客户端错误</h3><ul>
+<li>400 bad request，请求报文存在语法错误。</li>
+<li>401 unauthorized，表示发送的请求需要有通过 HTTP 认证的认证信息。</li>
+<li>403 forbidden，表示对请求资源的访问被服务器拒绝。</li>
+<li>404 not found，表示在服务器上没有找到请求的资源。</li>
+<li>405 Method Not Allowed，服务器禁止使用该方法，客户端可以通过options方法来查看服务器允许的访问方法，如下 👇</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">Access-Control-Allow-Methods →GET,HEAD,PUT,PATCH,POST,DELETE</span><br><span class="line">复制代码</span><br></pre></td></tr></table></figure>
+
+<h3 id="5XX-服务器错误"><a href="#5XX-服务器错误" class="headerlink" title="5XX 服务器错误"></a>5XX 服务器错误</h3><ul>
+<li>500 internal sever error，表示服务器端在执行请求时发生了错误。</li>
+<li>502 Bad Gateway，服务器自身是正常的，访问的时候出了问题，具体啥错误我们不知道。</li>
+<li>503 service unavailable，表明服务器暂时处于超负载或正在停机维护，无法处理请求。</li>
+</ul>
+<h2 id="HTTP-的请求方法"><a href="#HTTP-的请求方法" class="headerlink" title="HTTP 的请求方法"></a>HTTP 的请求方法</h2><ul>
+<li>HTTP1.0定义了三种请求方法： GET, POST 和 HEAD方法</li>
+<li>HTTP1.1新增了五种请求方法：OPTIONS, PUT, DELETE, TRACE 和 CONNECT</li>
+</ul>
+<p><code>http/1.1</code>规定了以下请求方法:</p>
+<ul>
+<li>GET：                请求获取Request-URI所标识的资源</li>
+<li>POST：              在Request-URI所标识的资源后附加新的数据</li>
+<li>HEAD：             请求获取由Request-URI所标识的资源的响应消息报头</li>
+<li>PUT：                请求服务器存储一个资源，并用Request-URI作为其标识（修改数据）</li>
+<li>DELETE：          请求服务器删除对应所标识的资源</li>
+<li>TRACE：            请求服务器回送收到的请求信息，主要用于测试或诊断</li>
+<li>CONNECT：      建立连接隧道，用于代理服务器</li>
+<li>OPTIONS：       列出可对资源实行的请求方法，用来跨域请求</li>
+</ul>
+<h2 id="GET-和-POST-的区别"><a href="#GET-和-POST-的区别" class="headerlink" title="GET 和 POST 的区别"></a><strong>GET 和 POST 的区别</strong></h2><p>本质上，只是语义上的区别，GET 用于获取资源，POST 用于提交资源。</p>
+<p>参考 <a href="https://mp.weixin.qq.com/s?__biz=MzI3NzIzMzg3Mw==&mid=100000054&idx=1&sn=71f6c214f3833d9ca20b9f7dcd9d33e4#rd" target="_blank" rel="noopener">99%的人都理解错了HTTP中GET与POST的区别</a></p>
+<p>具体差别👇</p>
+<ul>
+<li>从缓存角度看，GET 请求后浏览器会主动缓存，POST 默认情况下不能。</li>
+<li>从参数角度来看，GET请求一般放在URL中，因此不安全，POST请求放在请求体中，相对而言较为安全，但是在抓包的情况下都是一样的。</li>
+<li>从编码角度看，GET请求只能经行URL编码，只能接受ASCII码，而POST支持更多的编码类型且不对数据类型限值。</li>
+<li>GET请求幂等，POST请求不幂等，幂等指发送 M 和 N 次请求（两者不相同且都大于1），服务器上资源的状态一致。</li>
+<li>GET请求会一次性发送请求报文，POST请求通常分为两个TCP数据包，首先发 header 部分，如果服务器响应 100(continue)， 然后发 body 部分。</li>
+</ul>
+<p>从应用场景角度来看，Get 多用于无副作用，幂等的场景，例如搜索关键字。Post 多用于副作用，不幂等的场景，例如注册。</p>
+<h2 id="HTTPS和HTTP区别"><a href="#HTTPS和HTTP区别" class="headerlink" title="HTTPS和HTTP区别"></a><strong>HTTPS和HTTP区别</strong></h2><p>HTTPS 要比 HTTPS 多了 secure 安全性这个概念，实际上， HTTPS 并不是一个新的应用层协议，它其实就是 HTTP + TLS/SSL 协议组合而成，而安全性的保证正是 SSL/TLS 所做的工作。</p>
+<p><strong>「SSL」</strong></p>
+<p>安全套接层（Secure Sockets Layer）</p>
+<p><strong>「TLS」</strong></p>
+<p>（传输层安全，Transport Layer Security）</p>
+<p>现在主流的版本是 TLS/1.2, 之前的 TLS1.0、TLS1.1 都被认为是不安全的，在不久的将来会被完全淘汰。</p>
+<p><strong>「HTTPS 就是身披了一层 SSL 的 HTTP」</strong>。</p>
+<h3 id="具体区别👇"><a href="#具体区别👇" class="headerlink" title="具体区别👇"></a>具体区别👇</h3><ul>
+<li>HTTP 是明文传输协议，HTTPS 协议是由 SSL+HTTP 协议构建的可进行加密传输、身份认证的网络协议，比 HTTP 协议安全。</li>
+<li>HTTPS比HTTP更加安全，对搜索引擎更友好，利于SEO,谷歌、百度优先索引HTTPS网页。</li>
+<li>HTTPS标准端口443，HTTP标准端口80。</li>
+<li>HTTPS需要用到SSL证书，而HTTP不用。</li>
+</ul>
+<p>我觉得记住以下两点HTTPS主要作用就行👇</p>
+<ol>
+<li>对数据进行加密，并建立一个信息安全通道，来保证传输过程中的数据安全;</li>
+<li>对网站服务器进行真实身份认证。</li>
+</ol>
+<h2 id="正向代理和反向代理"><a href="#正向代理和反向代理" class="headerlink" title="正向代理和反向代理"></a><strong>正向代理和反向代理</strong></h2><h3 id="正向代理"><a href="#正向代理" class="headerlink" title="正向代理"></a>正向代理</h3><p>我们常说的代理也就是指正向代理，正向代理的过程，它隐藏了真实的请求客户端，服务端不知道真实的客户端是谁，客户端请求的服务都被代理服务器代替来请求。</p>
+<h3 id="反向代理"><a href="#反向代理" class="headerlink" title="反向代理"></a>反向代理</h3><p>这种代理模式下，它隐藏了真实的服务端，当我们向一个网站发起请求的时候，背后可能有成千上万台服务器为我们服务，具体是哪一台，我们不清楚，我们只需要知道反向代理服务器是谁就行，而且反向代理服务器会帮我们把请求转发到真实的服务器那里去，一般而言反向代理服务器一般用来实现负载平衡。</p>
+<h2 id="负载平衡的两种实现方式？"><a href="#负载平衡的两种实现方式？" class="headerlink" title="负载平衡的两种实现方式？"></a><strong>负载平衡的两种实现方式？</strong></h2><ul>
+<li>一种是使用反向代理的方式，用户的请求都发送到反向代理服务上，然后由反向代理服务器来转发请求到真实的服务器上，以此来实现集群的负载平衡。</li>
+<li>另一种是 DNS 的方式，DNS 可以用于在冗余的服务器上实现负载平衡。因为现在一般的大型网站使用多台服务器提供服务，因此一个域名可能会对应多个服务器地址。当用户向网站域名请求的时候，DNS 服务器返回这个域名所对应的服务器 IP 地址的集合，但在每个回答中，会循环这些 IP 地址的顺序，用户一般会选择排在前面的地址发送请求。以此将用户的请求均衡的分配到各个不同的服务器上，这样来实现负载均衡。这种方式有一个缺点就是，由于 DNS 服务器中存在缓存，所以有可能一个服务器出现故障后，域名解析仍然返回的是那个 IP 地址，就会造成访问的问题。</li>
+</ul>
+]]></content>
+      <categories>
+        <category>每天一个知识点</category>
+      </categories>
+      <tags>
+        <tag>JS</tag>
       </tags>
   </entry>
 </search>
