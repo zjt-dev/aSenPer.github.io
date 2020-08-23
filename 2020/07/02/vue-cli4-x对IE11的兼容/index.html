@@ -20,20 +20,20 @@
     var CONFIG = {"hostname":"blog.asenper.cn","root":"/","scheme":"Mist","version":"7.8.0","exturl":false,"sidebar":{"position":"right","Muse | Mist":320,"width":234,"display":"always","padding":18,"offset":12,"onmobile":true},"copycode":{"enable":"ture","show_result":true,"style":"mac"},"back2top":{"enable":true,"sidebar":false,"scrollpercent":true},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":true,"lazyload":"ture","pangu":"ture","comments":{"style":"tabs","active":"valine","storage":true,"lazyload":false,"nav":null,"activeClass":"valine"},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"slideLeftIn","post_header":"slideLeftIn","post_body":"slideLeftIn","coll_header":"slideLeftIn","sidebar":"perspectiveUpIn"}},"path":"search.xml"};
   </script>
 
-  <meta property="og:type" content="article">
-<meta property="og:title" content="一张图了解开源许可证">
-<meta property="og:url" content="http://blog.asenper.cn/2020/07/03/%E4%B8%80%E5%BC%A0%E5%9B%BE%E4%BA%86%E8%A7%A3%E5%BC%80%E6%BA%90%E8%AE%B8%E5%8F%AF%E8%AF%81/index.html">
+  <meta name="description" content="前言Vue项目对IE的兼容相当不友好，不过时代在进步，IE注定被淘汰。但是当前还是有一大批的用户使用IE，不得不对它做兼容处理。通常一个Vue项目中会用一些第三方插件，这些插件也会对IE有着限制，所以要根据项目要求使用相应的兼容性的插件。或者对第三方插件也进行转码， Debug-编译第三方库中的ES6语法 持续更新~ 兼容到IE11项目背景 ​    vue-cli4.x ​    iviewUI">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Debug[vue-cli4.x对IE11的兼容]">
+<meta property="og:url" content="http://blog.asenper.cn/2020/07/02/vue-cli4-x%E5%AF%B9IE11%E7%9A%84%E5%85%BC%E5%AE%B9/index.html">
 <meta property="og:site_name" content="ZJT&#39;s Blog">
+<meta property="og:description" content="前言Vue项目对IE的兼容相当不友好，不过时代在进步，IE注定被淘汰。但是当前还是有一大批的用户使用IE，不得不对它做兼容处理。通常一个Vue项目中会用一些第三方插件，这些插件也会对IE有着限制，所以要根据项目要求使用相应的兼容性的插件。或者对第三方插件也进行转码， Debug-编译第三方库中的ES6语法 持续更新~ 兼容到IE11项目背景 ​    vue-cli4.x ​    iviewUI">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="http://cloud.asenper.cn//20200703093606.png">
-<meta property="article:published_time" content="2020-07-03T01:35:17.000Z">
-<meta property="article:modified_time" content="2020-07-03T01:36:40.638Z">
+<meta property="article:published_time" content="2020-07-02T03:12:56.000Z">
+<meta property="article:modified_time" content="2020-08-23T02:29:03.076Z">
 <meta property="article:author" content="ZJT">
-<meta property="article:tag" content="其它">
+<meta property="article:tag" content="Debug">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="http://cloud.asenper.cn//20200703093606.png">
 
-<link rel="canonical" href="http://blog.asenper.cn/2020/07/03/%E4%B8%80%E5%BC%A0%E5%9B%BE%E4%BA%86%E8%A7%A3%E5%BC%80%E6%BA%90%E8%AE%B8%E5%8F%AF%E8%AF%81/">
+<link rel="canonical" href="http://blog.asenper.cn/2020/07/02/vue-cli4-x%E5%AF%B9IE11%E7%9A%84%E5%85%BC%E5%AE%B9/">
 
 
 <script id="page-configurations">
@@ -46,7 +46,7 @@
   };
 </script>
 
-  <title>一张图了解开源许可证 | ZJT's Blog</title>
+  <title>Debug[vue-cli4.x对IE11的兼容] | ZJT's Blog</title>
   
 
 
@@ -201,7 +201,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://blog.asenper.cn/2020/07/03/%E4%B8%80%E5%BC%A0%E5%9B%BE%E4%BA%86%E8%A7%A3%E5%BC%80%E6%BA%90%E8%AE%B8%E5%8F%AF%E8%AF%81/">
+    <link itemprop="mainEntityOfPage" href="http://blog.asenper.cn/2020/07/02/vue-cli4-x%E5%AF%B9IE11%E7%9A%84%E5%85%BC%E5%AE%B9/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.png">
@@ -214,7 +214,7 @@
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          一张图了解开源许可证
+          Debug[vue-cli4.x对IE11的兼容]
         </h1>
 
         <div class="post-meta">
@@ -223,7 +223,7 @@
                 <i class="far fa-calendar"></i>
               </span>
               <span class="post-meta-item-text">发表于</span>
-              <time title="创建时间：2020-07-03 09:35:17" itemprop="dateCreated datePublished" datetime="2020-07-03T09:35:17+08:00">2020-07-03</time>
+              <time title="创建时间：2020-07-02 11:12:56" itemprop="dateCreated datePublished" datetime="2020-07-02T11:12:56+08:00">2020-07-02</time>
             </span>
 
           
@@ -233,7 +233,7 @@
               </span>
               <span class="post-meta-item-text">分类于</span>
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E5%85%B6%E5%AE%83/" itemprop="url" rel="index"><span itemprop="name">其它</span></a>
+                  <a href="/categories/Debug/" itemprop="url" rel="index"><span itemprop="name">Debug</span></a>
                 </span>
             </span>
 
@@ -246,8 +246,8 @@
       </span>
       <span class="post-meta-item-text">Valine：</span>
     
-    <a title="valine" href="/2020/07/03/%E4%B8%80%E5%BC%A0%E5%9B%BE%E4%BA%86%E8%A7%A3%E5%BC%80%E6%BA%90%E8%AE%B8%E5%8F%AF%E8%AF%81/#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/2020/07/03/%E4%B8%80%E5%BC%A0%E5%9B%BE%E4%BA%86%E8%A7%A3%E5%BC%80%E6%BA%90%E8%AE%B8%E5%8F%AF%E8%AF%81/" itemprop="commentCount">0</span>
+    <a title="valine" href="/2020/07/02/vue-cli4-x%E5%AF%B9IE11%E7%9A%84%E5%85%BC%E5%AE%B9/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2020/07/02/vue-cli4-x%E5%AF%B9IE11%E7%9A%84%E5%85%BC%E5%AE%B9/" itemprop="commentCount">0</span>
     </a>
   </span>
   
@@ -260,7 +260,18 @@
     
     
     <div class="post-body" itemprop="articleBody">
-        <p><img data-src="http://cloud.asenper.cn//20200703093606.png" alt=""></p>
+        <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>Vue项目对IE的兼容相当不友好，不过时代在进步，IE注定被淘汰。但是当前还是有一大批的用户使用IE，不得不对它做兼容处理。通常一个Vue项目中会用一些第三方插件，这些插件也会对IE有着限制，所以要根据项目要求使用相应的兼容性的插件。或者对第三方插件也进行转码， <a href="/2020/07/01/Debug-编译第三方库中的ES6语法/">Debug-编译第三方库中的ES6语法</a> 持续更新~</p>
+<h2 id="兼容到IE11"><a href="#兼容到IE11" class="headerlink" title="兼容到IE11"></a>兼容到IE11</h2><p>项目背景</p>
+<p>​    <code>vue-cli4.x</code></p>
+<p>​    <code>iviewUI</code></p>
+<p>​    <code>vue-quill-editor</code>(兼容IE10以上版本不包括IE10！)</p>
+<h3 id="1、根据项目需求修改-package-json中的-browserslist-配置"><a href="#1、根据项目需求修改-package-json中的-browserslist-配置" class="headerlink" title="1、根据项目需求修改 package.json中的 browserslist 配置"></a>1、根据项目需求修改 <code>package.json</code>中的 <code>browserslist</code> 配置</h3><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">"browserslist": [</span><br><span class="line">    "&gt; 1%",</span><br><span class="line">    "last 2 versions",</span><br><span class="line">    "last 10 Chrome versions",</span><br><span class="line">    "last 5 Firefox versions",</span><br><span class="line">    "Safari &gt;= 6",</span><br><span class="line">    "ie &gt; 10",</span><br><span class="line">    <span class="string">"not dead"</span></span><br><span class="line">  ]</span><br></pre></td></tr></table></figure>
+
+<h3 id="2、-配置-babel-polyfill进行转码"><a href="#2、-配置-babel-polyfill进行转码" class="headerlink" title="2、 配置 babel-polyfill进行转码"></a>2、 配置 <code>babel-polyfill</code>进行转码</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">安装</span><br><span class="line">cnpm install --save babel-polyfill</span><br><span class="line">在main.js头部引入</span><br><span class="line"><span class="keyword">import</span> <span class="string">'babel-polyfill'</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="3、组件的按需引入"><a href="#3、组件的按需引入" class="headerlink" title="3、组件的按需引入"></a>3、组件的按需引入</h3><p>各UI框架都有相应的配置。这里说的是按需引入后IE的兼容问题，其它的框架不清楚，项目中使用的是 <code>iview UI</code>,按需引入后IE11出现 <strong>无效字符</strong> 的错误。</p>
+<p>解决方式：在<code>vue.config.js</code> 添加以下内容,完美解决问题</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">chainWebpack: <span class="function"><span class="params">config</span> =&gt;</span> &#123;</span><br><span class="line">    <span class="comment">// iview 按需引入ie报错无效字符 添加该配置项 解决该问题</span></span><br><span class="line">    config.module</span><br><span class="line">      .rule(<span class="string">'view-design'</span>)</span><br><span class="line">      .test(<span class="regexp">/view-design.src.*?js$/</span>)</span><br><span class="line">      .use(<span class="string">'babel'</span>)</span><br><span class="line">      .loader(<span class="string">'babel-loader'</span>)</span><br><span class="line">      .end()</span><br><span class="line">  &#125;,</span><br></pre></td></tr></table></figure>
 
     </div>
 
@@ -271,13 +282,7 @@
   <div class="popular-posts-header">相关文章</div>
   <ul class="popular-posts">
     <li class="popular-posts-item">
-      <div class="popular-posts-title"><a href="\2020\02\01\github图片加载问题\" rel="bookmark">github图片加载问题</a></div>
-    </li>
-    <li class="popular-posts-item">
-      <div class="popular-posts-title"><a href="\2020\01\11\添加vscode到右键菜单\" rel="bookmark">添加vscode到右键菜单</a></div>
-    </li>
-    <li class="popular-posts-item">
-      <div class="popular-posts-title"><a href="\2019\07\11\API接口合集（免费）\" rel="bookmark">API接口合集（免费）</a></div>
+      <div class="popular-posts-title"><a href="\2020\07\01\Debug-编译第三方库中的ES6语法\" rel="bookmark">Debug[编译第三方库中的ES6语法]</a></div>
     </li>
   </ul>
 <div>
@@ -315,7 +320,7 @@
   </li>
   <li class="post-copyright-link">
     <strong>本文链接：</strong>
-    <a href="http://blog.asenper.cn/2020/07/03/%E4%B8%80%E5%BC%A0%E5%9B%BE%E4%BA%86%E8%A7%A3%E5%BC%80%E6%BA%90%E8%AE%B8%E5%8F%AF%E8%AF%81/" title="一张图了解开源许可证">http://blog.asenper.cn/2020/07/03/一张图了解开源许可证/</a>
+    <a href="http://blog.asenper.cn/2020/07/02/vue-cli4-x%E5%AF%B9IE11%E7%9A%84%E5%85%BC%E5%AE%B9/" title="Debug[vue-cli4.x对IE11的兼容]">http://blog.asenper.cn/2020/07/02/vue-cli4-x对IE11的兼容/</a>
   </li>
   <li class="post-copyright-license">
     <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/zh-CN" rel="noopener" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！
@@ -327,7 +332,7 @@
       <footer class="post-footer">
           
           <div class="post-tags">
-              <a href="/tags/%E5%85%B6%E5%AE%83/" rel="tag"><i class="fa fa-tag"></i> 其它</a>
+              <a href="/tags/Debug/" rel="tag"><i class="fa fa-tag"></i> Debug</a>
           </div>
 
         
@@ -335,10 +340,13 @@
 
         
     <div class="post-nav">
-      <div class="post-nav-item"></div>
       <div class="post-nav-item">
-    <a href="/2020/07/02/vue-cli4-x%E5%AF%B9IE11%E7%9A%84%E5%85%BC%E5%AE%B9/" rel="next" class="next" title="Debug[vue-cli4.x对IE11的兼容]">
-      <span> 下一篇：Debug[vue-cli4.x对IE11的兼容] </span>
+    <a href="/2020/07/03/%E4%B8%80%E5%BC%A0%E5%9B%BE%E4%BA%86%E8%A7%A3%E5%BC%80%E6%BA%90%E8%AE%B8%E5%8F%AF%E8%AF%81/" rel="prev" class="prev" title="一张图了解开源许可证">
+      <span> 上一篇：一张图了解开源许可证 </span>
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/2020/07/01/Debug-%E7%BC%96%E8%AF%91%E7%AC%AC%E4%B8%89%E6%96%B9%E5%BA%93%E4%B8%AD%E7%9A%84ES6%E8%AF%AD%E6%B3%95/" rel="next" class="next" title="Debug[编译第三方库中的ES6语法]">
+      <span> 下一篇：Debug[编译第三方库中的ES6语法] </span>
     </a></div>
     </div>
       </footer>
@@ -400,6 +408,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#前言"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#兼容到IE11"><span class="nav-number">2.</span> <span class="nav-text">兼容到IE11</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1、根据项目需求修改-package-json中的-browserslist-配置"><span class="nav-number">2.1.</span> <span class="nav-text">1、根据项目需求修改 package.json中的 browserslist 配置</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2、-配置-babel-polyfill进行转码"><span class="nav-number">2.2.</span> <span class="nav-text">2、 配置 babel-polyfill进行转码</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3、组件的按需引入"><span class="nav-number">2.3.</span> <span class="nav-text">3、组件的按需引入</span></a></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
